@@ -1,41 +1,52 @@
 ﻿Historias de Usuario
 
-Como administrador quiero dar de baja un usuario para eliminarlo.
-Como administrador quiero modificar un usuario para modificar sus datos.
-Como administrador quiero dar de alta un libro para tener un libro más a la venta.
-Como administrador quiero dar de baja un libro para quitar un libro de la venta.
-Como administrador quiero dar de alta un administrador para habilitar varios administradores.
-Como administrador quiero dar de baja un administrador para dar de baja otro administrador.
-Como administrador quiero dar de alta un autor para guardar la información del mismo.
-Como administrador quiero dar de baja un autor para eliminar la información del mismo.
-Como administrador quiero modificar los datos de un autor para actualizar su información.
-Como administrador quiero dar de alta una editorial para agregarla a la lista de editoriales.
-Como administrador quiero dar de baja una editorial para eliminarla de la lista de editoriales.
-Como administrador quiero modificar una editorial para actualizar sus datos.
-Como administrador quiero obtener un listado con los libros más vendidos entre dos fechas para analizar las ventas.
-Como administrador quiero obtener un listado de todos los usuarios para saber quienes compraron libros.
-Como administrador quiero un listado de usuarios que se registraron entre dos fechas para conocer su antigüedad.
-Como administrador quiero ordenar alfabéticamente un listado de usuarios para verlos ordenados por un criterio.
-Como administrador quiero ordenar un listado de los usuarios por localidad para optimizar los envíos.
-Como administrador quiere obtener un listado de todos los pedidos para conocer su estado.
-Como administrador quiero filtrar un listado de pedidos para conocer su estado.
-Como administrador quiero cambiarle el estado a un pedido para poder actualizarlo.
-Como administrador, usuario y visitante quiero comunicarme a través de una página de contacto para saber que libro no está en el catálogo.
-Como administrador quiero cargar las condiciones de venta para informar al cliente.
-Como administrador quiero modificar las condiciones de venta para informar al cliente.
-Como administrador quiero cargar las tarjetas habilitadas para el pago para informar al cliente.
-Como administrador quiero dar de baja una tarjeta para que mantener las tarjetas habilitadas actualizadas.
-Como visitante y como usuario quiero poder ver un listado de libros para poder comprarlos.
-Como visitante y como usuario quiero poder filtrar un listado por autor para encontrar el libro.
-Como visitante y como usuario quiero poder filtrar un listado por editorial para encontrar un libro.
-Como visitante y como usuario quiero poder filtrar un listado por año de edición para encontrar un libro.
-Como visitante quiero registrarme como usuario para comprar un libro.
-Como usuario quiero agregar un libro a mi carrito de compras para armar mi lista de compra.
-Como usuario quiero dar de baja un libro, antes de confirmarlo, para modificar mi lista de compra.
-Como usuario quiero ver el detalle del carrito de compras para saber qué es lo que voy a comprar.
-Como usuario quiero ver un listado de mis compras realizadas para saber en que estado están.
-Como usuario quiero confirmar el carrito de compra para concretar la compra.
-Como usuario quiero modificar mis datos para mantenerlos actualizados.
-Como usuario quiero darme de baja para desaparecer de la lista de clientes.
-Como visitante y usuario quiero consultar una ayuda para saber cómo realizar una compra y cómo registrarse para saber cómo operar en el sitio.
-Como administrador y usuario quiero recuperar la clave para poder ingresar a hacer una compra.
+
+- Como administrador quiero dar de baja un usuario para eliminarlo.
+- Como administrador quiero modificar un usuario para modificar sus datos.
+- Como administrador quiero dar de alta un libro para tener un libro más a la venta.
+- Como administrador quiero publicar la imagen de un libro y su detalle para que el usuario pueda comprarlo.
+- Como administrador quiero dar de baja un libro para quitar un libro de la venta.
+- Como administrador quiero modificar los datos del detalle de un libro para que el usuario tenga la información actualizada del mismo.
+- Como administrador quiero dar de alta un administrador para habilitar varios administradores.
+- Como administrador quiero dar de baja un administrador para dar de baja otro administrador.
+- Como administrador quiero dar de alta un autor para guardar la información del mismo.
+- Como administrador quiero dar de baja un autor para eliminar la información del mismo.
+- Como administrador quiero modificar los datos de un autor para actualizar su información.
+- Como administrador quiero dar de alta una editorial para agregarla a la lista de editoriales.
+- Como administrador quiero dar de baja una editorial para eliminarla de la lista de editoriales.
+- Como administrador quiero modificar una editorial para actualizar sus datos.
+- Como administrador quiero obtener un listado con los libros más vendidos entre dos fechas para analizar las ventas.
+- Como administrador quiero obtener un listado de todos los usuarios ordenados por cantidad de compras para saber quienes compraron más.
+- Como administrador quiero obtener un listado con los usuarios ordenados alfabéticamente para visualizarlo mejor.
+- Como administrador quiero obtener un listado de los usuarios por localidad para optimizar los envíos.
+- Como administrador quiero obtener un listado con los pedidos satisfechos para ver las ventas realizadas.
+- Como administrador quiero obtener un listado con los pedidos pendientes para poder satisfacerlos.
+-Como administrador quiero obtener un listado de los pedidos cancelados para ver las ventas no realizadas.
+- Como administrador quiero cancelar un pedido para que se anule una compra.
+- Como administrador quiere informar que un pedido está finalizado cuando ya envío el libro.
+- Como administrador quiero que el visitante que solicita un libro que no está en el catálogo, deje sus datos para obtener alguna información de la persona.
+- Como administrador quiero cargar las condiciones de venta para informar al cliente.
+- Como administrador quiero modificar las condiciones de venta para informar al cliente.
+- Como administrador quiero cargar las tarjetas habilitadas para el pago para informar al cliente.
+- Como administrador quiero modificar las tarjetas habilitadas para el pago para informar al cliente.
+- Como visitante quiero buscar un libro por autor para poder comprarlo.
+- Como visitante quiero buscar un libro por editorial para poder comprarlo.
+- Como visitante quiero buscar un libro por año de edición para poder comprarlo.
+- Como visitante quiero buscar un libro por titulo para poder comprarlo.
+- Como visitante quiero consultar las condiciones de venta para comprar un libro.
+- Como visitante quiero registrarme como usuario para comprar un libro.
+- Como visitante quiero enviar un mensaje del libro que no está en el catálogo para que lo incorporen a la venta.
+- Como usuario quiero buscar un libro por autor para poder comprarlo.
+- Como usuario quiero buscar un libro por editorial para poder comprarlo.
+- Como usuario quiero buscar un libro por año de edición para poder comprarlo.
+- Como usuario quiero buscar un libro por titulo para poder comprarlo.
+- Como usuario quiero consultar las condiciones de venta para comprar un libro.
+- Como usuario quiero enviar un mensaje del libro que no está en el catálogo para que lo incorporen a la venta.
+- Como usuario quiero agregar un libro a mi carrito de compras para armar mi lista de compra.
+- Como usuario quiero dar de baja un libro, antes de confirmarlo, para modificar mi lista de compra.
+- Como usuario quiero modificar la cantidad de libros a comprar para corregir una compra.
+- Como usuario quiero consultar el estado de una compra para informarme cuando llega el libro.
+- Como usuario quiero confirmar una compra para concretarla.
+- Como usuario quiero seleccionar la tarjeta con la que voy a pagar la compra del libro para poder pagar la compra.
+- Como usuario quiero modificar mis datos para mantenerlos actualizados.
+- Como usuario quiero darme de baja para desaparecer de la lista de clientes.
