@@ -1,0 +1,13 @@
+Modificaciones:
+	*Modificado el punto 1.x y terminado	
+	*Terminado el punto 2
+	*Apliacion del punto 3
+	*El punto 4 no lo toque.
+	*Punto 5 terminado, me quedaron dudas del punto 5.2.1 y 5.2.2 y 2.23 pero tecnicamente estarian bien.
+	*Punto 5.4 Agregue 13 riesgos mitad google asi que hay q revisarlos y termianar
+	la parte de la tabla de cada uno y cada uno nos tenemos q hacer cargo de 4 (creo)
+	*punto 6 ampliado y terminado
+	*punto 7 no lo toque
+	*punto 8 agregue plan de instalacion, se podria agregar algo mas capas
+	*Indice, nico hizo un indice hay q acomodar los numeros de pagina nomas.
+	
