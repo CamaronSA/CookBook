@@ -1,0 +1,82 @@
+﻿ORDEN DE LA PILA DE PRODUCTO EN BASE A LAS PRIORIDADES FIJADAS POR EL CLIENTE.
+
+
+1- Como administrador quiero dar de alta un administrador para habilitar varios administradores.
+2- Como administrador quiero dar de baja un administrador para dar de baja otro administrador.
+
+3- Como administrador quiero dar de alta un autor para guardar la información del mismo.
+4- Como administrador quiero dar de baja un autor para eliminar la información del mismo.
+5- Como administrador quiero modificar los datos de un autor para actualizar su información.
+6- Como administrador quiero obtener un listado de autores para informarme.
+
+7- Como administrador quiero dar de alta una editorial para agregarla a la lista de editoriales.
+8- Como administrador quiero dar de baja una editorial para eliminarla de la lista de editoriales.
+9- Como administrador quiero modificar una editorial para actualizar sus datos.
+10- Como administrador quiero obtener un listado de editoriales para informarme.
+
+11- Como administrador quiero dar de alta una categoría para agrupar los libros.
+12- Como administrador quiero dar de baja una categoría para que desaparezca del listado de categorías.
+13- Como administrador quiero obtener un listado de categorias para informarme.
+
+14- Como administrador quiero dar de alta un libro para tener un libro más a la venta.
+15- Como administrador quiero dar de baja un libro para quitar un libro de la venta.
+16- Como administrador quiero obtener un listado de libros para informarme.
+
+17- Como visitante quiero registrarme como usuario para comprar un libro.
+
+18- Como usuario quiero loguearme para efectuar una compra.
+19- Como usuario quiero cerrar sesión para salir del sistema.
+
+20- Como usuario quiero agregar un libro a mi carrito de compras para armar mi lista de compra.
+21- Como usuario quiero dar de baja un libro, antes de confirmarlo, para modificar mi lista de compra.
+22- Como usuario quiero ver el detalle del carrito de compras para saber qué es lo que voy a comprar.
+23- Como usuario quiero ver un listado de mis compras realizadas para saber en que estado están.
+24- Como usuario quiero confirmar el carrito de compra para concretar la compra.
+ 
+25- Como administrador quiere obtener un listado de todos los pedidos para conocer su estado.
+
+26- Como administrador quiero cambiarle el estado a un pedido para poder actualizarlo.
+
+27- Como administrador quiero obtener un listado de compras entre 2 fechas para analizar las ventas.
+
+28- Como administrador quiero obtener un listado con los libros más vendidos entre dos fechas para si reponerlos.
+
+29- Como administrador quiero un listado de usuarios que se registraron entre dos fechas para conocer su antigüedad.
+30- Como administrador quiero obtener un listado de todos los usuarios para saber quienes compraron libros.
+31- Como administrador quiero ordenar alfabéticamente un listado de usuarios para verlos ordenados por un criterio.
+32- Como administrador quiero ordenar un listado de los usuarios por localidad para optimizar los envíos.
+
+33- Como visitante y como usuario quiero poder ver un listado de libros para poder comprarlos.
+34- Como visitante y como usuario quiero poder filtrar un listado por autor para encontrar el libro.
+35- Como visitante y como usuario quiero poder filtrar un listado por editorial para encontrar un libro.
+36- Como visitante y como usuario quiero poder filtrar un listado por año de edición para encontrar un libro.
+
+37- Como administrador quiero dar de baja un usuario para eliminarlo.
+38- Como administrador quiero modificar un usuario para modificar sus datos.
+
+39- Como administrador, usuario y visitante quiero comunicarme a través de una página de contacto para saber que libro no está en el catálogo.
+
+40- Como administrador quiero cargar las condiciones de venta para informar al cliente.
+41- Como administrador quiero modificar las condiciones de venta para informar al cliente.
+
+42- Como administrador quiero cargar las tarjetas habilitadas para el pago para informar al cliente.
+43- Como administrador quiero dar de baja una tarjeta para que mantener las tarjetas habilitadas actualizadas.
+
+44- Como usuario quiero modificar mis datos para mantenerlos actualizados.
+45- Como usuario quiero darme de baja para desaparecer de la lista de clientes.
+46- Como administrador y usuario quiero recuperar la clave para poder ingresar a hacer una compra.
+
+47- Como visitante y usuario quiero consultar una ayuda para saber cómo realizar una compra y cómo registrarse para saber cómo operar en el sitio.
+
+PILA DE SPRINTS.
+
+1. Historias 1 y 2
+2. Historias de 3 a 16 inclusive.
+3. Historias del 17 al 19 inclusive.
+4. Historias del 20 al 24 inclusive.
+5. Historias del 25 al 32 inclusive.
+6. Historias del 33 al 36 inclusive.
+7. Historias 37, 38 y del 44 al 46 inclusive.
+8. Historias 39 y 47.
+9. Historias 40 y 41.
+10.Historias 42 y 43.
