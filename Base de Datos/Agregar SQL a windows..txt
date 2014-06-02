@@ -1,0 +1,6 @@
+1-Panel de Control/Herramientas Aministrativas/Orígenes de datos ODBC/Agregar/SQL SERVER/
+2-Donde dice nombre "CookBookDB"
+3-En servido pc
+4-Marcar como predeterminada "CookBookDB"
+5-Siguente hasta el fondo
+6-listo.

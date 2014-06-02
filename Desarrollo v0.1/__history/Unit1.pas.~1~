@@ -1,0 +1,129 @@
+unit Unit1;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB;
+
+type
+  TDataModule1 = class(TDataModule)
+    ADOAdministrador: TADOTable;
+    Tabla_Administrador: TDataSource;
+    ADOAdministradorDNI: TIntegerField;
+    ADOAdministradorNombre: TMemoField;
+    ADOAdministradorApellido: TMemoField;
+    ADOAdministradorUsuario: TMemoField;
+    ADOAdministradorClave: TMemoField;
+    ADOAdministradorDia: TIntegerField;
+    ADOAdministradorMes: TIntegerField;
+    ADOAdministradorAnio: TIntegerField;
+    ADOMailAdministrador: TADOTable;
+    IntegerField1: TIntegerField;
+    MemoField1: TMemoField;
+    MemoField2: TMemoField;
+    MemoField3: TMemoField;
+    MemoField4: TMemoField;
+    IntegerField2: TIntegerField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    ADOLibro: TADOTable;
+    IntegerField5: TIntegerField;
+    MemoField5: TMemoField;
+    MemoField6: TMemoField;
+    MemoField7: TMemoField;
+    MemoField8: TMemoField;
+    IntegerField6: TIntegerField;
+    IntegerField7: TIntegerField;
+    IntegerField8: TIntegerField;
+    ADOEjemplar: TADOTable;
+    ADOPedidos: TADOTable;
+    ADOCliente: TADOTable;
+    Tabla_Libro: TDataSource;
+    Tabla_Ejemplar: TDataSource;
+    Tabla_Pedidos: TDataSource;
+    Tabla_Cliente: TDataSource;
+    Tabla_MailAdministrador: TDataSource;
+    ADOMailCliente: TADOTable;
+    IntegerField9: TIntegerField;
+    MemoField9: TMemoField;
+    MemoField10: TMemoField;
+    MemoField11: TMemoField;
+    MemoField12: TMemoField;
+    IntegerField10: TIntegerField;
+    IntegerField11: TIntegerField;
+    IntegerField12: TIntegerField;
+    ADOTelefono: TADOTable;
+    IntegerField13: TIntegerField;
+    MemoField13: TMemoField;
+    MemoField14: TMemoField;
+    MemoField15: TMemoField;
+    MemoField16: TMemoField;
+    IntegerField14: TIntegerField;
+    IntegerField15: TIntegerField;
+    IntegerField16: TIntegerField;
+    ADOEtiqueta: TADOTable;
+    IntegerField17: TIntegerField;
+    MemoField17: TMemoField;
+    MemoField18: TMemoField;
+    MemoField19: TMemoField;
+    MemoField20: TMemoField;
+    IntegerField18: TIntegerField;
+    IntegerField19: TIntegerField;
+    IntegerField20: TIntegerField;
+    ADOIdioma: TADOTable;
+    IntegerField21: TIntegerField;
+    MemoField21: TMemoField;
+    MemoField22: TMemoField;
+    MemoField23: TMemoField;
+    MemoField24: TMemoField;
+    IntegerField22: TIntegerField;
+    IntegerField23: TIntegerField;
+    IntegerField24: TIntegerField;
+    ADOEditorial: TADOTable;
+    IntegerField25: TIntegerField;
+    MemoField25: TMemoField;
+    MemoField26: TMemoField;
+    MemoField27: TMemoField;
+    MemoField28: TMemoField;
+    IntegerField26: TIntegerField;
+    IntegerField27: TIntegerField;
+    IntegerField28: TIntegerField;
+    ADOAutor: TADOTable;
+    IntegerField29: TIntegerField;
+    MemoField29: TMemoField;
+    MemoField30: TMemoField;
+    MemoField31: TMemoField;
+    MemoField32: TMemoField;
+    IntegerField30: TIntegerField;
+    IntegerField31: TIntegerField;
+    IntegerField32: TIntegerField;
+    ADOFechaVenta: TADOTable;
+    IntegerField33: TIntegerField;
+    MemoField33: TMemoField;
+    MemoField34: TMemoField;
+    MemoField35: TMemoField;
+    MemoField36: TMemoField;
+    IntegerField34: TIntegerField;
+    IntegerField35: TIntegerField;
+    IntegerField36: TIntegerField;
+    Tabla_Editorial: TDataSource;
+    Tabla_Idioma: TDataSource;
+    Tabla_Etiqueta: TDataSource;
+    Tabla_Telefono: TDataSource;
+    Tabla_MailCliente: TDataSource;
+    Tabla_Autor: TDataSource;
+    Tabla_Fecha_Venta: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{$R *.dfm}
+
+end.

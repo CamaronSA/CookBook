@@ -1,0 +1,7 @@
+-Se agrego Campo ISBN a Entidad Libro
+-Se agrego Campo Editorial a Entidad Libro
+-Se agrego Campo Idioma a Entidad Libro
+-Se agrego Campo Autor a Entidad Libro
+-Se agrego Campo Mail a Entidad Cliente
+-Se agrego Campo Telefono a Entidad Cliente
+-Se relaciono :R2,R3,R6,R7,R8,R9,R10,R5,R11,R13,R12
