@@ -1,0 +1,24 @@
+unit DetalleUsuario;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TFormDetalleUsuario = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormDetalleUsuario: TFormDetalleUsuario;
+
+implementation
+
+{$R *.dfm}
+
+end.
