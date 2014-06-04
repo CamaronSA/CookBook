@@ -1,0 +1,225 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 476
+  Width = 681
+  object ADOAdministrador: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Administrador'
+    Left = 48
+    Top = 32
+  end
+  object Tabla_Administrador: TDataSource
+    DataSet = ADOAdministrador
+    Left = 152
+    Top = 32
+  end
+  object ADOMailAdministrador: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'MailAdministrador'
+    Left = 48
+    Top = 96
+  end
+  object ADOLibro: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Libro'
+    Left = 48
+    Top = 160
+  end
+  object ADOEjemplar: TADOTable
+    Active = True
+    AutoCalcFields = False
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Ejemplar'
+    Left = 48
+    Top = 224
+  end
+  object ADOPedidos: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Pedidos'
+    Left = 48
+    Top = 288
+  end
+  object ADOCliente: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Cliente'
+    Left = 48
+    Top = 352
+  end
+  object Tabla_Libro: TDataSource
+    DataSet = ADOLibro
+    Left = 152
+    Top = 160
+  end
+  object Tabla_Ejemplar: TDataSource
+    DataSet = ADOEjemplar
+    Left = 152
+    Top = 224
+  end
+  object Tabla_Pedidos: TDataSource
+    DataSet = ADOPedidos
+    Left = 152
+    Top = 288
+  end
+  object Tabla_Cliente: TDataSource
+    DataSet = ADOCliente
+    Left = 152
+    Top = 352
+  end
+  object Tabla_MailAdministrador: TDataSource
+    DataSet = ADOMailAdministrador
+    Left = 152
+    Top = 96
+  end
+  object ADOMailCliente: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'MailClientes'
+    Left = 264
+    Top = 32
+  end
+  object ADOTelefono: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Telefono_Cliente'
+    Left = 264
+    Top = 96
+  end
+  object ADOEtiqueta: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Etiqueta'
+    Left = 264
+    Top = 160
+  end
+  object ADOIdioma: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Idioma'
+    Left = 264
+    Top = 224
+  end
+  object ADOEditorial: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Editorial'
+    Left = 264
+    Top = 288
+  end
+  object ADOAutor: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Autor'
+    Left = 264
+    Top = 352
+  end
+  object ADOFechaVenta: TADOTable
+    Active = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    TableName = 'Fecha_Venta'
+    Left = 416
+    Top = 32
+  end
+  object Tabla_Editorial: TDataSource
+    DataSet = ADOEditorial
+    Left = 344
+    Top = 288
+  end
+  object Tabla_Idioma: TDataSource
+    DataSet = ADOIdioma
+    Left = 344
+    Top = 224
+  end
+  object Tabla_Etiqueta: TDataSource
+    DataSet = ADOEtiqueta
+    Left = 344
+    Top = 160
+  end
+  object Tabla_Telefono: TDataSource
+    DataSet = ADOTelefono
+    Left = 344
+    Top = 96
+  end
+  object Tabla_MailCliente: TDataSource
+    DataSet = ADOMailCliente
+    Left = 344
+    Top = 32
+  end
+  object Tabla_Autor: TDataSource
+    DataSet = ADOAutor
+    Left = 344
+    Top = 352
+  end
+  object Tabla_Fecha_Venta: TDataSource
+    DataSet = ADOFechaVenta
+    Left = 488
+    Top = 32
+  end
+  object VerificarCliente: TADOQuery
+    Parameters = <>
+    Left = 488
+    Top = 232
+  end
+  object VerificarAdministrador: TADOQuery
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=CookB' +
+      'ookDB'
+    CursorType = ctStatic
+    Parameters = <
+      item
+        Name = 'QUser'
+        DataType = ftString
+        Precision = 50
+        Size = 50
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select Usuario from dbo.Administrador'
+      'where (Usuario=  :QUser)')
+    Left = 480
+    Top = 168
+  end
+end
