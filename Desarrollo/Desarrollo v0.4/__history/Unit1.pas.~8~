@@ -1,0 +1,53 @@
+unit Unit1;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB;
+
+type
+  TDataModule1 = class(TDataModule)
+    ADOAdministrador: TADOTable;
+    Tabla_Administrador: TDataSource;
+    ADOMailAdministrador: TADOTable;
+    ADOLibro: TADOTable;
+    ADOEjemplar: TADOTable;
+    ADOPedidos: TADOTable;
+    ADOCliente: TADOTable;
+    Tabla_Libro: TDataSource;
+    Tabla_Ejemplar: TDataSource;
+    Tabla_Pedidos: TDataSource;
+    Tabla_Cliente: TDataSource;
+    Tabla_MailAdministrador: TDataSource;
+    ADOMailCliente: TADOTable;
+    ADOTelefono: TADOTable;
+    ADOEtiqueta: TADOTable;
+    ADOIdioma: TADOTable;
+    ADOEditorial: TADOTable;
+    ADOAutor: TADOTable;
+    ADOFechaVenta: TADOTable;
+    Tabla_Editorial: TDataSource;
+    Tabla_Idioma: TDataSource;
+    Tabla_Etiqueta: TDataSource;
+    Tabla_Telefono: TDataSource;
+    Tabla_MailCliente: TDataSource;
+    Tabla_Autor: TDataSource;
+    Tabla_Fecha_Venta: TDataSource;
+    VerificarCliente: TADOQuery;
+    VerificarAdministrador: TADOQuery;
+    SoyUnaConeccion: TADOConnection;
+    Modificar: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{$R *.dfm}
+
+end.
