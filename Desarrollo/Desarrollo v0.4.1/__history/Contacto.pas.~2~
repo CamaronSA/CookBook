@@ -1,0 +1,78 @@
+unit Contacto;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, EASendMailObjLib_TLB, Buttons; // add EASendMail unit
+
+type
+  TForm2 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    SpeedButton1: TSpeedButton;
+    Edit1: TEdit;
+    Memo1: TMemo;
+    Label11: TLabel;
+    Label3: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label4: TLabel;
+    SpeedButton2: TSpeedButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.Button1Click(Sender: TObject);
+var
+  oSmtp : TMail;
+begin
+  oSmtp := TMail.Create(Application);
+  oSmtp.LicenseCode := 'TryIt';
+
+  // Your Gmail email address
+  oSmtp.FromAddr := Edit1.Text;
+
+  // Add recipient email address
+  oSmtp.AddRecipientEx( 'cabanehb@gmail.com', 0);
+
+  // Set email subject
+  oSmtp.Subject := Edit3.Text;
+
+  // Set email body
+  oSmtp.BodyText := Memo1.Lines.GetText;
+
+  // Gmail SMTP server address
+  oSmtp.ServerAddr := 'smtp.gmail.com';
+
+  // set direct SSL 465 port,
+  oSmtp.ServerPort := 465;
+
+  // detect SSL/TLS automatically
+  oSmtp.SSL_init();
+
+  // Gmail user authentication should use your
+  // Gmail email address as the user name.
+  // For example: your email is "gmailid@gmail.com", then the user should be "gmailid@gmail.com"
+  oSmtp.UserName := Edit1.Text;
+  oSmtp.Password := Edit2.Text;
+
+  if oSmtp.SendMail() = 0 then
+    ShowMessage( 'El Email fue enviado!' )
+  else
+    ShowMessage( 'El envío del email falló, dando los siguientes errores: '
+    + oSmtp.GetLastErrDescription());
+
+end;
+
+end.
