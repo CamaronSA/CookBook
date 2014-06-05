@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/05/31 16:37:30.538.pas,C:\Users\Nicolas Menna\Documents\RAD Studio\Projects\Unit1.pas=D:\Proyectos\Proyecto Ingenieria 2\Login.pas</Transaction>
+    <Transaction>2014/05/31 16:37:30.538.dfm,C:\Users\Nicolas Menna\Documents\RAD Studio\Projects\Unit1.dfm=D:\Proyectos\Proyecto Ingenieria 2\Login.dfm</Transaction>
+    <Transaction>2014/05/31 16:37:39.983.dproj,C:\Users\Nicolas Menna\Documents\RAD Studio\Projects\Project2.dproj=D:\Proyectos\Proyecto Ingenieria 2\CBK.dproj</Transaction>
+    <Transaction>2014/05/31 16:48:47.439.pas,D:\Proyectos\Proyecto Ingenieria 2\Unit2.pas=D:\Proyectos\Proyecto Ingenieria 2\Principal.pas</Transaction>
+    <Transaction>2014/05/31 16:48:47.439.dfm,D:\Proyectos\Proyecto Ingenieria 2\Unit2.dfm=D:\Proyectos\Proyecto Ingenieria 2\Principal.dfm</Transaction>
+    <Transaction>2014/05/31 17:47:55.289.pas,D:\Proyectos\Proyecto Ingenieria 2\Unit1.pas=D:\Proyectos\Proyecto Ingenieria 2\CatalogoLibros.pas</Transaction>
+    <Transaction>2014/05/31 17:47:55.289.dfm,D:\Proyectos\Proyecto Ingenieria 2\Unit1.dfm=D:\Proyectos\Proyecto Ingenieria 2\CatalogoLibros.dfm</Transaction>
+    <Transaction>2014/05/31 18:33:32.366.pas,D:\Proyectos\Proyecto Ingenieria 2\Unit1.pas=D:\Proyectos\Proyecto Ingenieria 2\DetalleLibro.pas</Transaction>
+    <Transaction>2014/05/31 18:33:32.366.dfm,D:\Proyectos\Proyecto Ingenieria 2\Unit1.dfm=D:\Proyectos\Proyecto Ingenieria 2\DetalleLibro.dfm</Transaction>
+    <Transaction>2014/05/31 22:18:40.784.pas,D:\Proyectos\Proyecto Ingenieria 2\Unit1.pas=D:\Proyectos\Proyecto Ingenieria 2\CarroCompras.pas</Transaction>
+    <Transaction>2014/05/31 22:18:40.784.dfm,D:\Proyectos\Proyecto Ingenieria 2\Unit1.dfm=D:\Proyectos\Proyecto Ingenieria 2\CarroCompras.dfm</Transaction>
+    <Transaction>2014/05/31 22:19:18.298.pas,D:\Proyectos\Proyecto Ingenieria 2\CarroCompras.pas=D:\Proyectos\Proyecto Ingenieria 2\CarritoDeCompras.pas</Transaction>
+    <Transaction>2014/05/31 22:19:18.298.dfm,D:\Proyectos\Proyecto Ingenieria 2\CarroCompras.dfm=D:\Proyectos\Proyecto Ingenieria 2\CarritoDeCompras.dfm</Transaction>
+    <Transaction>2014/05/31 23:52:30.912.pas,D:\Proyectos\Proyecto Ingenieria 2\Unit1.pas=D:\Proyectos\Proyecto Ingenieria 2\Contacto.pas</Transaction>
+    <Transaction>2014/05/31 23:52:30.912.dfm,D:\Proyectos\Proyecto Ingenieria 2\Unit1.dfm=D:\Proyectos\Proyecto Ingenieria 2\Contacto.dfm</Transaction>
+    <Transaction>2014/06/02 21:15:54.634.pas,C:\Users\Mi Pc\Desktop\Desarrollo v0.1\Unit2.pas=C:\Users\Mi Pc\Desktop\Desarrollo v0.1\PanelAdministracion.pas</Transaction>
+    <Transaction>2014/06/02 21:15:54.634.dfm,C:\Users\Mi Pc\Desktop\Desarrollo v0.1\Unit2.dfm=C:\Users\Mi Pc\Desktop\Desarrollo v0.1\PanelAdministracion.dfm</Transaction>
+    <Transaction>2014/06/03 04:54:04.399.pas,C:\Users\Mi Pc\Desktop\Desarrollo v0.1\Unit2.pas=C:\Users\Mi Pc\Desktop\Desarrollo v0.1\ModifAdmin.pas</Transaction>
+    <Transaction>2014/06/03 04:54:04.399.dfm,C:\Users\Mi Pc\Desktop\Desarrollo v0.1\Unit2.dfm=C:\Users\Mi Pc\Desktop\Desarrollo v0.1\ModifAdmin.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
