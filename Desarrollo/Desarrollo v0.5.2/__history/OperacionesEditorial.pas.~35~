@@ -33,7 +33,6 @@ type
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure Edit1KeyPress(Sender: TObject; var Key: Char);
     procedure Edit2Change(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +50,7 @@ procedure TFormOperacionesEditorial.DBGrid1CellClick(Column: TColumn);
 begin
   if (speedbutton1.Visible = false) then
     edit2.Text:=datamodule1.ADOEditorial.FieldByName('NombreEditorial').AsString;
+
 end;
 
 procedure TFormOperacionesEditorial.DBGrid1KeyDown(Sender: TObject;
@@ -83,7 +83,7 @@ end;
 
 procedure TFormOperacionesEditorial.Edit1KeyPress(Sender: TObject;
   var Key: Char);
-begin                      //esto evita q meta caracteres especiales, solo lo de la lista!
+begin
 if ( StrScan('0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
 end;
 
@@ -101,7 +101,7 @@ end;
 
 procedure TFormOperacionesEditorial.FormActivate(Sender: TObject);
 begin
-if (speedbutton1.Visible = false) and (speedbutton2.Visible = false)  then
+if (speedbutton1.Visible = false) and (speedbutton1.Visible = false)  then
   edit2.ReadOnly:=true;
 
 end;
@@ -122,62 +122,11 @@ begin
           raise ECampoBlanco.Create('Complete todos los campos')
        else
           if not (Datamodule1.ComprobarEditorial.IsEmpty) then
-             raise EUsada.Create('Ya esta en la lista no puede agregar esta editorial')
+             raise EUsada.Create('Ya esta en la lista no puede agregar')
           else
               begin
                 datamodule1.ADOEditorial.FieldByName('NombreEditorial').AsString:=edit2.Text;
                 datamodule1.ADOEditorial.Post;
-                showmessage('Se agrego correctamente la editorial');
-                edit2.Text:='';
-              end;
-       except
-        on E:ECampoBlanco do
-          begin
-            showmessage(e.Message);
-            Label1.font.Color:=clred;
-            label3.Visible:=true;
-            edit2.Text:='';
-            datamodule1.ADOEditorial.Cancel;
-          end;
-         on E:EUsada do
-            begin
-              showmessage(e.Message);
-              Label1.font.Color:=clred;
-              label3.Visible:=true;
-              edit2.Text:='';
-              datamodule1.ADOEditorial.Cancel;
-            end;
-       end;
-     End
-  else
-    begin
-    datamodule1.ADOEditorial.Cancel;
-    edit2.Text:='';
-    end;
-end;
-
-procedure TFormOperacionesEditorial.SpeedButton2Click(Sender: TObject);
-var
-  buttonSelected:integer;
-begin
-  buttonSelected:=messageDlg('¿Realmente desea Modificar esta Editorial?',mtWarning,mbOkCancel,0);
-  if buttonSelected= mrOk then
-     Begin
-       try   //No tocar anda de pedo la mierda esta, si tira error de parametro, piense que otras careras tamb son buenas opciones.
-       datamodule1.ComprobarEditorial.Close;
-       datamodule1.ComprobarEditorial.Parameters.ParamByName('Dato').Value:=edit2.Text;
-       datamodule1.ComprobarEditorial.Open;
-       datamodule1.ADOEditorial.Edit;
-       if (edit2.Text = '') then
-          raise ECampoBlanco.Create('Complete todos los campos')
-       else
-          if not (Datamodule1.ComprobarEditorial.IsEmpty) then
-             raise EUsada.Create('Ya esta en la lista no puede agregar esta editorial')
-          else
-              begin
-                datamodule1.ADOEditorial.FieldByName('NombreEditorial').AsString:=edit2.Text;
-                datamodule1.ADOEditorial.Post;
-                showmessage('Se Modifico correctamente la editorial');
                 edit2.Text:='';
               end;
        except
@@ -208,12 +157,10 @@ end;
 
 procedure TFormOperacionesEditorial.SpeedButton3Click(Sender: TObject);
 begin
-
+close;
 edit2.Text:='';
 Label1.font.Color:=clblack;
 label3.Visible:=false;
-edit2.ReadOnly:=false;
-close;
 end;
 //********Neg******///
 procedure TFormOperacionesEditorial.SpeedButton4Click(Sender: TObject);

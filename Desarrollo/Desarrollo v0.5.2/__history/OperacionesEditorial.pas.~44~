@@ -177,7 +177,7 @@ begin
               begin
                 datamodule1.ADOEditorial.FieldByName('NombreEditorial').AsString:=edit2.Text;
                 datamodule1.ADOEditorial.Post;
-                showmessage('Se Modifico correctamente la editorial');
+                showmessage('Se agrego correctamente la editorial');
                 edit2.Text:='';
               end;
        except

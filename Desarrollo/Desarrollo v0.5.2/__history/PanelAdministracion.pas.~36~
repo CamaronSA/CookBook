@@ -55,7 +55,6 @@ type
     procedure SpeedButton17Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton8Click(Sender: TObject);
-    procedure SpeedButton7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,7 +66,7 @@ var
 
 implementation
 
-uses OperacionesIdioma, ModificarLibro;
+uses OperacionesIdioma;
 
 {$R *.dfm}
 
@@ -252,12 +251,7 @@ FormModifAdmin.Label7.Visible:= True; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
 FormModifAdmin.ShowModal;
 end;
- procedure TFormPanelAdministracion.SpeedButton7Click(Sender: TObject);
-begin
-form4.showmodal;
-end;
-
-procedure TFormPanelAdministracion.SpeedButton8Click(Sender: TObject);
+ procedure TFormPanelAdministracion.SpeedButton8Click(Sender: TObject);
 begin
 FormOperacionesEditorial.SpeedButton1.Visible:=false;
 FormOperacionesEditorial.SpeedButton1.enabled:=false;

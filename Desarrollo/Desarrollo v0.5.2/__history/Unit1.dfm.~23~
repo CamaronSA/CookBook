@@ -222,21 +222,16 @@ object DataModule1: TDataModule1
   end
   object ComprobarEditorial: TADOQuery
     Connection = SoyUnaConeccion
-    CursorType = ctStatic
     Parameters = <
       item
         Name = 'Dato'
-        Attributes = [paNullable]
-        DataType = ftWideString
-        NumericScale = 255
-        Precision = 255
-        Size = 510
+        Size = -1
         Value = Null
       end>
     SQL.Strings = (
-      'Select NombreEditorial from Editorial'
+      'select * from Editorial'
       'where (NombreEditorial =:Dato)')
     Left = 560
-    Top = 328
+    Top = 336
   end
 end

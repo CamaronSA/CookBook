@@ -43,7 +43,6 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
     Left = 72
@@ -60,8 +59,8 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     OnClick = SpeedButton1Click
   end
   object SpeedButton4: TSpeedButton
-    Left = 72
-    Top = 322
+    Left = 0
+    Top = 324
     Width = 90
     Height = 33
     Caption = 'Eliminar'

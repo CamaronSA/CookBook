@@ -29,7 +29,6 @@ type
     ComprobarIdioma: TADOQuery;
     EditorialNoEstaEnLibro: TADOQuery;
     IdiomaEstaEnLibro: TADOQuery;
-    ComprobarEditorial: TADOQuery;
   private
     { Private declarations }
   public

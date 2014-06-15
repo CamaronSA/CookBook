@@ -50,7 +50,6 @@ datamodule1.ComprobarIdioma.Active:=true;
 datamodule1.ADOEditorial.Active:=true;
 datamodule1.EditorialNoEstaEnLibro.Active:=true;
 datamodule1.IdiomaEstaEnLibro.Active:=true;
-datamodule1.ComprobarEditorial.Active:=true;
 
 
 end;

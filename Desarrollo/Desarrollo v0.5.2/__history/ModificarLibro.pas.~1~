@@ -4,8 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids,
-  TarjetasDeCredito, Unit1;
+  Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids;
 
 type
   TForm4 = class(TForm)

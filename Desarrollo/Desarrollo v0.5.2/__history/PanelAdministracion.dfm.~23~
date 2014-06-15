@@ -135,7 +135,6 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton3Click
   end
   object SpeedButton4: TSpeedButton
     Left = 266
@@ -213,13 +212,13 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Width = 220
     Height = 38
     Caption = 'Modificar libro'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton7Click
   end
   object SpeedButton8: TSpeedButton
     Left = 522
@@ -227,13 +226,13 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Width = 220
     Height = 38
     Caption = 'Modificar editorial'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton8Click
   end
   object SpeedButton9: TSpeedButton
     Left = 522

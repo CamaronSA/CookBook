@@ -43,7 +43,6 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
     Left = 72
@@ -154,7 +153,6 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     ParentFont = False
     TabOrder = 1
     OnChange = Edit1Change
-    OnKeyPress = Edit1KeyPress
   end
   object Edit2: TEdit
     Left = 80
@@ -169,7 +167,6 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     MaxLength = 10
     ParentFont = False
     TabOrder = 2
-    OnChange = Edit2Change
     OnKeyPress = Edit2KeyPress
   end
 end

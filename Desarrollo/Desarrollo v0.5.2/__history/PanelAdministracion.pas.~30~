@@ -54,8 +54,6 @@ type
     procedure SpeedButton24Click(Sender: TObject);
     procedure SpeedButton17Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
-    procedure SpeedButton8Click(Sender: TObject);
-    procedure SpeedButton7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,7 +65,7 @@ var
 
 implementation
 
-uses OperacionesIdioma, ModificarLibro;
+uses OperacionesIdioma;
 
 {$R *.dfm}
 
@@ -177,6 +175,7 @@ FormOperacionesEditorial.SpeedButton3.Visible:=true;
 FormOperacionesEditorial.SpeedButton3.enabled:=true;
 FormOperacionesEditorial.SpeedButton4.Visible:=false;
 FormOperacionesEditorial.SpeedButton4.enabled:=false;
+FormOperacionesEditorial.SpeedButton1.Visible:=false;
 FormOperacionesEditorial.ShowModal;
 end;
 
@@ -209,14 +208,15 @@ FormOperacionesEditorial.SpeedButton1.Visible:=true;
 FormOperacionesEditorial.SpeedButton1.enabled:=true;
 FormOperacionesEditorial.SpeedButton2.Visible:=false;
 FormOperacionesEditorial.SpeedButton2.enabled:=false;
-FormOperacionesEditorial.SpeedButton3.Visible:=true;
-FormOperacionesEditorial.SpeedButton3.enabled:=true;
+FormOperacionesEditorial.SpeedButton3.Visible:=false;
+FormOperacionesEditorial.SpeedButton3.enabled:=false;
 FormOperacionesEditorial.SpeedButton4.Visible:=false;
 FormOperacionesEditorial.SpeedButton4.enabled:=false;
+FormOperacionesEditorial.SpeedButton1.Visible:=false;
 FormOperacionesEditorial.ShowModal;
 end;
 
-//*******// Powered by Neg, L //*******//
+//*******// Powered by Neg, Lider Auto Proclamado. //*******//
 procedure TFormPanelAdministracion.SpeedButton4Click(Sender: TObject);
 begin
 Form3.SpeedButton3.Visible:=true;
@@ -252,25 +252,7 @@ FormModifAdmin.Label7.Visible:= True; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
 FormModifAdmin.ShowModal;
 end;
- procedure TFormPanelAdministracion.SpeedButton7Click(Sender: TObject);
-begin
-form4.showmodal;
-end;
-
-procedure TFormPanelAdministracion.SpeedButton8Click(Sender: TObject);
-begin
-FormOperacionesEditorial.SpeedButton1.Visible:=false;
-FormOperacionesEditorial.SpeedButton1.enabled:=false;
-FormOperacionesEditorial.SpeedButton2.Visible:=true;
-FormOperacionesEditorial.SpeedButton2.enabled:=true;
-FormOperacionesEditorial.SpeedButton3.Visible:=true;
-FormOperacionesEditorial.SpeedButton3.enabled:=true;
-FormOperacionesEditorial.SpeedButton4.Visible:=false;
-FormOperacionesEditorial.SpeedButton4.enabled:=false;
-FormOperacionesEditorial.ShowModal;
-end;
-
-//*******// Powered by Neg, Lider Auto Proclamado. //*******//
+ //*******// Powered by Neg, Lider Auto Proclamado. //*******//
 procedure TFormPanelAdministracion.SpeedButton9Click(Sender: TObject);
 begin
 Form3.SpeedButton3.Visible:=false;
