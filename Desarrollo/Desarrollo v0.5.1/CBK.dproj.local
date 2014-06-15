@@ -62,7 +62,8 @@
     <Transaction>2014/06/13 21:50:57.449.dfm,C:\Users\Nicolas\Desktop\Desarrollo v0.5\Unit5.dfm=C:\Users\Nicolas\Desktop\Desarrollo v0.5\RecuperarClave.dfm</Transaction>
     <Transaction>2014/06/13 22:01:18.635.pas,C:\Users\Nicolas\Desktop\Desarrollo v0.5\Unit5.pas=C:\Users\Nicolas\Desktop\Desarrollo v0.5\TarjetasDeCredito.pas</Transaction>
     <Transaction>2014/06/13 22:01:18.635.dfm,C:\Users\Nicolas\Desktop\Desarrollo v0.5\Unit5.dfm=C:\Users\Nicolas\Desktop\Desarrollo v0.5\TarjetasDeCredito.dfm</Transaction>
-  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="AgregarLibro.pas"/>
     <File Path="AgregarLibro.dfm"/>
     <File Path="Ayuda.pas"/>
