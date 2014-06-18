@@ -1,0 +1,238 @@
+unit OperacionesIdioma;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  EYaHayIdioma =class(Exception);
+  EspacioBlanco = class(Exception);
+  TFormVerIdioma = class(TForm)
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    Label3: TLabel;
+    SpeedButton4: TSpeedButton;
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormVerIdioma: TFormVerIdioma;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+procedure TFormVerIdioma.DBGrid1CellClick(Column: TColumn);
+begin
+  if (speedbutton2.Visible = false) then
+    edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
+end;
+
+procedure TFormVerIdioma.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (speedbutton2.Visible = false) then
+    edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
+end;
+
+procedure TFormVerIdioma.DBGrid1KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (speedbutton2.Visible = false) then
+     edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
+end;
+
+procedure TFormVerIdioma.Edit1Change(Sender: TObject);
+var filtro : string;
+
+begin
+ filtro := TRIM (edit1.text);
+ if filtro<>'' then
+  begin
+    DataModule1.ADOIdioma.Filter := 'Idioma LIKE ''%'+filtro+'%'''; // (*)
+    DataModule1.ADOIdioma.Filtered := true;
+  end
+ else
+  DataModule1.ADOIdioma.Filtered := false;
+end;
+
+    //************Neg************//
+
+procedure TFormVerIdioma.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if ( StrScan('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+end;
+
+procedure TFormVerIdioma.Edit2Change(Sender: TObject);
+begin
+  label2.Font.Color:=clblack;
+  label3.Visible:=false;
+end;
+
+procedure TFormVerIdioma.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+if ( StrScan('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+end;
+
+procedure TFormVerIdioma.FormActivate(Sender: TObject);
+begin
+if (speedbutton2.Visible = false) and (speedbutton1.Visible =false)  then
+  begin
+    edit2.ReadOnly:=true;
+  end;
+if (speedbutton2.Visible =true) then
+  begin
+    edit2.Text:='';
+  end;
+end;
+      //********Neg***********//
+procedure TFormVerIdioma.SpeedButton1Click(Sender: TObject);
+var
+  buttonSelected:integer;
+begin
+buttonSelected:= messageDlg('¿Realmente desea modificar este idioma?',mtWarning,mbOkCancel,0);
+  if buttonSelected = mrOk then
+    begin
+       DataModule1.ComprobarIdioma.close;
+       DataModule1.ComprobarIdioma.Parameters.ParamByName('consultarIdioma').value:=edit2.Text;
+       DataModule1.ComprobarIdioma.open;
+      try
+        datamodule1.ADOIdioma.Edit;
+        if (edit2.text = '') then
+           raise EspacioBlanco.Create('No deje campos en blanco')
+        else
+          if not (Datamodule1.ComprobarIdioma.ISEmpty) then
+              raise EYaHayIdioma.Create('Ese idioma ya esta incluido en la tabla')
+           else
+             begin
+                datamodule1.ADOIdioma.FieldByName('Idioma').AsString:=edit2.Text;
+                datamodule1.ADOIdioma.Post;
+                edit2.Text:='';
+                showMessage ('Se modifico el idioma correctamente') ;
+             end;
+      except
+        on E: EspacioBlanco do
+          begin
+            ShowMessage(E.Message);
+            label2.Font.Color:=clred;
+            label3.Visible:=true;
+            edit2.Text:='';
+            datamodule1.ADOIdioma.Cancel;
+          end;
+          on E:EYaHayIdioma do
+            begin
+              ShowMessage(E.Message);
+              label2.Font.Color:=clred;
+              label3.Visible:=true;
+              edit2.Text:='';
+              datamodule1.ADOIdioma.Cancel;
+            end;
+      end;
+    end
+  else
+    begin
+      edit2.Text:='';
+      datamodule1.ADOIdioma.Cancel;
+    end;
+end;
+
+procedure TFormVerIdioma.SpeedButton2Click(Sender: TObject);
+var
+  buttonSelected:integer;
+begin
+buttonSelected:= messageDlg('¿Realmente desea agregar un idioma?',mtWarning,mbOkCancel,0);
+  if buttonSelected = mrOk then
+    begin
+       DataModule1.ComprobarIdioma.close;
+       DataModule1.ComprobarIdioma.Parameters.ParamByName('consultarIdioma').value:=edit2.Text;
+       DataModule1.ComprobarIdioma.open;
+      try
+        DataModule1.ADOIdioma.Append;
+        if (edit2.Text = '') then
+          raise EspacioBlanco.Create('No deje campos en blanco')
+        else
+          if not (Datamodule1.ComprobarIdioma.ISEmpty) then
+              raise EYaHayIdioma.Create('Ese idioma ya esta incluido en la tabla')
+          else
+            begin
+               datamodule1.ADOIdioma.FieldByName('Idioma').AsString:= edit2.Text;
+               DataModule1.ADOIdioma.Post;
+               edit2.Text:='';
+               showMessage ('Se agrego el idioma correctamente') ;
+            end;
+      except
+        on E: EspacioBlanco do
+          begin
+            ShowMessage(E.Message);
+            label2.Font.Color:=clred;
+            label3.Visible:=true;
+            edit2.Text:='';
+            datamodule1.ADOIdioma.Cancel;
+          end;
+         on E:EYaHayIdioma do
+           begin
+             ShowMessage(E.Message);
+             label2.Font.Color:=clred;
+             label3.Visible:=true;
+             edit2.Text:='';
+             datamodule1.ADOIdioma.Cancel;
+           end;
+      end;
+    end
+   else
+    begin
+      edit2.Text:='';
+      datamodule1.ADOIdioma.Cancel;
+    end;
+end;
+         //*****************Neg**************/-7/
+procedure TFormVerIdioma.SpeedButton3Click(Sender: TObject);
+begin
+datamodule1.ADOIdioma.Cancel;
+label2.Font.Color:=clblack;
+label3.Visible:=false;
+edit2.ReadOnly:=false;
+edit2.Text:='';
+close;
+end;
+
+procedure TFormVerIdioma.SpeedButton4Click(Sender: TObject);
+var buttonSelected:integer;
+begin
+  buttonSelected:=messageDlg('¿Realmente desea eliminar el Idioma?',mtWarning,mbOkCancel,0);
+  if buttonSelected= mrOk then
+    begin
+      DataModule1.Adoidioma.Delete;
+      ShowMessage('El Idioma se borró exitosamente');
+    end;
+  if buttonSelected= mrCancel then
+    DataModule1.ADOAdministrador.Cancel;
+end;
+
+end.
