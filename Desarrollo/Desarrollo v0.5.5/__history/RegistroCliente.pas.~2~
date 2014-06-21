@@ -11,7 +11,6 @@ type
   EExisteDNI=class(Exception);
   ESinArroba=class(Exception);
   EFechaNac=class(Exception);
-  EContraseniasNoCoinciden=class(Exception);
   TFormRegistroCliente = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
@@ -46,10 +45,6 @@ type
     Edit13: TEdit;
     Edit14: TEdit;
     Label15: TLabel;
-    Edit15: TEdit;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -73,7 +68,6 @@ type
     procedure Letras(Sender: TObject; var Key: Char);
     procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
     procedure LetrasYEspacio(Sender: TObject; var Key: Char);
-    procedure Edit15Change(Sender: TObject);
 
   private
     { Private declarations }
@@ -83,6 +77,7 @@ type
 
 var
   FormRegistroCliente: TFormRegistroCliente;
+  Hoy:TDate;
 
 implementation
 
@@ -171,13 +166,6 @@ Label14.Font.Color:=clBlack;
 Label15.Visible:=False;
 end;
 
-procedure TFormRegistroCliente.Edit15Change(Sender: TObject);
-begin
-   Label6.Font.Color:=clBlack;
-   Label16.Font.Color:=clBlack;
-   Label15.Visible:=False;
-end;
-
 procedure TFormRegistroCliente.Edit1Change(Sender: TObject);
 begin
 label1.Font.Color:=clBlack;
@@ -235,6 +223,7 @@ end;
 procedure TFormRegistroCliente.FormActivate(Sender: TObject);
 begin
 FormRegistroCliente.RestablecerValores;
+Hoy:=DateTimePicker1.Date;
 end;
 
 procedure TFormRegistroCliente.RestablecerValores;
@@ -253,7 +242,6 @@ begin
   Edit12.Text:='';
   Edit13.Text:='';
   Edit14.Text:='';
-  Edit15.Text:='';
   Label15.Visible:=False;
   Label1.Font.Color:= clBlack;
   Label2.Font.Color:= clBlack;
@@ -310,15 +298,7 @@ begin
       if (Edit5.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-      	//Confirmar clave
-      	if (Edit15.Text = '') then
-      		raise EEspacioBlanco.Create('Complete los campos en rojo')
-      	else
-      		if (Edit5.Text <> Edit15.Text) then //Comparo Claves
-      			raise EContraseniasNoCoinciden.Create('Las contraseñas no coinciden')
-      			else
-              //Si son igual
-      				DataModule1.ADOCliente.FieldByName('Clave').AsString:=Edit5.Text;
+      DataModule1.ADOCliente.FieldByName('Clave').AsString:=Edit5.Text;
 
       //Calle
       if (Edit6.Text = '') then
@@ -370,19 +350,18 @@ begin
              raise EEspacioBlanco.Create('Complete los campos en rojo')
           else begin
             Telefono:=Edit12.Text+Edit13.Text+Edit14.Text;
-            DataModule1.ADOCliente.FieldByName('Telefono').AsString:=Telefono;
+            DataModule1.ADOCliente.FieldByName('Telefono').AsInteger:=StrToInt(Telefono);
             end;
       //Fecha de Nacimiento no puede ser igual a la de HOY!!!
-      if DateTimePicker1.Date = Now() then
+      if DateTimePicker1.Date = Hoy then
            raise EFechaNac.Create('Ingrese su fecha de nacimiento')
            else
            DataModule1.ADOCliente.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
-      DataModule1.ADOCliente.FieldByName('FechaDeInicioCliente').AsDateTime:=Now();
       DataModule1.ADOCliente.Post;
       ShowMessage('El usuario se dio de alta exitosamente');
       //Restablezco valores luego de agregarlo
   		FormRegistroCliente.RestablecerValores;
-      DateTimePicker1.Date:=Now(); //Vuelvo al dia de hoy
+      DateTimePicker1.Date:=Hoy; //Vuelvo al dia de hoy
 
 
 
@@ -395,7 +374,6 @@ begin
         if (Edit3.Text = '') then begin Label5.Font.Color:= clRed;label15.Visible:=True; end;//DNI
         if (Edit4.Text = '') then begin Label4.Font.Color:= clRed;label15.Visible:=True; end;//Usuario
         if (Edit5.Text = '') then begin Label6.Font.Color:= clRed;label15.Visible:=True; end;//Clave
-        if (Edit15.Text = '') then begin Label16.Font.Color:= clRed;label15.Visible:=True; end;//Confirmar Clave
         if (Edit6.Text = '') then begin Label7.Font.Color:= clRed;label15.Visible:=True; end;//Calle
         if (Edit7.Text = '') then begin Label9.Font.Color:= clRed;label15.Visible:=True; end;//Nro
         if (Edit8.Text = '') then begin Label10.Font.Color:= clRed;label15.Visible:=True; end;//Localidad
@@ -405,7 +383,7 @@ begin
         if (Edit12.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Pais
         if (Edit13.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Localidad
         if (Edit14.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono
-        if DateTimePicker1.Date = Now() then begin Label3.Font.Color:=clRed; label15.Visible:=True; end;//Fecha Nac
+        if DateTimePicker1.Date = Hoy then begin Label3.Font.Color:=clRed; label15.Visible:=True; end;//Fecha Nac
         DataModule1.ADOCliente.Cancel;
         end;
      on E:EConvertError do begin
@@ -430,13 +408,6 @@ begin
               label5.Font.Color:=clred;
               label15.Visible:=true;
               datamodule1.ADOCliente.Cancel;
-     end;
-     on E:EContraseniasNoCoinciden do begin
-          ShowMessage(E.Message);
-          label6.Font.Color:=ClRed;
-          label16.Font.Color:=ClRed;
-          label15.Visible:=true;
-          DataModule1.ADOCliente.Cancel;
      end;
     end;
 

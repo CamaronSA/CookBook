@@ -306,7 +306,6 @@ object FormRegistroCliente: TFormRegistroCliente
     MaxLength = 20
     ParentFont = False
     TabOrder = 0
-    TextHint = 'Su nombre'
     OnChange = Edit1Change
     OnKeyPress = LetrasYEspacio
   end
@@ -323,7 +322,6 @@ object FormRegistroCliente: TFormRegistroCliente
     MaxLength = 20
     ParentFont = False
     TabOrder = 1
-    TextHint = 'Su apellido'
     OnChange = Edit2Change
     OnKeyPress = LetrasYEspacio
   end
@@ -341,7 +339,6 @@ object FormRegistroCliente: TFormRegistroCliente
     NumbersOnly = True
     ParentFont = False
     TabOrder = 2
-    TextHint = 'Su DNI'
     OnChange = Edit3Change
   end
   object Edit4: TEdit
@@ -357,7 +354,6 @@ object FormRegistroCliente: TFormRegistroCliente
     MaxLength = 20
     ParentFont = False
     TabOrder = 3
-    TextHint = 'Nombre de usuario'
     OnChange = Edit4Change
     OnKeyPress = LetrasNumnerosETC
   end

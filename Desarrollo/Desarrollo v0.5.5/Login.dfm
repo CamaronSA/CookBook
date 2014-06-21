@@ -77,12 +77,12 @@ object FormLogin: TFormLogin
     Top = 112
     Width = 190
     Height = 40
-    Caption = 'Deseo reistrarme'
+    Caption = 'Deseo registrarme'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -16
+    Font.Height = -21
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     OnClick = SpeedButton3Click
   end

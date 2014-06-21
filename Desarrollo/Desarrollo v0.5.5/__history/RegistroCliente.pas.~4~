@@ -48,8 +48,6 @@ type
     Label15: TLabel;
     Edit15: TEdit;
     Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -83,6 +81,7 @@ type
 
 var
   FormRegistroCliente: TFormRegistroCliente;
+  Hoy:TDate;
 
 implementation
 
@@ -235,6 +234,7 @@ end;
 procedure TFormRegistroCliente.FormActivate(Sender: TObject);
 begin
 FormRegistroCliente.RestablecerValores;
+Hoy:=DateTimePicker1.Date;
 end;
 
 procedure TFormRegistroCliente.RestablecerValores;
@@ -253,7 +253,6 @@ begin
   Edit12.Text:='';
   Edit13.Text:='';
   Edit14.Text:='';
-  Edit15.Text:='';
   Label15.Visible:=False;
   Label1.Font.Color:= clBlack;
   Label2.Font.Color:= clBlack;
@@ -373,16 +372,15 @@ begin
             DataModule1.ADOCliente.FieldByName('Telefono').AsString:=Telefono;
             end;
       //Fecha de Nacimiento no puede ser igual a la de HOY!!!
-      if DateTimePicker1.Date = Now() then
+      if DateTimePicker1.Date = Hoy then
            raise EFechaNac.Create('Ingrese su fecha de nacimiento')
            else
            DataModule1.ADOCliente.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
-      DataModule1.ADOCliente.FieldByName('FechaDeInicioCliente').AsDateTime:=Now();
       DataModule1.ADOCliente.Post;
       ShowMessage('El usuario se dio de alta exitosamente');
       //Restablezco valores luego de agregarlo
   		FormRegistroCliente.RestablecerValores;
-      DateTimePicker1.Date:=Now(); //Vuelvo al dia de hoy
+      DateTimePicker1.Date:=Hoy; //Vuelvo al dia de hoy
 
 
 
@@ -405,7 +403,7 @@ begin
         if (Edit12.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Pais
         if (Edit13.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Localidad
         if (Edit14.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono
-        if DateTimePicker1.Date = Now() then begin Label3.Font.Color:=clRed; label15.Visible:=True; end;//Fecha Nac
+        if DateTimePicker1.Date = Hoy then begin Label3.Font.Color:=clRed; label15.Visible:=True; end;//Fecha Nac
         DataModule1.ADOCliente.Cancel;
         end;
      on E:EConvertError do begin
