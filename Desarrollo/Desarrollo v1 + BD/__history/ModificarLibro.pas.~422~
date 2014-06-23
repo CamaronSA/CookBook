@@ -1,0 +1,866 @@
+unit ModificarLibro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids,
+  TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion;
+
+type
+  ENicoyJesu = class (Exception);
+  ENoModificaUnCarajo =class (Exception);
+  EEsaTablaTaPelada =class (Exception);
+  EPentakill = class (Exception);
+  EFueraDeRango = class(Exception);
+  ECampoBlanco = class (Exception);
+  ENoAbuse = class (Exception);
+  TForm4 = class(TForm)
+    DBGrid1: TDBGrid;
+    SpeedButton2: TSpeedButton;
+    Label9: TLabel;
+    Edit1: TEdit;
+    Label1: TLabel;
+    RadioGroup1: TRadioGroup;
+    RadioButton3: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton1: TRadioButton;
+    Label6: TLabel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Edit6: TEdit;
+    Label2: TLabel;
+    Edit3: TEdit;
+    Label7: TLabel;
+    Edit2: TEdit;
+    Label8: TLabel;
+    Edit10: TEdit;
+    Label11: TLabel;
+    SpeedButton3: TSpeedButton;
+    Label12: TLabel;
+    Memo1: TMemo;
+    Label10: TLabel;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    ComboBox3: TComboBox;
+    ComboBox4: TComboBox;
+    Label13: TLabel;
+    SpeedButton4: TSpeedButton;
+    Image1: TImage;
+    Label14: TLabel;
+    Label15: TLabel;
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    Label3: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    ComboBox5: TComboBox;
+    ComboBox6: TComboBox;
+    SpeedButton5: TSpeedButton;
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit10KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure Edit6Change(Sender: TObject);
+    procedure Edit10Change(Sender: TObject);
+    procedure Memo1KeyPress(Sender: TObject; var Key: Char);
+    procedure FormActivate(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure ComboBox1Click(Sender: TObject);
+    procedure ComboBox2Click(Sender: TObject);
+    procedure ComboBox3Click(Sender: TObject);
+    procedure Image1DblClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure Memo1Change(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure ComboBox5Click(Sender: TObject);
+    procedure ComboBox6Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+  arch:string;   // aca enconte esto lo puse pero ahora no se bien que hace, no borrar.
+implementation
+
+uses Unit5;
+
+{$R *.dfm}
+
+ // esto lo que hace es cambiar la propiedad read only de los componenetes pla contraria, lo de la imagen lo manejo aparte para no romper nada.
+Procedure SoloLecturaParaLasComponenetes (E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+begin
+  E2.ReadOnly:= not E2.ReadOnly;
+  E6.ReadOnly:= not E6.ReadOnly;
+  E3.ReadOnly:= not E3.ReadOnly;
+  E10.ReadOnly:= not E10.ReadOnly;
+  I1.Enabled:= not I1.Enabled;
+  M1.ReadOnly:= not M1.ReadOnly;
+end;
+//implemento metodo para leer todos los registros desde el DBGrid, que dios y la patri me juzguen
+//Respete el orden de los componentes o muerda el muerto
+//La cantidad de veces q corri el programa por poner mal los nombres de los campos y la re
+procedure cargarComponentes(C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+begin
+  C1.TextHint:=DataModule1.ADOLibro.FieldByName('Idioma').AsString;
+  C2.TextHint:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString;
+  C3.TextHint:=DataModule1.ADOLibro.FieldByName('Autor').AsString;
+  C4.TextHint:=DataModule1.ADOLibro.FieldByName('Editorial').AsString;
+  if (DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean = True) then
+    C5.TextHint:='SI'
+  else                         // esto para ser consistente al momento de mostrar resultados, andaba bien pero mostrabna true o false.
+    C5.TextHint:='NO';
+  if (DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean = True) then
+    C6.TextHint:='SI'
+  else
+    C6.TextHint:='NO';
+  E2.Text:=IntToStr(DataModule1.ADOLibro.FieldByName('ISBN').AsInteger);
+  E3.Text:=DataModule1.ADOLibro.FieldByName('Titulo').AsString;
+  E6.Text:=IntToStr(DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger);
+  E10.Text:=CurrToStr(DataModule1.ADOLibro.FieldByName('Precio').AsCurrency);
+  M1.text:=DataModule1.ADOLibro.FieldByName('Descripcion').AsString;
+  //pregunta si el campo esta vacio entonces en la foto no muestra nada!
+  If(DataModule1.ADOLibro.FieldByName('Imagen').IsNull)  then
+    I1.Picture:=nil
+  else
+    I1.Picture.Assign(DataModule1.ADOLibro.FieldByName('Imagen'));
+end;
+//Este procedimiento limpia los combobox
+procedure Limpieza (var C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+begin
+  C1.items.Clear;
+  C2.items.Clear;
+  C3.items.Clear;
+  C4.items.Clear;
+  C5.Items.Clear;
+  C6.Items.Clear;
+  C1.TextHint:='';
+  C2.TextHint:='';
+  C3.TextHint:='';
+  C4.TextHint:='';
+  C5.TextHint:='';
+  C6.TextHint:='';
+  E2.Text:='';
+  E3.Text:='';
+  E6.Text:='';
+  E10.Text:='';
+  M1.Text:='';
+  I1.Picture:=NIL;
+end;
+//esta funcion lo que hace es recibir un string y devuelve true o false, si encuentra o no un @
+function EncontrarArroba (Palabra: String):Boolean;
+var Aux:Boolean; Max:Integer;
+begin
+Max:=Length(Palabra);
+Aux:=False;
+while (Max>-1) and (Aux<>True) do begin
+  if (Palabra[Max] = '@') then
+    Aux:=True;
+  Max:=Max-1;
+end;
+Result:=Aux;
+end;
+//esta funcion cuenta cantidad de comas dentro de un numero, queda inservible por que lo hace delphi
+function ElInquisidorDeLSimbolo (Palabra: String):integer;
+var
+  Aux:integer;
+  Max:Integer;
+begin
+  Max:=Length(Palabra);
+  Aux:=0;
+    while (Max>-1) do begin
+      if (Palabra[Max] = '.') then
+         Aux:=aux+1;
+       Max:=Max-1;
+    end;
+  Result:=Aux;
+end;
+
+procedure TForm4.ComboBox1Click(Sender: TObject);
+begin
+  label5.Font.Color:=clblack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.ComboBox2Click(Sender: TObject);
+begin
+  label6.Font.Color:=clblack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.ComboBox3Click(Sender: TObject);
+begin
+  label2.Font.Color:=clblack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.ComboBox5Click(Sender: TObject);
+begin
+  label16.Font.Color:=clblack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.ComboBox6Click(Sender: TObject);
+begin
+ label17.Font.Color:=clblack;
+ label12.Visible:=false;
+end;
+
+procedure TForm4.DBGrid1CellClick(Column: TColumn);
+
+begin
+  // Aca verifico que o esta habilitado el modificar, o el agregar, o estan todos desabilitados.
+  If(SpeedButton1.Visible = true) or (SpeedButton4.Visible = true) or ((SpeedButton4.Visible =false) and (SpeedButton1.Visible = false) and (SpeedButton3.Visible = false)) then   begin
+    //Ahi muesta todo los datos en los campos
+    cargarComponentes(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+  end;
+end;
+
+procedure TForm4.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+DBGrid1CellClick(nil);
+end;
+
+procedure TForm4.DBGrid1KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+DBGrid1CellClick(nil);
+end;
+
+procedure TForm4.DBGrid1TitleClick(Column: TColumn);
+begin
+ //Esto ordena la tabla segun en que titulo haga click el usuario
+Case Column.Index Of
+  0 : DataModule1.ADOLibro.IndexFieldNames:='Titulo';
+  1 : DataModule1.ADOLibro.IndexFieldNames:='ISBN';
+  2 : DataModule1.ADOLibro.IndexFieldNames:='Idioma';
+  3 : DataModule1.ADOLibro.IndexFieldNames:='Etiqueta';
+  4 : DataModule1.ADOLibro.IndexFieldNames:='Editorial';
+  5 : DataModule1.ADOLibro.IndexFieldNames:='precio';
+  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor';
+  7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
+End;
+
+end;
+
+procedure TForm4.Edit10Change(Sender: TObject);
+begin
+  label11.Font.Color:=clBlack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.Edit10KeyPress(Sender: TObject; var Key: Char);
+begin
+ if ( StrScan('0123456789,'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+end;
+
+procedure TForm4.Edit1Change(Sender: TObject);
+var filtro : string;
+begin
+//Busqueda por titulo
+if (RadioButton1.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro<>'' then
+         begin
+            DataModule1.ADOLibro.Filter := 'Titulo LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.ADOLibro.Filtered := true;
+        end
+      else
+        DataModule1.ADOLibro.Filtered := false;
+  end;
+  //Busqueda por editorial
+  if (RadioButton2.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro<>'' then
+         begin
+            DataModule1.ADOLibro.Filter := 'Editorial LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.ADOLibro.Filtered := true;
+        end
+      else
+        DataModule1.ADOLibro.Filtered := false;
+  end;
+  //Busqueda por Categoria
+  if (RadioButton3.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro<>'' then
+         begin
+            DataModule1.ADOLibro.Filter := 'Etiqueta LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.ADOLibro.Filtered := true;
+        end
+      else
+        DataModule1.ADOLibro.Filtered := false;
+  end;
+end;
+
+procedure TForm4.Edit2Change(Sender: TObject);
+begin
+  label8.Font.Color:=clBlack;
+  Label12.Visible:=false;
+end;
+
+procedure TForm4.Edit3Change(Sender: TObject);
+begin
+  label7.Font.Color:=clBlack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+ if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+end;
+
+procedure TForm4.Edit6Change(Sender: TObject);
+begin
+  label4.Font.Color:=clBlack;
+  label12.Visible:=false;
+end;
+
+procedure TForm4.FormActivate(Sender: TObject);
+begin
+   label15.Caption:= 'Caracteres disponibles ' +inttostr(Length(Memo1.Lines.Text))+ '/65536' ;
+  // Se cargan las opciones de los combobox solo si se entra en modo agregar libro o modificar
+  if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
+     SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+  if(speedbutton1.Visible = true) or (speedbutton3.Visible = true) then
+    Begin
+  //Cuando Se abre el formulario cargo cada DBComboBox La lista de opciones del campo//
+
+  DataModule1.CampoEtiquetaComboBox.Close;
+  DataModule1.CampoEtiquetaComboBox.SQL.Text:= 'Select NombreEtiqueta from Etiqueta';
+  DataModule1.CampoEtiquetaComboBox.Open;
+  DataModule1.CampoEtiquetaComboBox.Active:=True;
+    while not (DataModule1.CampoEtiquetaComboBox.eof) do
+       Begin
+         ComboBox2.items.Add(DataModule1.CampoEtiquetaComboBox.Fields[0].text);
+         DataModule1.CampoEtiquetaComboBox.Next;
+       End;
+  DataModule1.CampoIdiomaComboBox.Close;
+  DataModule1.CampoIdiomaComboBox.SQL.Text:= 'Select Idioma from Idioma';
+  DataModule1.CampoIdiomaComboBox.Open;
+  DataModule1.CampoIdiomaComboBox.Active:=True;
+    while not (DataModule1.CampoIdiomaComboBox.eof) do
+       Begin
+         ComboBox1.items.Add(DataModule1.CampoIdiomaComboBox.Fields[0].text);
+         DataModule1.CampoIdiomaComboBox.Next;
+       End;
+  DataModule1.CampoAutorComboBox.Close;
+  DataModule1.CampoAutorComboBox.SQL.Text:= 'Select Apellido from Autor';
+  DataModule1.CampoAutorComboBox.Open;
+  DataModule1.CampoAutorComboBox.Active:=True;
+    while not (DataModule1.CampoAutorComboBox.eof) do
+       Begin
+         ComboBox3.items.Add(DataModule1.CampoAutorComboBox.Fields[0].text);
+         DataModule1.CampoAutorComboBox.Next;
+       End;
+  DataModule1.CampoEditorialComboBox.Close;
+  DataModule1.CampoEditorialComboBox.SQL.Text:= 'Select NombreEditorial from Editorial';
+  DataModule1.CampoEditorialComboBox.Open;
+  DataModule1.CampoEditorialComboBox.Active:=True;
+    while not (DataModule1.CampoEditorialComboBox.eof) do
+       Begin
+         ComboBox4.items.Add(DataModule1.CampoEditorialComboBox.Fields[0].text);
+         DataModule1.CampoEditorialComboBox.Next;
+       End;
+  //Ultimos Campos Agregados
+  ComboBox5.items.Add('SI');
+  ComboBox5.items.Add('NO');
+  ComboBox6.items.Add('SI');
+  ComboBox6.items.Add('NO');
+  End;
+
+
+//////***********************************************************************************//////
+end;
+
+procedure TForm4.Image1DblClick(Sender: TObject);
+var
+  arch:string;
+begin
+  if DataModule1.openPictureDialog1.execute then
+    begin
+      arch := DataModule1.OpenPictureDialog1.FileName;
+      Image1.Picture.LoadFromFile(arch);
+    end;
+end;
+
+procedure TForm4.Memo1Change(Sender: TObject);
+begin
+  Label15.Caption := 'Caracteres disponibles ' +inttostr(Length(Memo1.Lines.Text))+ '/65536';
+
+end;
+
+procedure TForm4.Memo1KeyPress(Sender: TObject; var Key: Char);
+begin
+   if ( StrScan(' 0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+end;
+
+procedure TForm4.SpeedButton1Click(Sender: TObject);
+var
+  buttonSelected:integer;
+begin
+  buttonSelected:= messageDlg('¿Realmente desea modificar un Libro?',mtWarning,mbOkCancel,0);
+  if buttonSelected = mrOk then
+    begin
+      try
+
+        Datamodule1.ADOLibro.edit;
+        DataModule1.ComprobarLibro.Close;
+        DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
+        DataModule1.ComprobarLibro.Open;
+        // por la puta casualidad q metan todo en blanco
+        if (edit2.Text = '') and (edit3.Text = '') and (edit6.Text = '') and (edit10.Text = '') and
+        (memo1.Text = '') and (image1.Picture = nil) and (Combobox1.Text = '')and (Combobox2.Text = '')and
+        (Combobox3.Text = '')and (Combobox4.Text = '')and (Combobox5.Text = '')and (Combobox6.Text = '') then
+          raise ENoModificaUnCarajo.Create('No es Necesario modificar campos por que no ingreso ningun dato');
+        //Campo EsDestacado
+        if (ComboBox6.Text = '') then
+           DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean
+        else
+         begin
+            if (Combobox6.Text = 'SI') then
+               DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=true
+            else
+              // esta de mas el if, pero ante la duda consulte :p
+            if (Combobox6.Text = 'NO') then
+              DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=false;
+          end;
+        //Campo Disponible
+        if(ComboBox5.Text ='') then
+          DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean
+        else
+            if (Combobox5.Text = 'SI') then
+              DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=true
+           else
+             if (Combobox5.Text = 'NO') then
+                DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=false;
+
+        //Cargo la imagen de TImage en la base de datos
+        DataModule1.ADOLibro.FieldByName('Imagen').Assign(image1.Picture);
+        // Campo Idioma
+        if (combobox1.Text = '')  then
+          //Esto es para evitar que el usuario tenga q escribir de nuevo el campo, resulta confiando en q el agregar funciona correctamente
+          DataModule1.ADOLibro.FieldByName('Idioma').AsString:=DataModule1.ADOLibro.FieldByName('Idioma').AsString
+        else
+          DataModule1.ADOLibro.FieldByName('Idioma').AsString:=combobox1.Text;
+        //Campo Categoria
+        if (ComboBox2.Text = '') then
+         //Lo qe hace es volver a guardar lo que ya tenia, pero automatico por si el boludo q lo usa borrar algun campo
+           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString
+        else
+          DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=ComboBox2.Text;
+        //Campo Autor
+        if (ComboBox3.Text = '') then
+           DataModule1.ADOLibro.FieldByName('Autor').AsString:=DataModule1.ADOLibro.FieldByName('Autor').AsString
+        else
+           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+        //Campo Editorial
+        if (ComboBox4.Text = '') then
+           DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
+        else
+           DataModule1.ADOLibro.FieldByName('Editorial').AsString:=ComboBox4.Text;
+        //Campo ISBN
+        if (edit2.Text = '' ) then        //fe ciega en este codigo, basicamente por q no lo revise.
+          raise ECampoBlanco.Create('Debe completar todos los campos en rojo')
+        else
+          begin
+            // esto anda, pero si pueden revisen, if de abajo, testea que si el q estamos modificando es el mismo numero por el mismo numero no grite el programa.
+              if not (strtoint(edit2.Text) = DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
+                 if not (DataModule1.ComprobarLibro.IsEmpty) then
+                //Esta except verifica que no tengamos dos isbn iguales en la bd
+                    raise EPentakill.Create('Este Libro ya esta en la base de datos, esta intentando ingresar un numero de ISBN que ya existe')
+                 end
+              else
+                DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text);
+           end;
+        //Campo Titulo
+        if(edit3.Text = '') then
+          DataModule1.ADOLibro.FieldByName('Titulo').AsString:=DataModule1.ADOLibro.FieldByName('Titulo').AsString
+        else
+          DataModule1.ADOLibro.FieldByName('Titulo').AsString:=edit3.Text;
+        //Anio Edicion  Posibles errores 7kk y contando.
+
+        //Si esta el 0 es porq  la carga anterio lo puso, o por que el usuario puso 0 sin darse cuenta entonces dejo lo que estaba.-
+        if (StrToInt(edit6.Text) = 0) then
+          DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:= DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger
+        else
+        if (edit6.Text  <> '' )  then
+         // aca es distinto por que puede ser que el user lo deje en blanco!, pero si lo completa q no amnde fruta.
+        begin
+         if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
+
+            raise EFueraDeRango.Create('El año que intenta ingresar es invalido')
+         else
+           DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=StrToInt(edit6.Text);
+         end
+         else     // ya si pasa todas esas cosas merece entrar...
+            DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=0;
+        //Campo Precio
+        if (edit10.Text = '') then
+          DataModule1.ADOLibro.FieldByName('Precio').AsCurrency:=DataModule1.ADOLibro.FieldByName('Precio').AsCurrency
+        else
+          if (ElInquisidorDeLSimbolo(edit10.Text) > 1 ) then
+            raise ENoAbuse.Create('Introduzca un numero valido sin tantas comas')
+          else
+            DataModule1.ADOLibro.FieldByName('Precio').AsCurrency:= strtoCurr(edit10.Text);
+        //Campo Descripcion
+        DataModule1.ADOLibro.FieldByName('Descripcion').AsString:=memo1.Text;
+        Datamodule1.ADOLibro.Post;
+        showmessage ('Su libro fue agregado correctamente');
+        edit2.Text:='';
+        edit3.Text:='';
+        edit10.Text:='';
+        edit6.Text:='';
+        //Limpiar campo Image
+        image1.Picture:=nil;
+        //Aca limpia ComboBox!
+        limpieza(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+        //Aca se limpia memo1
+        memo1.Text:='';
+        //Esta linea hace uso de la carga de los combobox hecha en el inicio del formulario
+        //hay q revisar la forma de que esta hecha por una mas sencilla pero andar anda.
+        FormActivate(nil);
+      except
+        on E:ECampoBlanco do
+          begin
+             showmessage (E.Message);
+             if (edit2.Text ='') then
+              begin
+                label8.Font.Color:=clred;
+                label12.Visible:=true;
+                label12.Font.Color:=clred;
+              end;
+          end;
+      on E: EConvertError do
+         begin
+            showmessage ('No deje ISBN en blanco, tambien verifique que el campo precio tiene un valor correcto') ;
+            label8.Font.Color:=clred;
+            Label11.Font.Color:=clred;
+            Label12.Font.Color:=clred;
+            label12.visible:=true;
+            DataModule1.ADOLibro.Cancel;
+         end;
+        on E: EfueraDeRango do
+          begin
+            label12.Visible:=true;
+            label4.Font.Color:=clred;
+            showmessage (E.Message);
+            DataModule1.ADOLibro.Cancel;
+            edit6.Text:='';
+          end;
+        on E:EPentakill do
+          begin
+            edit2.Text:='';
+            label8.Font.Color:=clred;
+            Label12.Font.Color:=clred;
+            label12.visible:=true;
+            showmessage(E.Message);
+            DataModule1.ADOLibro.Cancel;
+          end;
+      end;
+    end
+   else
+    Datamodule1.ADOLibro.Cancel;
+   //Son todos putos por hacerme hacer estoo!
+end;
+
+procedure TForm4.SpeedButton2Click(Sender: TObject);
+begin
+  // al salir cambio la propiedad readOnly de las componentes
+  if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
+    begin
+      SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+    end;
+  //Aca lo que hago es cada ves q salgo del formulario borro las componentes
+  //para evitar q se dupliquen las opciones
+  limpieza(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+  ///**********///
+  edit1.Text:='';
+  //Limpiar campo Image
+  image1.Picture:=nil;
+  //Limpia el componenete memo para proximos usos.
+  memo1.text:='';
+  label8.Font.Color:=clblack;
+  label7.Font.Color:=clblack;
+  label4.Font.Color:=clblack;
+  label11.Font.Color:=clblack;
+  label3.Font.Color:=clblack;
+  label2.Font.Color:=clblack;
+  label6.Font.Color:=clblack;
+  label5.Font.Color:=clblack;
+  label12.Visible:=false;
+  // se cancela la apertura de la tabla para evitar algun error desconocido
+  DataModule1.ADOLibro.Cancel;
+  // Cuando el usuario sale del formulario, se ordena por titulo, para futuras visitas
+  DataModule1.ADOLibro.IndexFieldNames:='Titulo';
+close;
+end;
+
+procedure TForm4.SpeedButton3Click(Sender: TObject);
+begin
+    try
+        Datamodule1.ADOLibro.append;
+        DataModule1.ComprobarLibro.Close;
+        DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
+        DataModule1.ComprobarLibro.Open;
+        //Campo EsDestacado
+        if (Combobox6.Text = 'SI') then
+            DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=true
+        else
+          // esta de mas el if, pero ante la duda consulte :p
+          if (Combobox6.Text = 'NO') then
+            DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=false;
+        //Campo Disponible
+        if(ComboBox5.Text ='') then
+          raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          if (Combobox5.Text = 'SI') then
+            DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=true
+          else
+            if (Combobox5.Text = 'NO') then
+               DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=false;
+        //Cargo la imagen de TImage en la base de datos
+        DataModule1.ADOLibro.FieldByName('Imagen').Assign(image1.Picture);
+        // Campo Idioma
+        if (combobox1.Text = '')  then
+          raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          DataModule1.ADOLibro.FieldByName('Idioma').AsString:=ComboBox1.Text;
+        //Campo Categoria
+        if (ComboBox2.Text = '') then
+          raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=ComboBox2.Text;
+        //Campo Autor
+        if (ComboBox3.Text = '') then
+           raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+        //Campo Editorial
+        if (ComboBox4.Text = '') then
+           raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+           DataModule1.ADOLibro.FieldByName('Editorial').AsString:=ComboBox4.Text;
+        //Campo ISBN
+        if (edit2.Text = '' ) then
+          raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          if not (DataModule1.ComprobarLibro.IsEmpty) then
+             raise EPentakill.Create('Este Libro ya esta en la base de datos, esta intentando ingresar un numero de isbn que ya existe')
+          else
+              DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text);
+        //Campo Titulo
+        if(edit3.Text = '') then
+          raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          DataModule1.ADOLibro.FieldByName('Titulo').AsString:=edit3.Text;
+        //Anio Edicion  Posibles errores 7kk y contando.
+        if (edit6.Text  <> '' ) then
+        begin
+         if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
+            raise EFueraDeRango.Create('El año que intenta ingresar es invalido')
+         else
+           DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=StrToInt(edit6.Text);
+        end
+        else
+          //Por defecto cargo un 0 por las dudas.
+           DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=0;
+        //Campo Precio
+        if (edit10.Text = '') then
+         raise ECampoBlanco.Create('Complete todos los campos en rojo')
+        else
+          if (ElInquisidorDeLSimbolo(edit10.Text) > 1 ) then
+            raise ENoAbuse.Create('Introduzca un numero valido sin tantas comas')
+          else
+            DataModule1.ADOLibro.FieldByName('Precio').AsCurrency:= strtoCurr(edit10.Text);
+        //Campo Descripcion
+        DataModule1.ADOLibro.FieldByName('Descripcion').AsString:=memo1.Text;
+        Datamodule1.ADOLibro.Post;
+        // Se esta buscando una forma de informar menos molesta.
+        FrmMensajeConTemporizador.Show;
+        //Limpiar campo Image
+        image1.Picture:=nil;
+        //Aca limpia todas las componenetes
+        limpieza(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+        //Aca se limpia memo1
+        memo1.Text:='';
+        //Esta linea hace uso de la carga de los combobox hecha en el inicio del formulario
+        //hay q revisar la forma de que esta hecha por una mas sencilla pero andar anda.
+        FormActivate(nil);
+      except
+        on E:ECampoBlanco do
+          begin
+             showmessage (E.Message);
+             if (edit2.Text ='') then
+              begin
+                label8.Font.Color:=clred;
+                label12.Visible:=true;
+                label12.Font.Color:=clred;
+              end;
+            if (edit3.Text ='') then
+             begin
+                label7.Font.Color:=clred;
+                label12.Visible:=true;        //codigo feo por diooo
+                label12.Font.Color:=clred;    //ta bien!
+             end;
+            if (edit10.Text ='') then
+              begin
+                label11.Font.Color:=clred;
+                label12.Visible:=true;
+                label12.Font.Color:=clred;
+              end;
+             if (ComboBox1.Text ='') then
+              begin
+                Label5.Font.Color:=clred;
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+              if (ComboBox2.Text ='') then
+              begin
+                Label6.Font.Color:=clred;
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+              if (ComboBox3.Text ='') then
+              begin
+                Label2.Font.Color:=clred;
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+              if (ComboBox4.Text ='') then
+              begin
+                Label3.Font.Color:=clred;
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+              if (ComboBox5.Text ='') then
+              begin
+                Label16.Font.Color:=clred;
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+              if (ComboBox6.Text ='') then
+              begin
+                Label17.Font.Color:=clred;          // Ahora vos mira label 17 donde carajo estara el resto.
+                label12.Font.Color:=clred;
+                label12.Visible:=true;
+              end;
+            DataModule1.ADOLibro.Cancel;
+          end;
+        on E: EConvertError do
+         begin
+            showmessage ('Ingrese un numero valido,verifique que esten bien los campos ISBN y precio') ;
+            label8.Font.Color:=clred;
+            Label11.Font.Color:=clred;
+            Label12.Font.Color:=clred;
+            label12.visible:=true;
+            DataModule1.ADOLibro.Cancel;
+         end;
+        on E: EfueraDeRango do
+          begin
+            showmessage (E.Message);
+            DataModule1.ADOLibro.Cancel;
+            edit6.Text:='';
+          end;
+        on E:EPentakill do
+          begin
+            edit2.Text:='';
+            label8.Font.Color:=clred;
+            Label12.Font.Color:=clred;
+            label12.visible:=true;
+            showmessage(E.Message);
+            DataModule1.ADOLibro.Cancel;
+          end;
+      end;
+
+
+
+   //Son todos putos por hacerme hacer estoo!
+end;
+
+procedure TForm4.SpeedButton4Click(Sender: TObject);
+var
+  buttonSelected:integer;
+begin
+    buttonSelected:= messageDlg('¿Realmente desea Eliminar este libro de la lista para la venta?',mtWarning,mbOkCancel,0);
+      if buttonSelected = mrOk then
+        begin
+          //Ahora solamente hago baja logica del libro osea solo cambio disponible a false, igual abajo dejo el codigo anterior por ls dudas.
+          DataModule1.ADOLibro.Edit;
+          DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:= false;
+          DataModule1.ADOLibro.Post;
+          //Limpio los componentes hasta un proximo click
+          Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+          //Informo que se realizo correctamente la baja logica
+
+        end
+       else
+        begin
+
+        end;
+
+ { buttonSelected:= messageDlg('¿Realmente desea Eliminar este libro de la lista para la venta?',mtWarning,mbOkCancel,0);
+  if buttonSelected = mrOk then
+    begin
+      try
+        DataModule1.EseLibroTienePedido.Close;
+        DataModule1.EseLibroTienePedido.Parameters.ParamByName('Dato').Value:=IntToStr(DataModule1.ADOLibro.FieldByName('ISBN').AsInteger);
+        DataModule1.EseLibroTienePedido.Open;
+        //verifica que halla algo para borrar antes de hacer una boludes de indole biblica.
+        if (datamodule1.ADOLibro.IsEmpty) then
+          raise EEsaTablaTaPelada.Create('No hay libros para eliminar!')
+        else
+          //aca verifico que el libro no este en un pedidio patito patito
+          if not (DataModule1.EseLibroTienePedido.IsEmpty) then
+            raise ENicoyJesu.Create('No se puede eliminar este libro, actualmente esta siendo usado por un pedido, puede sacarlo de la lista de disponibilidad desde el panel de modificar libro.')
+          else
+            begin
+               edit2.Text:= '';
+               edit3.Text:= '';
+               edit10.Text:='' ;
+               edit6.Text:='' ;
+               DataModule1.ADOLibro.Delete;
+               showmessage('Se elimino el libro correctamente!');
+               //aca limpieza de componenetes
+               Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+          end;
+      except       // mateo 28:13 "y un dia el codigo hablo con excepts, y dijo grandes verdades que el mundo se empeñaba en ocultar.."
+        on E:ENicoyJesu do
+          begin
+            Showmessage(E.Message);
+            DataModule1.AdoLibro.Cancel;
+          end;
+        on E: EEsaTablaTaPelada do
+          begin
+            showmessage (e.Message);
+            DataModule1.ADOLibro.Cancel;
+          end;
+          //que te garchen todos los diablo mira vos   60 veces hasta q anduvo la puta propiedad de adoquery
+     else
+        datamodule1.ADOLibro.Cancel;
+
+     end;
+  end;   }
+end;
+procedure TForm4.SpeedButton5Click(Sender: TObject);
+begin
+  memo1.Text:='';
+end;
+
+end.
