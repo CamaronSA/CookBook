@@ -95,6 +95,8 @@ formVerIdioma.SpeedButton1.Enabled:=true;
 formVerIdioma.SpeedButton1.Visible:=true;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma: *';
+formVerIdioma.Label4.Visible:=true;
 FormVerIdioma.ShowModal;
 end;
 
@@ -106,6 +108,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=false;
+FormOperacionesCategoria.label2.Caption:='Categoria:';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -117,6 +121,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=true;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=true;
+FormOperacionesCategoria.Label4.Visible:=true;
+FormOperacionesCategoria.label2.Caption:='Categoria: *';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -193,6 +199,8 @@ formVerIdioma.SpeedButton1.Enabled:=false;
 formVerIdioma.SpeedButton1.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma';
+formVerIdioma.Label4.Visible:=false;
 FormVerIdioma.ShowModal;
 end;
 
@@ -216,6 +224,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=true;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=true;
+FormOperacionesCategoria.label2.Caption:='Categoria: *';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -280,6 +290,8 @@ formVerIdioma.SpeedButton1.Enabled:=false;
 formVerIdioma.SpeedButton1.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma:';
+formVerIdioma.Label4.Visible:=false;
 FormVerIdioma.ShowModal;
 end;
 
@@ -291,6 +303,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=true;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=false;
+FormOperacionesCategoria.label2.Caption:='Categoria:';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -348,6 +362,8 @@ formVerIdioma.SpeedButton4.Enabled:=false;
 formVerIdioma.SpeedButton4.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=true;
 formVerIdioma.SpeedButton2.Visible:=true;
+FormVerIdioma.Label2.Caption:='Idioma: *';
+formVerIdioma.Label4.Visible:=true;
 FormVerIdioma.ShowModal;
 end;
 

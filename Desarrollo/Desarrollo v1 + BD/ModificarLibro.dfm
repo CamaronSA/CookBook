@@ -230,8 +230,8 @@ object Form4: TForm4
     Height = 13
   end
   object SpeedButton1: TSpeedButton
-    Left = 577
-    Top = 742
+    Left = 721
+    Top = 737
     Width = 105
     Height = 41
     Caption = 'Modificar'
@@ -389,11 +389,11 @@ object Form4: TForm4
     TabOrder = 0
   end
   object RadioButton3: TRadioButton
-    Left = 160
-    Top = 47
+    Left = 167
+    Top = 36
     Width = 113
-    Height = 17
-    Caption = 'Etiqueta'
+    Height = 40
+    Caption = 'Categoria'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

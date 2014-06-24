@@ -22,6 +22,7 @@ type
     DBGrid1: TDBGrid;
     Label3: TLabel;
     SpeedButton4: TSpeedButton;
+    Label4: TLabel;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);

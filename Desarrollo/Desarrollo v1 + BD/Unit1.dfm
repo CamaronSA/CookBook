@@ -66,7 +66,7 @@ object DataModule1: TDataModule1
     CursorType = ctStatic
     MasterSource = Tabla_Libro
     TableName = 'Editorial'
-    Left = 256
+    Left = 248
     Top = 32
   end
   object ADOAutor: TADOTable
@@ -78,7 +78,7 @@ object DataModule1: TDataModule1
   end
   object Tabla_Editorial: TDataSource
     DataSet = ADOEditorial
-    Left = 336
+    Left = 344
     Top = 32
   end
   object Tabla_Idioma: TDataSource
@@ -100,8 +100,8 @@ object DataModule1: TDataModule1
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 96
-    Top = 440
+    Left = 56
+    Top = 448
   end
   object VerificarAdministrador: TADOQuery
     Connection = SoyUnaConeccion
@@ -245,7 +245,7 @@ object DataModule1: TDataModule1
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 'Bitmaps (*.bmp)|*.bmp'
     Title = 'Imagen de portada'
-    Left = 256
+    Left = 248
     Top = 96
   end
   object ComprobarLibro: TADOQuery
@@ -321,7 +321,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select DNI from Administrador'
       'where (DNI=:consultarDNI)')
-    Left = 424
+    Left = 432
     Top = 32
   end
   object ComprobarUsuarioAdmin: TADOQuery
@@ -490,5 +490,21 @@ object DataModule1: TDataModule1
       'where (Editorial =:Dato1)')
     Left = 344
     Top = 272
+  end
+  object LibrosALaVenta: TADOQuery
+    Connection = SoyUnaConeccion
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'Select * '
+      'From Libro'
+      'Where (Disponible =True)')
+    Left = 344
+    Top = 328
+  end
+  object Tabla_LibrosALaVenta: TDataSource
+    DataSet = LibrosALaVenta
+    Left = 248
+    Top = 328
   end
 end

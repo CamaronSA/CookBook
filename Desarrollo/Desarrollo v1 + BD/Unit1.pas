@@ -47,6 +47,8 @@ type
     CampoEditorialComboBox: TADOQuery;
     EseLibroTienePedido: TADOQuery;
     ModificarEditorial: TADOQuery;
+    LibrosALaVenta: TADOQuery;
+    Tabla_LibrosALaVenta: TDataSource;
   private
     { Private declarations }
   public

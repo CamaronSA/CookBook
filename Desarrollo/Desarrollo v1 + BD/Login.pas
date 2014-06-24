@@ -61,6 +61,7 @@ datamodule1.ADOCliente.Active:=true;
 DataModule1.ADOIdioma.IndexFieldNames:='IDIOMA';
 DataModule1.ADOLibro.IndexFieldNames:='Titulo';
 
+
 end;
 procedure TFormLogin.FormKeyPress(Sender: TObject; var Key: Char);
 begin
@@ -154,6 +155,6 @@ end;
 //   FormLogin.Close;
 
 
-
+                      //soy un comentario
 
 end.

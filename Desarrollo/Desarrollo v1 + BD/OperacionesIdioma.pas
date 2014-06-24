@@ -22,6 +22,7 @@ type
     DBGrid1: TDBGrid;
     Label3: TLabel;
     SpeedButton4: TSpeedButton;
+    Label4: TLabel;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
@@ -35,6 +36,7 @@ type
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure Label2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -113,7 +115,12 @@ if (speedbutton2.Visible =true) then
     edit2.Text:='';
   end;
 end;
-      //********Neg***********//
+      procedure TFormVerIdioma.Label2Click(Sender: TObject);
+begin
+
+end;
+
+//********Neg***********//
 procedure TFormVerIdioma.SpeedButton1Click(Sender: TObject);
 var
   buttonSelected:integer;

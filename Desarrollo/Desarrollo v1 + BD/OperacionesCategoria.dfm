@@ -3,7 +3,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   Top = 0
   BorderStyle = bsSingle
   Caption = 'Categorias'
-  ClientHeight = 396
+  ClientHeight = 440
   ClientWidth = 266
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   TextHeight = 13
   object SpeedButton3: TSpeedButton
     Left = 144
-    Top = 353
+    Top = 399
     Width = 89
     Height = 33
     Caption = 'Cerrar'
@@ -32,7 +32,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   end
   object SpeedButton2: TSpeedButton
     Left = 48
-    Top = 353
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Agregar'
@@ -46,7 +46,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   end
   object SpeedButton1: TSpeedButton
     Left = 48
-    Top = 353
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Modificar'
@@ -60,7 +60,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   end
   object SpeedButton4: TSpeedButton
     Left = 48
-    Top = 353
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Eliminar'
@@ -74,7 +74,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   end
   object Label2: TLabel
     Left = 21
-    Top = 75
+    Top = 115
     Width = 73
     Height = 19
     Caption = 'Categor'#237'a:'
@@ -112,9 +112,23 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     ParentFont = False
     Visible = False
   end
+  object Label4: TLabel
+    Left = 64
+    Top = 84
+    Width = 126
+    Height = 14
+    Caption = '*(Campos Obligatorios)'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = 14
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
   object DBGrid1: TDBGrid
     Left = 8
-    Top = 105
+    Top = 151
     Width = 250
     Height = 242
     DataSource = DataModule1.Tabla_Etiqueta
@@ -150,8 +164,8 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnChange = Edit1Change
   end
   object Edit2: TEdit
-    Left = 112
-    Top = 72
+    Left = 100
+    Top = 112
     Width = 121
     Height = 27
     Font.Charset = DEFAULT_CHARSET

@@ -275,7 +275,7 @@ var buttonSelected:integer; var Telefono:String;
 begin
   buttonSelected:=messageDlg('¿Realmente desea confirmar el alta?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then
-    begin
+    begin                    //esto lo hice yo el jesu y me gusta el nico menna
         try
       DataModule1.YaExisteCliente.Close;
       //Comprobar Existe DNI
