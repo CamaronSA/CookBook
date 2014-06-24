@@ -6,3 +6,13 @@
 -Modificar Editorial
 -Eliminar Editorial
 -Ver Editorial
+-Agregar Administrador
+-Modificar Administrador
+-Eliminar Administrador
+-Ver Administrador
+-Registro Cliente
+-Recuperar Contraseña
+-Ingresar como visitante
+-Ingresar como registrado
+-Contacto como registrado
+-Contacto como visitante
