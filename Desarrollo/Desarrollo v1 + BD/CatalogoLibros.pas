@@ -51,18 +51,47 @@ uses DetalleLibro, Unit1;
 
 procedure TFormCatalogoLibros.FormCreate(Sender: TObject);
 begin
+    L:=nil;
+    //Cuando se abre el panel la lista esta vacia.
 
-  //Cuando se abre el panel la lista esta vacia.
-  L:=nil;
 end;
 
 procedure TFormCatalogoLibros.SpeedButton2Click(Sender: TObject);
   var buttonSelected: integer;
+      Nuevo,pos: Lista;
 begin
   buttonSelected := messageDlg('¿Realmente desea Añadir este libro al carrito?', mtWarning, mbOkCancel, 0);
   if buttonSelected = mrOk then
     begin
+        new(Nuevo);
+        Nuevo.Sig:=nil;      //si no entiende vea como agregar un nodo al final de la lsita.
+        Nuevo.Datos:=DataModule1.LibrosALaVenta.FieldByName('ISBN').AsInteger;
+        if (L = nil) then
+          begin
+            L:= Nuevo;
+          end
+        else
+          begin
+            pos:=L;
+            while (pos^.sig <> nil) do
+              pos:=pos^.sig;
+            pos^.sig:=Nuevo;
+          end;
 
+
+   {  Procedure agregarFinal (var pri : Lista; n : integer);
+          var      nuevo, pos : lista;
+        Begin
+           new (nuevo);        nuevo^.sig := nil;       nuevo^.datos := n;
+            if (pri = nil) then pri := nuevo
+            else begin
+               pos := pri;
+               while (pos^.sig <> nil) do
+                  pos := pos^.sig;
+               pos^.sig := nuevo;
+        end;
+End.
+                    }
 
 
 

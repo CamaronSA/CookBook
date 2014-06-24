@@ -49,7 +49,6 @@ type
     ModificarEditorial: TADOQuery;
     LibrosALaVenta: TADOQuery;
     Tabla_LibrosALaVenta: TDataSource;
-    EmailDeUser: TADOQuery;
   private
     { Private declarations }
   public

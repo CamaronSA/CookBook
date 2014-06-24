@@ -100,8 +100,8 @@ object DataModule1: TDataModule1
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 56
-    Top = 448
+    Left = 104
+    Top = 440
   end
   object VerificarAdministrador: TADOQuery
     Connection = SoyUnaConeccion
@@ -506,19 +506,5 @@ object DataModule1: TDataModule1
     DataSet = LibrosALaVenta
     Left = 248
     Top = 328
-  end
-  object EmailDeUser: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'User'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'select * from Cliente'
-      'where (Usuario =:User)')
-    Left = 344
-    Top = 384
   end
 end

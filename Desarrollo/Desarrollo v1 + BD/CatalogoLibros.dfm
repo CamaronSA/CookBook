@@ -61,7 +61,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
     Top = 579
     Width = 146
     Height = 41
-    Caption = 'Salir'
+    Caption = 'Volver'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
@@ -148,9 +148,9 @@ object FormCatalogoLibros: TFormCatalogoLibros
     end
     object RadioButton4: TRadioButton
       Left = 152
-      Top = 56
+      Top = 47
       Width = 113
-      Height = 17
+      Height = 33
       Caption = 'Categoria'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -162,7 +162,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
     end
   end
   object DBGrid1: TDBGrid
-    Left = 32
+    Left = 38
     Top = 164
     Width = 793
     Height = 409
