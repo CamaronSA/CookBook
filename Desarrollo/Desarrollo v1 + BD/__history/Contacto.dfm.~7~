@@ -144,7 +144,7 @@ object Form2: TForm2
     ShowHint = False
     TabOrder = 2
     OnChange = Memo1Change
-    OnKeyPress = LetrasYEspacio
+    OnKeyPress = LetrasNumnerosETC
   end
   object Edit3: TEdit
     Left = 96
@@ -161,6 +161,6 @@ object Form2: TForm2
     TabOrder = 1
     TextHint = 'Ingrese el asunto'
     OnChange = Edit3Change
-    OnKeyPress = LetrasYEspacio
+    OnKeyPress = Letras
   end
 end

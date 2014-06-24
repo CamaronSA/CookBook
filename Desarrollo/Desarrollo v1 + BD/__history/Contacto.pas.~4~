@@ -57,7 +57,7 @@ end;
 //Solo Letras y ESPACIO
 procedure TForm2.LetrasYEspacio(Sender: TObject; var Key: Char);
 begin
-  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,' ',',','.']) then
+  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,' ']) then
     key := #0;
 end;
 
