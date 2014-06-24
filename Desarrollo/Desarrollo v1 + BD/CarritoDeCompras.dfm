@@ -1,7 +1,7 @@
 object FormCarritoDeCompras: TFormCarritoDeCompras
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'FormCarritoDeCompras'
   ClientHeight = 490

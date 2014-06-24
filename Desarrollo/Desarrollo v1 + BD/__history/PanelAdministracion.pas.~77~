@@ -144,8 +144,6 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= True; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
-FormModifAdmin.Label17.Visible:=False; //Atención
-FormModifAdmin.Label18.Visible:=False; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
 
@@ -215,8 +213,6 @@ FormModifAdmin.label10.Visible:= True; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
-FormModifAdmin.Label17.Visible:=True; //Atención
-FormModifAdmin.Label18.Visible:=True; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
 
@@ -243,8 +239,6 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= True; //Label Ver
-FormModifAdmin.Label17.Visible:=False; //Atención
-FormModifAdmin.Label18.Visible:=False; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
  procedure TFormPanelAdministracion.SpeedButton23Click(Sender: TObject);
@@ -383,8 +377,6 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= True; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
-FormModifAdmin.Label17.Visible:=True; //Atención
-FormModifAdmin.Label18.Visible:=True; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
  procedure TFormPanelAdministracion.SpeedButton7Click(Sender: TObject);

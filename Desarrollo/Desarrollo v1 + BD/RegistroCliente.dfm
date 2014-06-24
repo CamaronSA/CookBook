@@ -1,7 +1,7 @@
 object FormRegistroCliente: TFormRegistroCliente
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   Caption = 'Registro de usuario'
   ClientHeight = 591
   ClientWidth = 477

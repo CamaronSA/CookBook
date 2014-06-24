@@ -1,7 +1,7 @@
 object FormPanelAdministracion: TFormPanelAdministracion
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Panel de administraci'#243'n'
   ClientHeight = 700

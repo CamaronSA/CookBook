@@ -1,7 +1,7 @@
 object Form3: TForm3
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Operaciones Autor'
   ClientHeight = 386

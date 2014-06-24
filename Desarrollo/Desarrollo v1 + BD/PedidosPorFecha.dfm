@@ -1,7 +1,7 @@
 object FormPedidosPorFecha: TFormPedidosPorFecha
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   Caption = 'Buscar libros vendidos por fecha'
   ClientHeight = 303
   ClientWidth = 629

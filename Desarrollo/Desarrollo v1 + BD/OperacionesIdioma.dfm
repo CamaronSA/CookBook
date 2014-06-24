@@ -1,7 +1,7 @@
 object FormVerIdioma: TFormVerIdioma
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Idiomas'
   ClientHeight = 410

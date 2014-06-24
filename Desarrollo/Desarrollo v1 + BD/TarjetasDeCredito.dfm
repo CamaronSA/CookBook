@@ -1,7 +1,7 @@
 object FormtarjetasDeCredito: TFormtarjetasDeCredito
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Tarjetas de Credito'
   ClientHeight = 150

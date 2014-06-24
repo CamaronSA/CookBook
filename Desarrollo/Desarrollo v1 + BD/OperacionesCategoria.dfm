@@ -1,6 +1,7 @@
 object FormOperacionesCategoria: TFormOperacionesCategoria
   Left = 0
   Top = 0
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Categorias'
   ClientHeight = 440

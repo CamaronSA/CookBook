@@ -1,7 +1,7 @@
 object FormDetalleLibro: TFormDetalleLibro
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Detalle de Libro'
   ClientHeight = 522

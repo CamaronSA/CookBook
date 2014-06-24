@@ -29,7 +29,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormLogin, FormLogin);
+  AApplication.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
   Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
@@ -51,5 +51,5 @@ begin
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TFrmMensajeConTemporizador, FrmMensajeConTemporizador);
   Application.CreateForm(TForm6, Form6);
-  Application.Run;
+  pplication.Run;
 end.

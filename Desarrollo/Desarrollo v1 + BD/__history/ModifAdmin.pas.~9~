@@ -44,8 +44,6 @@ type
     Label2: TLabel;
     Label13: TLabel;
     DateTimePicker1: TDateTimePicker;
-    Label17: TLabel;
-    Label18: TLabel;
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -582,8 +580,6 @@ begin
     Edit5.ReadOnly:=False;
     Edit6.ReadOnly:=False;
     Edit10.ReadOnly:=False;
-    Label18.Visible:=False;
-    Label17.Visible:=False;
 FormModifAdmin.Close;
 end;
 
