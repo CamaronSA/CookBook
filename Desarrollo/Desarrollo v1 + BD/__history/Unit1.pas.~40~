@@ -50,8 +50,6 @@ type
     LibrosALaVenta: TADOQuery;
     Tabla_LibrosALaVenta: TDataSource;
     EmailDeUser: TADOQuery;
-    RecuClaveUsuario: TADOQuery;
-    ComprobarUsuario: TADOQuery;
   private
     { Private declarations }
   public

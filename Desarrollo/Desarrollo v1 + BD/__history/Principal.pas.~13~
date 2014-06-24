@@ -29,7 +29,6 @@ type
     Ayuda1: TMenuItem;
     Cargadeformularios1: TMenuItem;
     Label1: TLabel;
-    SpeedButton3: TSpeedButton;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);

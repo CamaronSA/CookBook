@@ -521,44 +521,4 @@ object DataModule1: TDataModule1
     Left = 344
     Top = 384
   end
-  object RecuClaveUsuario: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'User'
-        Size = -1
-        Value = Null
-      end
-      item
-        Name = 'EmailUsuario'
-        Size = -1
-        Value = Null
-      end
-      item
-        Name = 'DNIUsuario'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'select * from Cliente'
-      
-        'where (Usuario=:User) and (Mail=:EmailUsuario) and (DNI=:DNIUsua' +
-        'rio)')
-    Left = 344
-    Top = 432
-  end
-  object ComprobarUsuario: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'user'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'select Usuario from Cliente'
-      'where (:user)=Usuario')
-    Left = 432
-    Top = 432
-  end
 end

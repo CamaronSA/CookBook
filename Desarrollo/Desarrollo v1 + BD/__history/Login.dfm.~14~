@@ -109,7 +109,6 @@ object FormLogin: TFormLogin
     Top = 104
     Width = 85
     Height = 13
-    Cursor = crHandPoint
     Caption = 'Olvid'#233' mi clave'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
@@ -117,7 +116,6 @@ object FormLogin: TFormLogin
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    OnClick = Label4Click
   end
   object Edit1: TEdit
     Left = 147

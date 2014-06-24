@@ -544,21 +544,7 @@ object DataModule1: TDataModule1
       
         'where (Usuario=:User) and (Mail=:EmailUsuario) and (DNI=:DNIUsua' +
         'rio)')
-    Left = 344
-    Top = 432
-  end
-  object ComprobarUsuario: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'user'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'select Usuario from Cliente'
-      'where (:user)=Usuario')
-    Left = 432
+    Left = 352
     Top = 432
   end
 end

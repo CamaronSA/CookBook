@@ -36,7 +36,7 @@ var
 
 implementation
 
-uses Principal, RegistroCliente, Contacto, RecuperarClave, CatalogoLibros;
+uses Principal, RegistroCliente, Contacto, RecuperarClave;
 
 {$R *.dfm}
 
@@ -119,9 +119,6 @@ begin
       UsuarioRegistrado:=Edit1.Text; //Variable global de usuario, la uso en CONTACTO
       Form2.Edit1.Visible:=False; // Form contacto
       Form2.Label1.Visible:=False; // Form contacto
-      FormCatalogoLibros.SpeedButton2.Visible:=True;
-      FormPrincipal.SpeedButton3.Visible:=False;
-      FormPrincipal.SpeedButton5.Visible:=True;
       edit1.Text:='';
       edit2.Text:='';
       FormPrincipal.ShowModal;
@@ -140,9 +137,6 @@ begin
           PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=False;
-          FormCatalogoLibros.SpeedButton2.Visible:=True;
-          FormPrincipal.SpeedButton3.Visible:=False;
-          FormPrincipal.SpeedButton5.Visible:=True;
           UsuarioRegistrado:=Edit1.Text;
           edit1.Text:='';
           edit2.Text:='';
@@ -162,9 +156,6 @@ begin
             PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=True;
-            FormCatalogoLibros.SpeedButton2.Visible:=True;
-            FormPrincipal.SpeedButton5.Visible:=True;
-            FormPrincipal.SpeedButton3.Visible:=False;
             UsuarioRegistrado:=Edit1.Text;
             edit1.Text:='';
             edit2.Text:='';
@@ -177,11 +168,6 @@ begin
    end;
 procedure TFormLogin.SpeedButton4Click(Sender: TObject);
 begin
-  FormPrincipal.SpeedButton6.Visible:=False;
-  FormPrincipal.SpeedButton2.Visible:=False;
-  FormPrincipal.SpeedButton5.Visible:=False;
-  FormCatalogoLibros.SpeedButton2.Visible:=False;
-  FormPrincipal.SpeedButton3.Visible:=True;
   FormPrincipal.ShowModal;
   { *****************
     ****************

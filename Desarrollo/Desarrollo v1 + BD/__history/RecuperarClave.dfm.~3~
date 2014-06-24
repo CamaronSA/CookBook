@@ -1,7 +1,6 @@
 object FormRecuperarClave: TFormRecuperarClave
   Left = 37
   Top = 38
-  BorderIcons = []
   Caption = 'Recuperar Clave'
   ClientHeight = 329
   ClientWidth = 314
@@ -13,7 +12,6 @@ object FormRecuperarClave: TFormRecuperarClave
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
-  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Label11: TLabel
@@ -202,7 +200,6 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 2
     TextHint = 'Ingrese su email'
-    OnChange = Edit1Change
     OnKeyPress = LetrasNumnerosETC
   end
   object Edit3: TEdit
@@ -219,7 +216,6 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 0
     TextHint = 'Ingrese su Usuario'
-    OnChange = Edit3Change
     OnKeyPress = LetrasNumnerosETC
   end
   object Edit2: TEdit
@@ -237,6 +233,5 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 1
     TextHint = 'Ingrese su DNI'
-    OnChange = Edit2Change
   end
 end

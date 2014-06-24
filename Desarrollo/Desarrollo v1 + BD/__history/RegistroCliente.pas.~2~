@@ -12,7 +12,6 @@ type
   ESinArroba=class(Exception);
   EFechaNac=class(Exception);
   EContraseniasNoCoinciden=class(Exception);
-  EExisteUsuario=Class(Exception);
   TFormRegistroCliente = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
@@ -276,15 +275,12 @@ var buttonSelected:integer; var Telefono:String;
 begin
   buttonSelected:=messageDlg('¿Realmente desea confirmar el alta?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then
-    begin
+    begin                    //esto lo hice yo el jesu y me gusta el nico menna
         try
       DataModule1.YaExisteCliente.Close;
       //Comprobar Existe DNI
       DataModule1.YaExisteCliente.Parameters.ParamByName('consultarDNI').Value:=Edit3.Text;
       DataModule1.YaExisteCliente.Open;
-      DataModule1.ComprobarUsuario.Close;
-      DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=Edit4.Text;
-      DataModule1.ComprobarUsuario.Open;
       DataModule1.ADOCliente.Append;
       //Nombre
       if (Edit1.Text = '') then
@@ -309,10 +305,7 @@ begin
       if (Edit4.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if not (Datamodule1.ComprobarUsuario.ISEmpty) then
-          raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
-        else
-          DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
+      DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
       //Clave
       if (Edit5.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
@@ -442,12 +435,6 @@ begin
           ShowMessage(E.Message);
           label6.Font.Color:=ClRed;
           label16.Font.Color:=ClRed;
-          label15.Visible:=true;
-          DataModule1.ADOCliente.Cancel;
-     end;
-     on E:EExisteUsuario do begin
-          ShowMessage(E.Message);
-          Label4.Font.Color:=ClRed;
           label15.Visible:=true;
           DataModule1.ADOCliente.Cancel;
      end;

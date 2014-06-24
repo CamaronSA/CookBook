@@ -1,9 +1,8 @@
 object FormRecuperarClave: TFormRecuperarClave
   Left = 37
   Top = 38
-  BorderIcons = []
   Caption = 'Recuperar Clave'
-  ClientHeight = 329
+  ClientHeight = 284
   ClientWidth = 314
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -13,7 +12,6 @@ object FormRecuperarClave: TFormRecuperarClave
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
-  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Label11: TLabel
@@ -97,7 +95,7 @@ object FormRecuperarClave: TFormRecuperarClave
   end
   object SpeedButton1: TSpeedButton
     Left = 96
-    Top = 291
+    Top = 246
     Width = 98
     Height = 30
     Caption = 'Enviar'
@@ -111,7 +109,7 @@ object FormRecuperarClave: TFormRecuperarClave
   end
   object SpeedButton2: TSpeedButton
     Left = 200
-    Top = 291
+    Top = 246
     Width = 100
     Height = 30
     Caption = 'Cancelar'
@@ -136,58 +134,6 @@ object FormRecuperarClave: TFormRecuperarClave
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label7: TLabel
-    Left = 247
-    Top = 138
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label8: TLabel
-    Left = 183
-    Top = 171
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label9: TLabel
-    Left = 285
-    Top = 207
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label10: TLabel
-    Left = 21
-    Top = 253
-    Width = 171
-    Height = 19
-    Caption = '(*) Campos obligatorios'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object Edit1: TEdit
     Left = 79
     Top = 204
@@ -202,7 +148,6 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 2
     TextHint = 'Ingrese su email'
-    OnChange = Edit1Change
     OnKeyPress = LetrasNumnerosETC
   end
   object Edit3: TEdit
@@ -219,7 +164,6 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 0
     TextHint = 'Ingrese su Usuario'
-    OnChange = Edit3Change
     OnKeyPress = LetrasNumnerosETC
   end
   object Edit2: TEdit
@@ -237,6 +181,5 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
     TabOrder = 1
     TextHint = 'Ingrese su DNI'
-    OnChange = Edit2Change
   end
 end

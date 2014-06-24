@@ -32,10 +32,6 @@ type
     procedure Letras(Sender: TObject; var Key: Char);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure Edit3Change(Sender: TObject);
-    procedure Edit2Change(Sender: TObject);
-    procedure Edit1Change(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -69,32 +65,6 @@ end;
 
 //*******// Powered by Yisus, root de nacimiento. //*******//
 //Solo Letras
-procedure TFormRecuperarClave.Edit1Change(Sender: TObject);
-begin
-  Label5.Visible:=False;
-  label1.Font.Color:=ClBlack;
-end;
-
-procedure TFormRecuperarClave.Edit2Change(Sender: TObject);
-begin
-  Label5.Visible:=False;
-  label3.Font.Color:=ClBlack;
-end;
-
-procedure TFormRecuperarClave.Edit3Change(Sender: TObject);
-begin
-  Label5.Visible:=False;
-  label6.Font.Color:=ClBlack;
-end;
-
-procedure TFormRecuperarClave.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  Edit1.Text:='';
-  Edit2.Text:='';
-  Edit3.Text:='';
-end;
-
 procedure TFormRecuperarClave.Letras(Sender: TObject; var Key: Char);
 begin
   if not(Key in ['A'..'Z', 'a'..'z', #9, #8]) then
@@ -117,23 +87,16 @@ var
   Email:String;
 begin
   try
-
-  if Edit3.Text = '' then
-      raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-      else Usuario:=Edit3.Text;
-  if Edit2.Text='' then
-      raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-      else DNI:=StrToInt(Edit2.Text);
-  if Edit1.Text = '' then
-      raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-      else Email:=Edit1.Text;
+  if Edit3.Text<>'' then Usuario:=Edit3.Text;
+  if Edit2.Text<>'' then DNI:=StrToInt(Edit2.Text);
+  if Edit1.Text<>'' then Email:=Edit1.Text;
   //Paso los datos a la consulta
   DataModule1.RecuClaveUsuario.Close;
   DataModule1.RecuClaveUsuario.Parameters.ParamByName('User').Value:=Usuario;
   DataModule1.RecuClaveUsuario.Parameters.ParamByName('EmailUsuario').Value:=Email;
   DataModule1.RecuClaveUsuario.Parameters.ParamByName('DNIUsuario').Value:=DNI;
   DataModule1.RecuClaveUsuario.Open;
-  if DataModule1.RecuClaveUsuario.IsEmpty then
+  if not DataModule1.RecuClaveUsuario.IsEmpty then
     raise EDatosInvalidos.Create('Los datos ingresados son inválidos')
   else
     Contrasenia:=DataModule1.RecuClaveUsuario.FieldByName('Clave').asString;
@@ -152,11 +115,14 @@ begin
   // Destinatario del email
   oSmtp.AddRecipientEx( Edit1.Text, 0);
 
-  // ASUNTO DEL EMAIL
-  oSmtp.Subject := 'Su clave de CookBook';
+  if Edit3.Text = '' then
+    raise EEspacioEnBlanco.Create('Complete los campos en rojo')
+    else
+      // ASUNTO DEL EMAIL
+      oSmtp.Subject := 'Su clave de CookBook';
 
   // MENSAJE
-  oSmtp.BodyText := 'Su usuario es: '+Usuario+#13+'Su contraseña es: '+Contrasenia;
+      oSmtp.BodyText := 'Su usuario es: '+Usuario+#13+'Su contraseña es: '+Contrasenia;
 
   // SMTP DE GMAIL
   oSmtp.ServerAddr := 'smtp.gmail.com';
