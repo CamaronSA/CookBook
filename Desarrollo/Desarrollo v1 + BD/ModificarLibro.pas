@@ -107,7 +107,7 @@ begin
   E6.ReadOnly:= false;
   E3.ReadOnly:= false;
   E10.ReadOnly:= false;
-  I1.Enabled:= false;
+  I1.Enabled:= true;
   M1.ReadOnly:= false;
 end;
 // LO hago asi y no con un not por q desp de usar vbarias veces el panel puede fallar.
@@ -117,7 +117,7 @@ begin
   E6.ReadOnly:= true;
   E3.ReadOnly:= true;
   E10.ReadOnly:= true;
-  I1.Enabled:= true;
+  I1.Enabled:= false;
   M1.ReadOnly:= true;
 end;
 //implemento metodo para leer todos los registros desde el DBGrid, que dios y la patri me juzguen
@@ -347,7 +347,8 @@ begin
    label15.Caption:= 'Caracteres disponibles ' +inttostr(Length(Memo1.Lines.Text))+ '/65536' ;
   // Se cargan las opciones de los combobox solo si se entra en modo agregar libro o modificar
   if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
-     SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+     SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1) ;
+
   if(speedbutton1.Visible = true) or (speedbutton3.Visible = true) then
     Begin
   //Cuando Se abre el formulario cargo cada DBComboBox La lista de opciones del campo//
