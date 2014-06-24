@@ -1,7 +1,7 @@
 object Form3: TForm3
   Left = 0
   Top = 0
-  BorderIcons = []
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Operaciones Autor'
   ClientHeight = 386
@@ -152,7 +152,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object SpeedButton3: TSpeedButton
-      Left = -17
+      Left = 87
       Top = 278
       Width = 122
       Height = 38
@@ -209,6 +209,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object DBGrid1: TDBGrid
+      Tag = 7
       Left = 215
       Top = 83
       Width = 234
@@ -216,7 +217,7 @@ object Form3: TForm3
       DataSource = DataModule1.Tabla_Autor
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
       ReadOnly = True
-      TabOrder = 0
+      TabOrder = 4
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -16
@@ -246,7 +247,7 @@ object Form3: TForm3
       Width = 122
       Height = 27
       MaxLength = 10
-      TabOrder = 1
+      TabOrder = 0
       OnChange = Edit2Change
     end
     object Edit3: TEdit
@@ -256,11 +257,11 @@ object Form3: TForm3
       Width = 122
       Height = 27
       MaxLength = 10
-      TabOrder = 2
+      TabOrder = 1
       OnChange = Edit3Change
     end
     object Edit4: TEdit
-      Tag = 3
+      Tag = 4
       Left = 281
       Top = 50
       Width = 157
@@ -270,29 +271,32 @@ object Form3: TForm3
       OnChange = Edit4Change
     end
     object RadioButton1: TRadioButton
+      Tag = 5
       Left = 215
       Top = 16
       Width = 91
       Height = 17
       Caption = 'Nombre'
       Checked = True
-      TabOrder = 4
+      TabOrder = 5
       TabStop = True
     end
     object RadioButton2: TRadioButton
+      Tag = 6
       Left = 312
       Top = 16
       Width = 89
       Height = 17
       Caption = 'Apellido'
-      TabOrder = 5
+      TabOrder = 6
     end
     object Edit1: TEdit
+      Tag = 3
       Left = 84
       Top = 159
       Width = 125
       Height = 27
-      TabOrder = 6
+      TabOrder = 2
     end
   end
 end

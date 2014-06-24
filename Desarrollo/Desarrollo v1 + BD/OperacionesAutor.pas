@@ -58,24 +58,30 @@ implementation
 
 procedure TForm3.DBGrid1CellClick(Column: TColumn);
 begin
-    edit1.Text:=inttostr(datamodule1.adoautor.FieldByName('IDAutor').AsInteger);
+if speedbutton3.Visible=false then
+begin
     edit2.Text:=datamodule1.adoautor.FieldByName('Nombre').AsString;
     edit3.Text:=datamodule1.adoautor.FieldByName('Apellido').AsString;
+end;
 end;
 
 procedure TForm3.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  edit1.Text:=inttostr(datamodule1.adoautor.FieldByName('IDAutor').AsInteger);
+if speedbutton3.Visible=false then
+begin
     edit2.Text:=datamodule1.adoautor.FieldByName('Nombre').AsString;
     edit3.Text:=datamodule1.adoautor.FieldByName('Apellido').AsString;
+end;
 end;
 procedure TForm3.DBGrid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-    edit1.Text:=inttostr(datamodule1.adoautor.FieldByName('IDAutor').AsInteger);
+if speedbutton3.Visible=false then
+begin
     edit2.Text:=datamodule1.adoautor.FieldByName('Nombre').AsString;
     edit3.Text:=datamodule1.adoautor.FieldByName('Apellido').AsString;
+end;
 end;
 
 
@@ -156,6 +162,10 @@ begin
         raise EcampoBlanco.Create('Complete los campos en rojo')
       else
         datamodule1.adoautor.FieldByName('Apellido').AsString:= edit3.Text;
+      if (edit1.Text = '') then
+      raise EcampoBlanco.Create('Complete los campos en rojo')
+    else
+      datamodule1.adoautor.FieldByName('dni').AsString:= edit1.Text;
       DataModule1.ADOAutor.post;
     except
       on E : EcampoBlanco do
@@ -167,6 +177,10 @@ begin
       end;
       if (edit3.Text = '') then begin
         label2.Font.Color:= clred;
+        label13.Visible:=True;
+      end;
+      if (edit1.Text = '') then begin
+        label1.Font.color:= clred;
         label13.Visible:=True;
       end;
       datamodule1.ADOAutor.Cancel;
@@ -201,12 +215,11 @@ end;
 procedure TForm3.SpeedButton3Click(Sender: TObject);
 var buttonSelected:integer;
 begin
-  buttonSelected:=messageDlg('¿Realmente desea modificar el Autor?',mtConfirmation,mbOkCancel,0);
-  if buttonSelected= mrOk then Begin
+
   try
-    DataModule1.ComprobarAutor.Close;
+  {  DataModule1.ComprobarAutor.Close;
     DataModule1.ComprobarAutor.FieldByName('Dato').Value:=strtoint(edit1.Text);
-    Datamodule1.ComprobarAutor.Open;
+    Datamodule1.ComprobarAutor.Open;   }
     DataModule1.ADOAutor.append;
     if (edit2.Text = '') then
       raise EcampoBlanco.Create('Complete los campos en rojo')
@@ -216,6 +229,10 @@ begin
       raise EcampoBlanco.Create('Complete los campos en rojo')
     else
       datamodule1.adoautor.FieldByName('Apellido').AsString:= edit3.Text;
+    if (edit1.Text = '') then
+      raise EcampoBlanco.Create('Complete los campos en rojo')
+    else
+      datamodule1.adoautor.FieldByName('dni').AsString:= edit1.Text;
     DataModule1.ADOAutor.post;
   except
   on E : EcampoBlanco do
@@ -229,12 +246,16 @@ begin
       label2.Font.Color:=clred;           // falta todoooooooooooooooooooooooooooo
       label13.Visible:=True;
     end;
+    if (edit1.Text = '') then begin
+        label1.Font.color:= clred;
+        label13.Visible:=True;
+    end;
     datamodule1.ADOAutor.Cancel;
   end
   else
     ShowMessage('Error desconocido')
   end;
-  End;
+
   if buttonSelected= mrCancel then begin
     datamodule1.ADOAutor.Cancel;
     edit1.Text:='';
@@ -249,6 +270,11 @@ procedure TForm3.SpeedButton4Click(Sender: TObject);
 begin
   if MessageDlg('¿Realmente desea eliminar el Autor?', mtConfirmation,[mbOk,mbCancel], 0)= mrOk then
     DataModule1.ADOAutor.delete;
+
+  edit1.Text:='';
+  edit2.Text:='';
+  edit3.Text:='';
+  edit4.Text:='';
 end;
 
 end.
