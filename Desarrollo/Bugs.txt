@@ -1,0 +1,7 @@
+--En Panel crear Usuario
+	-Desp de crear el usuario exitosamente, mno se cierra el panel, la 
+	  unica forma de salir es "cancelar" confuso.
+
+--En el panel recuperar clave
+	-queda medio feo q los edit ten a distinta altura.
+	-
