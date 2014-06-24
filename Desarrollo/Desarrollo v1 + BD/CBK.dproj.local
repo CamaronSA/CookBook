@@ -78,6 +78,8 @@
     <Transaction>2014/06/22 14:46:06.372.dfm,C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\Unit5.dfm=C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\AgregoCorrectamenteAlgo.dfm</Transaction>
     <Transaction>2014/06/22 14:50:40.757.pas,C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\AgregoCorrectamenteAlgo.pas=C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\unit5.pas</Transaction>
     <Transaction>2014/06/22 14:50:40.757.dfm,C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\AgregoCorrectamenteAlgo.dfm=C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\unit5.dfm</Transaction>
+    <Transaction>2014/06/24 01:50:19.578.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\FiltradoLibros.pas=</Transaction>
+    <Transaction>2014/06/24 01:50:19.578.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\FiltradoLibros.dfm=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="CarritoDeCompras.pas"/>
@@ -89,8 +91,6 @@
     <File Path="DetalleLibro.pas"/>
     <File Path="DetalleLibro.dfm"/>
     <File Path="EASendMailObjLib_TLB.pas"/>
-    <File Path="FiltradoLibros.pas"/>
-    <File Path="FiltradoLibros.dfm"/>
     <File Path="Login.pas"/>
     <File Path="Login.dfm"/>
     <File Path="ModifAdmin.pas"/>

@@ -80,9 +80,6 @@
 			<DCCReference Include="ModificarLibro.pas">
 				<Form>Form4</Form>
 			</DCCReference>
-			<DCCReference Include="FiltradoLibros.pas">
-				<Form>FormFiltradoLibros</Form>
-			</DCCReference>
 			<DCCReference Include="RecuperarClave.pas">
 				<Form>FormRecuperarClave</Form>
 			</DCCReference>

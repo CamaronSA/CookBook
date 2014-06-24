@@ -29,7 +29,6 @@ type
     procedure Letras(Sender: TObject; var Key: Char);
     procedure LetrasYEspacio(Sender: TObject; var Key: Char);
     procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
-
   private
     { Private declarations }
   public
@@ -40,8 +39,6 @@ var
   Form2: TForm2;
 
 implementation
-
-uses Login, Unit1;
 
 {$R *.dfm}
 
@@ -87,43 +84,20 @@ end;
 
 procedure TForm2.Button1Click(Sender: TObject);
 var
-  oSmtp : TMail; EmailU: String;
+  oSmtp : TMail;
 begin
   try
-    //Consulto email del usuario
-  DataModule1.EmailDeUser.Close;
-  DataModule1.EmailDeUser.Parameters.ParambyName('User').value:=UsuarioRegistrado; //Paso como parametro el usuario
-  DataModule1.EmailDeUser.Open;
-  EmailU:=DataModule1.EmailDEUser.FieldByName('Mail').asString;
-
   oSmtp := TMail.Create(Application);
   oSmtp.LicenseCode := 'TryIt';
 
-  //Consulto, el edit1 esta VISIBLE es porque es VISITANTE
-  if Edit1.Visible=True then begin
-    if Edit1.Text='' then
-      raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-    else
-      if EncontrarArroba(Edit1.Text)=False then
-        raise ESinArroba.Create('Ingrese un email válido')
-        else
-        // Su cuenta de GMAIL
-        oSmtp.FromAddr := 'contacto.cookbook@gmail.com';
-        // MENSAJE
-        if Memo1.Lines.GetText='' then
-           raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-        else
-          oSmtp.BodyText := 'Usuario:'+' Visitante'+#13+'Email: '+Edit1.Text+#13+'Mensaje: '+Memo1.Lines.GetText;
-  end
-  //SINO ESTA EN BLANCO, es USUARIO
-  else begin
-  oSmtp.FromAddr := 'contacto.cookbook@gmail.com';
-  // MENSAJE
-  if Memo1.Lines.GetText='' then
+  if Edit1.Text='' then
     raise EEspacioEnBlanco.Create('Complete los campos en rojo')
-    else
-      oSmtp.BodyText := 'Usuario: '+UsuarioRegistrado+#13+'Email: '+EmailU+#13+'Mensaje: '+Memo1.Lines.GetText;
-  end;
+  else
+    if EncontrarArroba(Edit1.Text)=False then
+      raise ESinArroba.Create('Ingrese un email válido')
+      else
+      // Su cuenta de GMAIL
+      oSmtp.FromAddr := Edit1.Text;
 
   // Destinatario del email
   oSmtp.AddRecipientEx( 'contacto.cookbook@gmail.com', 0);
@@ -133,6 +107,12 @@ begin
     else
       // ASUNTO
       oSmtp.Subject := Edit3.Text;
+
+  // MENSAJE
+  if Memo1.Lines.GetText='' then
+    raise EEspacioEnBlanco.Create('Complete los campos en rojo')
+    else
+      oSmtp.BodyText := 'Usuario:'+'Email:'+'Mensaje:'+Memo1.Lines.GetText; //Agregar usuario/visitante y Email (de la db o el edit1 si es visitante)
 
   // SMTP DE GMAIL
   oSmtp.ServerAddr := 'smtp.gmail.com';
@@ -182,7 +162,6 @@ Label4.Font.Color:=clBlack;
 Label5.Visible:=False;
 end;
 
-
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 Edit1.Text:='';
@@ -190,6 +169,7 @@ Edit3.Text:='';
 Memo1.Lines.Clear;
 Label1.Font.Color:=clBlack;
 Label2.Font.Color:=clBlack;
+Label3.Font.Color:=clBlack;
 Label4.Font.Color:=clBlack;
 end;
 

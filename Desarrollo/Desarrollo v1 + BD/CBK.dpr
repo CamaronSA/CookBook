@@ -16,7 +16,6 @@ uses
   OperacionesEditorial in 'OperacionesEditorial.pas' {FormOperacionesEditorial},
   OperacionesCategoria in 'OperacionesCategoria.pas' {FormOperacionesCategoria},
   ModificarLibro in 'ModificarLibro.pas' {Form4},
-  FiltradoLibros in 'FiltradoLibros.pas' {FormFiltradoLibros},
   RecuperarClave in 'RecuperarClave.pas' {FormRecuperarClave},
   TarjetasDeCredito in 'TarjetasDeCredito.pas' {FormtarjetasDeCredito},
   PedidosPorFecha in 'PedidosPorFecha.pas' {FormPedidosPorFecha},
@@ -30,7 +29,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormLogin, FormLogin);
+  AApplication.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
   Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
@@ -44,7 +43,6 @@ begin
   Application.CreateForm(TFormOperacionesEditorial, FormOperacionesEditorial);
   Application.CreateForm(TFormOperacionesCategoria, FormOperacionesCategoria);
   Application.CreateForm(TForm4, Form4);
-  Application.CreateForm(TFormFiltradoLibros, FormFiltradoLibros);
   Application.CreateForm(TFormRecuperarClave, FormRecuperarClave);
   Application.CreateForm(TFormtarjetasDeCredito, FormtarjetasDeCredito);
   Application.CreateForm(TFormPedidosPorFecha, FormPedidosPorFecha);
@@ -53,5 +51,5 @@ begin
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TFrmMensajeConTemporizador, FrmMensajeConTemporizador);
   Application.CreateForm(TForm6, Form6);
-  Application.Run;
+  pplication.Run;
 end.

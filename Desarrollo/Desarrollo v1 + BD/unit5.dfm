@@ -1,11 +1,11 @@
 object FrmMensajeConTemporizador: TFrmMensajeConTemporizador
-  Left = 987
-  Top = 771
+  Left = 990
+  Top = 776
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Aviso'
-  ClientHeight = 25
-  ClientWidth = 178
+  ClientHeight = 30
+  ClientWidth = 252
   Color = clInfoBk
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -33,7 +33,7 @@ object FrmMensajeConTemporizador: TFrmMensajeConTemporizador
   end
   object TimerEscondeVentana: TTimer
     Enabled = False
-    Interval = 2000
+    Interval = 4000
     OnTimer = TimerEscondeVentanaTimer
     Left = 544
     Top = 40

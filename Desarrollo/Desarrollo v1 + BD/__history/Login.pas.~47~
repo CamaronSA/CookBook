@@ -15,15 +15,12 @@ type
     SpeedButton2: TSpeedButton;
     Edit1: TEdit;
     Edit2: TEdit;
-    SpeedButton4: TSpeedButton;
-    Label3: TLabel;
-    Label4: TLabel;
+    SpeedButton3: TSpeedButton;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
-    procedure Label3Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,11 +28,11 @@ type
   end;
 
 var
-  FormLogin: TFormLogin; UsuarioRegistrado:String;
+  FormLogin: TFormLogin;
 
 implementation
 
-uses Principal, RegistroCliente, Contacto;
+uses Principal, RegistroCliente;
 
 {$R *.dfm}
 
@@ -63,17 +60,14 @@ datamodule1.FiltroPorFecha.Active:=true;
 datamodule1.ADOCliente.Active:=true;
 DataModule1.ADOIdioma.IndexFieldNames:='IDIOMA';
 DataModule1.ADOLibro.IndexFieldNames:='Titulo';
+DataMOdule1.EmailDeUser.Active:=true;
+
 
 end;
 procedure TFormLogin.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key=#13 then
   FormLogin.SpeedButton2Click(nil);
-end;
-
-procedure TFormLogin.Label3Click(Sender: TObject);
-begin
- formregistrocliente.showmodal;
 end;
 
 procedure TFormLogin.SpeedButton1Click(Sender: TObject);
@@ -109,9 +103,6 @@ begin
       FormPrincipal.SpeedButton2.Visible:=true;
       FormPrincipal.SpeedButton4.Enabled:=true;
       FormPrincipal.SpeedButton4.Visible:=true;
-      UsuarioRegistrado:=Edit1.Text; //Variable global de usuario, la uso en CONTACTO
-      Form2.Edit1.Visible:=False; // Form contacto
-      Form2.Label1.Visible:=False; // Form contacto
       edit1.Text:='';
       edit2.Text:='';
       FormPrincipal.ShowModal;
@@ -130,7 +121,6 @@ begin
           PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=False;
-          UsuarioRegistrado:=Edit1.Text;
           edit1.Text:='';
           edit2.Text:='';
           FormPrincipal.ShowModal;
@@ -149,30 +139,23 @@ begin
             PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=True;
-            UsuarioRegistrado:=Edit1.Text;
             edit1.Text:='';
             edit2.Text:='';
             FormPrincipal.ShowModal;
           end
-          else begin
+          else
           showMessage('El usuario o clave ingresados son incorrectos.');
-          Edit2.Text:='';
-          end;
+
    end;
-procedure TFormLogin.SpeedButton4Click(Sender: TObject);
+procedure TFormLogin.SpeedButton3Click(Sender: TObject);
 begin
-  FormPrincipal.ShowModal;
-  { *****************
-    ****************
-
-    FALTA OCULTAR COSAS PARA QUE SEA VISITANTE
-
-    *****************
-    *****************
-   }
-  Form2.Edit1.Visible:=True;
-  Form2.Label1.Visible:=True;
-
+formregistrocliente.showmodal;
 end;
+
+//   FormPrincipal.showmodal;
+//   FormLogin.Close;
+
+
+                      //soy un comentario
 
 end.

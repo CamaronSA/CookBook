@@ -4,8 +4,8 @@ object Form6: TForm6
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Form6'
-  ClientHeight = 21
-  ClientWidth = 194
+  ClientHeight = 209
+  ClientWidth = 522
   Color = clInfoBk
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

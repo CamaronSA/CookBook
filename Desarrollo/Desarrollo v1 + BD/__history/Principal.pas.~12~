@@ -28,14 +28,12 @@ type
     MisDatos1: TMenuItem;
     Ayuda1: TMenuItem;
     Cargadeformularios1: TMenuItem;
-    Label1: TLabel;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,14 +48,6 @@ implementation
 uses CatalogoLibros, CarritoDeCompras, Login;
 
 {$R *.dfm}
-
-procedure TFormPrincipal.FormActivate(Sender: TObject);
-begin
-if UsuarioRegistrado <>'' then
-  label1.Caption:='Bienvenido '+UsuarioRegistrado
-else
-  label1.Caption:='Bienvenido Visitante'
-end;
 
 procedure TFormPrincipal.SpeedButton1Click(Sender: TObject);
 begin
@@ -76,9 +66,6 @@ end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);
 begin
-  Form2.Label1.Visible:=True;
-  Form2.Edit1.Visible:=True;
-  UsuarioRegistrado:='';
   FormPrincipal.Close;
 
 end;
@@ -90,7 +77,6 @@ end;
 
 procedure TFormPrincipal.SpeedButton7Click(Sender: TObject);
 begin
-  UsuarioRegistrado:='';
   FormPrincipal.Close;
   FormLogin.Close;
 end;

@@ -15,6 +15,7 @@ object FormPrincipal: TFormPrincipal
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -1471,6 +1472,19 @@ object FormPrincipal: TFormPrincipal
     Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 16
+    Top = 8
+    Width = 54
+    Height = 19
+    Caption = 'Label1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object DBImage1: TDBImage

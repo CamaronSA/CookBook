@@ -3,8 +3,8 @@ object FormLogin: TFormLogin
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Login'
-  ClientHeight = 190
-  ClientWidth = 428
+  ClientHeight = 157
+  ClientWidth = 430
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -45,77 +45,46 @@ object FormLogin: TFormLogin
     ParentFont = False
   end
   object SpeedButton1: TSpeedButton
-    Left = 360
-    Top = 147
-    Width = 65
-    Height = 35
-    Cursor = crHandPoint
+    Left = 328
+    Top = 112
+    Width = 97
+    Height = 40
     Caption = 'Salir'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -21
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     OnClick = SpeedButton1Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 272
-    Top = 147
-    Width = 82
-    Height = 35
-    Cursor = crHandPoint
+    Left = 225
+    Top = 112
+    Width = 97
+    Height = 40
     Caption = 'Conectar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -21
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     OnClick = SpeedButton2Click
   end
-  object SpeedButton4: TSpeedButton
-    Left = 8
-    Top = 147
-    Width = 82
-    Height = 35
-    Cursor = crHandPoint
-    Caption = 'Visitante'
+  object SpeedButton3: TSpeedButton
+    Left = 29
+    Top = 112
+    Width = 190
+    Height = 40
+    Caption = 'Deseo registrarme'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -16
+    Font.Height = -19
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton4Click
-  end
-  object Label3: TLabel
-    Left = 135
-    Top = 123
-    Width = 285
-    Height = 13
-    Cursor = crHandPoint
-    Caption = #191'Todav'#237'a no eres usuario registrado? REGISTRATE!'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    OnClick = Label3Click
-  end
-  object Label4: TLabel
-    Left = 335
-    Top = 104
-    Width = 85
-    Height = 13
-    Caption = 'Olvid'#233' mi clave'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
+    OnClick = SpeedButton3Click
   end
   object Edit1: TEdit
     Left = 147

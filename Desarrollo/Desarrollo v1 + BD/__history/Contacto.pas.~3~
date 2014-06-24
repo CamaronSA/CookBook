@@ -29,7 +29,7 @@ type
     procedure Letras(Sender: TObject; var Key: Char);
     procedure LetrasYEspacio(Sender: TObject; var Key: Char);
     procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
-
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,17 +90,19 @@ var
   oSmtp : TMail; EmailU: String;
 begin
   try
-    //Consulto email del usuario
+  //Consulto email del usuario
   DataModule1.EmailDeUser.Close;
-  DataModule1.EmailDeUser.Parameters.ParambyName('User').value:=UsuarioRegistrado; //Paso como parametro el usuario
+  DataModule1.EmailDeUser.Parameters.ParambyName('User').value:=FormLogin.Edit1.Text; //Paso como parametro el usuario
   DataModule1.EmailDeUser.Open;
-  EmailU:=DataModule1.EmailDEUser.FieldByName('Mail').asString;
+  EmailU:=DataModule1.EmailDEUser.FieldByName('Usuario').asString;
 
   oSmtp := TMail.Create(Application);
   oSmtp.LicenseCode := 'TryIt';
 
-  //Consulto, el edit1 esta VISIBLE es porque es VISITANTE
-  if Edit1.Visible=True then begin
+  //Consulto, si estan en blanco los edits es porque es VISITANTE
+  if (FormLogin.Edit1.Text='') and (FormLogin.Edit2.Text='') then begin
+    Edit1.Visible:=True;
+    Label1.Visible:=True;
     if Edit1.Text='' then
       raise EEspacioEnBlanco.Create('Complete los campos en rojo')
     else
@@ -113,16 +115,16 @@ begin
         if Memo1.Lines.GetText='' then
            raise EEspacioEnBlanco.Create('Complete los campos en rojo')
         else
-          oSmtp.BodyText := 'Usuario:'+' Visitante'+#13+'Email: '+Edit1.Text+#13+'Mensaje: '+Memo1.Lines.GetText;
+          oSmtp.BodyText := 'Usuario:'+' Visitante'+'Email:'+Edit1.Text+'Mensaje:'+Memo1.Lines.GetText;
   end
-  //SINO ESTA EN BLANCO, es USUARIO
+  //SINO ESTAN EN BLANCO, es USUARIO
   else begin
   oSmtp.FromAddr := 'contacto.cookbook@gmail.com';
   // MENSAJE
   if Memo1.Lines.GetText='' then
     raise EEspacioEnBlanco.Create('Complete los campos en rojo')
     else
-      oSmtp.BodyText := 'Usuario: '+UsuarioRegistrado+#13+'Email: '+EmailU+#13+'Mensaje: '+Memo1.Lines.GetText;
+      oSmtp.BodyText := 'Usuario:'+FormLogin.Edit1.Text+'Email:'+EmailU+'Mensaje:'+Memo1.Lines.GetText; //Agregar usuario/visitante y Email (de la db o el edit1 si es visitante)
   end;
 
   // Destinatario del email
@@ -182,6 +184,11 @@ Label4.Font.Color:=clBlack;
 Label5.Visible:=False;
 end;
 
+procedure TForm2.FormActivate(Sender: TObject);
+begin
+ Edit1.Visible:=False; //Falso si es USUARIO
+ Label1.Visible:=False; //   "    "   "
+end;
 
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -191,6 +198,8 @@ Memo1.Lines.Clear;
 Label1.Font.Color:=clBlack;
 Label2.Font.Color:=clBlack;
 Label4.Font.Color:=clBlack;
+Edit1.Visible:=False; //Falso si es USUARIO
+Label1.Visible:=False; //   "    "   "
 end;
 
 
