@@ -507,4 +507,13 @@ object DataModule1: TDataModule1
     Left = 248
     Top = 328
   end
+  object EmailDeUser: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Cliente'
+      'where (Usuario =:User)')
+    Left = 344
+    Top = 384
+  end
 end
