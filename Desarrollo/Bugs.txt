@@ -1,7 +1,9 @@
 --En Panel crear Usuario
-	-Desp de crear el usuario exitosamente, mno se cierra el panel, la 
-	  unica forma de salir es "cancelar" confuso.
+	- Desp de crear el usuario exitosamente, mno se cierra el panel, la 
+	   unica forma de salir es "cancelar" confuso.
 	- Medio plomo que todos los campos sean obligatorios.
+	- Puedo crear usuario root contraceña kapanga 
+	- Puedo crear usuaio admin admin
 --En el panel recuperar clave
 	-queda medio feo q los edit ten a distinta altura.
 	-
