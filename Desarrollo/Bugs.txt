@@ -6,4 +6,10 @@
 	- Puedo crear usuaio admin admin
 --En el panel recuperar clave
 	-queda medio feo q los edit ten a distinta altura.
+
 	-
+
+--En panel login
+	- edit user y pass no tiene tope de caractere
+	- edIt user y pass admiten caracteres especiales
+	- 
