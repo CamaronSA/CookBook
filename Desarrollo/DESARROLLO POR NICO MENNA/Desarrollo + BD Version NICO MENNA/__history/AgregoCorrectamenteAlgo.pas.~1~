@@ -1,0 +1,42 @@
+unit AgregoCorrectamenteAlgo;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls;
+
+type
+  TFrmMensajeConTemporizador = class(TForm)
+    TimerEscondeVentana: TTimer;
+    PaintBox1: TPaintBox;
+    procedure FormShow(Sender: TObject);
+    procedure TimerEscondeVentanaTimer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmMensajeConTemporizador: TFrmMensajeConTemporizador;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmMensajeConTemporizador.FormShow(Sender: TObject);
+begin
+  TimerEscondeVentana.Enabled:= True;
+end;
+
+
+procedure TFrmMensajeConTemporizador.TimerEscondeVentanaTimer(
+  Sender: TObject);
+begin
+  FrmMensajeConTemporizador.Close;
+  TimerEscondeVentana.Enabled := False;
+end;
+
+
+end.
