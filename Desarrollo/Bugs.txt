@@ -13,3 +13,7 @@
 	- edit user y pass no tiene tope de caractere
 	- edIt user y pass admiten caracteres especiales
 	- 
+
+--AdministradorEliminar
+	- No tiene except si quiero eliminar y no hay nada.
+	- Tira un error de null
