@@ -16,7 +16,6 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    Image1: TImage;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     DBText1: TDBText;
@@ -27,6 +26,7 @@ type
     DBText6: TDBText;
     DBText7: TDBText;
     DBText8: TDBText;
+    DBImage1: TDBImage;
     procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
@@ -38,6 +38,8 @@ var
   FormDetalleLibro: TFormDetalleLibro;
 
 implementation
+
+uses Unit1;
 
 {$R *.dfm}
 

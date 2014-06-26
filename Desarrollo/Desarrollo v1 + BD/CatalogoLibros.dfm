@@ -1,11 +1,11 @@
 object FormCatalogoLibros: TFormCatalogoLibros
-  Left = 0
-  Top = 0
+  Left = 240
+  Top = 81
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
-  ClientHeight = 631
-  ClientWidth = 839
+  ClientHeight = 633
+  ClientWidth = 736
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,117 +13,168 @@ object FormCatalogoLibros: TFormCatalogoLibros
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
+  OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 32
-    Top = 135
-    Width = 140
-    Height = 23
-    Caption = 'Listado de Libros'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label2: TLabel
-    Left = 32
+  object Panel1: TPanel
+    Left = 8
     Top = 8
-    Width = 83
-    Height = 23
-    Caption = 'Busqueda'
+    Width = 729
+    Height = 628
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object SpeedButton1: TSpeedButton
-    Left = 575
-    Top = 47
-    Width = 138
-    Height = 27
-    Caption = 'Buscar'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object SpeedButton3: TSpeedButton
-    Left = 679
-    Top = 579
-    Width = 146
-    Height = 41
-    Caption = 'Volver'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton3Click
-  end
-  object SpeedButton2: TSpeedButton
-    Left = 32
-    Top = 579
-    Width = 146
-    Height = 41
-    Caption = 'A'#241'adir al carrito'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton2Click
-  end
-  object Label3: TLabel
-    Left = 312
-    Top = 145
-    Width = 293
-    Height = 13
-    Caption = 'Para poder Realizar una compra usted debe estar registrado '
-  end
-  object GroupBox1: TGroupBox
-    Left = 32
-    Top = 37
-    Width = 265
-    Height = 92
-    Caption = 'Criterios'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
+    Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    object RadioButton1: TRadioButton
-      Left = 33
-      Top = 24
-      Width = 113
-      Height = 17
-      Caption = 'Por autor'
+    object Label3: TLabel
+      Left = 24
+      Top = 132
+      Width = 293
+      Height = 13
+      Caption = 'Para poder Realizar una compra usted debe estar registrado '
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
+      Font.Color = clBlack
+      Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 0
     end
-    object RadioButton2: TRadioButton
-      Left = 33
-      Top = 56
-      Width = 113
-      Height = 17
-      Caption = 'Por titulo'
+    object SpeedButton1: TSpeedButton
+      Left = 288
+      Top = 64
+      Width = 138
+      Height = 27
+      Caption = 'Buscar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 24
+      Top = 574
+      Width = 146
+      Height = 41
+      Caption = 'A'#241'adir al carrito'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton2Click
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 559
+      Top = 574
+      Width = 146
+      Height = 41
+      Caption = 'Volver'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton3Click
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 176
+      Top = 574
+      Width = 146
+      Height = 41
+      Caption = 'Ver en detalle'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton4Click
+    end
+    object SpeedButton5: TSpeedButton
+      Left = 328
+      Top = 574
+      Width = 146
+      Height = 41
+      Caption = 'Ver Carrito'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton5Click
+    end
+    object DBGrid1: TDBGrid
+      Left = 24
+      Top = 151
+      Width = 681
+      Height = 409
+      DataSource = DataModule1.Tabla_LibrosALaVenta
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Titulo'
+          Width = 146
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Autor'
+          Width = 96
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Editorial'
+          Width = 110
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Etiqueta'
+          Width = 110
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Idioma'
+          Width = 101
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Precio'
+          Width = 79
+          Visible = True
+        end>
+    end
+    object Edit1: TEdit
+      Left = 268
+      Top = 31
+      Width = 176
+      Height = 27
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -132,12 +183,11 @@ object FormCatalogoLibros: TFormCatalogoLibros
       ParentFont = False
       TabOrder = 1
     end
-    object RadioButton3: TRadioButton
-      Left = 152
-      Top = 24
-      Width = 113
-      Height = 17
-      Caption = 'Editorial'
+    object GroupBox1: TGroupBox
+      Left = 148
+      Top = 0
+      Width = 421
+      Height = 25
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -145,85 +195,120 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      object RadioButton1: TRadioButton
+        Left = 33
+        Top = 3
+        Width = 113
+        Height = 17
+        Caption = 'Por autor'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object RadioButton2: TRadioButton
+        Left = 310
+        Top = 5
+        Width = 113
+        Height = 17
+        Caption = 'Por titulo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+      end
+      object RadioButton3: TRadioButton
+        Left = 120
+        Top = 3
+        Width = 113
+        Height = 17
+        Caption = 'Editorial'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object RadioButton4: TRadioButton
+        Left = 215
+        Top = 1
+        Width = 89
+        Height = 21
+        Caption = 'Categoria'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
     end
-    object RadioButton4: TRadioButton
-      Left = 152
-      Top = 47
-      Width = 113
-      Height = 33
-      Caption = 'Categoria'
+  end
+  object Panel2: TPanel
+    Left = 743
+    Top = 8
+    Width = 298
+    Height = 628
+    TabOrder = 1
+    Visible = False
+    object SpeedButton6: TSpeedButton
+      Left = 112
+      Top = 574
+      Width = 146
+      Height = 41
+      Caption = 'Ocultar Carrito'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
+      Font.Color = clPurple
+      Font.Height = -19
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      OnClick = SpeedButton6Click
+    end
+    object StringGrid1: TStringGrid
+      Left = 8
+      Top = 176
+      Width = 265
+      Height = 384
+      ColCount = 4
+      FixedCols = 0
+      RowCount = 1
+      FixedRows = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+      ParentShowHint = False
+      ScrollBars = ssVertical
+      ShowHint = False
+      TabOrder = 0
+    end
+    object StringGrid2: TStringGrid
+      Left = 8
+      Top = 151
+      Width = 265
+      Height = 24
+      ColCount = 4
+      FixedCols = 0
+      RowCount = 1
+      FixedRows = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+      ParentShowHint = False
+      ScrollBars = ssVertical
+      ShowHint = False
+      TabOrder = 1
     end
   end
-  object DBGrid1: TDBGrid
-    Left = 38
-    Top = 164
-    Width = 793
-    Height = 409
-    DataSource = DataModule1.Tabla_LibrosALaVenta
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-    ReadOnly = True
-    TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'Titulo'
-        Width = 188
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Autor'
-        Width = 91
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Editorial'
-        Width = 99
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Etiqueta'
-        Width = 116
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Idioma'
-        Width = 118
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Precio'
-        Width = 136
-        Visible = True
-      end>
-  end
-  object Edit1: TEdit
-    Left = 312
-    Top = 47
-    Width = 233
-    Height = 27
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 2
+  object Carrito: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <>
+    Left = 680
+    Top = 16
   end
 end

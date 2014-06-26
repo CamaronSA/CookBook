@@ -17,8 +17,8 @@ object FormDetalleLibro: TFormDetalleLibro
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
-    Left = 32
-    Top = 88
+    Left = 31
+    Top = 53
     Width = 53
     Height = 23
     Caption = 'Titulo:'
@@ -43,8 +43,8 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 32
-    Top = 176
+    Left = 31
+    Top = 181
     Width = 131
     Height = 23
     Caption = 'A'#241'o de edici'#243'n:'
@@ -109,7 +109,7 @@ object FormDetalleLibro: TFormDetalleLibro
   end
   object Label9: TLabel
     Left = 32
-    Top = 56
+    Top = 93
     Width = 76
     Height = 23
     Caption = 'Etiqueta:'
@@ -119,12 +119,6 @@ object FormDetalleLibro: TFormDetalleLibro
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-  end
-  object Image1: TImage
-    Left = 329
-    Top = 56
-    Width = 161
-    Height = 234
   end
   object SpeedButton1: TSpeedButton
     Left = 32
@@ -155,50 +149,126 @@ object FormDetalleLibro: TFormDetalleLibro
   end
   object DBText1: TDBText
     Left = 128
-    Top = 56
-    Width = 177
-    Height = 23
-  end
-  object DBText2: TDBText
-    Left = 128
     Top = 96
     Width = 177
     Height = 23
+    DataField = 'Etiqueta'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBText2: TDBText
+    Left = 128
+    Top = 56
+    Width = 177
+    Height = 23
+    DataField = 'Titulo'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText3: TDBText
     Left = 128
     Top = 136
     Width = 177
     Height = 23
+    DataField = 'Autor'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText4: TDBText
     Left = 184
     Top = 184
-    Width = 130
+    Width = 121
     Height = 23
+    DataField = 'AnioEditorial'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText5: TDBText
     Left = 128
     Top = 224
     Width = 177
     Height = 23
+    DataField = 'Editorial'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText6: TDBText
     Left = 128
     Top = 267
     Width = 177
     Height = 23
+    DataField = 'Idioma'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText7: TDBText
     Left = 32
     Top = 325
-    Width = 401
+    Width = 458
     Height = 84
+    DataField = 'Descripcion'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object DBText8: TDBText
     Left = 128
-    Top = 434
+    Top = 429
     Width = 177
     Height = 23
+    DataField = 'Precio'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBImage1: TDBImage
+    Left = 320
+    Top = 53
+    Width = 170
+    Height = 237
+    DataField = 'Imagen'
+    DataSource = DataModule1.Tabla_LibrosALaVenta
+    Enabled = False
+    ReadOnly = True
+    Stretch = True
+    TabOrder = 0
   end
 end
