@@ -5,8 +5,7 @@
 	- Puedo crear usuario root contraceña kapanga 
 	- Puedo crear usuaio admin admin
 --En el panel recuperar clave
-	-queda medio feo q los edit ten a distinta altura.
-
+	- queda medio feo q los edit ten a distinta altura.
 	-
 
 --En panel login
@@ -17,3 +16,8 @@
 --AdministradorEliminar
 	- No tiene except si quiero eliminar y no hay nada.
 	- Tira un error de null
+
+-Modificar Libro
+	- Tiene problemas en colores de labels
+	- Los mensajes de informacion estan mal
+	- 
