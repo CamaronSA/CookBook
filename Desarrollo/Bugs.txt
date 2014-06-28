@@ -20,4 +20,9 @@
 -Modificar Libro
 	- Tiene problemas en colores de labels
 	- Los mensajes de informacion estan mal
-	- 
+	
+-VerDetalleLibro
+	- Revisar campo memo vacio.
+ 
+-ElimianrLibro
+	-Se puede quitar de la venta un libro que no esta a la venta
