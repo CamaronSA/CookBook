@@ -4,8 +4,8 @@ object FormCatalogoLibros: TFormCatalogoLibros
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
-  ClientHeight = 633
-  ClientWidth = 736
+  ClientHeight = 634
+  ClientWidth = 1111
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -103,7 +103,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Top = 574
       Width = 146
       Height = 41
-      Caption = 'Ver Carrito'
+      Caption = 'Carrito'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
       Font.Height = -19
@@ -256,16 +256,16 @@ object FormCatalogoLibros: TFormCatalogoLibros
   object Panel2: TPanel
     Left = 743
     Top = 8
-    Width = 298
+    Width = 370
     Height = 628
     TabOrder = 1
     Visible = False
     object SpeedButton6: TSpeedButton
-      Left = 112
+      Left = 8
       Top = 574
-      Width = 146
+      Width = 97
       Height = 41
-      Caption = 'Ocultar Carrito'
+      Caption = 'Ocultar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
       Font.Height = -19
@@ -274,12 +274,39 @@ object FormCatalogoLibros: TFormCatalogoLibros
       ParentFont = False
       OnClick = SpeedButton6Click
     end
+    object SpeedButton7: TSpeedButton
+      Left = 8
+      Top = 5
+      Width = 113
+      Height = 28
+      Caption = 'Borrar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton7Click
+    end
+    object SpeedButton8: TSpeedButton
+      Left = 144
+      Top = 5
+      Width = 113
+      Height = 28
+      Caption = 'Refrescar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton8Click
+    end
     object StringGrid1: TStringGrid
       Left = 8
       Top = 176
-      Width = 265
+      Width = 329
       Height = 384
-      ColCount = 4
       FixedCols = 0
       RowCount = 1
       FixedRows = 0
@@ -288,13 +315,13 @@ object FormCatalogoLibros: TFormCatalogoLibros
       ScrollBars = ssVertical
       ShowHint = False
       TabOrder = 0
+      OnClick = StringGrid1Click
     end
     object StringGrid2: TStringGrid
       Left = 8
       Top = 151
-      Width = 265
+      Width = 329
       Height = 24
-      ColCount = 4
       FixedCols = 0
       RowCount = 1
       FixedRows = 0
@@ -303,6 +330,151 @@ object FormCatalogoLibros: TFormCatalogoLibros
       ScrollBars = ssVertical
       ShowHint = False
       TabOrder = 1
+    end
+    object GroupBox2: TGroupBox
+      Left = 0
+      Top = 56
+      Width = 329
+      Height = 89
+      Caption = 'Libro Seleccionado'
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 192
+        Top = 46
+        Width = 34
+        Height = 16
+        Caption = 'ISBN:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 20
+        Top = 24
+        Width = 40
+        Height = 16
+        Caption = 'Titulo:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 20
+        Top = 70
+        Width = 57
+        Height = 16
+        Caption = 'Editorial:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 20
+        Top = 48
+        Width = 43
+        Height = 16
+        Caption = 'Autor:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 192
+        Top = 24
+        Width = 45
+        Height = 16
+        Caption = 'Precio:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 79
+        Top = 24
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 72
+        Top = 46
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 62
+        Top = 22
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 82
+        Top = 68
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 247
+        Top = 49
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 243
+        Top = 27
+        Width = 4
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
     end
   end
   object Carrito: TADOQuery
