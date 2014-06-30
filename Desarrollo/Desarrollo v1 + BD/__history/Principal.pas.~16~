@@ -56,7 +56,7 @@ uses CatalogoLibros, CarritoDeCompras, Login, Unit1;
 {$R *.dfm}
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
-var buttonSelected:Integer;
+var buttonSelected:Integer;DNI:Integer;
 begin
   Datamodule1.ComprobarUsuario.Close;
   Datamodule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
@@ -70,14 +70,13 @@ begin
       if not (Datamodule1.ComprobarUsuario.ISEmpty) then begin // Si es usuario
               DataModule1.BorrarUsuarioCliente.Close;
               DataModule1.BorrarUsuarioCliente.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-              DataModule1.BorrarUsuarioCliente.ExecSQL;
-              end
-              else
+              DataModule1.BorrarUsuarioCliente.Open;
               if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then begin  //Si es admin
                   DataModule1.BorrarUsuarioAdmin.Close;
                   DataModule1.BorrarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-                  DataModule1.BorrarUsuarioAdmin.ExecSQL;
+                  DataModule1.BorrarUsuarioAdmin.Open;
               end;
+      end;
       ShowMessage('El usuario se borró exitosamente');
       Close;
     end;

@@ -152,28 +152,6 @@ begin
       FormPrincipal.ShowModal;
       end
       else
-          if (User='root') and (Pwd='kapanga') then begin
-            FormPrincipal.SpeedButton6.Enabled:=true;
-            FormPrincipal.SpeedButton6.Visible:=true;
-            FormPrincipal.SpeedButton1.Enabled:=false;
-            FormPrincipal.SpeedButton1.Visible:=false;
-            FormPrincipal.SpeedButton2.Enabled:=false;
-            FormPrincipal.SpeedButton2.Visible:=false;
-            FormPrincipal.SpeedButton4.Enabled:=false;
-            FormPrincipal.SpeedButton4.Visible:=false;
-            PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=True;
-            PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=True;
-            PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=True;
-            PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=True;
-            FormCatalogoLibros.SpeedButton2.Visible:=True;
-            FormPrincipal.SpeedButton5.Visible:=True;
-            FormPrincipal.SpeedButton3.Visible:=False;
-            UsuarioRegistrado:=Edit1.Text;
-            edit1.Text:='';
-            edit2.Text:='';
-            FormPrincipal.ShowModal;
-          end
-        else
         if not (DataModule1.VerificarAdministrador.IsEmpty) then begin
           FormPrincipal.SpeedButton6.Enabled:=true;
           FormPrincipal.SpeedButton6.Visible:=true;
@@ -195,6 +173,28 @@ begin
           edit2.Text:='';
           FormPrincipal.ShowModal;
         end
+        else
+          if (User='root') and (Pwd='kapanga') then begin
+            FormPrincipal.SpeedButton6.Enabled:=true;
+            FormPrincipal.SpeedButton6.Visible:=true;
+            FormPrincipal.SpeedButton1.Enabled:=false;
+            FormPrincipal.SpeedButton1.Visible:=false;
+            FormPrincipal.SpeedButton2.Enabled:=false;
+            FormPrincipal.SpeedButton2.Visible:=false;
+            FormPrincipal.SpeedButton4.Enabled:=false;
+            FormPrincipal.SpeedButton4.Visible:=false;
+            PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=True;
+            PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=True;
+            PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=True;
+            PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=True;
+            FormCatalogoLibros.SpeedButton2.Visible:=True;
+            FormPrincipal.SpeedButton5.Visible:=True;
+            FormPrincipal.SpeedButton3.Visible:=False;
+            UsuarioRegistrado:=Edit1.Text;
+            edit1.Text:='';
+            edit2.Text:='';
+            FormPrincipal.ShowModal;
+          end
           else begin
           showMessage('El usuario o clave ingresados son incorrectos.');
           Edit2.Text:='';
