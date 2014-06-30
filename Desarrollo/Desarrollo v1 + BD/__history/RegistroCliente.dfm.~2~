@@ -3,7 +3,7 @@ object FormRegistroCliente: TFormRegistroCliente
   Top = 0
   BorderIcons = []
   Caption = 'Registro de usuario'
-  ClientHeight = 590
+  ClientHeight = 591
   ClientWidth = 477
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -16,9 +16,9 @@ object FormRegistroCliente: TFormRegistroCliente
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 73
-    Top = 94
-    Width = 76
+    Left = 70
+    Top = 95
+    Width = 75
     Height = 19
     Caption = 'Nombre: '
     Font.Charset = DEFAULT_CHARSET
@@ -56,7 +56,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label4: TLabel
     Left = 77
-    Top = 194
+    Top = 200
     Width = 68
     Height = 19
     Caption = 'Usuario:'
@@ -69,7 +69,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label6: TLabel
     Left = 94
-    Top = 229
+    Top = 238
     Width = 51
     Height = 19
     Caption = 'Clave:'
@@ -82,7 +82,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label3: TLabel
     Left = 52
-    Top = 490
+    Top = 497
     Width = 93
     Height = 19
     Caption = 'Fecha Nac.:'
@@ -95,7 +95,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label8: TLabel
     Left = 94
-    Top = 429
+    Top = 436
     Width = 51
     Height = 19
     Caption = 'Email:'
@@ -121,7 +121,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label7: TLabel
     Left = 98
-    Top = 295
+    Top = 304
     Width = 47
     Height = 19
     Caption = 'Calle:'
@@ -134,7 +134,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label9: TLabel
     Left = 302
-    Top = 295
+    Top = 304
     Width = 27
     Height = 19
     Caption = 'N'#186':'
@@ -147,7 +147,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label10: TLabel
     Left = 62
-    Top = 327
+    Top = 336
     Width = 83
     Height = 19
     Caption = 'Localidad:'
@@ -159,11 +159,11 @@ object FormRegistroCliente: TFormRegistroCliente
     ParentFont = False
   end
   object Label11: TLabel
-    Left = 63
-    Top = 363
-    Width = 81
+    Left = 70
+    Top = 366
+    Width = 75
     Height = 19
-    Caption = 'Provincia:'
+    Caption = 'Provincia'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -173,7 +173,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label13: TLabel
     Left = 105
-    Top = 396
+    Top = 403
     Width = 40
     Height = 19
     Caption = 'Pais:'
@@ -186,7 +186,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label14: TLabel
     Left = 67
-    Top = 462
+    Top = 469
     Width = 78
     Height = 19
     Caption = 'Telefono:'
@@ -199,7 +199,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object SpeedButton2: TSpeedButton
     Left = 8
-    Top = 547
+    Top = 545
     Width = 116
     Height = 38
     Caption = 'Crear'
@@ -212,8 +212,8 @@ object FormRegistroCliente: TFormRegistroCliente
     OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
-    Left = 351
-    Top = 547
+    Left = 353
+    Top = 545
     Width = 116
     Height = 38
     Caption = 'Cancelar'
@@ -226,8 +226,8 @@ object FormRegistroCliente: TFormRegistroCliente
     OnClick = SpeedButton1Click
   end
   object SpeedButton3: TSpeedButton
-    Left = 169
-    Top = 547
+    Left = 171
+    Top = 545
     Width = 176
     Height = 38
     Caption = 'Restablecer valores'
@@ -240,8 +240,8 @@ object FormRegistroCliente: TFormRegistroCliente
     OnClick = SpeedButton3Click
   end
   object Label15: TLabel
-    Left = 24
-    Top = 71
+    Left = 147
+    Top = 75
     Width = 163
     Height = 13
     Caption = 'Complete los campos en rojo'
@@ -256,7 +256,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Label16: TLabel
     Left = 8
-    Top = 263
+    Top = 272
     Width = 137
     Height = 19
     Caption = 'Confirmar Clave:'
@@ -267,160 +267,30 @@ object FormRegistroCliente: TFormRegistroCliente
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label18: TLabel
+  object Label17: TLabel
     Left = 24
-    Top = 49
-    Width = 162
+    Top = 47
+    Width = 58
     Height = 16
-    Caption = '(*) Campos son obligatorios'
+    Caption = 'Atenci'#243'n: '
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
+    Font.Color = clRed
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsItalic]
     ParentFont = False
   end
-  object Label17: TLabel
-    Left = 330
-    Top = 94
-    Width = 9
-    Height = 19
-    Caption = '*'
+  object Label18: TLabel
+    Left = 77
+    Top = 47
+    Width = 197
+    Height = 16
+    Caption = 'Todos los campos son obligatorios'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
+    Font.Color = clBlack
+    Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label19: TLabel
-    Left = 330
-    Top = 127
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label20: TLabel
-    Left = 245
-    Top = 160
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label21: TLabel
-    Left = 330
-    Top = 194
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label22: TLabel
-    Left = 330
-    Top = 226
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label23: TLabel
-    Left = 330
-    Top = 259
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label24: TLabel
-    Left = 407
-    Top = 295
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label25: TLabel
-    Left = 302
-    Top = 327
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label26: TLabel
-    Left = 302
-    Top = 358
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label27: TLabel
-    Left = 302
-    Top = 390
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label28: TLabel
-    Left = 351
-    Top = 425
-    Width = 9
-    Height = 19
-    Caption = '*'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsItalic]
     ParentFont = False
   end
   object Edit1: TEdit
@@ -476,7 +346,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit4: TEdit
     Left = 147
-    Top = 193
+    Top = 199
     Width = 177
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -493,7 +363,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit5: TEdit
     Left = 147
-    Top = 226
+    Top = 235
     Width = 177
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -511,7 +381,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit6: TEdit
     Left = 147
-    Top = 292
+    Top = 301
     Width = 149
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -528,7 +398,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit7: TEdit
     Left = 335
-    Top = 292
+    Top = 301
     Width = 66
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -545,7 +415,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit8: TEdit
     Left = 147
-    Top = 325
+    Top = 334
     Width = 149
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -562,7 +432,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit9: TEdit
     Left = 147
-    Top = 358
+    Top = 365
     Width = 149
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -579,7 +449,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit10: TEdit
     Left = 147
-    Top = 391
+    Top = 398
     Width = 149
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -596,7 +466,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit11: TEdit
     Left = 147
-    Top = 424
+    Top = 431
     Width = 198
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -613,7 +483,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit12: TEdit
     Left = 147
-    Top = 457
+    Top = 464
     Width = 30
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -630,7 +500,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object DateTimePicker1: TDateTimePicker
     Left = 147
-    Top = 490
+    Top = 497
     Width = 186
     Height = 27
     Date = 41807.733812986110000000
@@ -646,7 +516,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit13: TEdit
     Left = 183
-    Top = 457
+    Top = 464
     Width = 56
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -663,7 +533,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit14: TEdit
     Left = 245
-    Top = 457
+    Top = 464
     Width = 88
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -680,7 +550,7 @@ object FormRegistroCliente: TFormRegistroCliente
   end
   object Edit15: TEdit
     Left = 147
-    Top = 259
+    Top = 268
     Width = 177
     Height = 27
     Font.Charset = DEFAULT_CHARSET

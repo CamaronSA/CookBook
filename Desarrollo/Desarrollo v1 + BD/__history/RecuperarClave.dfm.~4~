@@ -30,7 +30,7 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 39
+    Left = 22
     Top = 207
     Width = 51
     Height = 19
@@ -84,7 +84,7 @@ object FormRecuperarClave: TFormRecuperarClave
   end
   object Label6: TLabel
     Left = 22
-    Top = 140
+    Top = 138
     Width = 68
     Height = 19
     Caption = 'Usuario:'
@@ -124,8 +124,8 @@ object FormRecuperarClave: TFormRecuperarClave
     OnClick = SpeedButton2Click
   end
   object Label3: TLabel
-    Left = 53
-    Top = 175
+    Left = 22
+    Top = 171
     Width = 37
     Height = 19
     Caption = 'DNI:'
@@ -137,7 +137,7 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 290
+    Left = 247
     Top = 138
     Width = 9
     Height = 19
@@ -150,7 +150,7 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 290
+    Left = 183
     Top = 171
     Width = 9
     Height = 19
@@ -163,7 +163,7 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 290
+    Left = 285
     Top = 207
     Width = 9
     Height = 19
@@ -189,9 +189,9 @@ object FormRecuperarClave: TFormRecuperarClave
     ParentFont = False
   end
   object Edit1: TEdit
-    Left = 96
+    Left = 79
     Top = 204
-    Width = 188
+    Width = 204
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -208,7 +208,7 @@ object FormRecuperarClave: TFormRecuperarClave
   object Edit3: TEdit
     Left = 96
     Top = 138
-    Width = 188
+    Width = 145
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -223,9 +223,9 @@ object FormRecuperarClave: TFormRecuperarClave
     OnKeyPress = LetrasNumnerosETC
   end
   object Edit2: TEdit
-    Left = 96
+    Left = 65
     Top = 171
-    Width = 188
+    Width = 112
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

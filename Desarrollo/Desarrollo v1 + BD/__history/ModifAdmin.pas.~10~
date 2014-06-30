@@ -343,8 +343,7 @@ begin
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
         if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
-          if not (Datamodule1.ComprobarUsuario.ISEmpty) then
-            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+          raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
         else
           DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
       //Clave
@@ -455,9 +454,6 @@ begin
       DataModule1.ComprobarUsuarioAdmin.Close;
       DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit5.Text;
       DataModule1.ComprobarUsuarioAdmin.Open;
-      DataModule1.ComprobarUsuario.Close;
-      DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=Edit5.Text;
-      DataModule1.ComprobarUsuario.Open;
       DataModule1.ADOAdministrador.Append;
       //Nombre
       if (Edit2.Text = '') then
@@ -483,8 +479,7 @@ begin
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
         if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
-          if not (Datamodule1.ComprobarUsuario.ISEmpty) then
-            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+          raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
         else
           DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
       //Clave

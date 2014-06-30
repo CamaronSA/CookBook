@@ -49,18 +49,8 @@ type
     Label15: TLabel;
     Edit15: TEdit;
     Label16: TLabel;
-    Label18: TLabel;
     Label17: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
-    Label22: TLabel;
-    Label23: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    Label26: TLabel;
-    Label27: TLabel;
-    Label28: TLabel;
+    Label18: TLabel;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -295,9 +285,6 @@ begin
       DataModule1.ComprobarUsuario.Close;
       DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=Edit4.Text;
       DataModule1.ComprobarUsuario.Open;
-      DataModule1.ComprobarUsuarioAdmin.Close;
-      DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit4.Text;
-      DataModule1.ComprobarUsuarioAdmin.Open;
       DataModule1.ADOCliente.Append;
       //Nombre
       if (Edit1.Text = '') then
@@ -322,9 +309,8 @@ begin
       if (Edit4.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if not (Datamodule1.ComprobarUsuario.ISEmpty) then         //Existe usuario, es otro usuario.
-          if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then  //Existe usuario, ES ADMIN!!!
-            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+        if not (Datamodule1.ComprobarUsuario.ISEmpty) then
+          raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
         else
           DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
       //Clave
@@ -381,23 +367,22 @@ begin
       DataModule1.ADOCliente.FieldByName('Mail').AsString:=Edit11.Text;
 
       //Telefono
-     { if (Edit12.Text = '') then
+      if (Edit12.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if (Edit13.Text = '') then                                          TELEFONO AHORA NO ES OBLIGATORIO
-           raise EEspacioBlanco.Create('Complete los campos en rojo')       QUE GANAS DE JODER QUE TENES NEG
+        if (Edit13.Text = '') then
+           raise EEspacioBlanco.Create('Complete los campos en rojo')
         else
           if (Edit13.Text = '') then
              raise EEspacioBlanco.Create('Complete los campos en rojo')
           else begin
-            }
             Telefono:=Edit12.Text+Edit13.Text+Edit14.Text;
             DataModule1.ADOCliente.FieldByName('Telefono').AsString:=Telefono;
-            //end;
+            end;
       //Fecha de Nacimiento no puede ser igual a la de HOY!!!
-{      if DateTimePicker1.Date = Now() then
-           raise EFechaNac.Create('Ingrese su fecha de nacimiento')              AHORA FECHA NAC no es obligatorio
-           else}
+      if DateTimePicker1.Date = Now() then
+           raise EFechaNac.Create('Ingrese su fecha de nacimiento')
+           else
            DataModule1.ADOCliente.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
       DataModule1.ADOCliente.FieldByName('FechaDeInicioCliente').AsDateTime:=Now();
       DataModule1.ADOCliente.Post;
@@ -405,7 +390,6 @@ begin
       //Restablezco valores luego de agregarlo!
   		FormRegistroCliente.RestablecerValores;
       DateTimePicker1.Date:=Now(); //Vuelvo al dia de hoy
-      FormRegistroCliente.Close;
 
 
 

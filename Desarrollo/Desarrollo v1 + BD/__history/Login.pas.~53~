@@ -25,9 +25,6 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure Label3Click(Sender: TObject);
     procedure Label4Click(Sender: TObject);
-    procedure Letras(Sender: TObject; var Key: Char);
-    procedure LetrasYEspacio(Sender: TObject; var Key: Char);
-    procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -42,28 +39,6 @@ implementation
 uses Principal, RegistroCliente, Contacto, RecuperarClave, CatalogoLibros;
 
 {$R *.dfm}
-
-
-//Solo Letras
-procedure TFormLogin.Letras(Sender: TObject; var Key: Char);
-begin
-  if not(Key in ['A'..'Z', 'a'..'z', #9, #8]) then
-    key := #0;
-end;
-
-//Solo Letras y ESPACIO
-procedure TFormLogin.LetrasYEspacio(Sender: TObject; var Key: Char);
-begin
-  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,' ']) then
-    key := #0;
-end;
-
-//Letras, numeros, @ , - , _ y .
-procedure TFormLogin.LetrasNumnerosETC(Sender: TObject; var Key: Char);
-begin
-  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,'_','-','@','0'..'9','.']) then
-    key := #0;
-end;
 
 
 procedure TFormLogin.FormActivate(Sender: TObject);

@@ -129,13 +129,11 @@ object FormLogin: TFormLogin
     Font.Height = -21
     Font.Name = 'Tahoma'
     Font.Style = []
-    MaxLength = 20
     ParentFont = False
     ParentShowHint = False
     ShowHint = False
     TabOrder = 0
     TextHint = 'Ingrese usuario'
-    OnKeyPress = LetrasNumnerosETC
   end
   object Edit2: TEdit
     Left = 147
@@ -147,11 +145,9 @@ object FormLogin: TFormLogin
     Font.Height = -21
     Font.Name = 'Tahoma'
     Font.Style = []
-    MaxLength = 20
     ParentFont = False
     PasswordChar = '*'
     TabOrder = 1
     TextHint = 'Contrase'#241'a'
-    OnKeyPress = LetrasNumnerosETC
   end
 end

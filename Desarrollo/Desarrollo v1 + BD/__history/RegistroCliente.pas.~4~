@@ -295,9 +295,9 @@ begin
       DataModule1.ComprobarUsuario.Close;
       DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=Edit4.Text;
       DataModule1.ComprobarUsuario.Open;
-      DataModule1.ComprobarUsuarioAdmin.Close;
+      DataModule1.ComprobarUsuario.Close;
       DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit4.Text;
-      DataModule1.ComprobarUsuarioAdmin.Open;
+      DataModule1.ComprobarUsuario.Open;
       DataModule1.ADOCliente.Append;
       //Nombre
       if (Edit1.Text = '') then
