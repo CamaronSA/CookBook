@@ -80,6 +80,10 @@
     <Transaction>2014/06/22 14:50:40.757.dfm,C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\AgregoCorrectamenteAlgo.dfm=C:\Users\Mi Pc\Desktop\Desarrollo v0.5.5\unit5.dfm</Transaction>
     <Transaction>2014/06/24 01:50:19.578.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\FiltradoLibros.pas=</Transaction>
     <Transaction>2014/06/24 01:50:19.578.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\FiltradoLibros.dfm=</Transaction>
+    <Transaction>2014/06/30 14:14:40.152.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit7.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.pas</Transaction>
+    <Transaction>2014/06/30 14:14:40.152.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit7.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.dfm</Transaction>
+    <Transaction>2014/06/30 14:47:06.431.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\MisDatos.pas</Transaction>
+    <Transaction>2014/06/30 14:47:06.431.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\MisDatos.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="CarritoDeCompras.pas"/>
@@ -123,5 +127,7 @@
     <File Path="unit5.dfm"/>
     <File Path="Unit6.pas"/>
     <File Path="Unit6.dfm"/>
+    <File Path="MisDatos.pas"/>
+    <File Path="MisDatos.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

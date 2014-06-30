@@ -129,7 +129,7 @@ object DataModule1: TDataModule1
       'select * from Administrador'
       'where (Usuario = :QUser) and (Clave = :QClave)')
     Left = 520
-    Top = 40
+    Top = 32
   end
   object Tabla_Administrador: TDataSource
     DataSet = ADOAdministrador
@@ -556,7 +556,7 @@ object DataModule1: TDataModule1
         Value = Null
       end>
     SQL.Strings = (
-      'select * from Cliente'
+      'select Usuario from Cliente'
       'where (:user)=Usuario')
     Left = 432
     Top = 432
@@ -588,10 +588,5 @@ object DataModule1: TDataModule1
       'where Usuario=:user')
     Left = 624
     Top = 488
-  end
-  object Tabla_MisDatosUsuario: TDataSource
-    DataSet = ComprobarUsuario
-    Left = 504
-    Top = 432
   end
 end

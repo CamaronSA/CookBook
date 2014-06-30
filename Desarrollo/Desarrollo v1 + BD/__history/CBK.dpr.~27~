@@ -23,16 +23,16 @@ uses
   Contacto in 'Contacto.pas' {Form2},
   unit5 in 'unit5.pas' {FrmMensajeConTemporizador},
   Unit6 in 'Unit6.pas' {Form6},
-  MisDatos in 'MisDatos.pas' {FormMisDatos};
+  ModifMisDatos in 'ModifMisDatos.pas' {Form7};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormLogin, FormLogin);
-  Application.CreateForm(TFormPrincipal, FormPrincipal);
-  Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
+  AApplication.CreateForm(TFormLogin, FormLogin);
+  AApplication.CreateForm(TFormPrincipal, FormPrincipal);
+  AApplication.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
   Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
   Application.CreateForm(TFormCarritoDeCompras, FormCarritoDeCompras);
   Application.CreateForm(TDataModule1, DataModule1);
@@ -52,6 +52,6 @@ begin
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TFrmMensajeConTemporizador, FrmMensajeConTemporizador);
   Application.CreateForm(TForm6, Form6);
-  Application.CreateForm(TFormMisDatos, FormMisDatos);
-  Application.Run;
+  Application.CreateForm(TForm7, Form7);
+  lication.Run;
 end.

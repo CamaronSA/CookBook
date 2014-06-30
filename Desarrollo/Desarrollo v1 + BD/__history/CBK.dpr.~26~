@@ -22,8 +22,7 @@ uses
   RegistroCliente in 'RegistroCliente.pas' {FormRegistroCliente},
   Contacto in 'Contacto.pas' {Form2},
   unit5 in 'unit5.pas' {FrmMensajeConTemporizador},
-  Unit6 in 'Unit6.pas' {Form6},
-  MisDatos in 'MisDatos.pas' {FormMisDatos};
+  Unit6 in 'Unit6.pas' {Form6};
 
 {$R *.res}
 
@@ -52,6 +51,5 @@ begin
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TFrmMensajeConTemporizador, FrmMensajeConTemporizador);
   Application.CreateForm(TForm6, Form6);
-  Application.CreateForm(TFormMisDatos, FormMisDatos);
   Application.Run;
 end.

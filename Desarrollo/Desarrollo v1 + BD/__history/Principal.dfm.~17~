@@ -1543,11 +1543,9 @@ object FormPrincipal: TFormPrincipal
       Caption = 'Usuario'
       object MisDatos1: TMenuItem
         Caption = 'Mis datos'
-        OnClick = MisDatos1Click
       end
       object Modificarmisdatos1: TMenuItem
         Caption = 'Modificar mis datos'
-        OnClick = Modificarmisdatos1Click
       end
       object Darmedebaja1: TMenuItem
         Caption = 'Eliminar usuario'

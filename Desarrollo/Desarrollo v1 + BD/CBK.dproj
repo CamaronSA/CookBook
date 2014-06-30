@@ -101,6 +101,9 @@
 			<DCCReference Include="Unit6.pas">
 				<Form>Form6</Form>
 			</DCCReference>
+			<DCCReference Include="MisDatos.pas">
+				<Form>FormMisDatos</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

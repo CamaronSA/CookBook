@@ -41,7 +41,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Darmedebaja1Click(Sender: TObject);
     procedure Modificarmisdatos1Click(Sender: TObject);
-    procedure MisDatos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,21 +92,8 @@ else
   label1.Caption:='Bienvenido Visitante'
 end;
 
-procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
-begin
-  FormMisDatos.SpeedButton1.Visible:=False;
-  FormMisDatos.SpeedButton2.Visible:=False;
-  FormMisDatos.SpeedButton3.Visible:=True;
-  FormMisDatos.SpeedButton4.Visible:=True;
-  FormMisDatos.ShowModal;
-end;
-
 procedure TFormPrincipal.Modificarmisdatos1Click(Sender: TObject);
 begin
- FormMisDatos.SpeedButton1.Visible:=True;
- FormMisDatos.SpeedButton2.Visible:=True;
- FormMisDatos.SpeedButton3.Visible:=False;
- FormMisDatos.SpeedButton4.Visible:=False;
  FormMisDatos.ShowModal;
 end;
 

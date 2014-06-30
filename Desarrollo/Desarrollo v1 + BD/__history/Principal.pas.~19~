@@ -95,19 +95,19 @@ end;
 
 procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
 begin
-  FormMisDatos.SpeedButton1.Visible:=False;
-  FormMisDatos.SpeedButton2.Visible:=False;
-  FormMisDatos.SpeedButton3.Visible:=True;
-  FormMisDatos.SpeedButton4.Visible:=True;
+  SpeedButton1.Visible:=False;
+  SpeedButton2.Visible:=False;
+  SpeedButton3.Visible:=True;
+  SpeedButton4.Visible:=True;
   FormMisDatos.ShowModal;
 end;
 
 procedure TFormPrincipal.Modificarmisdatos1Click(Sender: TObject);
 begin
- FormMisDatos.SpeedButton1.Visible:=True;
- FormMisDatos.SpeedButton2.Visible:=True;
- FormMisDatos.SpeedButton3.Visible:=False;
- FormMisDatos.SpeedButton4.Visible:=False;
+ SpeedButton1.Visible:=True;
+ SpeedButton2.Visible:=True;
+ SpeedButton3.Visible:=False;
+ SpeedButton4.Visible:=False;
  FormMisDatos.ShowModal;
 end;
 
