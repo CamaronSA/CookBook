@@ -29,3 +29,6 @@
 
 -Visitante
 	-Arreglar permisos para visitante ahora que esta el MainMenu
+
+-Eliminar Usuario
+	-Arreglar "Si el usuario tiene una compra pendiente", no puede eliminarse. Actualmente puede eliminarse de todas formas
