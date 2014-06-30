@@ -561,32 +561,4 @@ object DataModule1: TDataModule1
     Left = 432
     Top = 432
   end
-  object BorrarUsuarioCliente: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'user'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'Delete * from Cliente'
-      'where Usuario=:user')
-    Left = 624
-    Top = 432
-  end
-  object BorrarUsuarioAdmin: TADOQuery
-    Connection = SoyUnaConeccion
-    Parameters = <
-      item
-        Name = 'user'
-        Size = -1
-        Value = Null
-      end>
-    SQL.Strings = (
-      'Delete * from Administrador'
-      'where Usuario=:user')
-    Left = 624
-    Top = 488
-  end
 end

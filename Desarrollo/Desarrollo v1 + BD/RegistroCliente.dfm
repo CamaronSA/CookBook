@@ -18,7 +18,7 @@ object FormRegistroCliente: TFormRegistroCliente
   object Label1: TLabel
     Left = 73
     Top = 94
-    Width = 76
+    Width = 75
     Height = 19
     Caption = 'Nombre: '
     Font.Charset = DEFAULT_CHARSET

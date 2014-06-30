@@ -322,13 +322,11 @@ begin
       if (Edit4.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if not ((Datamodule1.ComprobarUsuario.ISEmpty)) then         //Existe usuario, es otro usuario.
-           raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+        if not (Datamodule1.ComprobarUsuario.ISEmpty) then         //Existe usuario, es otro usuario.
+          if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then  //Existe usuario, ES ADMIN!!!
+            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
         else
-            if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then                //Existe usuario, ES ADMIN!!!
-                raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
-            else
-                DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
+          DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
       //Clave
       if (Edit5.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')

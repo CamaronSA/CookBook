@@ -485,12 +485,10 @@ begin
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
         if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
+          if not (Datamodule1.ComprobarUsuario.ISEmpty) then
             raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
         else
-           if not (Datamodule1.ComprobarUsuario.ISEmpty) then
-              raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
-           else
-                DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
+          DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
       //Clave
       if (Edit6.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')

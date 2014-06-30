@@ -30,8 +30,6 @@ type
     Cargadeformularios1: TMenuItem;
     Label1: TLabel;
     SpeedButton3: TSpeedButton;
-    Modificarmisdatos1: TMenuItem;
-    Darmedebaja1: TMenuItem;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -39,7 +37,6 @@ type
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-    procedure Darmedebaja1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,36 +48,9 @@ var
 
 implementation
 
-uses CatalogoLibros, CarritoDeCompras, Login, Unit1;
+uses CatalogoLibros, CarritoDeCompras, Login;
 
 {$R *.dfm}
-
-procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
-var buttonSelected:Integer;DNI:Integer;
-begin
-  Datamodule1.ComprobarUsuario.Close;
-  Datamodule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-  Datamodule1.ComprobarUsuario.Open;
-  Datamodule1.ComprobarUsuarioAdmin.Close;
-  Datamodule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-  Datamodule1.ComprobarUsuarioAdmin.Open;
-  buttonSelected:=messageDlg('¿Realmente desea eliminar el usuario?',mtWarning,mbOkCancel,0);
-  if buttonSelected= mrOk then
-    begin
-      if not (Datamodule1.ComprobarUsuario.ISEmpty) then begin // Si es usuario
-              DataModule1.BorrarUsuarioCliente.Close;
-              DataModule1.BorrarUsuarioCliente.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-              DataModule1.BorrarUsuarioCliente.Open;
-              if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then begin  //Si es admin
-                  DataModule1.BorrarUsuarioAdmin.Close;
-                  DataModule1.BorrarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-                  DataModule1.BorrarUsuarioAdmin.Open;
-              end;
-      end;
-      ShowMessage('El usuario se borró exitosamente');
-      Close;
-    end;
-end;
 
 procedure TFormPrincipal.FormActivate(Sender: TObject);
 begin

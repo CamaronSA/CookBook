@@ -52,8 +52,6 @@ type
     EmailDeUser: TADOQuery;
     RecuClaveUsuario: TADOQuery;
     ComprobarUsuario: TADOQuery;
-    BorrarUsuarioCliente: TADOQuery;
-    BorrarUsuarioAdmin: TADOQuery;
   private
     { Private declarations }
   public
