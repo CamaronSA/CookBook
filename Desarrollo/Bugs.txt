@@ -1,16 +1,16 @@
 --En Panel crear Usuario
 	- Desp de crear el usuario exitosamente, mno se cierra el panel, la 
-	   unica forma de salir es "cancelar" confuso.
-	- Medio plomo que todos los campos sean obligatorios.
-	- Puedo crear usuario root contraceña kapanga 
-	- Puedo crear usuaio admin admin
+	   unica forma de salir es "cancelar" confuso. [FIXED]
+	- Medio plomo que todos los campos sean obligatorios. [FIXED] //Ahora Fecha Nac. y telefono no son obligatorios
+	- Puedo crear usuario root contraceña kapanga [FIXED]
+	- Puedo crear usuaio admin admin [FIXED]
 --En el panel recuperar clave
-	- queda medio feo q los edit ten a distinta altura.
+	- queda medio feo q los edit ten a distinta altura. [FIXED]
 	-
 
 --En panel login
-	- edit user y pass no tiene tope de caractere
-	- edIt user y pass admiten caracteres especiales
+	- edit user y pass no tiene tope de caractere [FIXED]
+	- edIt user y pass admiten caracteres especiales [FIXED]
 	- 
 
 --AdministradorEliminar
