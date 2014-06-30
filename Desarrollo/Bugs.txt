@@ -26,3 +26,6 @@
  
 -ElimianrLibro
 	-Se puede quitar de la venta un libro que no esta a la venta
+
+-Visitante
+	-Arreglar permisos para visitante ahora que esta el MainMenu
