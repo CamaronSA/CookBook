@@ -1,4 +1,4 @@
--Agregar libro
+﻿-Agregar libro
 -Modificar libro
 -Eliminar libro
 -Ver libro
@@ -16,3 +16,6 @@
 -Ingresar como registrado
 -Contacto como registrado
 -Contacto como visitante
+-Catalogo de compras
+-Agregar carrito
+-Quitar carrito
