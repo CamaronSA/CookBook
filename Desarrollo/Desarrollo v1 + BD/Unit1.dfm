@@ -498,7 +498,8 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Select * '
       'From Libro'
-      'Where (Disponible =True)')
+      'Where (Disponible =True)'
+      'order by Titulo')
     Left = 344
     Top = 328
   end

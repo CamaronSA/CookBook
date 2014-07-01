@@ -23,7 +23,8 @@ uses
   Contacto in 'Contacto.pas' {Form2},
   unit5 in 'unit5.pas' {FrmMensajeConTemporizador},
   Unit6 in 'Unit6.pas' {Form6},
-  MisDatos in 'MisDatos.pas' {FormMisDatos};
+  MisDatos in 'MisDatos.pas' {FormMisDatos},
+  Unit7 in 'Unit7.pas' {Form7};
 
 {$R *.res}
 
@@ -53,5 +54,6 @@ begin
   Application.CreateForm(TFrmMensajeConTemporizador, FrmMensajeConTemporizador);
   Application.CreateForm(TForm6, Form6);
   Application.CreateForm(TFormMisDatos, FormMisDatos);
+  Application.CreateForm(TForm7, Form7);
   Application.Run;
 end.

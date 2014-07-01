@@ -129,5 +129,7 @@
     <File Path="Unit6.dfm"/>
     <File Path="MisDatos.pas"/>
     <File Path="MisDatos.dfm"/>
+    <File Path="Unit7.pas"/>
+    <File Path="Unit7.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>
