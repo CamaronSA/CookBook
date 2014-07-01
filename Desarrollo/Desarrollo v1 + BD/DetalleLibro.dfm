@@ -5,7 +5,7 @@ object FormDetalleLibro: TFormDetalleLibro
   BorderStyle = bsSingle
   Caption = 'Detalle de Libro'
   ClientHeight = 522
-  ClientWidth = 498
+  ClientWidth = 677
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,6 +14,7 @@ object FormDetalleLibro: TFormDetalleLibro
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
@@ -126,6 +127,7 @@ object FormDetalleLibro: TFormDetalleLibro
     Width = 192
     Height = 43
     Caption = 'A'#241'adir al Carro'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
@@ -134,7 +136,7 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object SpeedButton2: TSpeedButton
-    Left = 379
+    Left = 547
     Top = 471
     Width = 111
     Height = 43
@@ -148,7 +150,7 @@ object FormDetalleLibro: TFormDetalleLibro
     OnClick = SpeedButton2Click
   end
   object DBText1: TDBText
-    Left = 128
+    Left = 280
     Top = 96
     Width = 177
     Height = 23
@@ -162,7 +164,7 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBText2: TDBText
-    Left = 128
+    Left = 280
     Top = 56
     Width = 177
     Height = 23
@@ -176,8 +178,8 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBText3: TDBText
-    Left = 128
-    Top = 136
+    Left = 280
+    Top = 139
     Width = 177
     Height = 23
     DataField = 'Autor'
@@ -190,7 +192,7 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBText4: TDBText
-    Left = 184
+    Left = 280
     Top = 184
     Width = 121
     Height = 23
@@ -204,8 +206,8 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBText5: TDBText
-    Left = 128
-    Top = 224
+    Left = 280
+    Top = 219
     Width = 177
     Height = 23
     DataField = 'Editorial'
@@ -218,8 +220,8 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBText6: TDBText
-    Left = 128
-    Top = 267
+    Left = 280
+    Top = 259
     Width = 177
     Height = 23
     DataField = 'Idioma'
@@ -231,23 +233,9 @@ object FormDetalleLibro: TFormDetalleLibro
     Font.Style = []
     ParentFont = False
   end
-  object DBText7: TDBText
-    Left = 32
-    Top = 325
-    Width = 458
-    Height = 84
-    DataField = 'Descripcion'
-    DataSource = DataModule1.Tabla_LibrosALaVenta
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object DBText8: TDBText
-    Left = 128
-    Top = 429
+    Left = 280
+    Top = 426
     Width = 177
     Height = 23
     DataField = 'Precio'
@@ -260,7 +248,7 @@ object FormDetalleLibro: TFormDetalleLibro
     ParentFont = False
   end
   object DBImage1: TDBImage
-    Left = 320
+    Left = 488
     Top = 53
     Width = 170
     Height = 237
@@ -270,5 +258,14 @@ object FormDetalleLibro: TFormDetalleLibro
     ReadOnly = True
     Stretch = True
     TabOrder = 0
+  end
+  object Memo1: TMemo
+    Left = 32
+    Top = 331
+    Width = 626
+    Height = 89
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 1
   end
 end

@@ -14,8 +14,12 @@ type
     Datos : integer;
     Sig : Lista;
   End;
+
   //TStringGrid tiene metodos para eliminar de la grilla (en teoria)
+
   TStringGrid = class(Grids.TStringGrid);
+  // Error por si quiere borrar una fila vacia o eliminar del chango cuando no hay libros o si es judio, si es judio aca no compra loco.
+  EEsoNoEUnLibro = class (Exception);
   TFormCatalogoLibros = class(TForm)
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
@@ -33,7 +37,6 @@ type
     Panel2: TPanel;
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
-    Carrito: TADOQuery;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
     SpeedButton7: TSpeedButton;
@@ -50,6 +53,15 @@ type
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
+    SpeedButton9: TSpeedButton;
+    SpeedButton10: TSpeedButton;
+    Carrito: TADOQuery;
+    LaQuerqueteQuery: TADOQuery;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label16: TLabel;
+    Label15: TLabel;
+    SpeedButton11: TSpeedButton;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -60,6 +72,9 @@ type
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton8Click(Sender: TObject);
     procedure StringGrid1Click(Sender: TObject);
+    procedure SpeedButton9Click(Sender: TObject);
+    procedure SpeedButton10Click(Sender: TObject);
+    procedure SpeedButton11Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,12 +84,16 @@ type
 var
   FormCatalogoLibros: TFormCatalogoLibros;
   L:Lista;
+  cant:integer;
+  loQueValeLaMula:currency;
+  ISBNParaDetalle,numerodeLibros:integer;
 
 implementation
 
-uses DetalleLibro, Unit1;
+uses DetalleLibro, Unit1, Unit7;
 
 {$R *.dfm}
+//Limpia labels nada mas que eso
 procedure limpiarInformativos(L1,L2,L3,L4,L5:TLabel);
 begin
   L1.caption:='';
@@ -83,6 +102,7 @@ begin
   L4.Caption:='';
   L5.Caption:= '';
 end;
+
 procedure TFormCatalogoLibros.FormActivate(Sender: TObject);
 begin
      DataModule1.LibrosALaVenta.Active:=false;;
@@ -96,9 +116,33 @@ end;
 
 procedure TFormCatalogoLibros.FormCreate(Sender: TObject);
 begin
+    cant:=0;
     L:=nil;
     //Cuando se abre el panel la lista esta vacia.
+    label15.Caption:='$ 0 ';
 
+end;
+
+procedure TFormCatalogoLibros.SpeedButton10Click(Sender: TObject);
+var
+  aux:lista;
+begin
+  //Cargo el ISBN del pedido actual para ver el detalle
+  ISBNParaDetalle:= StrToInt(StringGrid1.Cells[StringGrid1.Col,StringGrid1.Row]);
+  Aux:=L;
+  numerodeLibros:=0;
+  while (Aux <> nil) do
+    begin
+      if (ISBNParaDetalle = Aux.Datos) then
+         numerodeLibros:=numerodeLibros+1;
+      aux:=aux^.Sig;
+    end;
+  form7.showmodal;
+end;
+
+procedure TFormCatalogoLibros.SpeedButton11Click(Sender: TObject);
+begin
+ //Implemente señora
 end;
 
 procedure TFormCatalogoLibros.SpeedButton2Click(Sender: TObject);
@@ -109,7 +153,7 @@ begin
   if buttonSelected = mrOk then
     begin
         new(Nuevo);           //Esto solamente es agregar el ISBN del libro q quiere a la lista.
-        Nuevo.Sig:=nil;      //si no entiende vea como agregar un nodo al final de la lista.
+        Nuevo.Sig:=nil;       //si no entiende vea como agregar un nodo al final de la lista.
         Nuevo.Datos:=DataModule1.LibrosALaVenta.FieldByName('ISBN').AsInteger;
         if (L = nil) then
           begin
@@ -122,12 +166,14 @@ begin
               pos:=pos^.sig;
             pos^.sig:=Nuevo;
           end;
+          //Esto es el contador de libros en el carrito
+          cant:=cant+1;
+          label14.Caption:=inttostr(cant);
            //Ultima fila
            StringGrid1.Row := StringGrid1.Rowcount - 1;
            //Agranda la tabla con una fila mas
-           with StringGrid1 do
+           with StringGrid1 do             //desp te falla cuando vas a eliminar.
               begin                        //Es complicado al pedo diran, pero haciendo StringGrid1.RowCount := StringGrid1.RowCount + 1;
-                                            //desp te falla cuando vas a eliminar.
                  RowCount:= RowCount +1;
                  for i:= RowCount-1 downto StringGrid1.Rowcount - 1 do
                      Rows[i]:= Rows[i-1];
@@ -139,7 +185,9 @@ begin
            StringGrid1.Cells[2, StringGrid1.Row] := DataModule1.LibrosALaVenta.FieldByName('Autor').AsString;
            StringGrid1.Cells[3, StringGrid1.Row] := DataModule1.LibrosALaVenta.FieldByName('Editorial').AsString;
            StringGrid1.Cells[4, StringGrid1.Row] := CurrToStr(DataModule1.LibrosALaVenta.FieldByName('Precio').AsCurrency);
-
+           //calcula el subtotal gastado
+           loQueValeLaMula:= loQueValeLaMula + DataModule1.LibrosALaVenta.FieldByName('Precio').AsCurrency;
+           label15.Caption:= '$ ' + CurrToStr(loQueValeLaMula);
     end
   else
 
@@ -159,7 +207,6 @@ end;
 procedure TFormCatalogoLibros.SpeedButton5Click(Sender: TObject);
 var
  ListaRecorre:Lista;
- cont1,cont:integer;
 begin
         // esta parte muestra el panel del carrito
         if panel2.Visible = false then
@@ -192,10 +239,26 @@ Var
   Valor:String;
   act , ant , pri: lista;
   ok:boolean;
-  i: Integer;
+  i,buttonSelected: Integer;
 begin
+buttonSelected := messageDlg('¿Realmente desea Eliminar este libro del carrito?', mtWarning, mbOkCancel, 0);
+ if buttonSelected = mrOk then begin
+  try
     //obtengo el valor de la celda seleccionada actualmente
     Valor:=StringGrid1.Cells[StringGrid1.Col,StringGrid1.Row];
+    if (valor = '') then
+      raise EEsoNoEUnLibro.Create('Esta intentando eliminar algo que no existe')
+    else begin
+    cant:=cant-1;
+    label14.Caption:=IntToStr(cant);
+    //Aca empieza la resta del valor del libro a borrar! vuelva Pronto.. magia nene
+    Carrito.SQL.Text:='Select * From Libro where (ISBN =:Dato)';
+    Carrito.Close;
+    Carrito.Parameters.ParamByName('Dato').Value:=(StringGrid1.Cells[StringGrid1.Col,StringGrid1.Row]);
+    Carrito.Open;
+    Carrito.Active:=true;
+    loQueValeLaMula:= loQueValeLaMula - Carrito.FieldByName('Precio').AsCurrency;
+    label15.Caption:= '$ ' + CurrToStr(loQueValeLaMula);
     //Aca hago el borrado del libro pero de la lista nada mas.
     //Para empezar al pri le asigno la lista entera, para no romper la lista original.
     pri:=L;
@@ -229,24 +292,89 @@ begin
       StringGrid1.DeleteRow(StringGrid1.Row);
       //Desp de borrar la grilla limpio los label
       limpiarInformativos(label10,label11,label12,label7,label8);
+    end;
+  except
+    on E: EEsoNoEUnLibro do
+      begin
+        Showmessage (E.Message); //chau chau chau lelele
+
+      end;
+  end;
+ end;
 
 
 end;
 
 procedure TFormCatalogoLibros.SpeedButton8Click(Sender: TObject);
+var
+  cont1,cont,i:integer;
+  aux:Lista;
 begin
-  //Borrar todo  de stringGrid
+    //sql para actualizar , trae datusss
+    Carrito.SQL.Text:='Select * From Libro where (ISBN =:Dato)';
+    //Borrar todo  de stringGrid
+    //limpio string grid                                        //87.6
+    for cont :=0 to Stringgrid1.colcount-1 do
+        for cont1 :=0 to stringgrid1.rowcount-1 do
+            stringgrid1.Cells[cont,cont1] := '';
+        StringGrid1.Rowcount:=1;
+    //Cargo nuevamente el stringGrid con datos de la lista
+    Aux:=L;
+    while (Aux <> Nil) do begin
+      Carrito.close;
+      Carrito.Parameters.ParamByName('Dato').Value:=aux.Datos;
+      Carrito.Active:=True;
+      Carrito.Open;
+      StringGrid1.Cells[0,StringGrid1.Row]:=Carrito.FieldByName('ISBN').AsString ;
+      StringGrid1.Cells[1,StringGrid1.Row]:=Carrito.FieldByName('Titulo').AsString ;
+      StringGrid1.Cells[2,StringGrid1.Row]:=Carrito.FieldByName('Autor').AsString;
+      StringGrid1.Cells[3,StringGrid1.Row]:=Carrito.FieldByName('Editorial').AsString;
+      StringGrid1.Cells[4,StringGrid1.Row]:=CurrToStr(Carrito.FieldByName('Precio').AsCurrency);
+      StringGrid1.Row:=StringGrid1.Rowcount - 1;
+      //Agranda la tabla con una fila mas
+      with StringGrid1 do          // desp te falla cuando vas a eliminar.
+        begin       // Es complicado al pedo diran, pero haciendo StringGrid1.RowCount := StringGrid1.RowCount + 1;
+          RowCount := RowCount +1;
+          for i:= RowCount - 1 downto StringGrid1.Rowcount - 1 do
+            Rows[i]:= Rows[i-1];
+            Rows[StringGrid1.Rowcount - 1].Clear;
+          end;
+      Aux:=Aux^.sig;
+    end;
 
+end;
+
+
+procedure TFormCatalogoLibros.SpeedButton9Click(Sender: TObject);
+var
+  buttonSelected,cont1,cont:integer;
+
+begin
+  buttonSelected := messageDlg('Si confirma la accion se eliminara toda la lista de libros que agrego al carrito y no se podra recuperar', mtWarning, mbOkCancel, 0);
+    if buttonSelected = mrOk then begin
+      //Acomoda la cantidad de libros que compro mr comprador.
+      cant:=0;
+      label14.Caption:=inttostr(cant);
+      //Aca lo q va gastando mr comprador.
+      label15.Caption:='$ 0 ';
+      //Limpio la lista  , desp de esto no hay mas libros
+      L:=Nil;
+      //limpio string grid , no lo cante no lo grite no se abrase, el coso este andaaaa
+      for cont :=0 to Stringgrid1.colcount-1 do
+        for cont1 :=0 to stringgrid1.rowcount-1 do
+            stringgrid1.Cells[cont,cont1] := '';
+        StringGrid1.Rowcount:=1;
+    end;
 end;
 
 procedure TFormCatalogoLibros.StringGrid1Click(Sender: TObject);
 begin
   //cargar labels. chaundo la grilla cambia actualizo los labels.
-  label10.Caption:=StringGrid1.Cells[3, StringGrid1.Row];
-  label11.Caption:=StringGrid1.Cells[0, StringGrid1.Row];
-  label12.Caption:=StringGrid1.Cells[4, StringGrid1.Row];
-  label7.Caption:=StringGrid1.Cells[1, StringGrid1.Row];
-  label8.Caption:=StringGrid1.Cells[2, StringGrid1.Row];
+  label10.Caption:=Copy(StringGrid1.Cells[3, StringGrid1.Row],1,10);
+  label11.Caption:=Copy(StringGrid1.Cells[0, StringGrid1.Row],1,10);
+  label12.Caption:=Copy(StringGrid1.Cells[4, StringGrid1.Row],1,10);
+  label7.Caption:=Copy(StringGrid1.Cells[1, StringGrid1.Row],1,10);
+  label8.Caption:=Copy(StringGrid1.Cells[2, StringGrid1.Row],1,10);
 
 end;
 

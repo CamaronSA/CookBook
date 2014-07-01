@@ -1,11 +1,11 @@
 object FormCatalogoLibros: TFormCatalogoLibros
-  Left = 240
-  Top = 81
+  Left = 91
+  Top = 96
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
-  ClientHeight = 634
-  ClientWidth = 1111
+  ClientHeight = 637
+  ClientWidth = 738
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -123,7 +123,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       ParentFont = False
       ReadOnly = True
       TabOrder = 0
@@ -261,14 +261,14 @@ object FormCatalogoLibros: TFormCatalogoLibros
     TabOrder = 1
     Visible = False
     object SpeedButton6: TSpeedButton
-      Left = 8
-      Top = 574
+      Left = 231
+      Top = 31
       Width = 97
-      Height = 41
+      Height = 19
       Caption = 'Ocultar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -277,33 +277,126 @@ object FormCatalogoLibros: TFormCatalogoLibros
     object SpeedButton7: TSpeedButton
       Left = 8
       Top = 5
-      Width = 113
-      Height = 28
+      Width = 97
+      Height = 20
       Caption = 'Borrar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
       OnClick = SpeedButton7Click
     end
     object SpeedButton8: TSpeedButton
-      Left = 144
-      Top = 5
-      Width = 113
-      Height = 28
+      Left = 8
+      Top = 31
+      Width = 97
+      Height = 20
       Caption = 'Refrescar'
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
       OnClick = SpeedButton8Click
     end
+    object SpeedButton9: TSpeedButton
+      Left = 120
+      Top = 5
+      Width = 98
+      Height = 20
+      Caption = 'Borrar Todo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton9Click
+    end
+    object SpeedButton10: TSpeedButton
+      Left = 120
+      Top = 31
+      Width = 98
+      Height = 20
+      Caption = 'Ver Detalle'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton10Click
+    end
+    object Label13: TLabel
+      Left = 0
+      Top = 574
+      Width = 121
+      Height = 16
+      Caption = 'Cantidad de libros:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 127
+      Top = 574
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label16: TLabel
+      Left = 0
+      Top = 596
+      Width = 91
+      Height = 16
+      Caption = 'Total a Pagar:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label15: TLabel
+      Left = 127
+      Top = 596
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object SpeedButton11: TSpeedButton
+      Left = 232
+      Top = 5
+      Width = 98
+      Height = 20
+      Caption = 'Confirmar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton11Click
+    end
     object StringGrid1: TStringGrid
-      Left = 8
+      Left = 0
       Top = 176
       Width = 329
       Height = 384
@@ -318,7 +411,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
       OnClick = StringGrid1Click
     end
     object StringGrid2: TStringGrid
-      Left = 8
+      Left = 0
       Top = 151
       Width = 329
       Height = 24
@@ -404,7 +497,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 79
+        Left = 80
         Top = 24
         Width = 4
         Height = 16
@@ -412,11 +505,11 @@ object FormCatalogoLibros: TFormCatalogoLibros
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 72
+        Left = 80
         Top = 46
         Width = 4
         Height = 16
@@ -440,7 +533,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 82
+        Left = 80
         Top = 68
         Width = 4
         Height = 16
@@ -452,8 +545,8 @@ object FormCatalogoLibros: TFormCatalogoLibros
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 247
-        Top = 49
+        Left = 245
+        Top = 45
         Width = 4
         Height = 16
         Font.Charset = DEFAULT_CHARSET
@@ -464,8 +557,8 @@ object FormCatalogoLibros: TFormCatalogoLibros
         ParentFont = False
       end
       object Label12: TLabel
-        Left = 243
-        Top = 27
+        Left = 245
+        Top = 25
         Width = 4
         Height = 16
         Font.Charset = DEFAULT_CHARSET
@@ -481,6 +574,12 @@ object FormCatalogoLibros: TFormCatalogoLibros
     Connection = DataModule1.SoyUnaConeccion
     Parameters = <>
     Left = 680
-    Top = 16
+    Top = 72
+  end
+  object LaQuerqueteQuery: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <>
+    Left = 584
+    Top = 72
   end
 end

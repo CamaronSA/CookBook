@@ -24,10 +24,11 @@ type
     DBText4: TDBText;
     DBText5: TDBText;
     DBText6: TDBText;
-    DBText7: TDBText;
     DBText8: TDBText;
     DBImage1: TDBImage;
+    Memo1: TMemo;
     procedure SpeedButton2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,6 +43,11 @@ implementation
 uses Unit1;
 
 {$R *.dfm}
+
+procedure TFormDetalleLibro.FormActivate(Sender: TObject);
+begin
+  memo1.text:=DataModule1.LibrosALaVenta.FieldByName('Descripcion').AsString;
+end;
 
 procedure TFormDetalleLibro.SpeedButton2Click(Sender: TObject);
 begin
