@@ -52,3 +52,6 @@
 
 --Contacto
 	-No desaparece campo "Complete los campos en rojo" al cerrar el form
+
+--Confirmar carrito
+	-Deshabilitar boton "Modificar condiciones" y poner memo en ReadOnly(para clientes), y hacer funcar checkbox
