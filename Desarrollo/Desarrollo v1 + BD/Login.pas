@@ -137,10 +137,10 @@ begin
       FormPrincipal.SpeedButton6.Visible:=false;
       FormPrincipal.SpeedButton1.Enabled:=true;
       FormPrincipal.SpeedButton1.Visible:=true;
-      FormPrincipal.SpeedButton2.Enabled:=true;
-      FormPrincipal.SpeedButton2.Visible:=true;
-      FormPrincipal.SpeedButton4.Enabled:=true;
-      FormPrincipal.SpeedButton4.Visible:=true;
+      //FormPrincipal.SpeedButton2.Enabled:=true;
+      //FormPrincipal.SpeedButton2.Visible:=true;
+//      FormPrincipal.SpeedButton4.Enabled:=true;
+//      FormPrincipal.SpeedButton4.Visible:=true;
       UsuarioRegistrado:=Edit1.Text; //Variable global de usuario, la uso en CONTACTO
       Form2.Edit1.Visible:=False; // Form contacto
       Form2.Label1.Visible:=False; // Form contacto
@@ -157,10 +157,10 @@ begin
             FormPrincipal.SpeedButton6.Visible:=true;
             FormPrincipal.SpeedButton1.Enabled:=false;
             FormPrincipal.SpeedButton1.Visible:=false;
-            FormPrincipal.SpeedButton2.Enabled:=false;
-            FormPrincipal.SpeedButton2.Visible:=false;
-            FormPrincipal.SpeedButton4.Enabled:=false;
-            FormPrincipal.SpeedButton4.Visible:=false;
+//            FormPrincipal.SpeedButton2.Enabled:=false;
+//            FormPrincipal.SpeedButton2.Visible:=false;
+//            FormPrincipal.SpeedButton4.Enabled:=false;
+//            FormPrincipal.SpeedButton4.Visible:=false;
             PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton6.Enabled:=True;
             PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=True;
@@ -179,10 +179,10 @@ begin
           FormPrincipal.SpeedButton6.Visible:=true;
           FormPrincipal.SpeedButton1.Enabled:=false;
           FormPrincipal.SpeedButton1.Visible:=false;
-          FormPrincipal.SpeedButton2.Enabled:=false;
-          FormPrincipal.SpeedButton2.Visible:=false;
-          FormPrincipal.SpeedButton4.Enabled:=false;
-          FormPrincipal.SpeedButton4.Visible:=false;
+//          FormPrincipal.SpeedButton2.Enabled:=false;
+ //         FormPrincipal.SpeedButton2.Visible:=false;
+//          FormPrincipal.SpeedButton4.Enabled:=false;
+//          FormPrincipal.SpeedButton4.Visible:=false;
           PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton6.Visible:=False;
           PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=False;
@@ -203,7 +203,7 @@ begin
 procedure TFormLogin.SpeedButton4Click(Sender: TObject);
 begin
   FormPrincipal.SpeedButton6.Visible:=False;
-  FormPrincipal.SpeedButton2.Visible:=False;
+//  FormPrincipal.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton5.Visible:=False;
   FormCatalogoLibros.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton3.Visible:=True;

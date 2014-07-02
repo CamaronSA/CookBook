@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 565
   Width = 712
   object ADOAdministrador: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Administrador'
@@ -10,6 +11,7 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ADOLibro: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -18,13 +20,67 @@ object DataModule1: TDataModule1
     Top = 88
   end
   object ADOPedidos: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Pedidos'
     Left = 48
     Top = 208
+    object ADOPedidosIDPedido: TAutoIncField
+      FieldName = 'IDPedido'
+      ReadOnly = True
+    end
+    object ADOPedidosDNI: TIntegerField
+      FieldName = 'DNI'
+    end
+    object ADOPedidosNombre: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Nombre'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
+    object ADOPedidosApellido: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Apellido'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
+    object ADOPedidosISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object ADOPedidosLibro: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Libro'
+      LookupDataSet = ADOLibro
+      LookupKeyFields = 'ISBN'
+      LookupResultField = 'Titulo'
+      KeyFields = 'ISBN'
+      Size = 30
+      Lookup = True
+    end
+    object ADOPedidosEstado: TWideStringField
+      FieldName = 'Estado'
+      Size = 255
+    end
+    object ADOPedidosNumTarjeta: TWideStringField
+      FieldName = 'NumTarjeta'
+      Size = 50
+    end
+    object ADOPedidosFechaDeInicio: TDateTimeField
+      FieldName = 'FechaDeInicio'
+    end
+    object ADOPedidosFechaDeFin: TDateTimeField
+      FieldName = 'FechaDeFin'
+    end
   end
   object ADOCliente: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Cliente'
@@ -47,6 +103,7 @@ object DataModule1: TDataModule1
     Top = 272
   end
   object ADOEtiqueta: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Etiqueta'
@@ -54,6 +111,7 @@ object DataModule1: TDataModule1
     Top = 328
   end
   object ADOIdioma: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -70,6 +128,7 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ADOAutor: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Autor'
@@ -97,6 +156,11 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
+      'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
+      'rsist Security Info=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -592,7 +656,56 @@ object DataModule1: TDataModule1
   end
   object Tabla_MisDatosUsuario: TDataSource
     DataSet = ComprobarUsuario
-    Left = 504
+    Left = 520
     Top = 432
+  end
+  object DS_MisCompras: TDataSource
+    DataSet = QMisCompras
+    Left = 648
+    Top = 296
+  end
+  object QMisCompras: TADOQuery
+    Connection = SoyUnaConeccion
+    CursorType = ctStatic
+    DataSource = Tabla_Pedidos
+    Parameters = <
+      item
+        Name = 'consultaDNI'
+        Attributes = [paNullable]
+        DataType = ftWideString
+        NumericScale = 255
+        Precision = 255
+        Size = 510
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Pedidos'
+      'where (DNI=:consultaDNI)')
+    Left = 648
+    Top = 352
+    object QMisComprasISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object QMisComprasLibro: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Libro'
+      LookupDataSet = ADOLibro
+      LookupKeyFields = 'ISBN'
+      LookupResultField = 'Titulo'
+      KeyFields = 'ISBN'
+      ReadOnly = True
+      Size = 30
+      Lookup = True
+    end
+    object QMisComprasEstado: TWideStringField
+      FieldName = 'Estado'
+      Size = 255
+    end
+    object QMisComprasFechaDeInicio: TDateTimeField
+      FieldName = 'FechaDeInicio'
+    end
+    object QMisComprasFechaDeFin: TDateTimeField
+      FieldName = 'FechaDeFin'
+    end
   end
 end

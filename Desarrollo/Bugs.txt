@@ -37,8 +37,18 @@
 
 -Eliminar Usuario
 	-Arreglar "Si el usuario tiene una compra pendiente", no puede eliminarse. Actualmente puede eliminarse de todas formas
-	  Ojo si yo mismo quiero eliminarme y tengo pedidos 
+	  Ojo si yo mismo quiero eliminarme y tengo pedidos
+	-El administrador NO DEBE ELIMINARSE. 
 
 --VerLibro
 	- Labels informativos y asteriscos de mas
-	- 	
+	-
+
+--Panel principal
+	-Agregar "Registrarse" cuando ingresas como usuario 	
+
+--Modificar mis datos
+	-Debe poderse modificar DNI y Usuario (verificar que no existan)
+
+--Contacto
+	-No desaparece campo "Complete los campos en rojo" al cerrar el form

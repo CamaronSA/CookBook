@@ -409,13 +409,13 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Width = 210
     Height = 38
     Caption = 'Ver pedido'
-    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton29Click
   end
   object SpeedButton11: TSpeedButton
     Left = 24
@@ -478,7 +478,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Top = 452
     Width = 210
     Height = 38
-    Caption = 'Informes Aspeciales'
+    Caption = 'Pedidos por fecha'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
@@ -486,5 +486,19 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton29Click
+  end
+  object SpeedButton30: TSpeedButton
+    Left = 522
+    Top = 452
+    Width = 220
+    Height = 38
+    Caption = 'Modificar cond. de venta'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    OnClick = SpeedButton30Click
   end
 end

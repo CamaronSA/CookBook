@@ -107,6 +107,15 @@
 			<DCCReference Include="Unit7.pas">
 				<Form>Form7</Form>
 			</DCCReference>
+			<DCCReference Include="VerMisCompras.pas">
+				<Form>FormVerMisCompras</Form>
+			</DCCReference>
+			<DCCReference Include="PedidosRealizados.pas">
+				<Form>FormTodosLosPedidos</Form>
+			</DCCReference>
+			<DCCReference Include="CondicionesDeVenta.pas">
+				<Form>FormModifCondicionesVenta</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

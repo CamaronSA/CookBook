@@ -11,8 +11,6 @@ type
   TFormPrincipal = class(TForm)
     Image1: TImage;
     SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
     Label2: TLabel;
     DBImage1: TDBImage;
@@ -22,7 +20,6 @@ type
     DBImage5: TDBImage;
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
     MainMenu1: TMainMenu;
     User1: TMenuItem;
     MisDatos1: TMenuItem;
@@ -32,6 +29,11 @@ type
     SpeedButton3: TSpeedButton;
     Modificarmisdatos1: TMenuItem;
     Darmedebaja1: TMenuItem;
+    ransacciones1: TMenuItem;
+    Nosotros1: TMenuItem;
+    Contactenos1: TMenuItem;
+    Administrador1: TMenuItem;
+    Pedidosrealizados1: TMenuItem;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -42,6 +44,8 @@ type
     procedure Darmedebaja1Click(Sender: TObject);
     procedure Modificarmisdatos1Click(Sender: TObject);
     procedure MisDatos1Click(Sender: TObject);
+    procedure ransacciones1Click(Sender: TObject);
+    procedure Pedidosrealizados1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,9 +57,12 @@ var
 
 implementation
 
-uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos;
+uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
+  PedidosRealizados;
 
 {$R *.dfm}
+
+
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
 var buttonSelected:Integer;
@@ -109,6 +116,16 @@ begin
  FormMisDatos.SpeedButton3.Visible:=False;
  FormMisDatos.SpeedButton4.Visible:=False;
  FormMisDatos.ShowModal;
+end;
+
+procedure TFormPrincipal.Pedidosrealizados1Click(Sender: TObject);
+begin
+ FormTodosLosPedidos.ShowModal;
+end;
+
+procedure TFormPrincipal.ransacciones1Click(Sender: TObject);
+begin
+  FormVerMisCompras.ShowModal;
 end;
 
 procedure TFormPrincipal.SpeedButton1Click(Sender: TObject);

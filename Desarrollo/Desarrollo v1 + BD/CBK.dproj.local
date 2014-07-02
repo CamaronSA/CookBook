@@ -84,6 +84,12 @@
     <Transaction>2014/06/30 14:14:40.152.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit7.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.dfm</Transaction>
     <Transaction>2014/06/30 14:47:06.431.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\MisDatos.pas</Transaction>
     <Transaction>2014/06/30 14:47:06.431.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\ModifMisDatos.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\MisDatos.dfm</Transaction>
+    <Transaction>2014/07/02 13:08:48.157.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\VerMisCompras.pas</Transaction>
+    <Transaction>2014/07/02 13:08:48.157.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\VerMisCompras.dfm</Transaction>
+    <Transaction>2014/07/02 16:25:31.288.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\PedidosRealizados.pas</Transaction>
+    <Transaction>2014/07/02 16:25:31.288.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\PedidosRealizados.dfm</Transaction>
+    <Transaction>2014/07/02 17:34:44.386.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CondicionesDeVenta.pas</Transaction>
+    <Transaction>2014/07/02 17:34:44.386.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CondicionesDeVenta.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="CarritoDeCompras.pas"/>
@@ -131,5 +137,11 @@
     <File Path="MisDatos.dfm"/>
     <File Path="Unit7.pas"/>
     <File Path="Unit7.dfm"/>
+    <File Path="VerMisCompras.pas"/>
+    <File Path="VerMisCompras.dfm"/>
+    <File Path="PedidosRealizados.pas"/>
+    <File Path="PedidosRealizados.dfm"/>
+    <File Path="CondicionesDeVenta.pas"/>
+    <File Path="CondicionesDeVenta.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

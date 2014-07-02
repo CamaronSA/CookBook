@@ -43,6 +43,7 @@ type
     SpeedButton20: TSpeedButton;
     SpeedButton27: TSpeedButton;
     SpeedButton29: TSpeedButton;
+    SpeedButton30: TSpeedButton;
     procedure SpeedButton14Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton15Click(Sender: TObject);
@@ -69,6 +70,7 @@ type
     procedure SpeedButton20Click(Sender: TObject);
     procedure SpeedButton27Click(Sender: TObject);
     procedure SpeedButton29Click(Sender: TObject);
+    procedure SpeedButton30Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,7 +82,7 @@ var
 
 implementation
 
-uses OperacionesIdioma, ModificarLibro, PedidosPorFecha;
+uses OperacionesIdioma, ModificarLibro, PedidosPorFecha, CondicionesDeVenta;
 
 {$R *.dfm}
 
@@ -330,6 +332,13 @@ form4.speedbutton3.visible:=true;
 form4.speedbutton4.Enabled:=false;
 form4.speedbutton4.visible:=false;
 form4.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton30Click(Sender: TObject);
+begin
+  FormModifCondicionesVenta.Memo1.ReadOnly:=False;
+  FormModifCondicionesVenta.SpeedButton1.Visible:=True;
+  FormModifCondicionesVenta.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton3Click(Sender: TObject);

@@ -55,6 +55,23 @@ type
     BorrarUsuarioCliente: TADOQuery;
     BorrarUsuarioAdmin: TADOQuery;
     Tabla_MisDatosUsuario: TDataSource;
+    DS_MisCompras: TDataSource;
+    QMisCompras: TADOQuery;
+    QMisComprasISBN: TIntegerField;
+    QMisComprasEstado: TWideStringField;
+    QMisComprasFechaDeInicio: TDateTimeField;
+    QMisComprasFechaDeFin: TDateTimeField;
+    QMisComprasLibro: TStringField;
+    ADOPedidosIDPedido: TAutoIncField;
+    ADOPedidosDNI: TIntegerField;
+    ADOPedidosISBN: TIntegerField;
+    ADOPedidosEstado: TWideStringField;
+    ADOPedidosNumTarjeta: TWideStringField;
+    ADOPedidosFechaDeInicio: TDateTimeField;
+    ADOPedidosFechaDeFin: TDateTimeField;
+    ADOPedidosLibro: TStringField;
+    ADOPedidosNombre: TStringField;
+    ADOPedidosApellido: TStringField;
   private
     { Private declarations }
   public
@@ -67,5 +84,6 @@ var
 implementation
 
 {$R *.dfm}
+
 
 end.

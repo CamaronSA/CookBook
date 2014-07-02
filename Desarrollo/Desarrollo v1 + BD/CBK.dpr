@@ -24,7 +24,10 @@ uses
   unit5 in 'unit5.pas' {FrmMensajeConTemporizador},
   Unit6 in 'Unit6.pas' {Form6},
   MisDatos in 'MisDatos.pas' {FormMisDatos},
-  Unit7 in 'Unit7.pas' {Form7};
+  Unit7 in 'Unit7.pas' {Form7},
+  VerMisCompras in 'VerMisCompras.pas' {FormVerMisCompras},
+  PedidosRealizados in 'PedidosRealizados.pas' {FormTodosLosPedidos},
+  CondicionesDeVenta in 'CondicionesDeVenta.pas' {FormModifCondicionesVenta};
 
 {$R *.res}
 
@@ -55,5 +58,8 @@ begin
   Application.CreateForm(TForm6, Form6);
   Application.CreateForm(TFormMisDatos, FormMisDatos);
   Application.CreateForm(TForm7, Form7);
+  Application.CreateForm(TFormVerMisCompras, FormVerMisCompras);
+  Application.CreateForm(TFormTodosLosPedidos, FormTodosLosPedidos);
+  Application.CreateForm(TFormModifCondicionesVenta, FormModifCondicionesVenta);
   Application.Run;
 end.

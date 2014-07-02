@@ -1,0 +1,27 @@
+unit PedidosRealizados;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, Buttons, StdCtrls;
+
+type
+  TFormTodosLosPedidos = class(TForm)
+    Label12: TLabel;
+    SpeedButton1: TSpeedButton;
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormTodosLosPedidos: TFormTodosLosPedidos;
+
+implementation
+
+{$R *.dfm}
+
+end.

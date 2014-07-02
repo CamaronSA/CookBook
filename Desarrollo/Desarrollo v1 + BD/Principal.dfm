@@ -1366,7 +1366,7 @@ object FormPrincipal: TFormPrincipal
   end
   object SpeedButton1: TSpeedButton
     Left = 798
-    Top = 556
+    Top = 572
     Width = 177
     Height = 38
     Caption = 'Catalogo de Libros'
@@ -1377,34 +1377,6 @@ object FormPrincipal: TFormPrincipal
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton1Click
-  end
-  object SpeedButton2: TSpeedButton
-    Left = 798
-    Top = 600
-    Width = 177
-    Height = 38
-    Caption = 'Carro de Compras'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton2Click
-  end
-  object SpeedButton4: TSpeedButton
-    Left = 886
-    Top = 32
-    Width = 89
-    Height = 38
-    Caption = 'Contacto'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton4Click
   end
   object SpeedButton5: TSpeedButton
     Left = 696
@@ -1460,19 +1432,6 @@ object FormPrincipal: TFormPrincipal
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton7Click
-  end
-  object SpeedButton8: TSpeedButton
-    Left = 793
-    Top = 32
-    Width = 87
-    Height = 38
-    Caption = 'Ayuda'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
   end
   object Label1: TLabel
     Left = 16
@@ -1554,9 +1513,27 @@ object FormPrincipal: TFormPrincipal
         OnClick = Darmedebaja1Click
       end
     end
+    object ransacciones1: TMenuItem
+      Caption = 'Transacciones'
+      OnClick = ransacciones1Click
+    end
+    object Nosotros1: TMenuItem
+      Caption = 'Nosotros'
+      object Contactenos1: TMenuItem
+        Caption = 'Contactenos'
+        OnClick = SpeedButton4Click
+      end
+    end
     object Ayuda1: TMenuItem
       Caption = 'Ayuda'
       object Cargadeformularios1: TMenuItem
+      end
+    end
+    object Administrador1: TMenuItem
+      Caption = 'Administrador'
+      object Pedidosrealizados1: TMenuItem
+        Caption = 'Pedidos realizados'
+        OnClick = Pedidosrealizados1Click
       end
     end
   end
