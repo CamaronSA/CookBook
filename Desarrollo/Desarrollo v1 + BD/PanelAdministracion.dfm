@@ -181,7 +181,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
   end
   object SpeedButton13: TSpeedButton
     Left = 522
-    Top = 408
+    Top = 496
     Width = 220
     Height = 38
     Caption = 'Modificar pedido'
@@ -321,7 +321,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
   end
   object SpeedButton21: TSpeedButton
     Left = 775
-    Top = 408
+    Top = 496
     Width = 210
     Height = 38
     Caption = 'Eliminar pedido'
@@ -405,7 +405,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
   end
   object SpeedButton28: TSpeedButton
     Left = 24
-    Top = 408
+    Top = 496
     Width = 210
     Height = 38
     Caption = 'Ver pedido'
@@ -475,7 +475,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
   end
   object SpeedButton29: TSpeedButton
     Left = 24
-    Top = 452
+    Top = 540
     Width = 210
     Height = 38
     Caption = 'Pedidos por fecha'
@@ -489,7 +489,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
   end
   object SpeedButton30: TSpeedButton
     Left = 522
-    Top = 452
+    Top = 540
     Width = 220
     Height = 38
     Caption = 'Modificar cond. de venta'
@@ -500,5 +500,83 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton30Click
+  end
+  object SpeedButton31: TSpeedButton
+    Left = 24
+    Top = 408
+    Width = 210
+    Height = 38
+    Caption = 'Ver Usuario'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton33: TSpeedButton
+    Left = 522
+    Top = 408
+    Width = 220
+    Height = 38
+    Caption = 'Modificar Usuario'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton34: TSpeedButton
+    Left = 775
+    Top = 408
+    Width = 210
+    Height = 38
+    Caption = 'Eliminar Usuario'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton32: TSpeedButton
+    Left = 24
+    Top = 452
+    Width = 210
+    Height = 38
+    Caption = 'Ver Tarjeta'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton35: TSpeedButton
+    Left = 266
+    Top = 452
+    Width = 222
+    Height = 38
+    Caption = 'Agregar Tarjeta'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton36: TSpeedButton
+    Left = 775
+    Top = 452
+    Width = 210
+    Height = 38
+    Caption = 'Eliminar Tarjeta'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
 end

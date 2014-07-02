@@ -4,9 +4,9 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Tarjetas de Credito'
-  ClientHeight = 150
+  ClientHeight = 376
   ClientWidth = 352
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -16
@@ -14,25 +14,27 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 19
   object Label1: TLabel
     Left = 48
-    Top = 24
+    Top = 244
     Width = 56
     Height = 19
     Caption = 'Tarjeta:'
   end
   object Label2: TLabel
-    Left = 48
-    Top = 65
+    Left = 56
+    Top = 277
     Width = 48
     Height = 19
     Caption = 'Banco:'
   end
   object SpeedButton1: TSpeedButton
-    Left = 8
-    Top = 96
+    Left = 121
+    Top = 324
     Width = 107
     Height = 41
     Caption = 'Agregar'
@@ -42,10 +44,11 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton1Click
   end
   object SpeedButton2: TSpeedButton
     Left = 121
-    Top = 96
+    Top = 324
     Width = 107
     Height = 41
     Caption = 'Eliminar'
@@ -55,10 +58,11 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton2Click
   end
   object SpeedButton3: TSpeedButton
     Left = 234
-    Top = 96
+    Top = 324
     Width = 107
     Height = 41
     Caption = 'Cerrar'
@@ -69,20 +73,72 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Font.Style = []
     ParentFont = False
   end
+  object Label3: TLabel
+    Left = 56
+    Top = 197
+    Width = 231
+    Height = 23
+    Caption = 'Coplete los campos en rojo!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
   object Edit1: TEdit
-    Left = 110
-    Top = 21
+    Left = 102
+    Top = 241
     Width = 203
     Height = 27
+    MaxLength = 15
     TabOrder = 0
-    Text = 'Edit1'
+    OnChange = Edit1Change
+    OnKeyPress = Edit1KeyPress
   end
   object Edit2: TEdit
     Left = 102
-    Top = 62
-    Width = 211
+    Top = 274
+    Width = 203
     Height = 27
+    MaxLength = 15
     TabOrder = 1
-    Text = 'Edit2'
+    OnChange = Edit2Change
+    OnKeyPress = Edit2KeyPress
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 8
+    Width = 336
+    Height = 183
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ReadOnly = True
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -16
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object comprobarTarjetas: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end
+      item
+        Name = 'dato2'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select nombrel, banco '
+      'from tarjetas'
+      'where (Nombre =:Dato) and (banco =:dato2)')
+    Left = 304
+    Top = 192
   end
 end

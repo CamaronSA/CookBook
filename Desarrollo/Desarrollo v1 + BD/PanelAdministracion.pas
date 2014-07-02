@@ -44,6 +44,12 @@ type
     SpeedButton27: TSpeedButton;
     SpeedButton29: TSpeedButton;
     SpeedButton30: TSpeedButton;
+    SpeedButton31: TSpeedButton;
+    SpeedButton33: TSpeedButton;
+    SpeedButton34: TSpeedButton;
+    SpeedButton32: TSpeedButton;
+    SpeedButton35: TSpeedButton;
+    SpeedButton36: TSpeedButton;
     procedure SpeedButton14Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton15Click(Sender: TObject);
