@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 565
   Width = 712
   object ADOAdministrador: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Administrador'
@@ -10,6 +11,7 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ADOLibro: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -18,13 +20,67 @@ object DataModule1: TDataModule1
     Top = 88
   end
   object ADOPedidos: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Pedidos'
     Left = 48
     Top = 208
+    object ADOPedidosIDPedido: TAutoIncField
+      FieldName = 'IDPedido'
+      ReadOnly = True
+    end
+    object ADOPedidosDNI: TIntegerField
+      FieldName = 'DNI'
+    end
+    object ADOPedidosNombre: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Nombre'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
+    object ADOPedidosApellido: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Apellido'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
+    object ADOPedidosISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object ADOPedidosLibro: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Libro'
+      LookupDataSet = ADOLibro
+      LookupKeyFields = 'ISBN'
+      LookupResultField = 'Titulo'
+      KeyFields = 'ISBN'
+      Size = 30
+      Lookup = True
+    end
+    object ADOPedidosEstado: TWideStringField
+      FieldName = 'Estado'
+      Size = 255
+    end
+    object ADOPedidosNumTarjeta: TWideStringField
+      FieldName = 'NumTarjeta'
+      Size = 50
+    end
+    object ADOPedidosFechaDeInicio: TDateTimeField
+      FieldName = 'FechaDeInicio'
+    end
+    object ADOPedidosFechaDeFin: TDateTimeField
+      FieldName = 'FechaDeFin'
+    end
   end
   object ADOCliente: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Cliente'
@@ -47,6 +103,7 @@ object DataModule1: TDataModule1
     Top = 272
   end
   object ADOEtiqueta: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Etiqueta'
@@ -54,6 +111,7 @@ object DataModule1: TDataModule1
     Top = 328
   end
   object ADOIdioma: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -66,10 +124,11 @@ object DataModule1: TDataModule1
     CursorType = ctStatic
     MasterSource = Tabla_Libro
     TableName = 'Editorial'
-    Left = 256
+    Left = 248
     Top = 32
   end
   object ADOAutor: TADOTable
+    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Autor'
@@ -78,7 +137,7 @@ object DataModule1: TDataModule1
   end
   object Tabla_Editorial: TDataSource
     DataSet = ADOEditorial
-    Left = 336
+    Left = 344
     Top = 32
   end
   object Tabla_Idioma: TDataSource
@@ -97,10 +156,15 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
+      'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
+      'rsist Security Info=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 96
+    Left = 104
     Top = 440
   end
   object VerificarAdministrador: TADOQuery
@@ -129,7 +193,7 @@ object DataModule1: TDataModule1
       'select * from Administrador'
       'where (Usuario = :QUser) and (Clave = :QClave)')
     Left = 520
-    Top = 32
+    Top = 40
   end
   object Tabla_Administrador: TDataSource
     DataSet = ADOAdministrador
@@ -245,7 +309,7 @@ object DataModule1: TDataModule1
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 'Bitmaps (*.bmp)|*.bmp'
     Title = 'Imagen de portada'
-    Left = 256
+    Left = 248
     Top = 96
   end
   object ComprobarLibro: TADOQuery
@@ -321,7 +385,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select DNI from Administrador'
       'where (DNI=:consultarDNI)')
-    Left = 424
+    Left = 432
     Top = 32
   end
   object ComprobarUsuarioAdmin: TADOQuery
@@ -487,14 +551,161 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select *'
       'from Libro'
-      'where (Idioma =:Dato1)')
+      'where (Editorial =:Dato1)')
     Left = 344
     Top = 272
   end
-  object ActualizarDatos: TADOQuery
+  object LibrosALaVenta: TADOQuery
     Connection = SoyUnaConeccion
+    CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      'Select * '
+      'From Libro'
+      'Where (Disponible =True)'
+      'order by Titulo')
     Left = 344
     Top = 328
+  end
+  object Tabla_LibrosALaVenta: TDataSource
+    DataSet = LibrosALaVenta
+    Left = 248
+    Top = 328
+  end
+  object EmailDeUser: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'User'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Cliente'
+      'where (Usuario=:User)')
+    Left = 344
+    Top = 384
+  end
+  object RecuClaveUsuario: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'User'
+        Size = -1
+        Value = Null
+      end
+      item
+        Name = 'EmailUsuario'
+        Size = -1
+        Value = Null
+      end
+      item
+        Name = 'DNIUsuario'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Cliente'
+      
+        'where (Usuario=:User) and (Mail=:EmailUsuario) and (DNI=:DNIUsua' +
+        'rio)')
+    Left = 344
+    Top = 432
+  end
+  object ComprobarUsuario: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'user'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Cliente'
+      'where (:user)=Usuario')
+    Left = 432
+    Top = 432
+  end
+  object BorrarUsuarioCliente: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'user'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Delete * from Cliente'
+      'where Usuario=:user')
+    Left = 624
+    Top = 432
+  end
+  object BorrarUsuarioAdmin: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'user'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Delete * from Administrador'
+      'where Usuario=:user')
+    Left = 624
+    Top = 488
+  end
+  object Tabla_MisDatosUsuario: TDataSource
+    DataSet = ComprobarUsuario
+    Left = 520
+    Top = 432
+  end
+  object DS_MisCompras: TDataSource
+    DataSet = QMisCompras
+    Left = 648
+    Top = 296
+  end
+  object QMisCompras: TADOQuery
+    Connection = SoyUnaConeccion
+    CursorType = ctStatic
+    DataSource = Tabla_Pedidos
+    Parameters = <
+      item
+        Name = 'consultaDNI'
+        Attributes = [paNullable]
+        DataType = ftWideString
+        NumericScale = 255
+        Precision = 255
+        Size = 510
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Pedidos'
+      'where (DNI=:consultaDNI)')
+    Left = 648
+    Top = 352
+    object QMisComprasISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object QMisComprasLibro: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Libro'
+      LookupDataSet = ADOLibro
+      LookupKeyFields = 'ISBN'
+      LookupResultField = 'Titulo'
+      KeyFields = 'ISBN'
+      ReadOnly = True
+      Size = 30
+      Lookup = True
+    end
+    object QMisComprasEstado: TWideStringField
+      FieldName = 'Estado'
+      Size = 255
+    end
+    object QMisComprasFechaDeInicio: TDateTimeField
+      FieldName = 'FechaDeInicio'
+    end
+    object QMisComprasFechaDeFin: TDateTimeField
+      FieldName = 'FechaDeFin'
+    end
   end
 end

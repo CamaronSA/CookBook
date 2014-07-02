@@ -26,9 +26,7 @@ type
     DBText13: TDBText;
     DateTimePicker1: TDateTimePicker;
     DateTimePicker2: TDateTimePicker;
-    SpeedButton1: TSpeedButton;
     procedure SpeedButton5Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,11 +43,6 @@ uses Unit1;
 {$R *.dfm}
 
 
-
-procedure TFormPedidosPorFecha.SpeedButton1Click(Sender: TObject);
-begin
-close;
-end;
 
 procedure TFormPedidosPorFecha.SpeedButton5Click(Sender: TObject);
 begin

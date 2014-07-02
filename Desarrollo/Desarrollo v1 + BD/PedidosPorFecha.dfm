@@ -4,7 +4,7 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
   BorderIcons = []
   Caption = 'Buscar libros vendidos por fecha'
   ClientHeight = 303
-  ClientWidth = 629
+  ClientWidth = 561
   Color = clBtnHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -181,6 +181,20 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 432
+      Top = 248
+      Width = 98
+      Height = 31
+      Caption = 'Volver'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton1Click
     end
     object DBGrid1: TDBGrid
       Left = 10

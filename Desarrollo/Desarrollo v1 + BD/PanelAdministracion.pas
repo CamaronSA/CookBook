@@ -82,7 +82,8 @@ var
 
 implementation
 
-uses OperacionesIdioma, ModificarLibro, PedidosPorFecha, CondicionesDeVenta;
+uses OperacionesIdioma, ModificarLibro, PedidosPorFecha, CondicionesDeVenta,
+  PedidosRealizados;
 
 {$R *.dfm}
 
@@ -318,7 +319,7 @@ end;
 
 procedure TFormPanelAdministracion.SpeedButton29Click(Sender: TObject);
 begin
-formpedidosporfecha.showmodal;
+  FormTodosLosPedidos.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton2Click(Sender: TObject);

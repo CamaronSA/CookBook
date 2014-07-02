@@ -3,7 +3,6 @@ object DataModule1: TDataModule1
   Height = 565
   Width = 712
   object ADOAdministrador: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Administrador'
@@ -11,7 +10,6 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ADOLibro: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -20,7 +18,6 @@ object DataModule1: TDataModule1
     Top = 88
   end
   object ADOPedidos: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Pedidos'
@@ -80,7 +77,6 @@ object DataModule1: TDataModule1
     end
   end
   object ADOCliente: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Cliente'
@@ -103,7 +99,6 @@ object DataModule1: TDataModule1
     Top = 272
   end
   object ADOEtiqueta: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Etiqueta'
@@ -111,7 +106,6 @@ object DataModule1: TDataModule1
     Top = 328
   end
   object ADOIdioma: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     IndexFieldNames = 'Idioma'
@@ -128,7 +122,6 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ADOAutor: TADOTable
-    Active = True
     Connection = SoyUnaConeccion
     CursorType = ctStatic
     TableName = 'Autor'
@@ -156,11 +149,6 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
-    Connected = True
-    ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
-      'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
-      'rsist Security Info=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
