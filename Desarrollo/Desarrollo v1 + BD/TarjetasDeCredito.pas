@@ -28,6 +28,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,7 +52,7 @@ end;
 
 procedure TFormtarjetasDeCredito.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
-if ( StrScan('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
 end;
 
 procedure TFormtarjetasDeCredito.Edit2Change(Sender: TObject);
@@ -62,11 +63,13 @@ end;
 
 procedure TFormtarjetasDeCredito.Edit2KeyPress(Sender: TObject; var Key: Char);
 begin
-if ( StrScan('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
 end;
 
 procedure TFormtarjetasDeCredito.FormActivate(Sender: TObject);
 begin
+  DataModule1.ADOTarjetas.Active:=True;
+
   if (speedbutton1.Visible = false) and (speedbutton2.Visible = false) then
   begin
     edit1.ReadOnly:=true;
@@ -90,33 +93,35 @@ procedure TFormtarjetasDeCredito.SpeedButton1Click(Sender: TObject);
 var
   buttonSelected:integer;
 begin
-{ buttonSelected:=messageDlg('¿Realmente desea Agregar esta Editorial?',mtWarning,mbOkCancel,0);
+ buttonSelected:=messageDlg('¿Realmente desea Agregar esta tarjeta?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then
      Begin
        try   //No tocar anda de pedo la mierda esta, si tira error de parametro, piense que otras careras tamb son buenas opciones.
-       datamodule1.comprobarTarjetas.Close;
+       comprobarTarjetas.Close;
        comprobarTarjetas.Parameters.ParamByName('Dato').Value:=edit1.Text;
        comprobarTarjetas.Parameters.ParamByName('Dato2').Value:=edit2.Text;
-       datamodule1.comprobarTarjetas.Open;
+       comprobarTarjetas.Open;
+
        datamodule1.ADOtarjetas.Append;
 
-       if (edit2.Text = '') then
+       if not (ComprobarTarjetas.IsEmpty) then
+         raise EUsada.Create('Ya esta en la lista no puede agregar esta tarjeta')
+       else begin
+        if (edit2.Text = '') then
           raise ECampoBlanco.Create('Complete todos los campos')
-       else
-          if (edit2.Text = '') then
-            raise ECampoBlanco.Create('Complete todos los campos')
-          else
-            if not (Datamodule1.ComprobarTarjetas.IsEmpty) then
-              raise EUsada.Create('Ya esta en la lista no puede agregar esta editorial')
-            else
-            begin
-                datamodule1.ADOtarjetas.FieldByName('Nombre').AsString:=edit1.Text;
-                datamodule1.ADOtarjetas.FieldByName('Banco').AsString:=edit2.Text;
-                datamodule1.ADOEditorial.Post;
-                showmessage('Se agrego correctamente la editorial');
-                edit2.Text:='';
-                edit1.Text:='';
-            end;
+        else
+          datamodule1.ADOtarjetas.FieldByName('Banco').AsString:=edit2.Text;
+        if (edit1.Text = '') then
+          raise ECampoBlanco.Create('Complete todos los campos')
+        else
+          datamodule1.ADOtarjetas.FieldByName('Nombre').AsString:=edit1.Text;
+
+          datamodule1.ADOtarjetas.Post;
+          showmessage('Se agrego correctamente la editorial');
+          edit2.Text:='';
+          edit1.Text:='';
+       end;
+
 
        except
 
@@ -139,6 +144,7 @@ begin
             edit2.Text:='';
             datamodule1.ADOtarjetas.Cancel;
           end;
+          end;
 
          on E:EUsada do
             begin
@@ -158,9 +164,8 @@ begin
     edit2.Text:='';
     edit1.Text:='';
     end;
-end;       }
-
 end;
+
 
 
 procedure TFormtarjetasDeCredito.SpeedButton2Click(Sender: TObject);
@@ -176,6 +181,21 @@ begin
       if buttonSelected = mrCancel then
         DataModule1.ADOEtarjetas.Cancel;
                   }
+end;
+
+procedure TFormtarjetasDeCredito.SpeedButton3Click(Sender: TObject);
+begin
+  SpeedButton1.Visible:=true;
+  SpeedButton1.Enabled:=true;
+  SpeedButton2.Visible:=true;
+  SpeedButton2.Enabled:=true;
+  edit1.Text:='';
+  edit2.Text:='';
+
+  unit1.DataModule1.adoTarjetas.close;
+
+  Formtarjetasdecredito.close;
+
 end;
 
 end.

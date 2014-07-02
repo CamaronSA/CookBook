@@ -143,5 +143,7 @@
     <File Path="PedidosRealizados.dfm"/>
     <File Path="CondicionesDeVenta.pas"/>
     <File Path="CondicionesDeVenta.dfm"/>
+    <File Path="Usuarios.pas"/>
+    <File Path="Usuarios.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

@@ -182,8 +182,6 @@ object FormDetalleLibro: TFormDetalleLibro
     Top = 139
     Width = 177
     Height = 23
-    DataField = 'Autor'
-    DataSource = DataModule1.Tabla_LibrosALaVenta
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

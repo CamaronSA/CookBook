@@ -27,7 +27,8 @@ uses
   Unit7 in 'Unit7.pas' {Form7},
   VerMisCompras in 'VerMisCompras.pas' {FormVerMisCompras},
   PedidosRealizados in 'PedidosRealizados.pas' {FormTodosLosPedidos},
-  CondicionesDeVenta in 'CondicionesDeVenta.pas' {FormModifCondicionesVenta};
+  CondicionesDeVenta in 'CondicionesDeVenta.pas' {FormModifCondicionesVenta},
+  Usuarios in 'Usuarios.pas' {FormUsuarios};
 
 {$R *.res}
 
@@ -61,5 +62,6 @@ begin
   Application.CreateForm(TFormVerMisCompras, FormVerMisCompras);
   Application.CreateForm(TFormTodosLosPedidos, FormTodosLosPedidos);
   Application.CreateForm(TFormModifCondicionesVenta, FormModifCondicionesVenta);
+  Application.CreateForm(TFormUsuarios, FormUsuarios);
   Application.Run;
 end.

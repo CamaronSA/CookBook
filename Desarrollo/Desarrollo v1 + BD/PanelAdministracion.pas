@@ -77,6 +77,12 @@ type
     procedure SpeedButton27Click(Sender: TObject);
     procedure SpeedButton29Click(Sender: TObject);
     procedure SpeedButton30Click(Sender: TObject);
+    procedure SpeedButton31Click(Sender: TObject);
+    procedure SpeedButton33Click(Sender: TObject);
+    procedure SpeedButton34Click(Sender: TObject);
+    procedure SpeedButton32Click(Sender: TObject);
+    procedure SpeedButton36Click(Sender: TObject);
+    procedure SpeedButton35Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,7 +95,7 @@ var
 implementation
 
 uses OperacionesIdioma, ModificarLibro, PedidosPorFecha, CondicionesDeVenta,
-  PedidosRealizados;
+  PedidosRealizados, Usuarios, TarjetasDeCredito;
 
 {$R *.dfm}
 
@@ -348,6 +354,70 @@ begin
   FormModifCondicionesVenta.ShowModal;
 end;
 
+procedure TFormPanelAdministracion.SpeedButton31Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton1.Visible:=false;
+  formusuarios.speedbutton1.Enabled:=false;
+  formUsuarios.speedbutton2.Visible:=false;
+  formusuarios.speedbutton2.Enabled:=false;
+  formUsuarios.speedbutton4.Visible:=false;
+  formusuarios.speedbutton4.Enabled:=false;
+  formUsuarios.speedbutton5.Visible:=false;
+  formusuarios.speedbutton5.Enabled:=false;
+
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton32Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.ReadOnly:=true;
+  formtarjetasDeCredito.Edit2.ReadOnly:=true;
+  formtarjetasDeCredito.SpeedButton1.Visible:=false;
+  formtarjetasDeCredito.SpeedButton1.Enabled:=false;
+  formtarjetasDeCredito.SpeedButton2.Visible:=false;
+  formtarjetasDeCredito.SpeedButton2.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton33Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton2.Visible:=false;
+  formusuarios.speedbutton2.Enabled:=false;
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton34Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton1.Visible:=false;
+  formusuarios.speedbutton1.Enabled:=false;
+  formUsuarios.speedbutton4.Visible:=false;
+  formusuarios.speedbutton4.Enabled:=false;
+  formUsuarios.speedbutton5.Visible:=false;
+  formusuarios.speedbutton5.Enabled:=false;
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton35Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.Text:='';
+  formtarjetasDeCredito.Edit2.Text:='';
+  formtarjetasDeCredito.SpeedButton2.Visible:=false;
+  formtarjetasDeCredito.SpeedButton2.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton36Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.ReadOnly:=true;
+  formtarjetasDeCredito.Edit2.ReadOnly:=true;
+  formtarjetasDeCredito.SpeedButton1.Visible:=false;
+  formtarjetasDeCredito.SpeedButton1.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
 procedure TFormPanelAdministracion.SpeedButton3Click(Sender: TObject);
 begin
 FormOperacionesEditorial.SpeedButton1.Visible:=true;
@@ -443,5 +513,7 @@ Form3.Label4.Visible:=false;
 Form3.Label7.Visible:=false;
 Form3.ShowModal;
 end;
+
+
 
 end.

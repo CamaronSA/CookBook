@@ -72,6 +72,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton3Click
   end
   object Label3: TLabel
     Left = 56
@@ -112,6 +113,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Top = 8
     Width = 336
     Height = 183
+    DataSource = DataModule1.Tabla_Tarjetas
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
     TabOrder = 2
@@ -120,25 +122,46 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     TitleFont.Height = -16
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Banco'
+        Width = 150
+        Visible = True
+      end>
   end
   object comprobarTarjetas: TADOQuery
     Connection = DataModule1.SoyUnaConeccion
     Parameters = <
       item
         Name = 'Dato'
-        Size = -1
+        Attributes = [paNullable]
+        DataType = ftWideString
+        NumericScale = 255
+        Precision = 255
+        Size = 510
         Value = Null
       end
       item
         Name = 'dato2'
-        Size = -1
+        Attributes = [paNullable]
+        DataType = ftWideString
+        NumericScale = 255
+        Precision = 255
+        Size = 510
         Value = Null
       end>
     SQL.Strings = (
-      'Select nombrel, banco '
+      'Select nombre, banco '
       'from tarjetas'
-      'where (Nombre =:Dato) and (banco =:dato2)')
-    Left = 304
+      'where (Nombre =:Dato) and (banco =:Dato2)')
+    Left = 288
     Top = 192
   end
 end

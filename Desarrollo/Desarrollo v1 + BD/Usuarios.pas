@@ -109,6 +109,10 @@ uses Unit1, CambioClave;
 
 procedure TFormUsuarios.DBGrid1CellClick(Column: TColumn);
 begin
+
+if not (datamodule1.ADOCliente.IsEmpty) then
+begin
+
   dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
@@ -127,12 +131,18 @@ begin
   formusuarios.edit16.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('telefono').Asinteger);
   // para verificar que no se modifica el dni
   dniAux:= strtoint(edit2.Text);
+
+end;
 
 end;
 
 procedure TFormUsuarios.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+
+if not (datamodule1.ADOCliente.IsEmpty) then
+begin
+
   dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
@@ -153,10 +163,15 @@ begin
   dniAux:= strtoint(edit2.Text);
 
 end;
+end;
 
 procedure TFormUsuarios.DBGrid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+
+if not (datamodule1.ADOCliente.IsEmpty) then
+begin
+
   dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
@@ -176,6 +191,7 @@ begin
   // para verificar que no se modifica el dni
   dniAux:= strtoint(edit2.Text);
 
+end;
 end;
 
 procedure TFormUsuarios.Edit10Change(Sender: TObject);
@@ -409,6 +425,11 @@ begin
   label12.Font.Color:=clblack;
   label16.Font.Color:=clblack;
   label17.Font.Color:=clblack;
+
+  speedbutton4.Visible:=true;
+  speedbutton4.Enabled:=true;
+  speedbutton5.Visible:=true;
+  speedbutton5.Enabled:=true;
 end;
 
 procedure TFormUsuarios.SpeedButton1Click(Sender: TObject);

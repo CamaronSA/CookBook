@@ -513,6 +513,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton31Click
   end
   object SpeedButton33: TSpeedButton
     Left = 522
@@ -526,6 +527,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton33Click
   end
   object SpeedButton34: TSpeedButton
     Left = 775
@@ -539,6 +541,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton34Click
   end
   object SpeedButton32: TSpeedButton
     Left = 24
@@ -552,6 +555,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton32Click
   end
   object SpeedButton35: TSpeedButton
     Left = 266
@@ -565,6 +569,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton35Click
   end
   object SpeedButton36: TSpeedButton
     Left = 775
@@ -578,5 +583,6 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton36Click
   end
 end

@@ -72,6 +72,27 @@ type
     ADOPedidosLibro: TStringField;
     ADOPedidosNombre: TStringField;
     ADOPedidosApellido: TStringField;
+    ADOTarjetas: TADOTable;
+    Tabla_Tarjetas: TDataSource;
+    ADOTarjetasIDTarjeta: TAutoIncField;
+    ADOTarjetasNombre: TWideStringField;
+    ADOTarjetasBanco: TWideStringField;
+    ADOAutorNombre: TWideStringField;
+    ADOAutorApellido: TWideStringField;
+    ADOAutorDNI: TIntegerField;
+    ADOLibroIDLibro: TAutoIncField;
+    ADOLibroPrecio: TFloatField;
+    ADOLibroImagen: TBlobField;
+    ADOLibroAnioEditorial: TIntegerField;
+    ADOLibroTitulo: TWideStringField;
+    ADOLibroDescripcion: TWideMemoField;
+    ADOLibroDNIAutor: TIntegerField;
+    ADOLibroEditorial: TWideStringField;
+    ADOLibroIdioma: TWideStringField;
+    ADOLibroEtiqueta: TWideStringField;
+    ADOLibroISBN: TIntegerField;
+    ADOLibroEsDestacado: TBooleanField;
+    ADOLibroDisponible: TBooleanField;
   private
     { Private declarations }
   public

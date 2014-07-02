@@ -67,6 +67,8 @@ object Form7: TForm7
       Width = 60
       Height = 19
       AutoSize = True
+      DataField = 'Autor'
+      DataSource = Tabla_DetLibro
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16

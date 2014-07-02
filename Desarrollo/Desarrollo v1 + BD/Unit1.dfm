@@ -1,6 +1,6 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 565
+  Height = 650
   Width = 712
   object ADOAdministrador: TADOTable
     Connection = SoyUnaConeccion
@@ -16,6 +16,51 @@ object DataModule1: TDataModule1
     TableName = 'Libro'
     Left = 48
     Top = 88
+    object ADOLibroIDLibro: TAutoIncField
+      FieldName = 'IDLibro'
+      ReadOnly = True
+    end
+    object ADOLibroPrecio: TFloatField
+      FieldName = 'Precio'
+    end
+    object ADOLibroImagen: TBlobField
+      FieldName = 'Imagen'
+    end
+    object ADOLibroAnioEditorial: TIntegerField
+      FieldName = 'AnioEditorial'
+    end
+    object ADOLibroTitulo: TWideStringField
+      FieldName = 'Titulo'
+      Size = 255
+    end
+    object ADOLibroDescripcion: TWideMemoField
+      FieldName = 'Descripcion'
+      BlobType = ftWideMemo
+    end
+    object ADOLibroDNIAutor: TIntegerField
+      FieldName = 'DNIAutor'
+    end
+    object ADOLibroEditorial: TWideStringField
+      FieldName = 'Editorial'
+      Size = 255
+    end
+    object ADOLibroIdioma: TWideStringField
+      FieldName = 'Idioma'
+      Size = 255
+    end
+    object ADOLibroEtiqueta: TWideStringField
+      FieldName = 'Etiqueta'
+      Size = 255
+    end
+    object ADOLibroISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object ADOLibroEsDestacado: TBooleanField
+      FieldName = 'EsDestacado'
+    end
+    object ADOLibroDisponible: TBooleanField
+      FieldName = 'Disponible'
+    end
   end
   object ADOPedidos: TADOTable
     Connection = SoyUnaConeccion
@@ -127,6 +172,17 @@ object DataModule1: TDataModule1
     TableName = 'Autor'
     Left = 48
     Top = 152
+    object ADOAutorNombre: TWideStringField
+      FieldName = 'Nombre'
+      Size = 255
+    end
+    object ADOAutorApellido: TWideStringField
+      FieldName = 'Apellido'
+      Size = 255
+    end
+    object ADOAutorDNI: TIntegerField
+      FieldName = 'DNI'
+    end
   end
   object Tabla_Editorial: TDataSource
     DataSet = ADOEditorial
@@ -149,11 +205,12 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    Connected = True
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 104
-    Top = 440
+    Left = 96
+    Top = 512
   end
   object VerificarAdministrador: TADOQuery
     Connection = SoyUnaConeccion
@@ -483,26 +540,26 @@ object DataModule1: TDataModule1
   object CampoEtiquetaComboBox: TADOQuery
     Connection = SoyUnaConeccion
     Parameters = <>
-    Left = 56
-    Top = 504
+    Left = 40
+    Top = 584
   end
   object CampoIdiomaComboBox: TADOQuery
     Connection = SoyUnaConeccion
     Parameters = <>
-    Left = 184
-    Top = 504
+    Left = 168
+    Top = 584
   end
   object CampoAutorComboBox: TADOQuery
     Connection = SoyUnaConeccion
     Parameters = <>
-    Left = 312
-    Top = 504
+    Left = 304
+    Top = 584
   end
   object CampoEditorialComboBox: TADOQuery
     Connection = SoyUnaConeccion
     Parameters = <>
-    Left = 424
-    Top = 504
+    Left = 416
+    Top = 584
   end
   object EseLibroTienePedido: TADOQuery
     Connection = SoyUnaConeccion
@@ -695,5 +752,29 @@ object DataModule1: TDataModule1
     object QMisComprasFechaDeFin: TDateTimeField
       FieldName = 'FechaDeFin'
     end
+  end
+  object ADOTarjetas: TADOTable
+    Connection = SoyUnaConeccion
+    CursorType = ctStatic
+    TableName = 'Tarjetas'
+    Left = 48
+    Top = 440
+    object ADOTarjetasIDTarjeta: TAutoIncField
+      FieldName = 'IDTarjeta'
+      ReadOnly = True
+    end
+    object ADOTarjetasNombre: TWideStringField
+      FieldName = 'Nombre'
+      Size = 255
+    end
+    object ADOTarjetasBanco: TWideStringField
+      FieldName = 'Banco'
+      Size = 255
+    end
+  end
+  object Tabla_Tarjetas: TDataSource
+    DataSet = ADOTarjetas
+    Left = 128
+    Top = 440
   end
 end
