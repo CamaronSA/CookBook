@@ -296,7 +296,7 @@ object Form4: TForm4
     Width = 918
     Height = 250
     DataSource = DataModule1.Tabla_Libro
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
@@ -578,5 +578,35 @@ object Form4: TForm4
     Style = csDropDownList
     TabOrder = 15
     OnClick = ComboBox6Click
+  end
+  object PregDniAutor: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select DNI '
+      'from Autor '
+      'where (Apellido = :Dato)')
+    Left = 504
+    Top = 368
+  end
+  object PregApellidoAutor: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select Apellido'
+      'From Autor'
+      'Where (DNI =:Dato)')
+    Left = 600
+    Top = 368
   end
 end

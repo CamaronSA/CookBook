@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids,
-  TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion;
+  TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion, DB,
+  ADODB;
 
 type
   ENicoyJesu = class (Exception);
@@ -57,6 +58,8 @@ type
     ComboBox5: TComboBox;
     ComboBox6: TComboBox;
     SpeedButton5: TSpeedButton;
+    PregDniAutor: TADOQuery;
+    PregApellidoAutor: TADOQuery;
     procedure SpeedButton3Click(Sender: TObject);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
     procedure Edit10KeyPress(Sender: TObject; var Key: Char);
@@ -123,11 +126,16 @@ end;
 //implemento metodo para leer todos los registros desde el DBGrid, que dios y la patri me juzguen
 //Respete el orden de los componentes o muerda el muerto
 //La cantidad de veces q corri el programa por poner mal los nombres de los campos y la re
-procedure cargarComponentes(C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+procedure cargarComponentes(C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage;Q1:TADOQuery);
 begin
   C1.TextHint:=DataModule1.ADOLibro.FieldByName('Idioma').AsString;
   C2.TextHint:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString;
-  C3.TextHint:=DataModule1.ADOLibro.FieldByName('Autor').AsString;
+  //Pido el numero de Dni del autor.   Indigena modo ON
+  Q1.Close;
+  Q1.Parameters.ParamByName('Dato').Value:=IntToStr(DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger);
+  Q1.Open;
+  Q1.Active:=True;
+  C3.TextHint:=Q1.FieldByName('Apellido').AsString;    //  <--aca salame
   C4.TextHint:=DataModule1.ADOLibro.FieldByName('Editorial').AsString;
   if (DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean = True) then
     C5.TextHint:='SI'
@@ -235,7 +243,7 @@ begin
   // Aca verifico que o esta habilitado el modificar, o el agregar, o estan todos desabilitados.
   If(SpeedButton1.Visible = true) or (SpeedButton4.Visible = true) or ((SpeedButton4.Visible =false) and (SpeedButton1.Visible = false) and (SpeedButton3.Visible = false)) then   begin
     //Ahi muesta todo los datos en los campos
-    cargarComponentes(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+    cargarComponentes(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1,PregApellidoAutor);
   end;
 end;
 
@@ -261,7 +269,7 @@ Case Column.Index Of
   3 : DataModule1.ADOLibro.IndexFieldNames:='Etiqueta';
   4 : DataModule1.ADOLibro.IndexFieldNames:='Editorial';
   5 : DataModule1.ADOLibro.IndexFieldNames:='precio';
-  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor';
+// 6 : DataModule1.ADOLibro.IndexFieldNames:='DNIAutor'; // <--No es LookUp
   7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
 End;
 
@@ -344,6 +352,7 @@ end;
 
 procedure TForm4.FormActivate(Sender: TObject);
 begin
+   datamodule1.ADOLibro.Active:=true;
    label15.Caption:= 'Caracteres disponibles ' +inttostr(Length(Memo1.Lines.Text))+ '/65536' ;
   // Se cargan las opciones de los combobox solo si se entra en modo agregar libro o modificar
   if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
@@ -430,7 +439,6 @@ begin
   if buttonSelected = mrOk then
     begin
       try
-
         Datamodule1.ADOLibro.edit;
         DataModule1.ComprobarLibro.Close;
         DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
@@ -478,9 +486,16 @@ begin
           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=ComboBox2.Text;
         //Campo Autor
         if (ComboBox3.Text = '') then
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=DataModule1.ADOLibro.FieldByName('Autor').AsString
+           DataModule1.ADOLibro.FieldByName('DNIAutor').AsString:=DataModule1.ADOLibro.FieldByName('DNIAutor').AsString
         else
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+           begin
+             //Hago una query para conocer el dni del autor y guardarlo en la tabla.
+             PregDNIAutor.Close;
+             PregDNIAutor.Parameters.ParamByName('Dato').Value:=ComboBox3.Text;
+             PregDniAutor.Open;
+             PregDNIAutor.Active:=true;
+             DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger:=PregDNIAutor.FieldByName('DNI').AsInteger;
+          end;
         //Campo Editorial
         if (ComboBox4.Text = '') then
            DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
@@ -662,7 +677,15 @@ begin
         if (ComboBox3.Text = '') then
            raise ECampoBlanco.Create('Complete todos los campos en rojo')
         else
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+          begin
+           //Hago una query para conocer el dni del autor y guardarlo en la tabla.
+           PregDNIAutor.Close;
+           PregDNIAutor.Parameters.ParamByName('Dato').Value:=ComboBox3.Text;
+           PregDniAutor.Open;
+           PregDNIAutor.Active:=true;
+           DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger:=PregDNIAutor.FieldByName('DNI').AsInteger;
+
+          end;
         //Campo Editorial
         if (ComboBox4.Text = '') then
            raise ECampoBlanco.Create('Complete todos los campos en rojo')
