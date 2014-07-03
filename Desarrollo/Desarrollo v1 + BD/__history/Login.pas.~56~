@@ -132,7 +132,7 @@ begin
    DataModule1.VerificarCliente.Parameters.ParamByName('QClave').Value:=Pwd;
    DataModule1.VerificarCliente.Open;
 
-    if not(DataModule1.VerificarCliente.IsEmpty) then begin  //si sos usuario
+    if not(DataModule1.VerificarCliente.IsEmpty) then begin
       FormPrincipal.SpeedButton6.Enabled:=False;
       FormPrincipal.SpeedButton6.Visible:=false;
       FormPrincipal.SpeedButton1.Enabled:=true;
@@ -152,13 +152,13 @@ begin
       FormPrincipal.ShowModal;
       end
       else
-          if (User='root') and (Pwd='kapanga') then begin   //si sos root
+          if (User='root') and (Pwd='kapanga') then begin
             FormPrincipal.SpeedButton6.Enabled:=true;
             FormPrincipal.SpeedButton6.Visible:=true;
             FormPrincipal.SpeedButton1.Enabled:=false;
             FormPrincipal.SpeedButton1.Visible:=false;
-            FormPrincipal.SpeedButton2.Enabled:=false;
-            FormPrincipal.SpeedButton2.Visible:=false;
+//            FormPrincipal.SpeedButton2.Enabled:=false;
+//            FormPrincipal.SpeedButton2.Visible:=false;
 //            FormPrincipal.SpeedButton4.Enabled:=false;
 //            FormPrincipal.SpeedButton4.Visible:=false;
             PanelAdministracion.FormPanelAdministracion.SpeedButton1.Enabled:=True;
@@ -174,13 +174,13 @@ begin
             FormPrincipal.ShowModal;
           end
         else
-        if not (DataModule1.VerificarAdministrador.IsEmpty) then begin //si sos admin
+        if not (DataModule1.VerificarAdministrador.IsEmpty) then begin
           FormPrincipal.SpeedButton6.Enabled:=true;
           FormPrincipal.SpeedButton6.Visible:=true;
           FormPrincipal.SpeedButton1.Enabled:=false;
           FormPrincipal.SpeedButton1.Visible:=false;
-          FormPrincipal.SpeedButton2.Enabled:=false;
-          FormPrincipal.SpeedButton2.Visible:=false;
+//          FormPrincipal.SpeedButton2.Enabled:=false;
+ //         FormPrincipal.SpeedButton2.Visible:=false;
 //          FormPrincipal.SpeedButton4.Enabled:=false;
 //          FormPrincipal.SpeedButton4.Visible:=false;
           PanelAdministracion.FormPanelAdministracion.SpeedButton1.Visible:=False;
@@ -200,7 +200,7 @@ begin
           Edit2.Text:='';
           end;
    end;
-procedure TFormLogin.SpeedButton4Click(Sender: TObject); //VISITANTE
+procedure TFormLogin.SpeedButton4Click(Sender: TObject);
 begin
   FormPrincipal.SpeedButton6.Visible:=False;
 //  FormPrincipal.SpeedButton2.Visible:=False;
@@ -208,8 +208,6 @@ begin
   FormCatalogoLibros.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton3.Visible:=True;
   FormPrincipal.ShowModal;
-  FormPrincipal.SpeedButton2.Enabled:=True;
-  FormPrincipal.SpeedButton2.Visible:=True;
   { *****************
     ****************
 

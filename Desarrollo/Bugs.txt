@@ -45,13 +45,13 @@
 	-
 
 --Panel principal
-	-Agregar "Registrarse" cuando ingresas como usuario 	
+	-Agregar "Registrarse" cuando ingresas como visitante 	
 
 --Modificar mis datos
 	-Debe poderse modificar DNI y Usuario (verificar que no existan)
 
 --Contacto
-	-No desaparece campo "Complete los campos en rojo" al cerrar el form
+	-No desaparece campo "Complete los campos en rojo" al cerrar el form [FIXED]
 
 --Confirmar carrito
 	-Deshabilitar boton "Modificar condiciones" y poner memo en ReadOnly(para clientes), y hacer funcar checkbox
@@ -61,3 +61,8 @@
 
 --Eliminar y Modificar Autor
 	- No muestra el DNI y tiene un problema con IDAutor (dice que no existe mas)
+
+-- Ver usuario/modificar usuario/Eliminar usuario
+	-Modificar las alturas de los edits para que quede esteticamente "lindo". Y aparece "Edit1" en el buscador, poner de ultima un el TextHint
+
+--

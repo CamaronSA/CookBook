@@ -61,7 +61,7 @@ var
 implementation
 
 uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
-  PedidosRealizados, RegistroCliente, CambiarClave;
+  PedidosRealizados, RegistroCliente;
 
 {$R *.dfm}
 
@@ -69,7 +69,7 @@ uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
 
 procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
 begin
-  FormCambiarClave.ShowModal;
+  //Proceso cambiar contraseña
 end;
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);

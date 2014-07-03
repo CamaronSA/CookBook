@@ -1447,7 +1447,7 @@ object FormPrincipal: TFormPrincipal
     ParentFont = False
   end
   object SpeedButton3: TSpeedButton
-    Left = 192
+    Left = 696
     Top = 644
     Width = 129
     Height = 38
@@ -1459,20 +1459,6 @@ object FormPrincipal: TFormPrincipal
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton5Click
-  end
-  object SpeedButton2: TSpeedButton
-    Left = 36
-    Top = 644
-    Width = 129
-    Height = 38
-    Caption = 'Registrate'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
-    Font.Height = -19
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton2Click
   end
   object DBImage1: TDBImage
     Left = 32
@@ -1521,10 +1507,6 @@ object FormPrincipal: TFormPrincipal
       object Modificarmisdatos1: TMenuItem
         Caption = 'Modificar mis datos'
         OnClick = Modificarmisdatos1Click
-      end
-      object Cambiarcontrasea1: TMenuItem
-        Caption = 'Cambiar contrase'#241'a'
-        OnClick = Cambiarcontrasea1Click
       end
       object Darmedebaja1: TMenuItem
         Caption = 'Eliminar usuario'

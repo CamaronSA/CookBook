@@ -36,10 +36,10 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormLogin, FormLogin);
-  Application.CreateForm(TFormPrincipal, FormPrincipal);
-  Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
-  Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
+  AApplication.CreateForm(TFormLogin, FormLogin);
+  AApplication.CreateForm(TFormPrincipal, FormPrincipal);
+  AApplication.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
+  AApplication.CreateForm(TFormDetalleLibro, FormDetalleLibro);
   Application.CreateForm(TFormCarritoDeCompras, FormCarritoDeCompras);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TFormPanelAdministracion, FormPanelAdministracion);
@@ -65,5 +65,5 @@ begin
   Application.CreateForm(TFormModifCondicionesVenta, FormModifCondicionesVenta);
   Application.CreateForm(TFormUsuarios, FormUsuarios);
   Application.CreateForm(TFormCambiarClave, FormCambiarClave);
-  Application.Run;
+  ication.Run;
 end.

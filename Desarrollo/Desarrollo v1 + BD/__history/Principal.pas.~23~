@@ -34,8 +34,6 @@ type
     Contactenos1: TMenuItem;
     Administrador1: TMenuItem;
     Pedidosrealizados1: TMenuItem;
-    SpeedButton2: TSpeedButton;
-    Cambiarcontrasea1: TMenuItem;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -48,7 +46,6 @@ type
     procedure MisDatos1Click(Sender: TObject);
     procedure ransacciones1Click(Sender: TObject);
     procedure Pedidosrealizados1Click(Sender: TObject);
-    procedure Cambiarcontrasea1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,16 +58,11 @@ var
 implementation
 
 uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
-  PedidosRealizados, RegistroCliente, CambiarClave;
+  PedidosRealizados;
 
 {$R *.dfm}
 
 
-
-procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
-begin
-  FormCambiarClave.ShowModal;
-end;
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
 var buttonSelected:Integer;
@@ -143,8 +135,7 @@ end;
 
 procedure TFormPrincipal.SpeedButton2Click(Sender: TObject);
 begin
-  Close;
-  formregistrocliente.showmodal;
+  FormCarritoDeCompras.showmodal;
 end;
 
 procedure TFormPrincipal.SpeedButton4Click(Sender: TObject);

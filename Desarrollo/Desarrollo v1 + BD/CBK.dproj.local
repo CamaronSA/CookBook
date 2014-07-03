@@ -90,6 +90,8 @@
     <Transaction>2014/07/02 16:25:31.288.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\PedidosRealizados.dfm</Transaction>
     <Transaction>2014/07/02 17:34:44.386.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CondicionesDeVenta.pas</Transaction>
     <Transaction>2014/07/02 17:34:44.386.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CondicionesDeVenta.dfm</Transaction>
+    <Transaction>2014/07/02 23:48:25.015.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CambiarClave.pas</Transaction>
+    <Transaction>2014/07/02 23:48:25.015.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CambiarClave.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="CarritoDeCompras.pas"/>
@@ -145,5 +147,7 @@
     <File Path="CondicionesDeVenta.dfm"/>
     <File Path="Usuarios.pas"/>
     <File Path="Usuarios.dfm"/>
+    <File Path="CambiarClave.pas"/>
+    <File Path="CambiarClave.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

@@ -119,6 +119,9 @@
 			<DCCReference Include="Usuarios.pas">
 				<Form>FormUsuarios</Form>
 			</DCCReference>
+			<DCCReference Include="CambiarClave.pas">
+				<Form>FormCambiarClave</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
