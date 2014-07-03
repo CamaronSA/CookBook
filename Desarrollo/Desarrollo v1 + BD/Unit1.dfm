@@ -61,6 +61,15 @@ object DataModule1: TDataModule1
     object ADOLibroDisponible: TBooleanField
       FieldName = 'Disponible'
     end
+    object ADOLibroAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Autor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNIAutor'
+      Lookup = True
+    end
   end
   object ADOPedidos: TADOTable
     Connection = SoyUnaConeccion
@@ -205,7 +214,6 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
-    Connected = True
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'

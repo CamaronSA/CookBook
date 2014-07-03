@@ -350,13 +350,12 @@ object Form4: TForm4
         Expanded = False
         FieldName = 'AnioEditorial'
         Title.Caption = 'A'#241'o Edicion'
-        Width = 98
+        Width = 78
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Autor'
-        Width = 100
         Visible = True
       end>
   end

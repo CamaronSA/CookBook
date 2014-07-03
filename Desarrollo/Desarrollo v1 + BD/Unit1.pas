@@ -93,6 +93,7 @@ type
     ADOLibroISBN: TIntegerField;
     ADOLibroEsDestacado: TBooleanField;
     ADOLibroDisponible: TBooleanField;
+    ADOLibroAutor: TStringField;
   private
     { Private declarations }
   public
