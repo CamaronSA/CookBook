@@ -1,10 +1,9 @@
 object FormCambiarClave: TFormCambiarClave
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
   Caption = 'Cambiar contrase'#241'a'
-  ClientHeight = 302
-  ClientWidth = 426
+  ClientHeight = 300
+  ClientWidth = 424
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

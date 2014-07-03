@@ -185,13 +185,13 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Width = 220
     Height = 38
     Caption = 'Modificar pedido'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton13Click
   end
   object SpeedButton6: TSpeedButton
     Left = 522

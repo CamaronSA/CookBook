@@ -84,7 +84,6 @@ type
     procedure SpeedButton36Click(Sender: TObject);
     procedure SpeedButton35Click(Sender: TObject);
     procedure SpeedButton29Click(Sender: TObject);
-    procedure SpeedButton13Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -141,17 +140,6 @@ FormOperacionesCategoria.SpeedButton2.enabled:=true;
 FormOperacionesCategoria.Label4.Visible:=true;
 FormOperacionesCategoria.label2.Caption:='Categoria: *';
 FormOperacionesCategoria.showmodal;
-end;
-
-procedure TFormPanelAdministracion.SpeedButton13Click(Sender: TObject);
-begin
-   FormTodosLosPedidos.Panel1.Visible:=False;;
-   FormTodosLosPedidos.Panel2.Visible:=True;
-   FormTodosLosPedidos.Height:=387;
-   FormTodosLosPedidos.Width:=811;
-   FormTodosLosPedidos.SpeedButton2.Visible:=True;
-   FormTodosLosPedidos.Label1.Visible:=True; //Habilito Label "Haga click en...."
-   FormTodosLosPedidos.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton14Click(Sender: TObject);
@@ -344,13 +332,7 @@ end;
 
 procedure TFormPanelAdministracion.SpeedButton28Click(Sender: TObject);
 begin
-   FormTodosLosPedidos.Panel1.Visible:=False;;  //Deshabilito panel modificacion
-   FormTodosLosPedidos.Panel2.Visible:=True;  //Muestro solo la vista
-   FormTodosLosPedidos.Height:=387;
-   FormTodosLosPedidos.Width:=811;
-   FormTodosLosPedidos.SpeedButton2.Visible:=False; //Deshabilito boton modificar
-   FormTodosLosPedidos.Label1.Visible:=False; //Deshabilito Label "Haga click en...."
-   FormTodosLosPedidos.ShowModal;
+  FormTodosLosPedidos.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton29Click(Sender: TObject);

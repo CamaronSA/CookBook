@@ -40,11 +40,7 @@ var
   Form2: TForm2;
 
 implementation
-<<<<<<< HEAD
 
-=======
-
->>>>>>> origin/master
 uses Login, Unit1;
 
 {$R *.dfm}

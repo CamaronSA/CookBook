@@ -39,6 +39,7 @@ type
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
     procedure DBComboBox1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
@@ -72,6 +73,14 @@ Case Column.Index Of
   3 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeInicio';
   4 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeFin';
 End;
+end;
+
+procedure TFormTodosLosPedidos.FormActivate(Sender: TObject);
+begin
+   Panel1.Visible:=False;;
+   Panel2.Visible:=True;
+   FormTodosLosPedidos.Height:=387;
+   FormTodosLosPedidos.Width:=811;
 end;
 
 procedure TFormTodosLosPedidos.SpeedButton1Click(Sender: TObject);

@@ -66,6 +66,7 @@ type
     ADOPedidosDNI: TIntegerField;
     ADOPedidosISBN: TIntegerField;
     ADOPedidosEstado: TWideStringField;
+    ADOPedidosNumTarjeta: TWideStringField;
     ADOPedidosFechaDeInicio: TDateTimeField;
     ADOPedidosFechaDeFin: TDateTimeField;
     ADOPedidosLibro: TStringField;

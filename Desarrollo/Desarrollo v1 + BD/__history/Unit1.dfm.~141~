@@ -119,6 +119,10 @@ object DataModule1: TDataModule1
       FieldName = 'Estado'
       Size = 255
     end
+    object ADOPedidosNumTarjeta: TWideStringField
+      FieldName = 'NumTarjeta'
+      Size = 50
+    end
     object ADOPedidosFechaDeInicio: TDateTimeField
       FieldName = 'FechaDeInicio'
     end

@@ -3,10 +3,9 @@ object FormModifCondicionesVenta: TFormModifCondicionesVenta
   Top = 0
   HorzScrollBar.Visible = False
   BorderIcons = []
-  BorderStyle = bsSingle
   Caption = 'Condiciones de venta'
-  ClientHeight = 601
-  ClientWidth = 507
+  ClientHeight = 599
+  ClientWidth = 505
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

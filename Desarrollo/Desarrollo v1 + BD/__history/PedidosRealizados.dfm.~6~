@@ -2,10 +2,9 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsSingle
   Caption = 'Pedidos realizados'
-  ClientHeight = 355
-  ClientWidth = 805
+  ClientHeight = 353
+  ClientWidth = 803
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

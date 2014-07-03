@@ -2,10 +2,9 @@ object FormVerMisCompras: TFormVerMisCompras
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsSingle
   Caption = 'Compras realizadas'
-  ClientHeight = 326
-  ClientWidth = 647
+  ClientHeight = 324
+  ClientWidth = 645
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

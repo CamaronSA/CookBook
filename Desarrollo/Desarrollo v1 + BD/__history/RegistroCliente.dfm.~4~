@@ -2,10 +2,9 @@ object FormRegistroCliente: TFormRegistroCliente
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsSingle
   Caption = 'Registro de usuario'
-  ClientHeight = 592
-  ClientWidth = 479
+  ClientHeight = 590
+  ClientWidth = 477
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
