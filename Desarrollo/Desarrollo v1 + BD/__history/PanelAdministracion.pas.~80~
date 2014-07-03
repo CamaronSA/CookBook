@@ -75,7 +75,7 @@ type
     procedure SpeedButton12Click(Sender: TObject);
     procedure SpeedButton20Click(Sender: TObject);
     procedure SpeedButton27Click(Sender: TObject);
-    procedure SpeedButton28Click(Sender: TObject);
+    procedure SpeedButton29Click(Sender: TObject);
     procedure SpeedButton30Click(Sender: TObject);
     procedure SpeedButton31Click(Sender: TObject);
     procedure SpeedButton33Click(Sender: TObject);
@@ -83,7 +83,6 @@ type
     procedure SpeedButton32Click(Sender: TObject);
     procedure SpeedButton36Click(Sender: TObject);
     procedure SpeedButton35Click(Sender: TObject);
-    procedure SpeedButton29Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -330,14 +329,9 @@ FormOperacionesCategoria.label2.Caption:='Categoria:';
 FormOperacionesCategoria.showmodal;
 end;
 
-procedure TFormPanelAdministracion.SpeedButton28Click(Sender: TObject);
-begin
-  FormTodosLosPedidos.ShowModal;
-end;
-
 procedure TFormPanelAdministracion.SpeedButton29Click(Sender: TObject);
 begin
-  FormPedidosPorFecha.ShowModal;
+  FormTodosLosPedidos.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton2Click(Sender: TObject);

@@ -49,3 +49,12 @@
 
 --Modificar mis datos
 	-Debe poderse modificar DNI y Usuario (verificar que no existan)
+
+--Contacto
+	-No desaparece campo "Complete los campos en rojo" al cerrar el form
+
+--Confirmar carrito
+	-Deshabilitar boton "Modificar condiciones" y poner memo en ReadOnly(para clientes), y hacer funcar checkbox
+
+--Agregar Autor
+	-Despues de agregar un autor no blanquea los campos
