@@ -52,7 +52,7 @@ end;
 
 procedure TForm8.FormActivate(Sender: TObject);
 begin
- //Activo la tabla del nico menna por que si no anda :D
+  //Activo la tabla del nico menna por que si no anda :D
  DataModule1.ADOTarjetas.Active:=true;
  //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
   while not (DataModule1.ADOTarjetas.Eof) do
