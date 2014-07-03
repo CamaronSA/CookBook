@@ -29,7 +29,8 @@ uses
   PedidosRealizados in 'PedidosRealizados.pas' {FormTodosLosPedidos},
   CondicionesDeVenta in 'CondicionesDeVenta.pas' {FormModifCondicionesVenta},
   Usuarios in 'Usuarios.pas' {FormUsuarios},
-  CambiarClave in 'CambiarClave.pas' {FormCambiarClave};
+  CambiarClave in 'CambiarClave.pas' {FormCambiarClave},
+  Unit8 in 'Unit8.pas' {Form8};
 
 {$R *.res}
 
@@ -65,5 +66,6 @@ begin
   Application.CreateForm(TFormModifCondicionesVenta, FormModifCondicionesVenta);
   Application.CreateForm(TFormUsuarios, FormUsuarios);
   Application.CreateForm(TFormCambiarClave, FormCambiarClave);
-  Application.Run;
+  Application.CreateForm(TForm8, Form8);
+  application.Run;
 end.

@@ -5,7 +5,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
   ClientHeight = 637
-  ClientWidth = 738
+  ClientWidth = 1091
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -382,7 +382,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
     object SpeedButton11: TSpeedButton
       Left = 232
       Top = 5
-      Width = 98
+      Width = 97
       Height = 20
       Caption = 'Confirmar'
       Font.Charset = DEFAULT_CHARSET
@@ -578,6 +578,12 @@ object FormCatalogoLibros: TFormCatalogoLibros
     Connection = DataModule1.SoyUnaConeccion
     Parameters = <>
     Left = 584
+    Top = 72
+  end
+  object ConfirmarPedido: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <>
+    Left = 480
     Top = 72
   end
 end
