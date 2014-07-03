@@ -24,4 +24,5 @@
 -Modificar condiciones de venta
 -Ver pedidos parte Admin
 -Ver pedidos parte Cliente
+-Modificar pedidos
 -Cambiar contraseña
