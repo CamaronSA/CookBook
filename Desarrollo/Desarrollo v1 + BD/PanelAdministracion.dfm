@@ -415,7 +415,7 @@ object FormPanelAdministracion: TFormPanelAdministracion
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = SpeedButton29Click
+    OnClick = SpeedButton28Click
   end
   object SpeedButton11: TSpeedButton
     Left = 24

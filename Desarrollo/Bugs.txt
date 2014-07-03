@@ -55,3 +55,9 @@
 
 --Confirmar carrito
 	-Deshabilitar boton "Modificar condiciones" y poner memo en ReadOnly(para clientes), y hacer funcar checkbox
+
+--Agregar Autor
+	-Despues de agregar un autor no blanquea los campos
+
+--Eliminar y Modificar Autor
+	- No muestra el DNI y tiene un problema con IDAutor (dice que no existe mas)

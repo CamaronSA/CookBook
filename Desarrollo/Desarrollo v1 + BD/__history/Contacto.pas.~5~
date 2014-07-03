@@ -191,7 +191,6 @@ Memo1.Lines.Clear;
 Label1.Font.Color:=clBlack;
 Label2.Font.Color:=clBlack;
 Label4.Font.Color:=clBlack;
-Label5.Visible:=False;
 end;
 
 

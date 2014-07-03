@@ -12,6 +12,7 @@ type
     SpeedButton1: TSpeedButton;
     DBGrid1: TDBGrid;
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,6 +38,11 @@ Case Column.Index Of
   3 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeInicio';
   4 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeFin';
 End;
+end;
+
+procedure TFormTodosLosPedidos.SpeedButton1Click(Sender: TObject);
+begin
+Close;
 end;
 
 end.

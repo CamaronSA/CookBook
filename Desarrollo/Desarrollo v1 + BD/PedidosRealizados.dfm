@@ -1,8 +1,9 @@
 object FormTodosLosPedidos: TFormTodosLosPedidos
   Left = 0
   Top = 0
+  BorderIcons = []
   Caption = 'Pedidos realizados'
-  ClientHeight = 273
+  ClientHeight = 313
   ClientWidth = 810
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -27,8 +28,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     ParentFont = False
   end
   object SpeedButton1: TSpeedButton
-    Left = 509
-    Top = 235
+    Left = 686
+    Top = 271
     Width = 116
     Height = 38
     Caption = 'Volver'
@@ -38,6 +39,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton1Click
   end
   object DBGrid1: TDBGrid
     Left = 16
@@ -64,7 +66,6 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       item
         Expanded = False
         FieldName = 'Nombre'
-        Width = 64
         Visible = True
       end
       item

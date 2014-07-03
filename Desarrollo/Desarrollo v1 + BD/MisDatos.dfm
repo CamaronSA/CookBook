@@ -1,6 +1,7 @@
 object FormMisDatos: TFormMisDatos
   Left = 0
   Top = 0
+  BorderIcons = []
   Caption = 'Modificar mis datos'
   ClientHeight = 515
   ClientWidth = 388

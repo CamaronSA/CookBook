@@ -269,8 +269,8 @@ Case Column.Index Of
   3 : DataModule1.ADOLibro.IndexFieldNames:='Etiqueta';
   4 : DataModule1.ADOLibro.IndexFieldNames:='Editorial';
   5 : DataModule1.ADOLibro.IndexFieldNames:='precio';
-// 6 : DataModule1.ADOLibro.IndexFieldNames:='DNIAutor'; // <--No es LookUp
-  7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
+  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor'; // <--No , es LookUp
+//7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
 End;
 
 end;
@@ -736,7 +736,8 @@ begin
         memo1.Text:='';
         //Esta linea hace uso de la carga de los combobox hecha en el inicio del formulario
         //hay q revisar la forma de que esta hecha por una mas sencilla pero andar anda.
-        FormActivate(nil);
+        //FormActivate(nil);
+        //Esto es una cabezeada de las mas grande pero no discuto con los resultados
       except
         on E:ECampoBlanco do
           begin
