@@ -3,7 +3,7 @@ unit Unit1;
 interface
     //*********>>Powered By Neg, lider autoproclamado<<*********\\
 uses
-  SysUtils, Classes, DB, ADODB, Dialogs, ExtDlgs, JPEG;
+  SysUtils, Classes, DB, ADODB, Dialogs, ExtDlgs;
 
 type
   TDataModule1 = class(TDataModule)
@@ -107,7 +107,6 @@ type
     LibrosALaVentaEsDestacado: TBooleanField;
     LibrosALaVentaDisponible: TBooleanField;
     LibrosALaVentaAutor: TStringField;
-    Destacados: TADOQuery;
   private
     { Private declarations }
   public

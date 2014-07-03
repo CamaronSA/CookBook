@@ -49,8 +49,6 @@ type
     procedure ransacciones1Click(Sender: TObject);
     procedure Pedidosrealizados1Click(Sender: TObject);
     procedure Cambiarcontrasea1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure ActualizarDestacados;
   private
     { Private declarations }
   public
@@ -67,18 +65,7 @@ uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
 
 {$R *.dfm}
 
-procedure TFormPrincipal.ActualizarDestacados;
-begin
-Image2.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image3.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image4.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image5.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image6.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-end;
+
 
 procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
 begin
@@ -120,17 +107,17 @@ if UsuarioRegistrado <>'' then
 else
   label1.Caption:='Bienvenido Visitante';
 
+{ Acá es donde empiezo a romper
+
+********** Qw3r7y, root por defecto **********
+
+**********************************************
+***************DESTACADOS*********************
+**********************************************
+}
 DataModule1.Destacados.Close;
 DataModule1.Destacados.Open;
-FormPrincipal.ActualizarDestacados;
-end;
-
-procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
-var i:integer;
-begin
-for I := 1 to 5 do
-DataModule1.Destacados.Next;
-
+Image2.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
 end;
 
 procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
@@ -174,7 +161,7 @@ end;
 
 procedure TFormPrincipal.SpeedButton4Click(Sender: TObject);
 begin
-FormPrincipal.ActualizarDestacados;
+Form2.ShowModal;
 end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);

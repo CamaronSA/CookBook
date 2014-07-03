@@ -356,7 +356,7 @@ object DataModule1: TDataModule1
     Top = 328
   end
   object OpenPictureDialog1: TOpenPictureDialog
-    Filter = 'Bitmaps (*.bmp)|*.bmp'
+    Filter = 'Bitmaps (*.bmp)|*.bmp|Jpeg (*.jpeg)|*.jpeg|Jpg (*.jpg)|*.jpg'
     Title = 'Imagen de portada'
     Left = 248
     Top = 96

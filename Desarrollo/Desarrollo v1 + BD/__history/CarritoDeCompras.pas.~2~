@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, Grids, DBGrids, StdCtrls, DBCtrls, JPEG;
+  Dialogs, Buttons, Grids, DBGrids, StdCtrls, DBCtrls;
 
 type
   TFormCarritoDeCompras = class(TForm)

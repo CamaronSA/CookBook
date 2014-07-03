@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids,
   TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion, DB,
-  ADODB, JPEG;
+  ADODB;
 
 type
   ENicoyJesu = class (Exception);
@@ -341,7 +341,7 @@ end;
 
 procedure TForm4.Edit3KeyPress(Sender: TObject; var Key: Char);
 begin
- if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+ if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
 end;
 
 procedure TForm4.Edit6Change(Sender: TObject);

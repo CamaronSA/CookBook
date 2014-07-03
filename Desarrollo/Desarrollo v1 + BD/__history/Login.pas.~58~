@@ -91,7 +91,6 @@ DataModule1.ADOIdioma.IndexFieldNames:='IDIOMA';
 DataModule1.ADOLibro.IndexFieldNames:='Titulo';
 DataModule1.LibrosALaVenta.Active:=True;
 DataModule1.ADOPedidos.Active:=True;
-DataModule1.Destacados.Active:=True;
 
 end;
 procedure TFormLogin.FormKeyPress(Sender: TObject; var Key: Char);

@@ -279,12 +279,12 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Font.Style = []
       Items.Strings = (
         'A'
-        'B'
-        'C'
-        'D'
-        'E'
-        'F'
-        'G'
+        'B'#11
+        'C'#11
+        'D'#11
+        'E'#11
+        'F'#11
+        'G'#11
         'H')
       ParentFont = False
       TabOrder = 0

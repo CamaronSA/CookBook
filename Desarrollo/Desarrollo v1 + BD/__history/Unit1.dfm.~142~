@@ -835,14 +835,4 @@ object DataModule1: TDataModule1
     Left = 128
     Top = 440
   end
-  object Destacados: TADOQuery
-    Connection = SoyUnaConeccion
-    DataSource = Tabla_Libro
-    Parameters = <>
-    SQL.Strings = (
-      'select * from Libro'
-      'where (EsDestacado = True) and (Disponible = True)')
-    Left = 512
-    Top = 488
-  end
 end

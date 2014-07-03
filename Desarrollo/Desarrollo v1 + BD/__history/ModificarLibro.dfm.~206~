@@ -204,7 +204,7 @@ object Form4: TForm4
   end
   object SpeedButton4: TSpeedButton
     Left = 545
-    Top = 737
+    Top = 742
     Width = 105
     Height = 41
     Caption = 'Eliminar'
@@ -231,7 +231,7 @@ object Form4: TForm4
   end
   object SpeedButton1: TSpeedButton
     Left = 617
-    Top = 737
+    Top = 729
     Width = 105
     Height = 41
     Caption = 'Modificar'

@@ -16,7 +16,6 @@ object FormPrincipal: TFormPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = FormActivate
-  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -1475,40 +1474,40 @@ object FormPrincipal: TFormPrincipal
     ParentFont = False
     OnClick = SpeedButton2Click
   end
-  object Image2: TImage
-    Left = 16
-    Top = 288
+  object DBImage1: TDBImage
+    Left = 32
+    Top = 277
     Width = 177
-    Height = 249
-    Stretch = True
+    Height = 241
+    TabOrder = 0
   end
-  object Image3: TImage
-    Left = 216
-    Top = 288
+  object DBImage2: TDBImage
+    Left = 223
+    Top = 277
     Width = 177
-    Height = 249
-    Stretch = True
+    Height = 241
+    TabOrder = 1
   end
-  object Image4: TImage
-    Left = 416
-    Top = 288
+  object DBImage3: TDBImage
+    Left = 414
+    Top = 277
     Width = 177
-    Height = 249
-    Stretch = True
+    Height = 241
+    TabOrder = 2
   end
-  object Image5: TImage
-    Left = 616
-    Top = 288
+  object DBImage4: TDBImage
+    Left = 605
+    Top = 277
     Width = 177
-    Height = 249
-    Stretch = True
+    Height = 241
+    TabOrder = 3
   end
-  object Image6: TImage
-    Left = 818
-    Top = 288
+  object DBImage5: TDBImage
+    Left = 798
+    Top = 277
     Width = 177
-    Height = 249
-    Stretch = True
+    Height = 241
+    TabOrder = 4
   end
   object MainMenu1: TMainMenu
     Left = 32

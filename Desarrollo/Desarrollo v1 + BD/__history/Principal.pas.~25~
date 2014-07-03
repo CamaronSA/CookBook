@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, pngimage, ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons, Grids, DBGrids,
-  PanelAdministracion, Contacto, Menus, JPEG;
+  PanelAdministracion, Contacto, Menus;
 
 type
   TFormPrincipal = class(TForm)
@@ -13,6 +13,11 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton5: TSpeedButton;
     Label2: TLabel;
+    DBImage1: TDBImage;
+    DBImage2: TDBImage;
+    DBImage3: TDBImage;
+    DBImage4: TDBImage;
+    DBImage5: TDBImage;
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
     MainMenu1: TMainMenu;
@@ -31,11 +36,6 @@ type
     Pedidosrealizados1: TMenuItem;
     SpeedButton2: TSpeedButton;
     Cambiarcontrasea1: TMenuItem;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Image5: TImage;
-    Image6: TImage;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -49,8 +49,6 @@ type
     procedure ransacciones1Click(Sender: TObject);
     procedure Pedidosrealizados1Click(Sender: TObject);
     procedure Cambiarcontrasea1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure ActualizarDestacados;
   private
     { Private declarations }
   public
@@ -67,18 +65,7 @@ uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
 
 {$R *.dfm}
 
-procedure TFormPrincipal.ActualizarDestacados;
-begin
-Image2.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image3.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image4.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image5.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-DataModule1.Destacados.Next;
-Image6.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
-end;
+
 
 procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
 begin
@@ -118,19 +105,7 @@ begin
 if UsuarioRegistrado <>'' then
   label1.Caption:='Bienvenido '+UsuarioRegistrado
 else
-  label1.Caption:='Bienvenido Visitante';
-
-DataModule1.Destacados.Close;
-DataModule1.Destacados.Open;
-FormPrincipal.ActualizarDestacados;
-end;
-
-procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
-var i:integer;
-begin
-for I := 1 to 5 do
-DataModule1.Destacados.Next;
-
+  label1.Caption:='Bienvenido Visitante'
 end;
 
 procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
@@ -174,7 +149,7 @@ end;
 
 procedure TFormPrincipal.SpeedButton4Click(Sender: TObject);
 begin
-FormPrincipal.ActualizarDestacados;
+Form2.ShowModal;
 end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);
@@ -182,7 +157,6 @@ begin
   Form2.Label1.Visible:=True;
   Form2.Edit1.Visible:=True;
   UsuarioRegistrado:='';
-  L:=nil;   //Limpia la lista de carrito de compras para que no venga otro y compre las mismas boludeces que compre yo  [CUIDADO LO HIZO EL HOMOSAPIENS DE NEG90]
   FormPrincipal.Close;
 
 end;
@@ -195,7 +169,6 @@ end;
 procedure TFormPrincipal.SpeedButton7Click(Sender: TObject);
 begin
   UsuarioRegistrado:='';
-  L:=Nil;  //Limpia la lista de carrito de compras para que no venga otro y compre las mismas boludeces que compre yo  [CUIDADO LO HIZO EL HOMOSAPIENS DE NEG90]
   FormPrincipal.Close;
   FormLogin.Close;
 end;
