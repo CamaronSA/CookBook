@@ -562,7 +562,7 @@ object DataModule1: TDataModule1
   object CampoEditorialComboBox: TADOQuery
     Connection = SoyUnaConeccion
     Parameters = <>
-    Left = 416
+    Left = 432
     Top = 584
   end
   object EseLibroTienePedido: TADOQuery
@@ -615,6 +615,60 @@ object DataModule1: TDataModule1
       'order by Titulo')
     Left = 344
     Top = 328
+    object LibrosALaVentaIDLibro: TAutoIncField
+      FieldName = 'IDLibro'
+      ReadOnly = True
+    end
+    object LibrosALaVentaPrecio: TFloatField
+      FieldName = 'Precio'
+    end
+    object LibrosALaVentaImagen: TBlobField
+      FieldName = 'Imagen'
+    end
+    object LibrosALaVentaAnioEditorial: TIntegerField
+      FieldName = 'AnioEditorial'
+    end
+    object LibrosALaVentaTitulo: TWideStringField
+      FieldName = 'Titulo'
+      Size = 255
+    end
+    object LibrosALaVentaDescripcion: TWideMemoField
+      FieldName = 'Descripcion'
+      BlobType = ftWideMemo
+    end
+    object LibrosALaVentaDNIAutor: TIntegerField
+      FieldName = 'DNIAutor'
+    end
+    object LibrosALaVentaEditorial: TWideStringField
+      FieldName = 'Editorial'
+      Size = 255
+    end
+    object LibrosALaVentaIdioma: TWideStringField
+      FieldName = 'Idioma'
+      Size = 255
+    end
+    object LibrosALaVentaEtiqueta: TWideStringField
+      FieldName = 'Etiqueta'
+      Size = 255
+    end
+    object LibrosALaVentaISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object LibrosALaVentaEsDestacado: TBooleanField
+      FieldName = 'EsDestacado'
+    end
+    object LibrosALaVentaDisponible: TBooleanField
+      FieldName = 'Disponible'
+    end
+    object LibrosALaVentaAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Autor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNIAutor'
+      Lookup = True
+    end
   end
   object Tabla_LibrosALaVenta: TDataSource
     DataSet = LibrosALaVenta

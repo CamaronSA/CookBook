@@ -93,6 +93,20 @@ type
     ADOLibroEsDestacado: TBooleanField;
     ADOLibroDisponible: TBooleanField;
     ADOLibroAutor: TStringField;
+    LibrosALaVentaIDLibro: TAutoIncField;
+    LibrosALaVentaPrecio: TFloatField;
+    LibrosALaVentaImagen: TBlobField;
+    LibrosALaVentaAnioEditorial: TIntegerField;
+    LibrosALaVentaTitulo: TWideStringField;
+    LibrosALaVentaDescripcion: TWideMemoField;
+    LibrosALaVentaDNIAutor: TIntegerField;
+    LibrosALaVentaEditorial: TWideStringField;
+    LibrosALaVentaIdioma: TWideStringField;
+    LibrosALaVentaEtiqueta: TWideStringField;
+    LibrosALaVentaISBN: TIntegerField;
+    LibrosALaVentaEsDestacado: TBooleanField;
+    LibrosALaVentaDisponible: TBooleanField;
+    LibrosALaVentaAutor: TStringField;
   private
     { Private declarations }
   public

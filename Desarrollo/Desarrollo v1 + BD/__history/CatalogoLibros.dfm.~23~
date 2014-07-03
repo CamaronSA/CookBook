@@ -153,18 +153,19 @@ object FormCatalogoLibros: TFormCatalogoLibros
         item
           Expanded = False
           FieldName = 'Etiqueta'
-          Width = 97
+          Width = 110
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Idioma'
-          Width = 96
+          Width = 101
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Precio'
+          Width = 59
           Visible = True
         end>
     end
