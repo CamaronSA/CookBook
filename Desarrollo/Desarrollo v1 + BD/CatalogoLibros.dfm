@@ -142,7 +142,6 @@ object FormCatalogoLibros: TFormCatalogoLibros
         item
           Expanded = False
           FieldName = 'Autor'
-          Width = 96
           Visible = True
         end
         item
@@ -166,7 +165,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
         item
           Expanded = False
           FieldName = 'Precio'
-          Width = 79
+          Width = 59
           Visible = True
         end>
     end

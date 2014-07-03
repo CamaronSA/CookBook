@@ -4,7 +4,7 @@ object Form4: TForm4
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Libro'
-  ClientHeight = 791
+  ClientHeight = 792
   ClientWidth = 953
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -203,8 +203,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton4: TSpeedButton
-    Left = 721
-    Top = 737
+    Left = 545
+    Top = 742
     Width = 105
     Height = 41
     Caption = 'Eliminar'
@@ -230,8 +230,8 @@ object Form4: TForm4
     Height = 13
   end
   object SpeedButton1: TSpeedButton
-    Left = 721
-    Top = 737
+    Left = 617
+    Top = 729
     Width = 105
     Height = 41
     Caption = 'Modificar'
@@ -291,7 +291,7 @@ object Form4: TForm4
     OnClick = SpeedButton5Click
   end
   object DBGrid1: TDBGrid
-    Left = 19
+    Left = 27
     Top = 111
     Width = 918
     Height = 250
@@ -312,19 +312,19 @@ object Form4: TForm4
       item
         Expanded = False
         FieldName = 'Titulo'
-        Width = 203
+        Width = 159
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'ISBN'
-        Width = 102
+        Width = 88
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Idioma'
-        Width = 119
+        Width = 95
         Visible = True
       end
       item
@@ -356,6 +356,20 @@ object Form4: TForm4
       item
         Expanded = False
         FieldName = 'Autor'
+        Width = 89
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'EsDestacado'
+        Title.Caption = 'Destacado'
+        Width = 53
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Disponible'
+        Width = 54
         Visible = True
       end>
   end
@@ -535,7 +549,7 @@ object Form4: TForm4
   end
   object ComboBox4: TComboBox
     Left = 135
-    Top = 623
+    Top = 627
     Width = 145
     Height = 21
     Style = csDropDownList
