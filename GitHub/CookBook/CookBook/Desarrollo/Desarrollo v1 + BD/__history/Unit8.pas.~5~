@@ -1,0 +1,77 @@
+unit Unit8;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Buttons, DB, ADODB;
+
+type
+  TForm8 = class(TForm)
+    Panel1: TPanel;
+    ComboBox1: TComboBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    SpeedButton2: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    BuscarTarjeta: TADOQuery;
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form8: TForm8;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+Procedure CargarComboBox(C1,C2:TComboBox);
+begin
+ // Close;
+ // CampoEtiquetaComboBox.SQL.Text:= 'Select NombreEtiqueta from Etiqueta';
+ // CampoEtiquetaComboBox.Open;
+ // CampoEtiquetaComboBox.Active:=True;
+ //    while not (CampoEtiquetaComboBox.eof) do
+ //      Begin
+ //        ComboBox1.items.Add(DataModule1.CampoEtiquetaComboBox.Fields[0].text);
+ //        CampoEtiquetaComboBox.Next;
+ //      End;
+end;
+
+procedure TForm8.FormActivate(Sender: TObject);
+begin
+ //Activo la tabla del nico menna por que si no anda :D
+ DataModule1.ADOTarjetas.Active:=true;
+ //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
+  while not (DataModule1.ADOTarjetas.Eof) do
+   Begin
+     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[1].text);
+     DataModule1.ADOTarjetas.Next;
+   End
+end;
+
+procedure TForm8.SpeedButton2Click(Sender: TObject);
+begin
+close;
+end;
+
+end.
+  {DataModule1.CampoEtiquetaComboBox.Close;
+  DataModule1.CampoEtiquetaComboBox.SQL.Text:= 'Select NombreEtiqueta from Etiqueta';
+  DataModule1.CampoEtiquetaComboBox.Open;
+  DataModule1.CampoEtiquetaComboBox.Active:=True;
+    while not (DataModule1.CampoEtiquetaComboBox.eof) do
+       Begin
+         ComboBox2.items.Add(DataModule1.CampoEtiquetaComboBox.Fields[0].text);
+         DataModule1.CampoEtiquetaComboBox.Next;
+       End;}

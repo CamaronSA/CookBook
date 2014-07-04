@@ -1,0 +1,417 @@
+object FormTodosLosPedidos: TFormTodosLosPedidos
+  Left = 0
+  Top = 0
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'Pedidos realizados'
+  ClientHeight = 355
+  ClientWidth = 805
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 8
+    Top = 0
+    Width = 433
+    Height = 354
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 8
+      Top = 8
+      Width = 195
+      Height = 33
+      Caption = 'Modificar estado'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 106
+      Top = 102
+      Width = 42
+      Height = 19
+      Caption = 'DNI: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 73
+      Top = 127
+      Width = 75
+      Height = 19
+      Caption = 'Nombre: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 70
+      Top = 152
+      Width = 78
+      Height = 19
+      Caption = 'Apellido: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 96
+      Top = 177
+      Width = 52
+      Height = 19
+      Caption = 'Libro: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 17
+      Top = 202
+      Width = 131
+      Height = 19
+      Caption = 'Fecha de inicio: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 39
+      Top = 227
+      Width = 109
+      Height = 19
+      Caption = 'Fecha de fin: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 82
+      Top = 252
+      Width = 66
+      Height = 19
+      Caption = 'Estado: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBText1: TDBText
+      Left = 154
+      Top = 102
+      Width = 111
+      Height = 17
+      DataField = 'DNI'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText2: TDBText
+      Left = 154
+      Top = 127
+      Width = 143
+      Height = 17
+      DataField = 'Nombre'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText3: TDBText
+      Left = 154
+      Top = 152
+      Width = 143
+      Height = 17
+      DataField = 'Apellido'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText4: TDBText
+      Left = 154
+      Top = 177
+      Width = 223
+      Height = 17
+      DataField = 'Libro'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText6: TDBText
+      Left = 154
+      Top = 202
+      Width = 95
+      Height = 17
+      DataField = 'FechaDeInicio'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText7: TDBText
+      Left = 154
+      Top = 227
+      Width = 95
+      Height = 17
+      DataField = 'FechaDeFin'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 31
+      Top = 306
+      Width = 162
+      Height = 38
+      Caption = 'Actualizar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton3Click
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 223
+      Top = 306
+      Width = 162
+      Height = 38
+      Caption = 'Cancelar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton4Click
+    end
+    object Label11: TLabel
+      Left = 8
+      Top = 47
+      Width = 413
+      Height = 19
+      Caption = 'Seleccione una opci'#243'n de la lista desplegable para cambiar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label13: TLabel
+      Left = 8
+      Top = 72
+      Width = 280
+      Height = 19
+      Caption = 'su estado, y luego presione "Actualizar"'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 154
+      Top = 250
+      Width = 145
+      Height = 27
+      DataField = 'Estado'
+      DataSource = DataModule1.Tabla_Pedidos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'D'
+        'E'
+        'F'
+        'G'
+        'H')
+      ParentFont = False
+      TabOrder = 0
+      OnKeyPress = DBComboBox1KeyPress
+    end
+  end
+  object Panel2: TPanel
+    Left = 8
+    Top = 8
+    Width = 794
+    Height = 345
+    Caption = 'Panel2'
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 16
+      Top = 47
+      Width = 564
+      Height = 19
+      Caption = 
+        'Seleccione un pedido y haga click en "Modificar estado" para cam' +
+        'biar su estado.'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 16
+      Top = 8
+      Width = 218
+      Height = 33
+      Caption = 'Pedidos realizados'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 670
+      Top = 303
+      Width = 116
+      Height = 38
+      Caption = 'Volver'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton1Click
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 504
+      Top = 303
+      Width = 162
+      Height = 38
+      Caption = 'Modificar estado'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton2Click
+    end
+    object DBGrid1: TDBGrid
+      Left = 0
+      Top = 79
+      Width = 786
+      Height = 218
+      DataSource = DataModule1.Tabla_Pedidos
+      Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ReadOnly = True
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnTitleClick = DBGrid1TitleClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'DNI'
+          Width = 63
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Nombre'
+          Width = 85
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Apellido'
+          Width = 97
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Libro'
+          Width = 234
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Estado'
+          Width = 124
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FechaDeInicio'
+          Width = 75
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FechaDeFin'
+          Width = 68
+          Visible = True
+        end>
+    end
+  end
+end

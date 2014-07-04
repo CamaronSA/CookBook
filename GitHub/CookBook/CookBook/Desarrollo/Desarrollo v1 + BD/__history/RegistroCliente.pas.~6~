@@ -1,0 +1,486 @@
+unit RegistroCliente;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, Buttons;
+
+type
+  EEspacioBlanco=class(Exception);
+  EExisteDNI=class(Exception);
+  ESinArroba=class(Exception);
+  EFechaNac=class(Exception);
+  EContraseniasNoCoinciden=class(Exception);
+  EExisteUsuario=Class(Exception);
+  TFormRegistroCliente = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Label6: TLabel;
+    Label3: TLabel;
+    Label8: TLabel;
+    Label12: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    SpeedButton2: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    DateTimePicker1: TDateTimePicker;
+    SpeedButton3: TSpeedButton;
+    Edit13: TEdit;
+    Edit14: TEdit;
+    Label15: TLabel;
+    Edit15: TEdit;
+    Label16: TLabel;
+    Label18: TLabel;
+    Label17: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure RestablecerValores;
+    procedure FormActivate(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure Edit4Change(Sender: TObject);
+    procedure Edit5Change(Sender: TObject);
+    procedure Edit6Change(Sender: TObject);
+    procedure Edit7Change(Sender: TObject);
+    procedure Edit8Change(Sender: TObject);
+    procedure Edit9Change(Sender: TObject);
+    procedure Edit10Change(Sender: TObject);
+    procedure Edit11Change(Sender: TObject);
+    procedure Edit12Change(Sender: TObject);
+    procedure Edit13Change(Sender: TObject);
+    procedure Edit14Change(Sender: TObject);
+    procedure DateTimePicker1Change(Sender: TObject);
+    procedure Letras(Sender: TObject; var Key: Char);
+    procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
+    procedure LetrasYEspacio(Sender: TObject; var Key: Char);
+    procedure Edit15Change(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRegistroCliente: TFormRegistroCliente;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+
+//Solo Letras
+procedure TFormRegistroCliente.Letras(Sender: TObject; var Key: Char);
+begin
+  if not(Key in ['A'..'Z', 'a'..'z', #9, #8]) then
+    key := #0;
+end;
+
+//Solo Letras y ESPACIO
+procedure TFormRegistroCliente.LetrasYEspacio(Sender: TObject; var Key: Char);
+begin
+  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,' ']) then
+    key := #0;
+end;
+
+//Letras, numeros, @ , - , _ y .
+procedure TFormRegistroCliente.LetrasNumnerosETC(Sender: TObject; var Key: Char);
+begin
+  if not(Key in ['A'..'Z', 'a'..'z', #9, #8,'_','-','@','0'..'9','.']) then
+    key := #0;
+end;
+
+
+//*******// Powered by Yisus, root de nacimiento. //*******//
+                       //&&&&&&&&&//                       // Encontrar ARROBA @
+//*******// Powered by NEG, lider autoprogramado //*******//
+function EncontrarArroba (Palabra: String):Boolean;
+var Aux:Boolean; Max:Integer;
+begin
+Max:=Length(Palabra);
+Aux:=False;
+while (Max>-1) and (Aux<>True) do begin
+  if (Palabra[Max] = '@') then
+    Aux:=True;
+  Max:=Max-1;
+end;
+Result:=Aux;
+end;
+
+procedure TFormRegistroCliente.SpeedButton1Click(Sender: TObject);
+begin
+FormRegistroCliente.RestablecerValores;
+FormRegistroCliente.Close;
+end;
+
+procedure TFormRegistroCliente.DateTimePicker1Change(Sender: TObject);
+begin
+Label3.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit10Change(Sender: TObject);
+begin
+Label13.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit11Change(Sender: TObject);
+begin
+Label8.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit12Change(Sender: TObject);
+begin
+Label14.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit13Change(Sender: TObject);
+begin
+Label14.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit14Change(Sender: TObject);
+begin
+Label14.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit15Change(Sender: TObject);
+begin
+   Label6.Font.Color:=clBlack;
+   Label16.Font.Color:=clBlack;
+   Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit1Change(Sender: TObject);
+begin
+label1.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit2Change(Sender: TObject);
+begin
+label2.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit3Change(Sender: TObject);
+begin
+Label5.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit4Change(Sender: TObject);
+begin
+Label4.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit5Change(Sender: TObject);
+begin
+Label6.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit6Change(Sender: TObject);
+begin
+Label7.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit7Change(Sender: TObject);
+begin
+Label9.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit8Change(Sender: TObject);
+begin
+Label10.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.Edit9Change(Sender: TObject);
+begin
+Label11.Font.Color:=clBlack;
+Label15.Visible:=False;
+end;
+
+procedure TFormRegistroCliente.FormActivate(Sender: TObject);
+begin
+FormRegistroCliente.RestablecerValores;
+end;
+
+procedure TFormRegistroCliente.RestablecerValores;
+begin
+  Edit1.Text:='';
+  Edit2.Text:='';
+  Edit3.Text:='';
+  Edit4.Text:='';
+  Edit5.Text:='';
+  Edit6.Text:='';
+  Edit7.Text:='';
+  Edit8.Text:='';
+  Edit9.Text:='';
+  Edit10.Text:='';
+  Edit11.Text:='';
+  Edit12.Text:='';
+  Edit13.Text:='';
+  Edit14.Text:='';
+  Edit15.Text:='';
+  Label15.Visible:=False;
+  Label1.Font.Color:= clBlack;
+  Label2.Font.Color:= clBlack;
+  Label5.Font.Color:= clBlack;
+  Label4.Font.Color:= clBlack;
+  Label6.Font.Color:= clBlack;
+  Label7.Font.Color:= clBlack;
+  Label9.Font.Color:= clBlack;
+  Label10.Font.Color:= clBlack;
+  Label11.Font.Color:= clBlack;
+  Label13.Font.Color:= clBlack;
+  Label8.Font.Color:= clBlack;
+  Label14.Font.Color:= clBlack;
+end;
+
+
+procedure TFormRegistroCliente.SpeedButton2Click(Sender: TObject);
+var buttonSelected:integer; var Telefono:String;
+begin
+  buttonSelected:=messageDlg('¿Realmente desea confirmar el alta?',mtWarning,mbOkCancel,0);
+  if buttonSelected= mrOk then
+    begin
+        try
+      DataModule1.YaExisteCliente.Close;
+      //Comprobar Existe DNI
+      DataModule1.YaExisteCliente.Parameters.ParamByName('consultarDNI').Value:=Edit3.Text;
+      DataModule1.YaExisteCliente.Open;
+      DataModule1.ComprobarUsuario.Close;
+      DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=Edit4.Text;
+      DataModule1.ComprobarUsuario.Open;
+      DataModule1.ComprobarUsuarioAdmin.Close;
+      DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit4.Text;
+      DataModule1.ComprobarUsuarioAdmin.Open;
+      DataModule1.ADOCliente.Append;
+      //Nombre
+      if (Edit1.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Nombre').AsString:=Edit1.Text;
+      //Apellido
+      if (Edit2.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Apellido').AsString:=Edit2.Text;
+      //DNI
+      if (Edit3.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+          if not (Datamodule1.YaExisteCliente.ISEmpty) then
+              raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
+           else
+             DataModule1.ADOCliente.FieldByName('DNI').AsInteger:=StrToInt(Edit3.Text);
+
+      //Usuario
+      if (Edit4.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+        if not ((Datamodule1.ComprobarUsuario.ISEmpty)) then         //Existe usuario, es otro usuario.
+           raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+        else
+            if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then                //Existe usuario, ES ADMIN!!!
+                raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+            else
+                DataModule1.ADOCliente.FieldByName('Usuario').AsString:=Edit4.Text;
+      //Clave
+      if (Edit5.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      	//Confirmar clave
+      	if (Edit15.Text = '') then
+      		raise EEspacioBlanco.Create('Complete los campos en rojo')
+      	else
+      		if (Edit5.Text <> Edit15.Text) then //Comparo Claves
+      			raise EContraseniasNoCoinciden.Create('Las contraseñas no coinciden')
+      			else
+              //Si son igual
+      				DataModule1.ADOCliente.FieldByName('Clave').AsString:=Edit5.Text;
+
+      //Calle
+      if (Edit6.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Calle').AsString:=Edit6.Text;
+
+      //Nro
+      if (Edit7.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Nro').AsString:=Edit7.Text;
+
+      //Localidad
+      if (Edit8.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Localidad').AsString:=Edit8.Text;
+
+      //Provincia
+      if (Edit9.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Provincia').AsString:=Edit9.Text;
+
+      //Pais
+      if (Edit10.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+      DataModule1.ADOCliente.FieldByName('Pais').AsString:=Edit10.Text;
+
+      //Email
+      if (Edit11.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+        if EncontrarArroba(Edit11.Text)=False then
+          raise ESinArroba.Create('El email no es válido')
+        else
+      DataModule1.ADOCliente.FieldByName('Mail').AsString:=Edit11.Text;
+
+      //Telefono
+     { if (Edit12.Text = '') then
+         raise EEspacioBlanco.Create('Complete los campos en rojo')
+      else
+        if (Edit13.Text = '') then                                          TELEFONO AHORA NO ES OBLIGATORIO
+           raise EEspacioBlanco.Create('Complete los campos en rojo')       QUE GANAS DE JODER QUE TENES NEG
+        else
+          if (Edit13.Text = '') then
+             raise EEspacioBlanco.Create('Complete los campos en rojo')
+          else begin
+            }
+            Telefono:=Edit12.Text+Edit13.Text+Edit14.Text;
+            DataModule1.ADOCliente.FieldByName('Telefono').AsString:=Telefono;
+            //end;
+      //Fecha de Nacimiento no puede ser igual a la de HOY!!!
+{      if DateTimePicker1.Date = Now() then
+           raise EFechaNac.Create('Ingrese su fecha de nacimiento')              AHORA FECHA NAC no es obligatorio
+           else}
+           DataModule1.ADOCliente.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
+      DataModule1.ADOCliente.FieldByName('FechaDeInicioCliente').AsDateTime:=Now();
+      DataModule1.ADOCliente.Post;
+      ShowMessage('El usuario se dio de alta exitosamente');
+      //Restablezco valores luego de agregarlo!
+  		FormRegistroCliente.RestablecerValores;
+      DateTimePicker1.Date:=Now(); //Vuelvo al dia de hoy
+      FormRegistroCliente.Close;
+
+
+
+
+    except
+     on E:EEspacioBlanco do begin
+      ShowMessage( E.Message);
+        if (Edit1.Text = '') then begin Label1.Font.Color:= clRed; label15.Visible:=True; end;//Nombre
+        if (Edit2.Text = '') then begin Label2.Font.Color:= clRed;label15.Visible:=True; end;//Apellido
+        if (Edit3.Text = '') then begin Label5.Font.Color:= clRed;label15.Visible:=True; end;//DNI
+        if (Edit4.Text = '') then begin Label4.Font.Color:= clRed;label15.Visible:=True; end;//Usuario
+        if (Edit5.Text = '') then begin Label6.Font.Color:= clRed;label15.Visible:=True; end;//Clave
+        if (Edit15.Text = '') then begin Label16.Font.Color:= clRed;label15.Visible:=True; end;//Confirmar Clave
+        if (Edit6.Text = '') then begin Label7.Font.Color:= clRed;label15.Visible:=True; end;//Calle
+        if (Edit7.Text = '') then begin Label9.Font.Color:= clRed;label15.Visible:=True; end;//Nro
+        if (Edit8.Text = '') then begin Label10.Font.Color:= clRed;label15.Visible:=True; end;//Localidad
+        if (Edit9.Text = '') then begin Label11.Font.Color:= clRed;label15.Visible:=True; end;//Provincia
+        if (Edit10.Text = '') then begin Label13.Font.Color:= clRed;label15.Visible:=True; end;//Pais
+        if (Edit11.Text = '') then begin Label8.Font.Color:= clRed; label15.Visible:=True; end;//Email
+        if (Edit12.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Pais
+        if (Edit13.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono Cod. Localidad
+        if (Edit14.Text = '') then begin Label14.Font.Color:= clRed;label15.Visible:=True; end;//Telefono
+        if DateTimePicker1.Date = Now() then begin Label3.Font.Color:=clRed; label15.Visible:=True; end;//Fecha Nac
+        DataModule1.ADOCliente.Cancel;
+        end;
+     on E:EConvertError do begin
+        ShowMessage('Ingrese información válida');
+        label15.Visible:=True;
+        DataModule1.ADOCliente.Cancel;
+     end;
+     on E:EFechaNac do begin
+        ShowMessage(E.Message);
+        label15.Visible:=True;
+        label3.Font.Color:=clRed;
+        DataModule1.ADOCliente.Cancel;
+     end;
+     on E:ESinArroba do begin
+       ShowMessage(E.Message);
+       Label8.Font.Color:= clRed;
+       label15.Visible:=True;
+       DataModule1.ADOCliente.Cancel;
+     end;
+     on E:EExisteDNI do begin
+              ShowMessage(E.Message);
+              label5.Font.Color:=clred;
+              label15.Visible:=true;
+              datamodule1.ADOCliente.Cancel;
+     end;
+     on E:EContraseniasNoCoinciden do begin
+          ShowMessage(E.Message);
+          label6.Font.Color:=ClRed;
+          label16.Font.Color:=ClRed;
+          label15.Visible:=true;
+          DataModule1.ADOCliente.Cancel;
+     end;
+     on E:EExisteUsuario do begin
+          ShowMessage(E.Message);
+          Label4.Font.Color:=ClRed;
+          label15.Visible:=true;
+          DataModule1.ADOCliente.Cancel;
+     end;
+    end;
+
+  end;
+  if buttonSelected= mrCancel then begin
+    DataModule1.ADOCliente.Cancel;
+		FormRegistroCliente.RestablecerValores;
+  end;
+end;
+
+procedure TFormRegistroCliente.SpeedButton3Click(Sender: TObject);
+begin
+FormRegistroCliente.RestablecerValores;
+end;
+
+end.

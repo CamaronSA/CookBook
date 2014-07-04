@@ -1,0 +1,176 @@
+unit Principal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, pngimage, ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons, Grids, DBGrids,
+  PanelAdministracion, Contacto, Menus;
+
+type
+  TFormPrincipal = class(TForm)
+    Image1: TImage;
+    SpeedButton1: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    Label2: TLabel;
+    DBImage1: TDBImage;
+    DBImage2: TDBImage;
+    DBImage3: TDBImage;
+    DBImage4: TDBImage;
+    DBImage5: TDBImage;
+    SpeedButton6: TSpeedButton;
+    SpeedButton7: TSpeedButton;
+    MainMenu1: TMainMenu;
+    User1: TMenuItem;
+    MisDatos1: TMenuItem;
+    Ayuda1: TMenuItem;
+    Cargadeformularios1: TMenuItem;
+    Label1: TLabel;
+    SpeedButton3: TSpeedButton;
+    Modificarmisdatos1: TMenuItem;
+    Darmedebaja1: TMenuItem;
+    ransacciones1: TMenuItem;
+    Nosotros1: TMenuItem;
+    Contactenos1: TMenuItem;
+    Administrador1: TMenuItem;
+    Pedidosrealizados1: TMenuItem;
+    SpeedButton2: TSpeedButton;
+    Cambiarcontrasea1: TMenuItem;
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton7Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure Darmedebaja1Click(Sender: TObject);
+    procedure Modificarmisdatos1Click(Sender: TObject);
+    procedure MisDatos1Click(Sender: TObject);
+    procedure ransacciones1Click(Sender: TObject);
+    procedure Pedidosrealizados1Click(Sender: TObject);
+    procedure Cambiarcontrasea1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPrincipal: TFormPrincipal;
+
+implementation
+
+uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
+  PedidosRealizados, RegistroCliente, CambiarClave;
+
+{$R *.dfm}
+
+
+
+procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
+begin
+  FormCambiarClave.ShowModal;
+end;
+
+procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
+var buttonSelected:Integer;
+begin
+  Datamodule1.ComprobarUsuario.Close;
+  Datamodule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
+  Datamodule1.ComprobarUsuario.Open;
+  Datamodule1.ComprobarUsuarioAdmin.Close;
+  Datamodule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
+  Datamodule1.ComprobarUsuarioAdmin.Open;
+  buttonSelected:=messageDlg('¿Realmente desea eliminar el usuario?',mtWarning,mbOkCancel,0);
+  if buttonSelected= mrOk then
+    begin
+      if not (Datamodule1.ComprobarUsuario.ISEmpty) then begin // Si es usuario
+              DataModule1.BorrarUsuarioCliente.Close;
+              DataModule1.BorrarUsuarioCliente.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
+              DataModule1.BorrarUsuarioCliente.ExecSQL;
+              end
+              else
+              if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then begin  //Si es admin
+                  DataModule1.BorrarUsuarioAdmin.Close;
+                  DataModule1.BorrarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
+                  DataModule1.BorrarUsuarioAdmin.ExecSQL;
+              end;
+      ShowMessage('El usuario se borró exitosamente');
+      Close;
+    end;
+end;
+
+procedure TFormPrincipal.FormActivate(Sender: TObject);
+begin
+if UsuarioRegistrado <>'' then
+  label1.Caption:='Bienvenido '+UsuarioRegistrado
+else
+  label1.Caption:='Bienvenido Visitante'
+end;
+
+procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
+begin
+  FormMisDatos.SpeedButton1.Visible:=False;
+  FormMisDatos.SpeedButton2.Visible:=False;
+  FormMisDatos.SpeedButton3.Visible:=True;
+  FormMisDatos.SpeedButton4.Visible:=True;
+  FormMisDatos.ShowModal;
+end;
+
+procedure TFormPrincipal.Modificarmisdatos1Click(Sender: TObject);
+begin
+ FormMisDatos.SpeedButton1.Visible:=True;
+ FormMisDatos.SpeedButton2.Visible:=True;
+ FormMisDatos.SpeedButton3.Visible:=False;
+ FormMisDatos.SpeedButton4.Visible:=False;
+ FormMisDatos.ShowModal;
+end;
+
+procedure TFormPrincipal.Pedidosrealizados1Click(Sender: TObject);
+begin
+ FormTodosLosPedidos.ShowModal;
+end;
+
+procedure TFormPrincipal.ransacciones1Click(Sender: TObject);
+begin
+  FormVerMisCompras.ShowModal;
+end;
+
+procedure TFormPrincipal.SpeedButton1Click(Sender: TObject);
+begin
+  FormCatalogoLibros.showmodal;
+end;
+
+procedure TFormPrincipal.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+  formregistrocliente.showmodal;
+end;
+
+procedure TFormPrincipal.SpeedButton4Click(Sender: TObject);
+begin
+Form2.ShowModal;
+end;
+
+procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);
+begin
+  Form2.Label1.Visible:=True;
+  Form2.Edit1.Visible:=True;
+  UsuarioRegistrado:='';
+  FormPrincipal.Close;
+
+end;
+
+procedure TFormPrincipal.SpeedButton6Click(Sender: TObject);
+begin
+FormPanelAdministracion.showmodal;
+end;
+
+procedure TFormPrincipal.SpeedButton7Click(Sender: TObject);
+begin
+  UsuarioRegistrado:='';
+  FormPrincipal.Close;
+  FormLogin.Close;
+end;
+
+end.
