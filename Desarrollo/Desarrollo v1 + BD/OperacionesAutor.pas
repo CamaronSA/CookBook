@@ -376,10 +376,7 @@ procedure TForm3.SpeedButton4Click(Sender: TObject);
 var buttonselected: integer;
 begin
   try
-  // consulta para ver si se esta usando el autor
-    ComprobarAutorEnUso.close;
-    ComprobarAutorEnUso.Parameters.ParamByName('dato').value:=edit1.Text;
-    ComprobarAutorEnUso.open;
+
 
     buttonSelected:=messageDlg('¿Realmente desea eliminar este Autor?',mtWarning,mbOkCancel,0);
     if buttonSelected= mrOk then
@@ -388,7 +385,11 @@ begin
       if datamodule1.ADOAutor.IsEmpty then
          raise EtablaVacia.Create('No se puede eliminar de la tabla por que no hay datos')
       else
-      // verifico que el autor no tenga libro
+        // consulta para ver si se esta usando el autor
+        ComprobarAutorEnUso.close;
+        ComprobarAutorEnUso.Parameters.ParamByName('dato').value:=edit1.Text;
+        ComprobarAutorEnUso.open;
+        // verifico que el autor no tenga libro
         if not (ComprobarAutorEnUso.IsEmpty) then
           raise EdniEnUso.Create('Actualmente el Autor tiene algun Libro')
         else begin

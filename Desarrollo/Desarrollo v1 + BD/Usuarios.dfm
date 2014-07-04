@@ -215,8 +215,8 @@ object FormUsuarios: TFormUsuarios
     OnClick = SpeedButton1Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 470
-    Top = 619
+    Left = 398
+    Top = 606
     Width = 108
     Height = 39
     Caption = 'Eliminar'
@@ -344,9 +344,9 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 1
-    Text = 'Edit1'
     OnChange = Edit1Change
   end
   object DBGrid1: TDBGrid
@@ -431,6 +431,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 8
     NumbersOnly = True
     ParentFont = False
     TabOrder = 3
@@ -446,6 +447,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 4
     OnChange = Edit3Change
@@ -461,6 +463,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 5
     OnChange = Edit4Change
@@ -476,6 +479,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 6
     OnChange = Edit5Change
@@ -491,7 +495,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
-    MaxLength = 10
+    MaxLength = 20
     ParentFont = False
     ReadOnly = True
     TabOrder = 7
@@ -520,6 +524,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 5
     NumbersOnly = True
     ParentFont = False
     TabOrder = 9
@@ -535,6 +540,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 10
     OnChange = Edit9Change
@@ -549,6 +555,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 11
     OnChange = Edit10Change
@@ -564,6 +571,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 20
     ParentFont = False
     TabOrder = 12
     OnChange = Edit11Change
@@ -579,6 +587,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 40
     ParentFont = False
     TabOrder = 13
     OnChange = Edit14Change
@@ -594,6 +603,7 @@ object FormUsuarios: TFormUsuarios
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
+    MaxLength = 18
     NumbersOnly = True
     ParentFont = False
     TabOrder = 14

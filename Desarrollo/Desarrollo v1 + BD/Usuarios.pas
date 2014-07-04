@@ -128,7 +128,7 @@ begin
   formusuarios.edit12.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fecha Nacimiento').AsDateTime);
   formusuarios.edit13.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fechadeiniciocliente').asdatetime);
   formusuarios.edit14.Text:= unit1.DataModule1.ADOCliente.FieldByName('mail').asstring;
-  formusuarios.edit16.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('telefono').Asinteger);
+  formusuarios.edit16.Text:= unit1.DataModule1.ADOCliente.FieldByName('telefono').AsString;
   // para verificar que no se modifica el dni
   dniAux:= strtoint(edit2.Text);
 
@@ -158,7 +158,7 @@ begin
   formusuarios.edit12.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fecha Nacimiento').AsDateTime);
   formusuarios.edit13.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fechadeiniciocliente').asdatetime);
   formusuarios.edit14.Text:= unit1.DataModule1.ADOCliente.FieldByName('mail').asstring;
-  formusuarios.edit16.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('telefono').Asinteger);
+  formusuarios.edit16.Text:= unit1.DataModule1.ADOCliente.FieldByName('telefono').AsString;
   // para verificar que no se modifica el dni
   dniAux:= strtoint(edit2.Text);
 
@@ -187,7 +187,7 @@ begin
   formusuarios.edit12.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fecha Nacimiento').AsDateTime);
   formusuarios.edit13.Text:= datetostr(unit1.DataModule1.ADOCliente.FieldByName('fechadeiniciocliente').asdatetime);
   formusuarios.edit14.Text:= unit1.DataModule1.ADOCliente.FieldByName('mail').asstring;
-  formusuarios.edit16.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('telefono').Asinteger);
+  formusuarios.edit16.Text:= unit1.DataModule1.ADOCliente.FieldByName('telefono').AsString;
   // para verificar que no se modifica el dni
   dniAux:= strtoint(edit2.Text);
 
@@ -493,7 +493,7 @@ begin
       if (edit16.Text = '') then
         raise EcampoBlanco.Create('Complete los campos en rojo')
       else
-        datamodule1.adocliente.FieldByName('telefono').Asinteger:= strtoint(edit16.Text);
+        datamodule1.adocliente.FieldByName('telefono').AsString:= edit16.Text;
       if (edit14.Text = '') then
         raise EcampoBlanco.Create('Complete los campos en rojo')
       else

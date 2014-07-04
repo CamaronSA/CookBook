@@ -4,7 +4,7 @@ object Form4: TForm4
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Libro'
-  ClientHeight = 792
+  ClientHeight = 690
   ClientWidth = 953
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -18,8 +18,8 @@ object Form4: TForm4
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton2: TSpeedButton
-    Left = 832
-    Top = 737
+    Left = 840
+    Top = 643
     Width = 105
     Height = 41
     Caption = 'Volver'
@@ -32,8 +32,8 @@ object Form4: TForm4
     OnClick = SpeedButton2Click
   end
   object Label9: TLabel
-    Left = 352
-    Top = 367
+    Left = 358
+    Top = 319
     Width = 87
     Height = 19
     Caption = 'Descripcion:'
@@ -58,8 +58,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 19
-    Top = 546
+    Left = 24
+    Top = 477
     Width = 87
     Height = 19
     Caption = 'Categoria: *'
@@ -71,8 +71,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 19
-    Top = 511
+    Left = 23
+    Top = 452
     Width = 70
     Height = 19
     Caption = 'Idioma: *'
@@ -84,8 +84,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 17
-    Top = 442
+    Left = 23
+    Top = 386
     Width = 112
     Height = 19
     Caption = 'A'#241'o de edici'#242'n:'
@@ -97,8 +97,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 19
-    Top = 585
+    Left = 24
+    Top = 502
     Width = 60
     Height = 19
     Caption = 'Autor: *'
@@ -110,8 +110,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 19
-    Top = 409
+    Left = 23
+    Top = 357
     Width = 61
     Height = 19
     Caption = 'Titulo: *'
@@ -123,8 +123,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 19
-    Top = 367
+    Left = 25
+    Top = 319
     Width = 55
     Height = 19
     Caption = 'ISBN: *'
@@ -136,8 +136,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label11: TLabel
-    Left = 19
-    Top = 475
+    Left = 24
+    Top = 419
     Width = 63
     Height = 19
     Caption = 'Precio: *'
@@ -149,8 +149,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton3: TSpeedButton
-    Left = 721
-    Top = 737
+    Left = 729
+    Top = 643
     Width = 105
     Height = 41
     Caption = 'Agregar'
@@ -190,8 +190,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 743
-    Top = 367
+    Left = 749
+    Top = 319
     Width = 127
     Height = 19
     Caption = 'Portada del Libro:'
@@ -203,8 +203,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton4: TSpeedButton
-    Left = 545
-    Top = 737
+    Left = 553
+    Top = 643
     Width = 105
     Height = 41
     Caption = 'Eliminar'
@@ -217,21 +217,21 @@ object Form4: TForm4
     OnClick = SpeedButton4Click
   end
   object Label14: TLabel
-    Left = 743
-    Top = 392
+    Left = 749
+    Top = 344
     Width = 155
     Height = 13
     Caption = 'Doble Click para ingresar imagen'
   end
   object Label15: TLabel
-    Left = 352
-    Top = 392
+    Left = 358
+    Top = 344
     Width = 3
     Height = 13
   end
   object SpeedButton1: TSpeedButton
-    Left = 617
-    Top = 737
+    Left = 625
+    Top = 643
     Width = 105
     Height = 41
     Caption = 'Modificar'
@@ -244,8 +244,8 @@ object Form4: TForm4
     OnClick = SpeedButton1Click
   end
   object Label3: TLabel
-    Left = 19
-    Top = 625
+    Left = 23
+    Top = 527
     Width = 78
     Height = 19
     Caption = 'Editorial: *'
@@ -257,8 +257,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label16: TLabel
-    Left = 18
-    Top = 663
+    Left = 24
+    Top = 557
     Width = 111
     Height = 19
     Caption = 'Esta a la venta*'
@@ -270,8 +270,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object Label17: TLabel
-    Left = 17
-    Top = 704
+    Left = 23
+    Top = 584
     Width = 93
     Height = 19
     Caption = 'Es Destacado'
@@ -283,8 +283,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton5: TSpeedButton
-    Left = 352
-    Top = 729
+    Left = 358
+    Top = 609
     Width = 113
     Height = 22
     Caption = 'Limpiar Descripcion'
@@ -294,7 +294,7 @@ object Form4: TForm4
     Left = 27
     Top = 111
     Width = 918
-    Height = 250
+    Height = 202
     DataSource = DataModule1.Tabla_Libro
     Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
@@ -446,8 +446,8 @@ object Form4: TForm4
     TabStop = True
   end
   object Edit6: TEdit
-    Left = 135
-    Top = 439
+    Left = 141
+    Top = 383
     Width = 65
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -462,8 +462,8 @@ object Form4: TForm4
     OnChange = Edit6Change
   end
   object Edit3: TEdit
-    Left = 135
-    Top = 406
+    Left = 141
+    Top = 352
     Width = 162
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -478,8 +478,8 @@ object Form4: TForm4
     OnKeyPress = Edit3KeyPress
   end
   object Edit2: TEdit
-    Left = 135
-    Top = 373
+    Left = 141
+    Top = 316
     Width = 65
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -494,8 +494,8 @@ object Form4: TForm4
     OnChange = Edit2Change
   end
   object Edit10: TEdit
-    Left = 135
-    Top = 472
+    Left = 140
+    Top = 416
     Width = 65
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -510,10 +510,10 @@ object Form4: TForm4
     OnKeyPress = Edit10KeyPress
   end
   object Memo1: TMemo
-    Left = 352
-    Top = 411
+    Left = 358
+    Top = 344
     Width = 385
-    Height = 312
+    Height = 259
     MaxLength = 65536
     ScrollBars = ssVertical
     TabOrder = 16
@@ -521,8 +521,8 @@ object Form4: TForm4
     OnKeyPress = Memo1KeyPress
   end
   object ComboBox1: TComboBox
-    Left = 135
-    Top = 510
+    Left = 141
+    Top = 454
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -530,8 +530,8 @@ object Form4: TForm4
     OnClick = ComboBox1Click
   end
   object ComboBox2: TComboBox
-    Left = 135
-    Top = 548
+    Left = 141
+    Top = 479
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -539,8 +539,8 @@ object Form4: TForm4
     OnClick = ComboBox2Click
   end
   object ComboBox3: TComboBox
-    Left = 135
-    Top = 587
+    Left = 141
+    Top = 504
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -548,26 +548,26 @@ object Form4: TForm4
     OnClick = ComboBox3Click
   end
   object ComboBox4: TComboBox
-    Left = 135
-    Top = 627
+    Left = 141
+    Top = 528
     Width = 145
     Height = 21
     Style = csDropDownList
     TabOrder = 13
   end
   object Panel1: TPanel
-    Left = 752
-    Top = 411
-    Width = 185
-    Height = 312
+    Left = 758
+    Top = 363
+    Width = 163
+    Height = 270
     Color = clSilver
     ParentBackground = False
     TabOrder = 17
     object Image1: TImage
-      Left = 0
+      Left = -1
       Top = 0
-      Width = 185
-      Height = 320
+      Width = 162
+      Height = 264
       ParentShowHint = False
       ShowHint = False
       Stretch = True
@@ -575,8 +575,8 @@ object Form4: TForm4
     end
   end
   object ComboBox5: TComboBox
-    Left = 135
-    Top = 665
+    Left = 141
+    Top = 555
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -584,8 +584,8 @@ object Form4: TForm4
     OnClick = ComboBox5Click
   end
   object ComboBox6: TComboBox
-    Left = 135
-    Top = 702
+    Left = 141
+    Top = 582
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -604,8 +604,8 @@ object Form4: TForm4
       'Select DNI '
       'from Autor '
       'where (Apellido = :Dato)')
-    Left = 504
-    Top = 368
+    Left = 510
+    Top = 320
   end
   object PregApellidoAutor: TADOQuery
     Connection = DataModule1.SoyUnaConeccion
@@ -619,7 +619,7 @@ object Form4: TForm4
       'Select Apellido'
       'From Autor'
       'Where (DNI =:Dato)')
-    Left = 600
-    Top = 368
+    Left = 606
+    Top = 320
   end
 end
