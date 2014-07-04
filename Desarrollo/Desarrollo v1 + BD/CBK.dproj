@@ -122,6 +122,9 @@
 			<DCCReference Include="CambiarClave.pas">
 				<Form>FormCambiarClave</Form>
 			</DCCReference>
+			<DCCReference Include="CambioClave.pas">
+				<Form>FormCambioClave</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

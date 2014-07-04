@@ -20,8 +20,8 @@ type
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure Edit3Change(Sender: TObject);
     procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,6 +57,11 @@ begin
       speedbutton1.Enabled:=false;
       label4.Visible:=true;
     end;
+
+   if edit3.Text <> '' then
+     edit2.Enabled:= false
+   else
+      edit2.Enabled:= true;
 end;
 
 procedure TFormCambioClave.FormActivate(Sender: TObject);

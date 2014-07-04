@@ -71,7 +71,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Panel1: TPanel
-    Left = 8
+    Left = 1
     Top = 63
     Width = 457
     Height = 326
@@ -152,7 +152,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object SpeedButton3: TSpeedButton
-      Left = 87
+      Left = 88
       Top = 278
       Width = 122
       Height = 38
@@ -166,8 +166,8 @@ object Form3: TForm3
       OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
-      Left = 24
-      Top = 234
+      Left = 88
+      Top = 278
       Width = 121
       Height = 38
       Caption = 'Eliminar'
@@ -215,7 +215,7 @@ object Form3: TForm3
       Width = 234
       Height = 189
       DataSource = DataModule1.Tabla_Autor
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
+      Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
       ReadOnly = True
       TabOrder = 4
       TitleFont.Charset = DEFAULT_CHARSET
@@ -249,6 +249,7 @@ object Form3: TForm3
       MaxLength = 10
       TabOrder = 0
       OnChange = Edit2Change
+      OnKeyPress = Edit2KeyPress
     end
     object Edit3: TEdit
       Tag = 2
@@ -259,6 +260,7 @@ object Form3: TForm3
       MaxLength = 10
       TabOrder = 1
       OnChange = Edit3Change
+      OnKeyPress = Edit3KeyPress
     end
     object Edit4: TEdit
       Tag = 4
@@ -294,9 +296,41 @@ object Form3: TForm3
       Tag = 3
       Left = 84
       Top = 159
-      Width = 125
+      Width = 122
       Height = 27
       TabOrder = 2
+      OnChange = Edit1Change
+      OnKeyPress = Edit1KeyPress
     end
+  end
+  object ComprobarAutorEnUso: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'SELECT dniAutor'
+      'FROM libro'
+      'WHERE (dniAutor = :dato)')
+    Left = 312
+    Top = 8
+  end
+  object ComprobarAutor: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select DNI'
+      'from Autor'
+      'where (DNI =:Dato)')
+    Left = 664
+    Top = 576
   end
 end

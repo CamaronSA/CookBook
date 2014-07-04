@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, ModifAdmin, OperacionesAutor,
-  OperacionesEditorial, Unit1, OperacionesCategoria;
+  OperacionesEditorial, Unit1, OperacionesCategoria, FiltradoLibros;
 
 type
   TFormPanelAdministracion = class(TForm)
@@ -42,6 +42,14 @@ type
     SpeedButton12: TSpeedButton;
     SpeedButton20: TSpeedButton;
     SpeedButton27: TSpeedButton;
+    SpeedButton29: TSpeedButton;
+    SpeedButton30: TSpeedButton;
+    SpeedButton31: TSpeedButton;
+    SpeedButton33: TSpeedButton;
+    SpeedButton34: TSpeedButton;
+    SpeedButton32: TSpeedButton;
+    SpeedButton35: TSpeedButton;
+    SpeedButton36: TSpeedButton;
     procedure SpeedButton14Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton15Click(Sender: TObject);
@@ -67,6 +75,16 @@ type
     procedure SpeedButton12Click(Sender: TObject);
     procedure SpeedButton20Click(Sender: TObject);
     procedure SpeedButton27Click(Sender: TObject);
+    procedure SpeedButton28Click(Sender: TObject);
+    procedure SpeedButton30Click(Sender: TObject);
+    procedure SpeedButton31Click(Sender: TObject);
+    procedure SpeedButton33Click(Sender: TObject);
+    procedure SpeedButton34Click(Sender: TObject);
+    procedure SpeedButton32Click(Sender: TObject);
+    procedure SpeedButton36Click(Sender: TObject);
+    procedure SpeedButton35Click(Sender: TObject);
+    procedure SpeedButton29Click(Sender: TObject);
+    procedure SpeedButton13Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,7 +96,8 @@ var
 
 implementation
 
-uses OperacionesIdioma, ModificarLibro;
+uses OperacionesIdioma, ModificarLibro, PedidosPorFecha, CondicionesDeVenta,
+  PedidosRealizados, Usuarios, TarjetasDeCredito;
 
 {$R *.dfm}
 
@@ -93,6 +112,8 @@ formVerIdioma.SpeedButton1.Enabled:=true;
 formVerIdioma.SpeedButton1.Visible:=true;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma: *';
+formVerIdioma.Label4.Visible:=true;
 FormVerIdioma.ShowModal;
 end;
 
@@ -104,6 +125,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=false;
+FormOperacionesCategoria.label2.Caption:='Categoria:';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -115,7 +138,20 @@ FormOperacionesCategoria.SpeedButton2.visible:=true;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=true;
+FormOperacionesCategoria.Label4.Visible:=true;
+FormOperacionesCategoria.label2.Caption:='Categoria: *';
 FormOperacionesCategoria.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton13Click(Sender: TObject);
+begin
+   FormTodosLosPedidos.Panel1.Visible:=False;;
+   FormTodosLosPedidos.Panel2.Visible:=True;
+   FormTodosLosPedidos.Height:=387;
+   FormTodosLosPedidos.Width:=811;
+   FormTodosLosPedidos.SpeedButton2.Visible:=True;
+   FormTodosLosPedidos.Label1.Visible:=True; //Habilito Label "Haga click en...."
+   FormTodosLosPedidos.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton14Click(Sender: TObject);
@@ -136,6 +172,8 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= True; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
+FormModifAdmin.Label17.Visible:=False; //Atención
+FormModifAdmin.Label18.Visible:=False; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
 
@@ -151,6 +189,7 @@ form4.speedbutton3.Enabled:=false;
 form4.speedbutton3.visible:=false;
 form4.speedbutton4.Enabled:=true;
 form4.speedbutton4.visible:=true;
+form4.SpeedButton5.Visible:=false;
 form4.showmodal;
 end;
 
@@ -165,6 +204,8 @@ FormOperacionesEditorial.SpeedButton3.enabled:=true;
 FormOperacionesEditorial.SpeedButton4.Visible:=true;
 FormOperacionesEditorial.SpeedButton4.enabled:=true;
 FormOperacionesEditorial.SpeedButton1.Visible:=false;
+FormOperacionesEditorial.Label4.visible:=false;
+FormOperacionesEditorial.Label1.Caption:='Editorial:';
 FormOperacionesEditorial.ShowModal;
 end;
 
@@ -188,6 +229,8 @@ formVerIdioma.SpeedButton1.Enabled:=false;
 formVerIdioma.SpeedButton1.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma';
+formVerIdioma.Label4.Visible:=false;
 FormVerIdioma.ShowModal;
 end;
 
@@ -200,6 +243,8 @@ FormModifAdmin.label10.Visible:= True; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
+FormModifAdmin.Label17.Visible:=True; //Atención
+FormModifAdmin.Label18.Visible:=True; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
 
@@ -211,6 +256,8 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=true;
 FormOperacionesCategoria.SpeedButton4.enabled:=false;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=true;
+FormOperacionesCategoria.label2.Caption:='Categoria: *';
 FormOperacionesCategoria.showmodal;
 end;
 
@@ -224,6 +271,8 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= False; //Label Modificar
 FormModifAdmin.Label12.Visible:= True; //Label Ver
+FormModifAdmin.Label17.Visible:=False; //Atención
+FormModifAdmin.Label18.Visible:=False; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
  procedure TFormPanelAdministracion.SpeedButton23Click(Sender: TObject);
@@ -236,6 +285,7 @@ begin
       form4.speedbutton3.visible:=false;
       form4.speedbutton4.Enabled:=false;
       form4.speedbutton4.visible:=false;
+      form4.SpeedButton5.Visible:=false;
       form4.showmodal;
 end;
 
@@ -249,6 +299,8 @@ FormOperacionesEditorial.SpeedButton3.Visible:=true;
 FormOperacionesEditorial.SpeedButton3.enabled:=true;
 FormOperacionesEditorial.SpeedButton4.Visible:=false;
 FormOperacionesEditorial.SpeedButton4.enabled:=false;
+FormOperacionesEditorial.Label4.visible:=false;
+FormOperacionesEditorial.Label1.Caption:='Editorial:';
 FormOperacionesEditorial.ShowModal;
 end;
 
@@ -272,6 +324,8 @@ formVerIdioma.SpeedButton1.Enabled:=false;
 formVerIdioma.SpeedButton1.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=false;
 formVerIdioma.SpeedButton2.Visible:=false;
+FormVerIdioma.Label2.Caption:='Idioma:';
+formVerIdioma.Label4.Visible:=false;
 FormVerIdioma.ShowModal;
 end;
 
@@ -283,7 +337,25 @@ FormOperacionesCategoria.SpeedButton2.visible:=false;
 FormOperacionesCategoria.SpeedButton1.enabled:=false;
 FormOperacionesCategoria.SpeedButton4.enabled:=true;
 FormOperacionesCategoria.SpeedButton2.enabled:=false;
+FormOperacionesCategoria.Label4.Visible:=false;
+FormOperacionesCategoria.label2.Caption:='Categoria:';
 FormOperacionesCategoria.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton28Click(Sender: TObject);
+begin
+   FormTodosLosPedidos.Panel1.Visible:=False;;  //Deshabilito panel modificacion
+   FormTodosLosPedidos.Panel2.Visible:=True;  //Muestro solo la vista
+   FormTodosLosPedidos.Height:=387;
+   FormTodosLosPedidos.Width:=811;
+   FormTodosLosPedidos.SpeedButton2.Visible:=False; //Deshabilito boton modificar
+   FormTodosLosPedidos.Label1.Visible:=False; //Deshabilito Label "Haga click en...."
+   FormTodosLosPedidos.ShowModal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton29Click(Sender: TObject);
+begin
+  FormPedidosPorFecha.ShowModal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton2Click(Sender: TObject);
@@ -299,6 +371,77 @@ form4.speedbutton4.visible:=false;
 form4.showmodal;
 end;
 
+procedure TFormPanelAdministracion.SpeedButton30Click(Sender: TObject);
+begin
+  FormModifCondicionesVenta.Memo1.ReadOnly:=False;
+  FormModifCondicionesVenta.SpeedButton1.Visible:=True;
+  FormModifCondicionesVenta.ShowModal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton31Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton1.Visible:=false;
+  formusuarios.speedbutton1.Enabled:=false;
+  formUsuarios.speedbutton2.Visible:=false;
+  formusuarios.speedbutton2.Enabled:=false;
+  formUsuarios.speedbutton4.Visible:=false;
+  formusuarios.speedbutton4.Enabled:=false;
+  formUsuarios.speedbutton5.Visible:=false;
+  formusuarios.speedbutton5.Enabled:=false;
+
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton32Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.ReadOnly:=true;
+  formtarjetasDeCredito.Edit2.ReadOnly:=true;
+  formtarjetasDeCredito.SpeedButton1.Visible:=false;
+  formtarjetasDeCredito.SpeedButton1.Enabled:=false;
+  formtarjetasDeCredito.SpeedButton2.Visible:=false;
+  formtarjetasDeCredito.SpeedButton2.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton33Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton2.Visible:=false;
+  formusuarios.speedbutton2.Enabled:=false;
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton34Click(Sender: TObject);
+begin
+  formUsuarios.speedbutton1.Visible:=false;
+  formusuarios.speedbutton1.Enabled:=false;
+  formUsuarios.speedbutton4.Visible:=false;
+  formusuarios.speedbutton4.Enabled:=false;
+  formUsuarios.speedbutton5.Visible:=false;
+  formusuarios.speedbutton5.Enabled:=false;
+  formusuarios.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton35Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.Text:='';
+  formtarjetasDeCredito.Edit2.Text:='';
+  formtarjetasDeCredito.SpeedButton2.Visible:=false;
+  formtarjetasDeCredito.SpeedButton2.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
+procedure TFormPanelAdministracion.SpeedButton36Click(Sender: TObject);
+begin
+  formtarjetasDeCredito.Edit1.ReadOnly:=true;
+  formtarjetasDeCredito.Edit2.ReadOnly:=true;
+  formtarjetasDeCredito.SpeedButton1.Visible:=false;
+  formtarjetasDeCredito.SpeedButton1.Enabled:=false;
+
+  formtarjetasDeCredito.showmodal;
+end;
+
 procedure TFormPanelAdministracion.SpeedButton3Click(Sender: TObject);
 begin
 FormOperacionesEditorial.SpeedButton1.Visible:=true;
@@ -309,6 +452,8 @@ FormOperacionesEditorial.SpeedButton3.Visible:=true;
 FormOperacionesEditorial.SpeedButton3.enabled:=true;
 FormOperacionesEditorial.SpeedButton4.Visible:=false;
 FormOperacionesEditorial.SpeedButton4.enabled:=false;
+FormOperacionesEditorial.Label4.visible:=true;
+FormOperacionesEditorial.Label1.Caption:='Editorial: *';
 FormOperacionesEditorial.ShowModal;
 end;
 
@@ -333,6 +478,8 @@ formVerIdioma.SpeedButton4.Enabled:=false;
 formVerIdioma.SpeedButton4.Visible:=false;
 formVerIdioma.SpeedButton2.Enabled:=true;
 formVerIdioma.SpeedButton2.Visible:=true;
+FormVerIdioma.Label2.Caption:='Idioma: *';
+formVerIdioma.Label4.Visible:=true;
 FormVerIdioma.ShowModal;
 end;
 
@@ -346,6 +493,8 @@ FormModifAdmin.label10.Visible:= False; //Label Agregar
 FormModifAdmin.Label11.Visible:= False; //Label Eliminar
 FormModifAdmin.Label7.Visible:= True; //Label Modificar
 FormModifAdmin.Label12.Visible:= False; //Label Ver
+FormModifAdmin.Label17.Visible:=True; //Atención
+FormModifAdmin.Label18.Visible:=True; //Todos los campos son obligatorios
 FormModifAdmin.ShowModal;
 end;
  procedure TFormPanelAdministracion.SpeedButton7Click(Sender: TObject);
@@ -371,6 +520,8 @@ FormOperacionesEditorial.SpeedButton3.Visible:=true;
 FormOperacionesEditorial.SpeedButton3.enabled:=true;
 FormOperacionesEditorial.SpeedButton4.Visible:=false;
 FormOperacionesEditorial.SpeedButton4.enabled:=false;
+FormOperacionesEditorial.Label4.visible:=true;
+FormOperacionesEditorial.Label1.Caption:='Editorial: *';
 FormOperacionesEditorial.ShowModal;
 end;
 
@@ -386,5 +537,7 @@ Form3.Label4.Visible:=false;
 Form3.Label7.Visible:=false;
 Form3.ShowModal;
 end;
+
+
 
 end.

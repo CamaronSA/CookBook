@@ -149,5 +149,7 @@
     <File Path="Usuarios.dfm"/>
     <File Path="CambiarClave.pas"/>
     <File Path="CambiarClave.dfm"/>
+    <File Path="CambioClave.pas"/>
+    <File Path="CambioClave.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

@@ -395,7 +395,6 @@ end;
 procedure TFormPanelAdministracion.SpeedButton32Click(Sender: TObject);
 begin
   formtarjetasDeCredito.Edit1.ReadOnly:=true;
-  formtarjetasDeCredito.Edit2.ReadOnly:=true;
   formtarjetasDeCredito.SpeedButton1.Visible:=false;
   formtarjetasDeCredito.SpeedButton1.Enabled:=false;
   formtarjetasDeCredito.SpeedButton2.Visible:=false;
@@ -425,17 +424,14 @@ end;
 procedure TFormPanelAdministracion.SpeedButton35Click(Sender: TObject);
 begin
   formtarjetasDeCredito.Edit1.Text:='';
-  formtarjetasDeCredito.Edit2.Text:='';
   formtarjetasDeCredito.SpeedButton2.Visible:=false;
   formtarjetasDeCredito.SpeedButton2.Enabled:=false;
-
   formtarjetasDeCredito.showmodal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton36Click(Sender: TObject);
 begin
   formtarjetasDeCredito.Edit1.ReadOnly:=true;
-  formtarjetasDeCredito.Edit2.ReadOnly:=true;
   formtarjetasDeCredito.SpeedButton1.Visible:=false;
   formtarjetasDeCredito.SpeedButton1.Enabled:=false;
 

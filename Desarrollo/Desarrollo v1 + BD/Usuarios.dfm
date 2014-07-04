@@ -4,7 +4,7 @@ object FormUsuarios: TFormUsuarios
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Usuarios'
-  ClientHeight = 684
+  ClientHeight = 675
   ClientWidth = 739
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -32,8 +32,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 16
-    Top = 416
+    Left = 54
+    Top = 406
     Width = 37
     Height = 19
     Caption = 'DNI:'
@@ -45,8 +45,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 16
-    Top = 448
+    Left = 21
+    Top = 439
     Width = 70
     Height = 19
     Caption = 'Nombre:'
@@ -58,8 +58,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 16
-    Top = 484
+    Left = 18
+    Top = 472
     Width = 73
     Height = 19
     Caption = 'Apellido:'
@@ -71,8 +71,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 19
-    Top = 517
+    Left = 23
+    Top = 505
     Width = 68
     Height = 19
     Caption = 'Usuario:'
@@ -84,8 +84,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 19
-    Top = 651
+    Left = 8
+    Top = 639
     Width = 83
     Height = 19
     Caption = 'Localidad:'
@@ -97,8 +97,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 330
-    Top = 416
+    Left = 328
+    Top = 406
     Width = 81
     Height = 19
     Caption = 'Provincia:'
@@ -110,8 +110,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 330
-    Top = 448
+    Left = 328
+    Top = 438
     Width = 40
     Height = 19
     Caption = 'Pais:'
@@ -123,8 +123,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 19
-    Top = 585
+    Left = 44
+    Top = 573
     Width = 47
     Height = 19
     Caption = 'Calle:'
@@ -136,8 +136,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label10: TLabel
-    Left = 19
-    Top = 618
+    Left = 21
+    Top = 606
     Width = 70
     Height = 19
     Caption = 'Numero:'
@@ -149,8 +149,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label12: TLabel
-    Left = 330
-    Top = 517
+    Left = 328
+    Top = 505
     Width = 78
     Height = 19
     Caption = 'Telefono:'
@@ -162,8 +162,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 19
-    Top = 551
+    Left = 40
+    Top = 540
     Width = 51
     Height = 19
     Caption = 'Clave:'
@@ -176,7 +176,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Label14: TLabel
     Left = 330
-    Top = 481
+    Top = 472
     Width = 53
     Height = 19
     Caption = 'Fecha:'
@@ -189,7 +189,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Label16: TLabel
     Left = 330
-    Top = 551
+    Top = 538
     Width = 51
     Height = 19
     Caption = 'Email:'
@@ -202,7 +202,7 @@ object FormUsuarios: TFormUsuarios
   end
   object SpeedButton1: TSpeedButton
     Left = 470
-    Top = 631
+    Top = 619
     Width = 108
     Height = 39
     Caption = 'Modificar'
@@ -216,7 +216,7 @@ object FormUsuarios: TFormUsuarios
   end
   object SpeedButton2: TSpeedButton
     Left = 470
-    Top = 631
+    Top = 619
     Width = 108
     Height = 39
     Caption = 'Eliminar'
@@ -230,7 +230,7 @@ object FormUsuarios: TFormUsuarios
   end
   object SpeedButton3: TSpeedButton
     Left = 584
-    Top = 631
+    Top = 619
     Width = 106
     Height = 39
     Caption = 'Cerrar'
@@ -244,7 +244,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Label17: TLabel
     Left = 330
-    Top = 584
+    Top = 571
     Width = 152
     Height = 19
     Caption = 'Fecha de Registro:'
@@ -269,8 +269,8 @@ object FormUsuarios: TFormUsuarios
     ParentFont = False
   end
   object SpeedButton5: TSpeedButton
-    Left = 247
-    Top = 550
+    Left = 255
+    Top = 535
     Width = 67
     Height = 29
     Caption = 'Modificar'
@@ -283,8 +283,8 @@ object FormUsuarios: TFormUsuarios
     OnClick = SpeedButton5Click
   end
   object SpeedButton4: TSpeedButton
-    Left = 247
-    Top = 517
+    Left = 255
+    Top = 502
     Width = 67
     Height = 29
     Caption = 'Verificar'
@@ -422,8 +422,8 @@ object FormUsuarios: TFormUsuarios
       end>
   end
   object Edit2: TEdit
-    Left = 59
-    Top = 415
+    Left = 97
+    Top = 403
     Width = 121
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -437,9 +437,9 @@ object FormUsuarios: TFormUsuarios
     OnChange = Edit2Change
   end
   object Edit3: TEdit
-    Left = 89
-    Top = 448
-    Width = 225
+    Left = 97
+    Top = 436
+    Width = 221
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -452,8 +452,8 @@ object FormUsuarios: TFormUsuarios
     OnKeyPress = Edit3KeyPress
   end
   object Edit4: TEdit
-    Left = 93
-    Top = 484
+    Left = 97
+    Top = 469
     Width = 221
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -467,8 +467,8 @@ object FormUsuarios: TFormUsuarios
     OnKeyPress = Edit4KeyPress
   end
   object Edit5: TEdit
-    Left = 89
-    Top = 517
+    Left = 97
+    Top = 502
     Width = 152
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -482,9 +482,9 @@ object FormUsuarios: TFormUsuarios
     OnKeyPress = Edit5KeyPress
   end
   object Edit6: TEdit
-    Left = 78
-    Top = 550
-    Width = 163
+    Left = 97
+    Top = 537
+    Width = 152
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -497,9 +497,9 @@ object FormUsuarios: TFormUsuarios
     TabOrder = 7
   end
   object Edit7: TEdit
-    Left = 74
-    Top = 585
-    Width = 240
+    Left = 97
+    Top = 570
+    Width = 221
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -512,7 +512,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit8: TEdit
     Left = 97
-    Top = 618
+    Top = 603
     Width = 64
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -526,8 +526,8 @@ object FormUsuarios: TFormUsuarios
     OnChange = Edit8Change
   end
   object Edit9: TEdit
-    Left = 106
-    Top = 651
+    Left = 97
+    Top = 636
     Width = 208
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -540,8 +540,8 @@ object FormUsuarios: TFormUsuarios
     OnChange = Edit9Change
   end
   object Edit10: TEdit
-    Left = 415
-    Top = 415
+    Left = 412
+    Top = 403
     Width = 205
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -556,7 +556,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit11: TEdit
     Left = 379
-    Top = 448
+    Top = 436
     Width = 241
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -571,7 +571,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit14: TEdit
     Left = 387
-    Top = 551
+    Top = 535
     Width = 230
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -586,7 +586,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit16: TEdit
     Left = 414
-    Top = 518
+    Top = 502
     Width = 205
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -601,7 +601,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit13: TEdit
     Left = 488
-    Top = 584
+    Top = 568
     Width = 103
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -617,7 +617,7 @@ object FormUsuarios: TFormUsuarios
   end
   object Edit12: TEdit
     Left = 389
-    Top = 481
+    Top = 469
     Width = 108
     Height = 27
     Font.Charset = DEFAULT_CHARSET

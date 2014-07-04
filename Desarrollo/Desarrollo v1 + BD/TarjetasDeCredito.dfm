@@ -4,7 +4,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Tarjetas de Credito'
-  ClientHeight = 376
+  ClientHeight = 342
   ClientWidth = 352
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -25,16 +25,9 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Height = 19
     Caption = 'Tarjeta:'
   end
-  object Label2: TLabel
-    Left = 56
-    Top = 277
-    Width = 48
-    Height = 19
-    Caption = 'Banco:'
-  end
   object SpeedButton1: TSpeedButton
-    Left = 121
-    Top = 324
+    Left = 124
+    Top = 290
     Width = 107
     Height = 41
     Caption = 'Agregar'
@@ -47,8 +40,8 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     OnClick = SpeedButton1Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 121
-    Top = 324
+    Left = 124
+    Top = 290
     Width = 107
     Height = 41
     Caption = 'Eliminar'
@@ -61,8 +54,8 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     OnClick = SpeedButton2Click
   end
   object SpeedButton3: TSpeedButton
-    Left = 234
-    Top = 324
+    Left = 237
+    Top = 290
     Width = 107
     Height = 41
     Caption = 'Cerrar'
@@ -98,16 +91,6 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     OnChange = Edit1Change
     OnKeyPress = Edit1KeyPress
   end
-  object Edit2: TEdit
-    Left = 102
-    Top = 274
-    Width = 203
-    Height = 27
-    MaxLength = 15
-    TabOrder = 1
-    OnChange = Edit2Change
-    OnKeyPress = Edit2KeyPress
-  end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 8
@@ -116,7 +99,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     DataSource = DataModule1.Tabla_Tarjetas
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
-    TabOrder = 2
+    TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -16
@@ -126,13 +109,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
       item
         Expanded = False
         FieldName = 'Nombre'
-        Width = 150
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Banco'
-        Width = 150
+        Width = 280
         Visible = True
       end>
   end
@@ -147,20 +124,11 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
         Precision = 255
         Size = 510
         Value = Null
-      end
-      item
-        Name = 'dato2'
-        Attributes = [paNullable]
-        DataType = ftWideString
-        NumericScale = 255
-        Precision = 255
-        Size = 510
-        Value = Null
       end>
     SQL.Strings = (
-      'Select nombre, banco '
+      'Select nombre'
       'from tarjetas'
-      'where (Nombre =:Dato) and (banco =:Dato2)')
+      'where (Nombre =:Dato)')
     Left = 288
     Top = 192
   end

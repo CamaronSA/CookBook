@@ -109,6 +109,7 @@ object FormCambioClave: TFormCambioClave
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    ReadOnly = True
     TabOrder = 0
     Text = 'Edit1'
   end
