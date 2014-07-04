@@ -136,7 +136,6 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Width = 136
       Height = 17
       DataField = 'Nombre'
-      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -150,7 +149,6 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Width = 136
       Height = 17
       DataField = 'Apellido'
-      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -164,7 +162,6 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Width = 136
       Height = 17
       DataField = 'DNI'
-      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -178,7 +175,6 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Width = 136
       Height = 17
       DataField = 'FechaDeFin'
-      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16

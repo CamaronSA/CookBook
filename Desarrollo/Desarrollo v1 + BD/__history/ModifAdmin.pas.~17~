@@ -68,7 +68,6 @@ type
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
     procedure DateTimePicker1Change(Sender: TObject);
-    procedure Edit10Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -147,12 +146,6 @@ begin
     Edit10.Text:=DataModule1.ADOAdministrador.FieldByName('Mail').AsString;
 end;
 
-
-procedure TFormModifAdmin.Edit10Change(Sender: TObject);
-begin
- Label8.Font.Color:=ClBlack;
- Label13.Visible:=False;
-end;
 
 procedure TFormModifAdmin.Edit1Change(Sender: TObject);
 var filtro : string;
@@ -525,7 +518,6 @@ begin
       Edit5.Text:='';
       Edit6.Text:='';
       Edit10.Text:='';
-      Close;
 
 
     except

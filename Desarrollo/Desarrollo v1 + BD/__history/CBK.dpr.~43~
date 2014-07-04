@@ -6,6 +6,7 @@ uses
   Principal in 'Principal.pas' {FormPrincipal},
   CatalogoLibros in 'CatalogoLibros.pas' {FormCatalogoLibros},
   DetalleLibro in 'DetalleLibro.pas' {FormDetalleLibro},
+  CarritoDeCompras in 'CarritoDeCompras.pas' {FormCarritoDeCompras},
   Unit1 in 'Unit1.pas' {DataModule1: TDataModule},
   PanelAdministracion in 'PanelAdministracion.pas' {FormPanelAdministracion},
   ModifAdmin in 'ModifAdmin.pas' {FormModifAdmin},
@@ -37,10 +38,11 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  AApplication.CreateForm(TFormLogin, FormLogin);
+  Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
   Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
+  Application.CreateForm(TFormCarritoDeCompras, FormCarritoDeCompras);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TFormPanelAdministracion, FormPanelAdministracion);
   Application.CreateForm(TFormModifAdmin, FormModifAdmin);
@@ -67,5 +69,5 @@ begin
   Application.CreateForm(TFormCambiarClave, FormCambiarClave);
   Application.CreateForm(TFormCambioClave, FormCambioClave);
   Application.CreateForm(TForm8, Form8);
-  pplication.Run;
+  application.Run;
 end.

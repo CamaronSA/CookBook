@@ -86,7 +86,6 @@ type
     procedure Edit10Change(Sender: TObject);
     procedure Edit11Change(Sender: TObject);
     procedure Edit4Change(Sender: TObject);
-    procedure DateTimePicker1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -155,12 +154,6 @@ procedure TFormMisDatos.LetrasNumnerosETC(Sender: TObject; var Key: Char);
 begin
   if not(Key in ['A'..'Z', 'a'..'z', #9, #8,'_','-','@','0'..'9','.']) then
     key := #0;
-end;
-
-procedure TFormMisDatos.DateTimePicker1Change(Sender: TObject);
-begin
-Label3.Font.Color:=ClBlack;
-Label15.Visible:=False;
 end;
 
 procedure TFormMisDatos.Edit10Change(Sender: TObject);

@@ -570,7 +570,6 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     ParentFont = False
     TabOrder = 11
-    OnChange = DateTimePicker1Change
   end
   object Edit1: TEdit
     Left = 115

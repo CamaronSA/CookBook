@@ -70,9 +70,9 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
   object Label3: TLabel
     Left = 56
     Top = 197
-    Width = 247
+    Width = 231
     Height = 23
-    Caption = 'Complete los campos en rojo!'
+    Caption = 'Coplete los campos en rojo!'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
     Font.Height = -19
@@ -86,7 +86,7 @@ object FormtarjetasDeCredito: TFormtarjetasDeCredito
     Top = 241
     Width = 203
     Height = 27
-    MaxLength = 25
+    MaxLength = 15
     TabOrder = 0
     OnChange = Edit1Change
     OnKeyPress = Edit1KeyPress

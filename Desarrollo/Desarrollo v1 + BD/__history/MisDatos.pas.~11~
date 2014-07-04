@@ -11,7 +11,6 @@ type
   ESinArroba=class(Exception);
   EExisteDNI=class(Exception);
   EExisteUsuario=class(Exception);
-  EFueraDeRango=class(Exception);
   TFormMisDatos = class(TForm)
     DateTimePicker1: TDateTimePicker;
     Edit1: TEdit;
@@ -86,7 +85,6 @@ type
     procedure Edit10Change(Sender: TObject);
     procedure Edit11Change(Sender: TObject);
     procedure Edit4Change(Sender: TObject);
-    procedure DateTimePicker1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -155,12 +153,6 @@ procedure TFormMisDatos.LetrasNumnerosETC(Sender: TObject; var Key: Char);
 begin
   if not(Key in ['A'..'Z', 'a'..'z', #9, #8,'_','-','@','0'..'9','.']) then
     key := #0;
-end;
-
-procedure TFormMisDatos.DateTimePicker1Change(Sender: TObject);
-begin
-Label3.Font.Color:=ClBlack;
-Label15.Visible:=False;
 end;
 
 procedure TFormMisDatos.Edit10Change(Sender: TObject);
@@ -482,10 +474,7 @@ begin
     DataModule1.ComprobarUsuario.FieldByName('Telefono').AsString:=Edit12.Text; //Telefono
 
     //Fecha de Nacimiento
-    if ((DateTimePicker1.Date)<01/01/1900) or ((DateTimePicker1.Date)>Now()) then
-      raise EFueraDeRango.Create('Ingrese una fecha válida')
-      else
-          DataModule1.ComprobarUsuario.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
+    DataModule1.ComprobarUsuario.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
     DataModule1.ComprobarUsuario.Post;
   //Vuelvo a mostrar "SOLO VER"
     SpeedButton1.Visible:=False;
@@ -530,12 +519,6 @@ begin
         ShowMessage(E.Message);
         label4.Font.Color:=ClRed;
         label15.Visible:=True;
-        DataModule1.ComprobarUsuario.Cancel;
-     end;
-     on E:EFueraDeRango do begin
-        ShowMessage(E.Message);
-        Label3.Font.Color:=ClRed;
-        Label15.Visible:=True;
         DataModule1.ComprobarUsuario.Cancel;
      end;
 

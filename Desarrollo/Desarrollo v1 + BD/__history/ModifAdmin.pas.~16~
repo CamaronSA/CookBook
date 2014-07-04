@@ -68,7 +68,6 @@ type
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
     procedure DateTimePicker1Change(Sender: TObject);
-    procedure Edit10Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -147,12 +146,6 @@ begin
     Edit10.Text:=DataModule1.ADOAdministrador.FieldByName('Mail').AsString;
 end;
 
-
-procedure TFormModifAdmin.Edit10Change(Sender: TObject);
-begin
- Label8.Font.Color:=ClBlack;
- Label13.Visible:=False;
-end;
 
 procedure TFormModifAdmin.Edit1Change(Sender: TObject);
 var filtro : string;
@@ -343,7 +336,7 @@ begin
       else
       DataModule1.ADOAdministrador.FieldByName('Clave').AsString:=Edit6.Text;
             //Fecha Nacimiento
-      if (DateTimePicker1.Date<01/01/1900) or (DateTimePicker1.Date>Now()) then
+      if (DateTimePicker1.Date<1900) or (DateTimePicker1.Date>Now()) then
         raise EFueraRango.Create('Ingrese correctamente su fecha de nacimiento')
         else
             DataModule1.ADOAdministrador.FieldByName('Fecha Nacimiento').Value:=DateTimePicker1.Date;
@@ -525,7 +518,6 @@ begin
       Edit5.Text:='';
       Edit6.Text:='';
       Edit10.Text:='';
-      Close;
 
 
     except

@@ -51,9 +51,6 @@
 			<DCCReference Include="DetalleLibro.pas">
 				<Form>FormDetalleLibro</Form>
 			</DCCReference>
-			<DCCReference Include="CarritoDeCompras.pas">
-				<Form>FormCarritoDeCompras</Form>
-			</DCCReference>
 			<DCCReference Include="Unit1.pas">
 				<Form>DataModule1</Form>
 				<DesignClass>TDataModule</DesignClass>

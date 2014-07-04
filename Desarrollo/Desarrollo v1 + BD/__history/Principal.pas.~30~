@@ -61,7 +61,7 @@ var
 
 implementation
 
-uses CatalogoLibros, Login, Unit1, MisDatos, VerMisCompras,
+uses CatalogoLibros, CarritoDeCompras, Login, Unit1, MisDatos, VerMisCompras,
   PedidosRealizados, RegistroCliente, CambiarClave;
 
 {$R *.dfm}

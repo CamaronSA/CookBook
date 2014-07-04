@@ -92,10 +92,10 @@
     <Transaction>2014/07/02 17:34:44.386.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CondicionesDeVenta.dfm</Transaction>
     <Transaction>2014/07/02 23:48:25.015.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.pas=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CambiarClave.pas</Transaction>
     <Transaction>2014/07/02 23:48:25.015.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\Unit8.dfm=C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CambiarClave.dfm</Transaction>
+    <Transaction>2014/07/04 16:51:49.516.pas,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CarritoDeCompras.pas=</Transaction>
+    <Transaction>2014/07/04 16:51:49.516.dfm,C:\Documents and Settings\Alejandro\Escritorio\Desarrollo v1 + BD\CarritoDeCompras.dfm=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="CarritoDeCompras.pas"/>
-    <File Path="CarritoDeCompras.dfm"/>
     <File Path="CatalogoLibros.pas"/>
     <File Path="CatalogoLibros.dfm"/>
     <File Path="Contacto.pas"/>
