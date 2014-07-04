@@ -443,11 +443,6 @@ begin
         DataModule1.ComprobarLibro.Close;
         DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
         DataModule1.ComprobarLibro.Open;
-        // por la puta casualidad q metan todo en blanco
-        if (edit2.Text = '') and (edit3.Text = '') and (edit6.Text = '') and (edit10.Text = '') and
-        (memo1.Text = '') and (image1.Picture = nil) and (Combobox1.Text = '')and (Combobox2.Text = '')and
-        (Combobox3.Text = '')and (Combobox4.Text = '')and (Combobox5.Text = '')and (Combobox6.Text = '') then
-          raise ENoModificaUnCarajo.Create('No es Necesario modificar campos por que no ingreso ningun dato');
         //Campo EsDestacado
         if (ComboBox6.Text = '') then
            DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean
@@ -462,7 +457,7 @@ begin
           end;
         //Campo Disponible
         if(ComboBox5.Text ='') then
-          DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean
+           DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean
         else
             if (Combobox5.Text = 'SI') then
               DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=true
@@ -481,7 +476,8 @@ begin
         //Campo Categoria
         if (ComboBox2.Text = '') then
          //Lo qe hace es volver a guardar lo que ya tenia, pero automatico por si el boludo q lo usa borrar algun campo
-           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString
+         DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString
+
         else
           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=ComboBox2.Text;
         //Campo Autor
@@ -498,7 +494,7 @@ begin
           end;
         //Campo Editorial
         if (ComboBox4.Text = '') then
-           DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
+          DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
         else
            DataModule1.ADOLibro.FieldByName('Editorial').AsString:=ComboBox4.Text;
         //Campo ISBN
@@ -507,7 +503,7 @@ begin
         else
           begin
             // esto anda, pero si pueden revisen, if de abajo, testea que si el q estamos modificando es el mismo numero por el mismo numero no grite el programa.
-              if not (strtoint(edit2.Text) = DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
+              if (strtoint(edit2.Text) = DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
                  if not (DataModule1.ComprobarLibro.IsEmpty) then
                 //Esta except verifica que no tengamos dos isbn iguales en la bd
                     raise EPentakill.Create('Este Libro ya esta en la base de datos, esta intentando ingresar un numero de ISBN que ya existe')

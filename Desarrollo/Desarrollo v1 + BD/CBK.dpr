@@ -37,7 +37,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  AApplication.CreateForm(TFormLogin, FormLogin);
+  Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
   Application.CreateForm(TFormDetalleLibro, FormDetalleLibro);
@@ -67,5 +67,5 @@ begin
   Application.CreateForm(TFormCambiarClave, FormCambiarClave);
   Application.CreateForm(TFormCambioClave, FormCambioClave);
   Application.CreateForm(TForm8, Form8);
-  pplication.Run;
+  Application.Run;
 end.
