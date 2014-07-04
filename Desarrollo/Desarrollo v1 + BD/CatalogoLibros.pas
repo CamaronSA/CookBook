@@ -90,7 +90,7 @@ var
 
 implementation
 
-uses DetalleLibro, Unit1, Unit7;
+uses DetalleLibro, Unit1, Unit7, Unit8;
 
 {$R *.dfm}
 //Limpia labels nada mas que eso
@@ -143,6 +143,7 @@ end;
 procedure TFormCatalogoLibros.SpeedButton11Click(Sender: TObject);
 begin
  //Implemente señora
+ Form8.showmodal;
 end;
 
 procedure TFormCatalogoLibros.SpeedButton2Click(Sender: TObject);

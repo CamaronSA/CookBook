@@ -151,5 +151,7 @@
     <File Path="CambiarClave.dfm"/>
     <File Path="CambioClave.pas"/>
     <File Path="CambioClave.dfm"/>
+    <File Path="Unit8.pas"/>
+    <File Path="Unit8.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

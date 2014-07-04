@@ -30,7 +30,8 @@ uses
   CondicionesDeVenta in 'CondicionesDeVenta.pas' {FormModifCondicionesVenta},
   Usuarios in 'Usuarios.pas' {FormUsuarios},
   CambiarClave in 'CambiarClave.pas' {FormCambiarClave},
-  CambioClave in 'CambioClave.pas' {FormCambioClave};
+  CambioClave in 'CambioClave.pas' {FormCambioClave},
+  Unit8 in 'Unit8.pas' {Form8};
 
 {$R *.res}
 
@@ -67,5 +68,6 @@ begin
   Application.CreateForm(TFormUsuarios, FormUsuarios);
   Application.CreateForm(TFormCambiarClave, FormCambiarClave);
   Application.CreateForm(TFormCambioClave, FormCambioClave);
-  Application.Run;
+  Application.CreateForm(TForm8, Form8);
+  application.Run;
 end.
