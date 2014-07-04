@@ -189,6 +189,7 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    Connected = True
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -834,7 +835,9 @@ object DataModule1: TDataModule1
       end>
     SQL.Strings = (
       'select * from Pedidos'
-      'where (DNI=:consultaDNI)')
+      
+        'where (DNI=:consultaDNI) and ((Estado='#39'Pendiente'#39') or (Estado='#39'E' +
+        'n envio'#39'))')
     Left = 248
     Top = 392
   end
