@@ -10,7 +10,9 @@ type
   TForm8 = class(TForm)
     Panel1: TPanel;
     ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
     Label1: TLabel;
+    Label2: TLabel;
     Edit1: TEdit;
     Edit2: TEdit;
     Label3: TLabel;
@@ -55,9 +57,9 @@ begin
  //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
   while not (DataModule1.ADOTarjetas.Eof) do
    Begin
-     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[0].text);
+     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[1].text);
      DataModule1.ADOTarjetas.Next;
-   End
+   End;
 end;
 
 procedure TForm8.SpeedButton2Click(Sender: TObject);

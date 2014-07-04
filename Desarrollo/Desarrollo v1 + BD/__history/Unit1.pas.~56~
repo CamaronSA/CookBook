@@ -105,8 +105,6 @@ type
     LibrosALaVentaDisponible: TBooleanField;
     LibrosALaVentaAutor: TStringField;
     Destacados: TADOQuery;
-    ADOTarjetasIDTarjeta: TAutoIncField;
-    ADOTarjetasNombre: TWideStringField;
   private
     { Private declarations }
   public

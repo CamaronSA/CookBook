@@ -53,9 +53,9 @@ begin
  //Activo la tabla del nico menna por que si no anda :D
  DataModule1.ADOTarjetas.Active:=true;
  //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
-  while not (DataModule1.ADOTarjetas.Eof) do
+  while not (DataModule1.ADOlibro.Eof) do
    Begin
-     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[0].text);
+     ComboBox1.Items.Add(DataModule1.ADOLIBRO.Fields[0].text);
      DataModule1.ADOTarjetas.Next;
    End
 end;

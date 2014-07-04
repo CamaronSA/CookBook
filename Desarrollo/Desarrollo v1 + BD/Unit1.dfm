@@ -825,14 +825,10 @@ object DataModule1: TDataModule1
       FieldName = 'Nombre'
       Size = 255
     end
-    object ADOTarjetasBanco: TWideStringField
-      FieldName = 'Banco'
-      Size = 255
-    end
   end
   object Tabla_Tarjetas: TDataSource
     DataSet = ADOTarjetas
-    Left = 128
+    Left = 152
     Top = 440
   end
   object Destacados: TADOQuery
@@ -842,7 +838,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Libro'
       'where (EsDestacado = True) and (Disponible = True)')
-    Left = 512
+    Left = 520
     Top = 488
   end
 end

@@ -55,7 +55,7 @@ begin
  //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
   while not (DataModule1.ADOTarjetas.Eof) do
    Begin
-     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[0].text);
+     ComboBox1.Items.Add(DataModule1.ADOLIBRO.Fields[0].text);
      DataModule1.ADOTarjetas.Next;
    End
 end;
