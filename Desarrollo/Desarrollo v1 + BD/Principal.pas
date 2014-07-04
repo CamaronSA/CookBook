@@ -8,6 +8,7 @@ uses
   PanelAdministracion, Contacto, Menus, JPEG;
 
 type
+    EPedidosPendientes=class(exception);
   TFormPrincipal = class(TForm)
     Image1: TImage;
     SpeedButton1: TSpeedButton;
@@ -27,8 +28,6 @@ type
     ransacciones1: TMenuItem;
     Nosotros1: TMenuItem;
     Contactenos1: TMenuItem;
-    Administrador1: TMenuItem;
-    Pedidosrealizados1: TMenuItem;
     SpeedButton2: TSpeedButton;
     Cambiarcontrasea1: TMenuItem;
     Image2: TImage;
@@ -86,31 +85,43 @@ begin
 end;
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
-var buttonSelected:Integer;
+var buttonSelected:Integer; DNI:Integer;
 begin
+  try
   Datamodule1.ComprobarUsuario.Close;
   Datamodule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
   Datamodule1.ComprobarUsuario.Open;
   Datamodule1.ComprobarUsuarioAdmin.Close;
   Datamodule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
   Datamodule1.ComprobarUsuarioAdmin.Open;
+  DNI:=DataModule1.ComprobarUsuario.FieldByName('DNI').AsInteger;
+  Datamodule1.PedidosUsuario.Close;
+  Datamodule1.PedidosUsuario.Parameters.ParamByName('consultaDNI').Value:=DNI;
+  Datamodule1.PedidosUsuario.Open;
   buttonSelected:=messageDlg('¿Realmente desea eliminar el usuario?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then
     begin
       if not (Datamodule1.ComprobarUsuario.ISEmpty) then begin // Si es usuario
+              if not DataModule1.PedidosUsuario.isEmpty then
+                raise EPedidosPendientes.Create('No puede eliminarse ya que posee pedidos pendientes')
+              else begin
               DataModule1.BorrarUsuarioCliente.Close;
               DataModule1.BorrarUsuarioCliente.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
               DataModule1.BorrarUsuarioCliente.ExecSQL;
+              ShowMessage('El usuario se borró exitosamente');
+              Close;
+              end;
               end
               else
               if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then begin  //Si es admin
-                  DataModule1.BorrarUsuarioAdmin.Close;
-                  DataModule1.BorrarUsuarioAdmin.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
-                  DataModule1.BorrarUsuarioAdmin.ExecSQL;
+                  ShowMessage('Usted es adminitrador, no puede eliminarse')
               end;
-      ShowMessage('El usuario se borró exitosamente');
-      Close;
     end;
+  except
+    on E:EPedidosPendientes do
+      ShowMessage(E.Message);
+
+  end;
 end;
 
 procedure TFormPrincipal.FormActivate(Sender: TObject);
@@ -174,7 +185,7 @@ end;
 
 procedure TFormPrincipal.SpeedButton4Click(Sender: TObject);
 begin
-FormPrincipal.ActualizarDestacados;
+Form2.Showmodal;
 end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);

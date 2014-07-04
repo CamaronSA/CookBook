@@ -141,8 +141,8 @@ begin
       FormPrincipal.SpeedButton6.Visible:=false;
       FormPrincipal.SpeedButton1.Enabled:=true;
       FormPrincipal.SpeedButton1.Visible:=true;
-      //FormPrincipal.SpeedButton2.Enabled:=true;
-      //FormPrincipal.SpeedButton2.Visible:=true;
+      FormPrincipal.SpeedButton2.Enabled:=false;
+      FormPrincipal.SpeedButton2.Visible:=false;
 //      FormPrincipal.SpeedButton4.Enabled:=true;
 //      FormPrincipal.SpeedButton4.Visible:=true;
       UsuarioRegistrado:=Edit1.Text; //Variable global de usuario, la uso en CONTACTO
@@ -154,6 +154,9 @@ begin
       FormPrincipal.SpeedButton5.Visible:=True;
       edit1.Text:='';
       edit2.Text:='';
+      FormPrincipal.Menu:=FormPrincipal.MainMenu1;
+      FormPrincipal.User1.Visible:=True;
+      FormPrincipal.ransacciones1.Visible:=True;
       FormPrincipal.ShowModal;
       end
       else
@@ -176,6 +179,7 @@ begin
             UsuarioRegistrado:=Edit1.Text;
             edit1.Text:='';
             edit2.Text:='';
+            FormPrincipal.Menu:=nil;
             FormPrincipal.ShowModal;
           end
         else
@@ -198,6 +202,7 @@ begin
           UsuarioRegistrado:=Edit1.Text;
           edit1.Text:='';
           edit2.Text:='';
+          FormPrincipal.Menu:=nil;
           FormPrincipal.ShowModal;
         end
           else begin
@@ -212,9 +217,12 @@ begin
   FormPrincipal.SpeedButton5.Visible:=False;
   FormCatalogoLibros.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton3.Visible:=True;
-  FormPrincipal.ShowModal;
   FormPrincipal.SpeedButton2.Enabled:=True;
   FormPrincipal.SpeedButton2.Visible:=True;
+  FormPrincipal.Menu:=FormPrincipal.MainMenu1;
+  FormPrincipal.User1.Visible:=False;
+  FormPrincipal.ransacciones1.Visible:=False;
+  FormPrincipal.ShowModal;
   { *****************
     ****************
 

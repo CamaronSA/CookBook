@@ -278,10 +278,14 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Font.Name = 'Tahoma'
       Font.Style = []
       Items.Strings = (
-        'Pendiente'
-        'En envio'
-        'Entregado'
-        'Rechazado')
+        'A'
+        'B'
+        'C'
+        'D'
+        'E'
+        'F'
+        'G'
+        'H')
       ParentFont = False
       TabOrder = 0
       OnKeyPress = DBComboBox1KeyPress

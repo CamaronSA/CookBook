@@ -1407,8 +1407,8 @@ object FormPrincipal: TFormPrincipal
     ParentFont = False
   end
   object SpeedButton6: TSpeedButton
-    Left = 32
-    Top = 32
+    Left = 780
+    Top = 48
     Width = 215
     Height = 38
     Caption = 'Panel de Administraci'#243'n'
@@ -1435,7 +1435,7 @@ object FormPrincipal: TFormPrincipal
     OnClick = SpeedButton7Click
   end
   object Label1: TLabel
-    Left = 16
+    Left = 8
     Top = 8
     Width = 54
     Height = 19
@@ -1546,13 +1546,6 @@ object FormPrincipal: TFormPrincipal
     object Ayuda1: TMenuItem
       Caption = 'Ayuda'
       object Cargadeformularios1: TMenuItem
-      end
-    end
-    object Administrador1: TMenuItem
-      Caption = 'Administrador'
-      object Pedidosrealizados1: TMenuItem
-        Caption = 'Pedidos realizados'
-        OnClick = Pedidosrealizados1Click
       end
     end
   end
