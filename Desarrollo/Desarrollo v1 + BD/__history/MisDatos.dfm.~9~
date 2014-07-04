@@ -569,7 +569,7 @@ object FormMisDatos: TFormMisDatos
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 0
   end
   object Edit1: TEdit
     Left = 115
@@ -583,7 +583,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
     TextHint = 'Su nombre'
     OnChange = Edit1Change
     OnKeyPress = LetrasYEspacio
@@ -600,7 +600,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 2
     TextHint = 'Ej.: Argentina'
     OnChange = Edit10Change
     OnKeyPress = LetrasYEspacio
@@ -617,7 +617,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 40
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 3
     TextHint = 'Ej.: usuario@hotmail.com'
     OnChange = Edit11Change
     OnKeyPress = LetrasNumnerosETC
@@ -632,10 +632,10 @@ object FormMisDatos: TFormMisDatos
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
-    MaxLength = 20
+    MaxLength = 3
     NumbersOnly = True
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 4
     TextHint = 'Su telefono'
   end
   object Edit2: TEdit
@@ -650,7 +650,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 5
     TextHint = 'Su apellido'
     OnChange = Edit2Change
     OnKeyPress = LetrasYEspacio
@@ -668,7 +668,7 @@ object FormMisDatos: TFormMisDatos
     MaxLength = 8
     NumbersOnly = True
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 6
     TextHint = 'Su DNI'
     OnChange = Edit3Change
   end
@@ -684,7 +684,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 7
     TextHint = 'Ej.: Azcuenaga'
     OnChange = Edit6Change
     OnKeyPress = LetrasYEspacio
@@ -702,7 +702,7 @@ object FormMisDatos: TFormMisDatos
     MaxLength = 5
     NumbersOnly = True
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 8
     TextHint = '123'
     OnChange = Edit7Change
   end
@@ -718,7 +718,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 9
     TextHint = 'Ej.: Tres Arroyos'
     OnChange = Edit8Change
     OnKeyPress = LetrasYEspacio
@@ -735,7 +735,7 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 10
     TextHint = 'Ej.: Buenos Aires'
     OnChange = Edit9Change
     OnKeyPress = LetrasYEspacio
@@ -745,6 +745,7 @@ object FormMisDatos: TFormMisDatos
     Top = 193
     Width = 177
     Height = 27
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -752,9 +753,8 @@ object FormMisDatos: TFormMisDatos
     Font.Style = []
     MaxLength = 20
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 11
     TextHint = 'Su nombre de usuario'
-    OnChange = Edit4Change
     OnKeyPress = LetrasNumnerosETC
   end
 end

@@ -34,8 +34,6 @@ type
     Label11: TLabel;
     Label13: TLabel;
     DBComboBox1: TDBComboBox;
-    Label7: TLabel;
-    DBText5: TDBText;
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -69,12 +67,10 @@ begin
  //Esto ordena la tabla segun en que titulo haga click el usuario
 Case Column.Index Of
   0 : DataModule1.ADOPedidos.IndexFieldNames:='DNI';
-  10 : DataModule1.ADOPedidos.IndexFieldNames:='Nombre';
-  9 : DataModule1.ADOPedidos.IndexFieldNames:='Apellido';
-  8 : DataModule1.ADOPedidos.IndexFieldNames:='Libro';
-  11 : DataModule1.ADOPedidos.IndexFieldNames:='Tarjeta';
-  5 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeFin';
-  4 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeInicio';
+  1 : DataModule1.ADOPedidos.IndexFieldNames:='Estado';
+  2 : DataModule1.ADOPedidos.IndexFieldNames:='NumTarjeta';
+  3 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeInicio';
+  4 : DataModule1.ADOPedidos.IndexFieldNames:='FechaDeFin';
 End;
 end;
 
@@ -97,11 +93,7 @@ end;
 procedure TFormTodosLosPedidos.SpeedButton3Click(Sender: TObject);
 begin
 //Actualizar
-   DataModule1.ADOPedidos.Post;
-   DataModule1.ADOPedidos.Edit;
-   if (DataModule1.ADOPedidos.FieldByName('Estado').Value='Entregado') then
-      DataModule1.ADOPedidos.FieldByName('FechaDeFin').Value:=Now();
-   DataModule1.ADOPedidos.Post;
+DataModule1.ADOPedidos.Post;
    Panel1.Visible:=False;;
    Panel2.Visible:=True;
    FormTodosLosPedidos.Height:=387;

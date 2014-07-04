@@ -62,32 +62,31 @@ object FormVerMisCompras: TFormVerMisCompras
       item
         Expanded = False
         FieldName = 'ISBN'
+        Width = 49
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Libro'
-        Width = 264
+        Width = 138
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Estado'
-        Width = 113
+        Width = 252
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'FechaDeInicio'
-        Title.Caption = 'Fecha Inicio'
-        Width = 63
+        Width = 80
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'FechaDeFin'
-        Title.Caption = 'Fecha Fin'
-        Width = 62
+        Width = 71
         Visible = True
       end>
   end

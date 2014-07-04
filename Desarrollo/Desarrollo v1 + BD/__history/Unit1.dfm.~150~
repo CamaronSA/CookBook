@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 650
-  Width = 744
+  Width = 712
   object ADOAdministrador: TADOTable
     Connection = SoyUnaConeccion
     CursorType = ctStatic
@@ -256,7 +256,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Administrador'
       'where (Usuario = :QUser) and (Clave = :QClave)')
-    Left = 552
+    Left = 520
     Top = 40
   end
   object Tabla_Administrador: TDataSource
@@ -289,7 +289,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Cliente'
       'where (Usuario = :QUser) and (Clave = :QClave)')
-    Left = 552
+    Left = 520
     Top = 96
   end
   object ComprobarIdioma: TADOQuery
@@ -308,7 +308,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Idioma'
       'where (Idioma = :consultarIdioma)')
-    Left = 552
+    Left = 520
     Top = 152
   end
   object EditorialNoEstaEnLibro: TADOQuery
@@ -328,7 +328,7 @@ object DataModule1: TDataModule1
       'Select Editorial'
       'from Libro'
       'where (Editorial = :Dato)')
-    Left = 552
+    Left = 520
     Top = 216
   end
   object IdiomaEstaEnLibro: TADOQuery
@@ -348,7 +348,7 @@ object DataModule1: TDataModule1
       'Select Idioma '
       'from Libro'
       'where (Idioma =:Dato)')
-    Left = 552
+    Left = 520
     Top = 272
   end
   object ComprobarEditorial: TADOQuery
@@ -367,7 +367,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Select NombreEditorial from Editorial'
       'where (NombreEditorial =:Dato)')
-    Left = 552
+    Left = 520
     Top = 328
   end
   object OpenPictureDialog1: TOpenPictureDialog
@@ -392,7 +392,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Select * from libro'
       'where (ISBN =:Dato)')
-    Left = 552
+    Left = 520
     Top = 384
   end
   object ComprobarCategoria: TADOQuery
@@ -412,7 +412,7 @@ object DataModule1: TDataModule1
       'Select *'
       'from Etiqueta'
       'where (NombreEtiqueta =:ConsultarCategoria)')
-    Left = 448
+    Left = 432
     Top = 328
   end
   object ComprobarAutor: TADOQuery
@@ -429,7 +429,7 @@ object DataModule1: TDataModule1
       'Select DNI'
       'from Autor'
       'where (DNI =:Dato)')
-    Left = 448
+    Left = 432
     Top = 96
   end
   object ComprobarAdmin: TADOQuery
@@ -449,7 +449,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select DNI from Administrador'
       'where (DNI=:consultarDNI)')
-    Left = 448
+    Left = 432
     Top = 32
   end
   object ComprobarUsuarioAdmin: TADOQuery
@@ -462,7 +462,7 @@ object DataModule1: TDataModule1
         Value = Null
       end>
     SQL.Strings = (
-      'select * from Administrador'
+      'select Usuario from Administrador'
       'where (:user)=Usuario')
     Left = 344
     Top = 96
@@ -498,7 +498,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Pedidos'
       'where (FechaDeFin>=:Desde) and (FechaDeFin<=:Hasta)')
-    Left = 448
+    Left = 432
     Top = 272
   end
   object YaExisteUsuarioCliente: TADOQuery
@@ -513,7 +513,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select Usuario from Cliente'
       'where (Usuario=:user)')
-    Left = 448
+    Left = 432
     Top = 216
   end
   object YaExisteCliente: TADOQuery
@@ -531,9 +531,9 @@ object DataModule1: TDataModule1
         Value = Null
       end>
     SQL.Strings = (
-      'select * from Cliente'
+      'select DNI from Cliente'
       'where (DNI=:consultarDNI)')
-    Left = 448
+    Left = 432
     Top = 152
   end
   object CategoriaEstaEnLibro: TADOQuery
@@ -553,7 +553,7 @@ object DataModule1: TDataModule1
       'Select * '
       'from Libro'
       'Where (Etiqueta =:Dato1)')
-    Left = 448
+    Left = 432
     Top = 384
   end
   object CampoEtiquetaComboBox: TADOQuery
@@ -741,7 +741,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Cliente'
       'where (:user)=Usuario')
-    Left = 448
+    Left = 432
     Top = 432
   end
   object BorrarUsuarioCliente: TADOQuery
@@ -755,7 +755,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Delete * from Cliente'
       'where Usuario=:user')
-    Left = 664
+    Left = 624
     Top = 432
   end
   object BorrarUsuarioAdmin: TADOQuery
@@ -769,17 +769,17 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Delete * from Administrador'
       'where Usuario=:user')
-    Left = 664
+    Left = 624
     Top = 488
   end
   object Tabla_MisDatosUsuario: TDataSource
     DataSet = ComprobarUsuario
-    Left = 552
+    Left = 520
     Top = 432
   end
   object DS_MisCompras: TDataSource
     DataSet = QMisCompras
-    Left = 664
+    Left = 624
     Top = 296
   end
   object QMisCompras: TADOQuery
@@ -799,7 +799,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Pedidos'
       'where (DNI=:consultaDNI)')
-    Left = 664
+    Left = 624
     Top = 352
     object QMisComprasISBN: TIntegerField
       FieldName = 'ISBN'
@@ -853,7 +853,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Libro'
       'where (EsDestacado = True) and (Disponible = True)')
-    Left = 552
+    Left = 520
     Top = 488
   end
   object PedidosUsuario: TADOQuery

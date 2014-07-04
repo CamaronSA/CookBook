@@ -4,7 +4,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Pedidos realizados'
-  ClientHeight = 349
+  ClientHeight = 348
   ClientWidth = 790
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -25,7 +25,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     TabOrder = 0
     object Label2: TLabel
       Left = 8
-      Top = 0
+      Top = 8
       Width = 195
       Height = 33
       Caption = 'Modificar estado'
@@ -89,8 +89,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 15
-      Top = 227
+      Left = 17
+      Top = 202
       Width = 131
       Height = 19
       Caption = 'Fecha de inicio: '
@@ -102,8 +102,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 37
-      Top = 251
+      Left = 39
+      Top = 227
       Width = 109
       Height = 19
       Caption = 'Fecha de fin: '
@@ -115,8 +115,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object Label10: TLabel
-      Left = 80
-      Top = 276
+      Left = 82
+      Top = 252
       Width = 66
       Height = 19
       Caption = 'Estado: '
@@ -184,8 +184,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object DBText6: TDBText
-      Left = 152
-      Top = 227
+      Left = 154
+      Top = 202
       Width = 95
       Height = 17
       DataField = 'FechaDeInicio'
@@ -198,8 +198,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object DBText7: TDBText
-      Left = 152
-      Top = 251
+      Left = 154
+      Top = 227
       Width = 95
       Height = 17
       DataField = 'FechaDeFin'
@@ -213,7 +213,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     end
     object SpeedButton3: TSpeedButton
       Left = 31
-      Top = 310
+      Top = 306
       Width = 162
       Height = 38
       Caption = 'Actualizar'
@@ -227,7 +227,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     end
     object SpeedButton4: TSpeedButton
       Left = 223
-      Top = 310
+      Top = 306
       Width = 162
       Height = 38
       Caption = 'Cancelar'
@@ -241,7 +241,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     end
     object Label11: TLabel
       Left = 8
-      Top = 39
+      Top = 47
       Width = 413
       Height = 19
       Caption = 'Seleccione una opci'#243'n de la lista desplegable para cambiar'
@@ -253,8 +253,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       ParentFont = False
     end
     object Label13: TLabel
-      Left = 9
-      Top = 64
+      Left = 8
+      Top = 72
       Width = 280
       Height = 19
       Caption = 'su estado, y luego presione "Actualizar"'
@@ -265,36 +265,9 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Font.Style = []
       ParentFont = False
     end
-    object Label7: TLabel
-      Left = 75
-      Top = 202
-      Width = 67
-      Height = 19
-      Caption = 'Tarjeta:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object DBText5: TDBText
-      Left = 154
-      Top = 202
-      Width = 223
-      Height = 17
-      DataField = 'Tarjeta'
-      DataSource = DataModule1.Tabla_Pedidos
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
     object DBComboBox1: TDBComboBox
-      Left = 152
-      Top = 274
+      Left = 154
+      Top = 250
       Width = 145
       Height = 27
       DataField = 'Estado'
@@ -396,52 +369,43 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
         item
           Expanded = False
           FieldName = 'DNI'
-          Width = 56
+          Width = 63
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Nombre'
-          Width = 82
+          Width = 85
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Apellido'
-          Width = 79
+          Width = 97
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Libro'
+          Width = 234
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Estado'
-          Width = 90
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Titulo'
-          Title.Caption = 'Libro'
-          Width = 175
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Tarjeta'
-          Width = 133
+          Width = 124
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'FechaDeInicio'
-          Title.Caption = 'Fecha Inicio'
-          Width = 63
+          Width = 75
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'FechaDeFin'
-          Title.Caption = 'Fecha Fin'
-          Width = 63
+          Width = 68
           Visible = True
         end>
     end

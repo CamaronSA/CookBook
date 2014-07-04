@@ -84,7 +84,6 @@ type
     procedure Edit9Change(Sender: TObject);
     procedure Edit10Change(Sender: TObject);
     procedure Edit11Change(Sender: TObject);
-    procedure Edit4Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -96,7 +95,7 @@ var
 
 implementation
 
-uses Unit1, Login, Principal;
+uses Unit1, Login;
 
 {$R *.dfm}
 
@@ -182,12 +181,6 @@ end;
 procedure TFormMisDatos.Edit3Change(Sender: TObject);
 begin
 Label5.Font.Color:=ClBlack;
-Label15.Visible:=False;
-end;
-
-procedure TFormMisDatos.Edit4Change(Sender: TObject);
-begin
-Label4.Font.Color:=ClBlack;
 Label15.Visible:=False;
 end;
 
@@ -373,7 +366,6 @@ begin
   buttonSelected:=messageDlg('¿Desea modificar sus datos?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then begin
   try
-    if Edit3.Text<>'' then begin
     DataModule1.YaExisteCliente.Close;
     DataModule1.YaExisteCliente.Parameters.ParamByName('consultarDNI').Value:=StrToInt(Edit3.Text);
     DataModule1.YaExisteCliente.Open;
@@ -383,7 +375,6 @@ begin
     DataModule1.ComprobarUsuarioAdmin.Close;
     DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit4.Text;
     DataModule1.ComprobarUsuarioAdmin.Open;
-    end;
     DataModule1.ComprobarUsuario.Edit;
     //Nombre
     if (Edit1.Text = '') then
@@ -401,13 +392,13 @@ begin
       if (Edit3.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if (DataModule1.ComprobarUsuario.FieldByName('DNI').Value)<>(StrToInt(Edit3.Text)) then
+        if not DataModule1.ComprobarUsuario.FieldByName('DNI').Value=StrToInt(Edit3.Text) then
           if not (Datamodule1.YaExisteCliente.ISEmpty) then
             raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
           else
             if not (Datamodule1.ComprobarAdmin.ISEmpty) then
-             raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
-             else
+              raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
+              else
                 DataModule1.ComprobarUsuario.FieldByName('DNI').AsInteger:=StrToInt(Edit3.Text);
     //Usuario
     if (Edit4.Text = '') then
@@ -424,10 +415,8 @@ begin
             else
               if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
                 raise EExisteUsuario.Create('El nombre de usuario ya se encuentra en uso')
-              else begin
+              else
                  DataModule1.ComprobarUsuario.FieldByName('Usuario').Value:=Edit4.Text;
-                 UsuarioRegistrado:=Edit4.Text;
-              end;
           end;
 
 

@@ -10,7 +10,6 @@ type
   EEspacioBlanco=class(Exception);
   ESinArroba=class(Exception);
   EExisteDNI=class(Exception);
-  EExisteUsuario=class(Exception);
   TFormMisDatos = class(TForm)
     DateTimePicker1: TDateTimePicker;
     Edit1: TEdit;
@@ -84,7 +83,6 @@ type
     procedure Edit9Change(Sender: TObject);
     procedure Edit10Change(Sender: TObject);
     procedure Edit11Change(Sender: TObject);
-    procedure Edit4Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -96,7 +94,7 @@ var
 
 implementation
 
-uses Unit1, Login, Principal;
+uses Unit1, Login;
 
 {$R *.dfm}
 
@@ -185,12 +183,6 @@ Label5.Font.Color:=ClBlack;
 Label15.Visible:=False;
 end;
 
-procedure TFormMisDatos.Edit4Change(Sender: TObject);
-begin
-Label4.Font.Color:=ClBlack;
-Label15.Visible:=False;
-end;
-
 procedure TFormMisDatos.Edit6Change(Sender: TObject);
 begin
 Label7.Font.Color:=ClBlack;
@@ -221,7 +213,6 @@ begin
   DataModule1.ComprobarUsuario.Close;
   DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
   DataModule1.ComprobarUsuario.Open;
-
 //Cargo los datos del cliente
 if (SpeedButton2.Visible=True) and (SpeedButton3.Visible=False) then begin  //MODIFICAR CLIENTE
     Label29.Visible:=False; //Invisible "MIS DATOS"
@@ -373,64 +364,38 @@ begin
   buttonSelected:=messageDlg('¿Desea modificar sus datos?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then begin
   try
-    if Edit3.Text<>'' then begin
     DataModule1.YaExisteCliente.Close;
     DataModule1.YaExisteCliente.Parameters.ParamByName('consultarDNI').Value:=StrToInt(Edit3.Text);
     DataModule1.YaExisteCliente.Open;
     DataModule1.ComprobarAdmin.Close;
     DataModule1.ComprobarAdmin.Parameters.ParamByName('consultarDNI').Value:=StrToInt(Edit3.Text);
     DataModule1.ComprobarAdmin.Open;
-    DataModule1.ComprobarUsuarioAdmin.Close;
-    DataModule1.ComprobarUsuarioAdmin.Parameters.ParamByName('user').Value:=Edit4.Text;
-    DataModule1.ComprobarUsuarioAdmin.Open;
-    end;
     DataModule1.ComprobarUsuario.Edit;
     //Nombre
     if (Edit1.Text = '') then
       raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        DataModule1.ComprobarUsuario.FieldByName('Nombre').AsString:=Edit1.Text;
+        DataModule1.ComprobarUsuario.FieldByName('Nombre').AsString:=Edit1.Text;;
 
     //Apellido
     if (Edit2.Text = '') then
       raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        DataModule1.ComprobarUsuario.FieldByName('Apellido').AsString:=Edit2.Text;
+        DataModule1.ComprobarUsuario.FieldByName('Apellido').AsString:=Edit2.Text;;
 
-    //DNI
+{    //DNI
       if (Edit3.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if (DataModule1.ComprobarUsuario.FieldByName('DNI').Value)<>(StrToInt(Edit3.Text)) then
+        if not DataModule1.ComprobarUsuario.FieldByName('DNI').Value=StrToInt(Edit3.Text) then
           if not (Datamodule1.YaExisteCliente.ISEmpty) then
             raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
           else
             if not (Datamodule1.ComprobarAdmin.ISEmpty) then
-             raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
-             else
+              raise EExisteDNI.Create('El DNI ya se encuentra en la base de datos')
+              else
                 DataModule1.ComprobarUsuario.FieldByName('DNI').AsInteger:=StrToInt(Edit3.Text);
-    //Usuario
-    if (Edit4.Text = '') then
-         raise EEspacioBlanco.Create('Complete los campos en rojo')
-        else
-          if DataModule1.ComprobarUsuario.FieldByName('Usuario').Value=Edit4.Text then
-              DataModule1.ComprobarUsuario.FieldByName('Usuario').Value:=Edit4.Text
-          else begin
-            DataModule1.YaExisteUsuarioCliente.Close;
-            DataModule1.YaExisteUsuarioCliente.Parameters.ParamByName('user').Value:=Edit4.Text;
-            DataModule1.YaExisteUsuarioCliente.Open;
-            if not DataModule1.YaExisteUsuarioCliente.IsEmpty then
-              raise EExisteUsuario.Create('El nombre de usuario ya se encuentra en uso')
-            else
-              if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
-                raise EExisteUsuario.Create('El nombre de usuario ya se encuentra en uso')
-              else begin
-                 DataModule1.ComprobarUsuario.FieldByName('Usuario').Value:=Edit4.Text;
-                 UsuarioRegistrado:=Edit4.Text;
-              end;
-          end;
-
-
+}
     //Calle
     if (Edit6.Text = '') then
       raise EEspacioBlanco.Create('Complete los campos en rojo')
@@ -488,8 +453,7 @@ begin
       ShowMessage( E.Message);
         if (Edit1.Text = '') then begin Label1.Font.Color:= clRed; label15.Visible:=True; end;//Nombre
         if (Edit2.Text = '') then begin Label2.Font.Color:= clRed; label15.Visible:=True; end;//Apellido
-        if (Edit3.Text = '') then begin Label5.Font.Color:= clRed; label15.Visible:=True; end;//DNI
-        if (Edit4.Text = '') then begin Label4.Font.Color:= clRed; label15.Visible:=True; end;//DNI
+//        if (Edit3.Text = '') then begin Label5.Font.Color:= clRed; label15.Visible:=True; end;//DNI
         if (Edit6.Text = '') then begin Label7.Font.Color:= clRed; label15.Visible:=True; end;//Calle
         if (Edit7.Text = '') then begin Label9.Font.Color:= clRed; label15.Visible:=True; end;//Nro
         if (Edit8.Text = '') then begin Label10.Font.Color:= clRed; label15.Visible:=True; end;//Localidad
@@ -514,13 +478,7 @@ begin
         label5.Font.Color:=clred;
         label15.Visible:=true;
         DataModule1.ComprobarUsuario.Cancel;
-     end;
-     on E:EExisteUsuario do begin
-        ShowMessage(E.Message);
-        label4.Font.Color:=ClRed;
-        label15.Visible:=True;
-        DataModule1.ComprobarUsuario.Cancel;
-     end;
+    end;
 
   end;
   end;
