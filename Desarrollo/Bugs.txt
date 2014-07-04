@@ -47,7 +47,7 @@
 	-Agregar "Registrarse" cuando ingresas como visitante  [FIXED]	
 
 --Modificar mis datos
-	-Debe poderse modificar DNI y Usuario (verificar que no existan)
+	-Debe poderse modificar DNI y Usuario (verificar que no existan) [FIXED] -> ULTIMO BUG QUE ARREGLE HASTA QUE SE ENCUENTREN OTROS, SOY LIBREEEEEEEE, LIBRE! LIBRE!
 
 --Contacto
 	-No desaparece campo "Complete los campos en rojo" al cerrar el form [FIXED]
