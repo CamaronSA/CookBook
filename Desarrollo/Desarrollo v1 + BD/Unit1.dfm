@@ -84,36 +84,8 @@ object DataModule1: TDataModule1
     object ADOPedidosDNI: TIntegerField
       FieldName = 'DNI'
     end
-    object ADOPedidosNombre: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Nombre'
-      LookupDataSet = ADOCliente
-      LookupKeyFields = 'DNI'
-      LookupResultField = 'Nombre'
-      KeyFields = 'DNI'
-      Lookup = True
-    end
-    object ADOPedidosApellido: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Apellido'
-      LookupDataSet = ADOCliente
-      LookupKeyFields = 'DNI'
-      LookupResultField = 'Apellido'
-      KeyFields = 'DNI'
-      Lookup = True
-    end
     object ADOPedidosISBN: TIntegerField
       FieldName = 'ISBN'
-    end
-    object ADOPedidosLibro: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Libro'
-      LookupDataSet = ADOLibro
-      LookupKeyFields = 'ISBN'
-      LookupResultField = 'Titulo'
-      KeyFields = 'ISBN'
-      Size = 30
-      Lookup = True
     end
     object ADOPedidosEstado: TWideStringField
       FieldName = 'Estado'
@@ -124,6 +96,13 @@ object DataModule1: TDataModule1
     end
     object ADOPedidosFechaDeFin: TDateTimeField
       FieldName = 'FechaDeFin'
+    end
+    object ADOPedidosIDTarjeta: TIntegerField
+      FieldName = 'IDTarjeta'
+    end
+    object ADOPedidosNroTarjeta: TWideStringField
+      FieldName = 'NroTarjeta'
+      Size = 255
     end
   end
   object ADOCliente: TADOTable
@@ -764,7 +743,7 @@ object DataModule1: TDataModule1
   end
   object DS_MisCompras: TDataSource
     DataSet = QMisCompras
-    Left = 648
+    Left = 624
     Top = 296
   end
   object QMisCompras: TADOQuery
@@ -784,7 +763,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Pedidos'
       'where (DNI=:consultaDNI)')
-    Left = 648
+    Left = 624
     Top = 352
     object QMisComprasISBN: TIntegerField
       FieldName = 'ISBN'
@@ -825,14 +804,10 @@ object DataModule1: TDataModule1
       FieldName = 'Nombre'
       Size = 255
     end
-    object ADOTarjetasBanco: TWideStringField
-      FieldName = 'Banco'
-      Size = 255
-    end
   end
   object Tabla_Tarjetas: TDataSource
     DataSet = ADOTarjetas
-    Left = 128
+    Left = 152
     Top = 440
   end
   object Destacados: TADOQuery
@@ -842,7 +817,25 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from Libro'
       'where (EsDestacado = True) and (Disponible = True)')
-    Left = 512
+    Left = 520
     Top = 488
+  end
+  object PedidosUsuario: TADOQuery
+    Connection = SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'consultaDNI'
+        Attributes = [paNullable]
+        DataType = ftWideString
+        NumericScale = 255
+        Precision = 255
+        Size = 510
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from Pedidos'
+      'where (DNI=:consultaDNI)')
+    Left = 248
+    Top = 392
   end
 end

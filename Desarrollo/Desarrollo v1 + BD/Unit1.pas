@@ -62,20 +62,8 @@ type
     QMisComprasFechaDeInicio: TDateTimeField;
     QMisComprasFechaDeFin: TDateTimeField;
     QMisComprasLibro: TStringField;
-    ADOPedidosIDPedido: TAutoIncField;
-    ADOPedidosDNI: TIntegerField;
-    ADOPedidosISBN: TIntegerField;
-    ADOPedidosEstado: TWideStringField;
-    ADOPedidosFechaDeInicio: TDateTimeField;
-    ADOPedidosFechaDeFin: TDateTimeField;
-    ADOPedidosLibro: TStringField;
-    ADOPedidosNombre: TStringField;
-    ADOPedidosApellido: TStringField;
     ADOTarjetas: TADOTable;
     Tabla_Tarjetas: TDataSource;
-    ADOTarjetasIDTarjeta: TAutoIncField;
-    ADOTarjetasNombre: TWideStringField;
-    ADOTarjetasBanco: TWideStringField;
     ADOAutorNombre: TWideStringField;
     ADOAutorApellido: TWideStringField;
     ADOAutorDNI: TIntegerField;
@@ -108,6 +96,17 @@ type
     LibrosALaVentaDisponible: TBooleanField;
     LibrosALaVentaAutor: TStringField;
     Destacados: TADOQuery;
+    ADOTarjetasIDTarjeta: TAutoIncField;
+    ADOTarjetasNombre: TWideStringField;
+    ADOPedidosIDPedido: TAutoIncField;
+    ADOPedidosDNI: TIntegerField;
+    ADOPedidosISBN: TIntegerField;
+    ADOPedidosEstado: TWideStringField;
+    ADOPedidosFechaDeInicio: TDateTimeField;
+    ADOPedidosFechaDeFin: TDateTimeField;
+    ADOPedidosIDTarjeta: TIntegerField;
+    ADOPedidosNroTarjeta: TWideStringField;
+    PedidosUsuario: TADOQuery;
   private
     { Private declarations }
   public
