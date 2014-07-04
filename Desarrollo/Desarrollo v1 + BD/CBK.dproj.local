@@ -153,5 +153,7 @@
     <File Path="CambioClave.dfm"/>
     <File Path="Unit8.pas"/>
     <File Path="Unit8.dfm"/>
+    <File Path="DetalleDestacado.pas"/>
+    <File Path="DetalleDestacado.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

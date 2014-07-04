@@ -225,6 +225,10 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
+      'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
+      'rsist Security Info=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -848,6 +852,7 @@ object DataModule1: TDataModule1
   end
   object Destacados: TADOQuery
     Connection = SoyUnaConeccion
+    CursorType = ctStatic
     DataSource = Tabla_Libro
     Parameters = <>
     SQL.Strings = (
@@ -855,6 +860,71 @@ object DataModule1: TDataModule1
       'where (EsDestacado = True) and (Disponible = True)')
     Left = 552
     Top = 488
+    object DestacadosIDLibro: TAutoIncField
+      FieldName = 'IDLibro'
+      ReadOnly = True
+    end
+    object DestacadosPrecio: TFloatField
+      FieldName = 'Precio'
+    end
+    object DestacadosImagen: TBlobField
+      FieldName = 'Imagen'
+    end
+    object DestacadosAnioEditorial: TIntegerField
+      FieldName = 'AnioEditorial'
+    end
+    object DestacadosTitulo: TWideStringField
+      FieldName = 'Titulo'
+      Size = 255
+    end
+    object DestacadosDescripcion: TWideMemoField
+      FieldName = 'Descripcion'
+      BlobType = ftWideMemo
+    end
+    object DestacadosDNIAutor: TIntegerField
+      FieldName = 'DNIAutor'
+    end
+    object DestacadosEditorial: TWideStringField
+      FieldName = 'Editorial'
+      Size = 255
+    end
+    object DestacadosIdioma: TWideStringField
+      FieldName = 'Idioma'
+      Size = 255
+    end
+    object DestacadosEtiqueta: TWideStringField
+      FieldName = 'Etiqueta'
+      Size = 255
+    end
+    object DestacadosISBN: TIntegerField
+      FieldName = 'ISBN'
+    end
+    object DestacadosEsDestacado: TBooleanField
+      FieldName = 'EsDestacado'
+    end
+    object DestacadosDisponible: TBooleanField
+      FieldName = 'Disponible'
+    end
+    object DestacadosNombreAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NombreAutor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNIAutor'
+      Size = 30
+      Lookup = True
+    end
+    object DestacadosApellidoAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ApellidoAutor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNIAutor'
+      Size = 30
+      Lookup = True
+    end
   end
   object PedidosUsuario: TADOQuery
     Connection = SoyUnaConeccion

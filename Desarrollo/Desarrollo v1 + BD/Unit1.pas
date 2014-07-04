@@ -111,6 +111,21 @@ type
     ADOPedidosApellido: TStringField;
     ADOPedidosNombre: TStringField;
     ADOPedidosTarjeta: TStringField;
+    DestacadosIDLibro: TAutoIncField;
+    DestacadosPrecio: TFloatField;
+    DestacadosImagen: TBlobField;
+    DestacadosAnioEditorial: TIntegerField;
+    DestacadosTitulo: TWideStringField;
+    DestacadosDescripcion: TWideMemoField;
+    DestacadosDNIAutor: TIntegerField;
+    DestacadosEditorial: TWideStringField;
+    DestacadosIdioma: TWideStringField;
+    DestacadosEtiqueta: TWideStringField;
+    DestacadosISBN: TIntegerField;
+    DestacadosEsDestacado: TBooleanField;
+    DestacadosDisponible: TBooleanField;
+    DestacadosNombreAutor: TStringField;
+    DestacadosApellidoAutor: TStringField;
 
   private
     { Private declarations }
