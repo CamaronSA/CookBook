@@ -75,4 +75,6 @@
 
 -- DBtext4 falla al inicio del arranque.
 
--- Modificar Usuario no busca y se ve el texto "edit1"
+-- Modificar Usuario no busca y se ve el texto "edit1" [FIXED]
+
+-- cuando elimino un usuario no importa si tiene o no libro... [FIXED, NO SE PUEDE ELIMINAR SI TIENE LIBOR]
