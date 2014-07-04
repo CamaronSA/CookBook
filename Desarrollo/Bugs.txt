@@ -72,3 +72,5 @@
 
 --TarjetasDeCredito  
 	-CORREGIR FORMULARIO PARA ADAPTARLO A LA NUEVA TABLA DE LA BD. (fixed by nico m.)
+
+-- DBtext4 falla al inicio del arranque.
