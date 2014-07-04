@@ -62,7 +62,6 @@ type
     Label16: TLabel;
     Label15: TLabel;
     SpeedButton11: TSpeedButton;
-    ConfirmarPedido: TADOQuery;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -91,7 +90,7 @@ var
 
 implementation
 
-uses DetalleLibro, Unit1, Unit7, Unit8;
+uses DetalleLibro, Unit1, Unit7;
 
 {$R *.dfm}
 //Limpia labels nada mas que eso
@@ -101,7 +100,7 @@ begin
   L2.Caption:='';
   L3.Caption:='';
   L4.Caption:='';
-  L5.Caption:='';
+  L5.Caption:= '';
 end;
 
 procedure TFormCatalogoLibros.FormActivate(Sender: TObject);
@@ -142,17 +141,8 @@ begin
 end;
 
 procedure TFormCatalogoLibros.SpeedButton11Click(Sender: TObject);
-//var
-  //Aux:Lista;
 begin
-  Form8.ShowModal;
-  //implemente señora
- { Aux:=L;
-  ConfirmarPedido.SQL.Text:='Select ';
-  while (aux <> nil) do
-    begin
-
-    end; }
+ //Implemente señora
 end;
 
 procedure TFormCatalogoLibros.SpeedButton2Click(Sender: TObject);

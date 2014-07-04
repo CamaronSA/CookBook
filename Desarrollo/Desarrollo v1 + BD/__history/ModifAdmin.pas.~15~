@@ -67,7 +67,6 @@ type
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
-    procedure DateTimePicker1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,6 +75,7 @@ type
 
 var
   FormModifAdmin: TFormModifAdmin;
+  Hoy: TDate;
 
 implementation
 
@@ -101,12 +101,6 @@ end;
 
 
   //*******// Powered by Yisus, root de nacimiento. //*******//
-procedure TFormModifAdmin.DateTimePicker1Change(Sender: TObject);
-begin
- label3.Font.Color:=ClBlack;
- Label13.Visible:=False;
-end;
-
 procedure TFormModifAdmin.DBGrid1CellClick(Column: TColumn);
 begin
 if SpeedButton3.Visible=False then begin
@@ -233,6 +227,7 @@ end;
 
 procedure TFormModifAdmin.FormActivate(Sender: TObject);
 begin
+  Hoy:=DateTimePicker1.Date;
   if SpeedButton1.Visible=True then begin
     Edit2.Text:=DataModule1.ADOAdministrador.FieldByName('Nombre').AsString;
     Edit3.Text:=DataModule1.ADOAdministrador.FieldByName('Apellido').AsString;
@@ -336,8 +331,8 @@ begin
       else
       DataModule1.ADOAdministrador.FieldByName('Clave').AsString:=Edit6.Text;
             //Fecha Nacimiento
-      if (DateTimePicker1.Date<1900) or (DateTimePicker1.Date>Now()) then
-        raise EFueraRango.Create('Ingrese correctamente su fecha de nacimiento')
+      if DateTimePicker1.Date=Hoy  then
+        raise EFechaInvaldia.Create('Ingrese correctamente su fecha de nacimiento')
         else
             DataModule1.ADOAdministrador.FieldByName('Fecha Nacimiento').Value:=DateTimePicker1.Date;
       //Email
@@ -346,14 +341,13 @@ begin
       else
         if EncontrarArroba(Edit10.Text)=False then
           raise ESinArroba.Create('El email no es válido')
-        else begin
+        else
           DataModule1.ADOAdministrador.FieldByName('Mail').AsString:=Edit10.Text;
           DataModule1.ADOAdministrador.Post;
            if not DataModule1.ADOAdministrador.FieldByName('DNI').Value=StrToInt(Edit4.Text) then
                 ShowMessage('El Administrador se modificó exitosamente');
            if DataModule1.ADOAdministrador.FieldByName('DNI').Value=StrToInt(Edit4.Text) then
                 ShowMessage('No se realizó ninguna modificación ya que la información es exactamente igual.');
-        end;
       end;
     except
      on E:EEspacioBlanco do begin
@@ -363,6 +357,7 @@ begin
         if (Edit4.Text = '') then begin Label5.Font.Color:= clRed;label13.Visible:=True; end;//DNI
         if (Edit5.Text = '') then begin Label4.Font.Color:= clRed;label13.Visible:=True; end;//Usuario
         if (Edit6.Text = '') then begin Label6.Font.Color:= clRed;label13.Visible:=True; end;//Clave
+        if DateTimePicker1.Date = Hoy then begin Label3.Font.Color:= clRed; label13.Visible:=True; end;// Fecha
         if (Edit10.Text = '') then begin Label8.Font.Color:= clRed; label13.Visible:=True; end;//Email
         DataModule1.ADOAdministrador.Cancel;
         end;
@@ -374,12 +369,12 @@ begin
      on E:EFueraRango do begin
         ShowMessage(E.Message);
         label13.Visible:=True;
-        Label3.Font.Color:= clRed;
+        Label8.Font.Color:= clRed;
         DataModule1.ADOAdministrador.Cancel;
      end;
      on E:ESinArroba do begin
         ShowMessage(E.Message);
-        Label8.Font.Color:= clRed;
+        Label3.Font.Color:= clRed;
         label13.Visible:=True;
         DataModule1.ADOAdministrador.Cancel;
      end;
@@ -422,7 +417,7 @@ begin
       else
       if (DataModule1.ADOAdministrador.FieldByName('Usuario').value='root') then
         raise EEsRoot.Create('ROOT no puede ser eliminado')
-      else begin
+        else begin
       DataModule1.ADOAdministrador.Delete;
       ShowMessage('El Administrador se borró exitosamente');
       end;
@@ -435,6 +430,7 @@ begin
       ShowMessage(E.Message);
       DataModule1.ADOAdministrador.Cancel;
     end;
+
     end;
     end;
   if buttonSelected= mrCancel then
@@ -450,7 +446,7 @@ begin
   buttonSelected:=messageDlg('¿Realmente desea agregar un administrador?',mtWarning,mbOkCancel,0);
   if buttonSelected= mrOk then
     begin
-    try
+        try
       DataModule1.ComprobarAdmin.Close;
       DataModule1.ComprobarAdmin.Parameters.ParamByName('consultarDNI').Value:=Edit4.Text;
       DataModule1.ComprobarAdmin.Open;
@@ -497,8 +493,8 @@ begin
       else
       DataModule1.ADOAdministrador.FieldByName('Clave').AsString:=Edit6.Text;
             //Fecha Nacimiento
-      if ((DateTimePicker1.Date<01/01/1900) or (DateTimePicker1.Date>Now()))  then
-        raise EFueraRango.Create('Ingrese correctamente su fecha de nacimiento')
+      if DateTimePicker1.Date=Hoy  then
+        raise EFechaInvaldia.Create('Ingrese correctamente su fecha de nacimiento')
         else
             DataModule1.ADOAdministrador.FieldByName('Fecha Nacimiento').Value:=DateTimePicker1.Date;
       //Email
@@ -528,6 +524,7 @@ begin
         if (Edit4.Text = '') then begin Label5.Font.Color:= clRed;label13.Visible:=True; end;//DNI
         if (Edit5.Text = '') then begin Label4.Font.Color:= clRed;label13.Visible:=True; end;//Usuario
         if (Edit6.Text = '') then begin Label6.Font.Color:= clRed;label13.Visible:=True; end;//Clave
+        if DateTimePicker1.Date=Hoy then begin Label3.Font.Color:= clRed; label13.Visible:=True; end;// Fecha
         if (Edit10.Text = '') then begin Label8.Font.Color:= clRed; label13.Visible:=True; end;//Email
         DataModule1.ADOAdministrador.Cancel;
         end;

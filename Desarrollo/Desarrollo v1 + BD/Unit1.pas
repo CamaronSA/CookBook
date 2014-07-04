@@ -73,6 +73,9 @@ type
     ADOPedidosApellido: TStringField;
     ADOTarjetas: TADOTable;
     Tabla_Tarjetas: TDataSource;
+    ADOTarjetasIDTarjeta: TAutoIncField;
+    ADOTarjetasNombre: TWideStringField;
+    ADOTarjetasBanco: TWideStringField;
     ADOAutorNombre: TWideStringField;
     ADOAutorApellido: TWideStringField;
     ADOAutorDNI: TIntegerField;
@@ -105,8 +108,6 @@ type
     LibrosALaVentaDisponible: TBooleanField;
     LibrosALaVentaAutor: TStringField;
     Destacados: TADOQuery;
-    ADOTarjetasIDTarjeta: TAutoIncField;
-    ADOTarjetasNombre: TWideStringField;
   private
     { Private declarations }
   public

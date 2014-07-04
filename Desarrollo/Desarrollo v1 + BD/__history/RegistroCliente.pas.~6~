@@ -396,8 +396,10 @@ begin
             Telefono:=Edit12.Text+Edit13.Text+Edit14.Text;
             DataModule1.ADOCliente.FieldByName('Telefono').AsString:=Telefono;
             //end;
-      if (DateTimePicker1.Date<1900)or (DateTimePicker1.Date>Now()) then
-        raise EFechaNac.Create('Ingrese correctamente su fecha de nacimiento');
+      //Fecha de Nacimiento no puede ser igual a la de HOY!!!
+{      if DateTimePicker1.Date = Now() then
+           raise EFechaNac.Create('Ingrese su fecha de nacimiento')              AHORA FECHA NAC no es obligatorio
+           else}
            DataModule1.ADOCliente.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
       DataModule1.ADOCliente.FieldByName('FechaDeInicioCliente').AsDateTime:=Now();
       DataModule1.ADOCliente.Post;
