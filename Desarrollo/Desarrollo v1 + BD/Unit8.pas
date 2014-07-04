@@ -44,14 +44,15 @@ uses Unit1, CatalogoLibros, Login;
 
 {$R *.dfm}
 
-Procedure LimpiarCampos (E1,E2 :TEdit);
+Procedure LimpiarCampos (E1,E2 :TEdit; C1:TComboBox);
 
 begin
   E1.text:='';
   E2.text:='';
+  C1.Items.Clear;
 end;
 
-Procedure CargarComboBox(C1,C2:TComboBox);
+Procedure CargarComboBox(C1,C2 :TComboBox);
 begin
  // Close;
  // CampoEtiquetaComboBox.SQL.Text:= 'Select NombreEtiqueta from Etiqueta';
@@ -85,8 +86,11 @@ end;
 procedure TForm8.FormActivate(Sender: TObject);
 begin
  //Activo la tabla del nico menna por que si no anda :D
+
  DataModule1.ADOTarjetas.Active:=true;
- //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
+ //OnClick Cargo los Bancos Dispoibles para garpar .  <--Revisar Todo
+
+ DataModule1.ADOTarjetas.First;
   while not (DataModule1.ADOTarjetas.Eof) do
    Begin
      ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[1].text);
@@ -137,7 +141,7 @@ begin
            aux:=aux.Sig;
         end;
           //Limpia edits
-         LimpiarCampos (Edit1,Edit2);
+         LimpiarCampos (Edit1,Edit2,ComboBox1);
          //Limpia el carrito
          showmessage('Su pedido esta siendo procesado, en breve sera informado, sino verifique en el menu transacciones ,muchas gracias.');
          for cont :=0 to FormCatalogoLibros.Stringgrid1.colcount-1 do
@@ -184,7 +188,7 @@ begin
   Label3.Font.Color:=clblack;
   Label4.Font.Color:=clblack;
   Label2.visible:=false;
-  LimpiarCampos (Edit1,Edit2);
+  LimpiarCampos (Edit1,Edit2,ComboBox1);
   DataModule1.ADOPedidos.Cancel;
   close;
 end;

@@ -33,7 +33,23 @@ type
     DBText7: TDBText;
     SpeedButton1: TSpeedButton;
     Label12: TLabel;
-    SpeedButton2: TSpeedButton;
+    DetLibroIDLibro: TAutoIncField;
+    DetLibroPrecio: TFloatField;
+    DetLibroImagen: TBlobField;
+    DetLibroAnioEditorial: TIntegerField;
+    DetLibroTitulo: TWideStringField;
+    DetLibroDescripcion: TWideMemoField;
+    DetLibroDNIAutor: TIntegerField;
+    DetLibroEditorial: TWideStringField;
+    DetLibroIdioma: TWideStringField;
+    DetLibroEtiqueta: TWideStringField;
+    DetLibroISBN: TIntegerField;
+    DetLibroEsDestacado: TBooleanField;
+    DetLibroDisponible: TBooleanField;
+    DBText8: TDBText;
+    DetLibroApeAutor: TStringField;
+    DetLibroNomAutor: TStringField;
+    ComboBox1: TComboBox;
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
@@ -53,6 +69,16 @@ uses Unit1, CatalogoLibros;
 
 procedure TForm7.FormActivate(Sender: TObject);
 begin
+  //Activo la tabla del nico menna por que si no anda :D
+ DataModule1.ADOTarjetas.Active:=true;
+ //OnClick Cargo los Bancos Dispoibles para garpar .                 <--Revisar Todo
+  //Carga las tarjetas en comboBoz!
+  DataModule1.ADOTarjetas.First;
+  while not (DataModule1.ADOTarjetas.Eof) do
+   Begin
+     ComboBox1.Items.Add(DataModule1.ADOTarjetas.Fields[1].text);
+     DataModule1.ADOTarjetas.Next;
+   End ;
   DetLibro.Close;
   DetLibro.Parameters.ParamByName('Dato').Value:= ISBNParaDetalle;
   DetLibro.Open;
@@ -62,13 +88,13 @@ begin
     dbtext4.Caption:='-';
   label11.Caption:=IntToStr (numerodeLibros) ;
 
-
-
 end;
 
 procedure TForm7.SpeedButton1Click(Sender: TObject);
 begin
-close;
+  ComboBox1.Items.Clear;
+  close;
+
 end;
 
 end.
