@@ -73,7 +73,7 @@
 --TarjetasDeCredito  
 	-CORREGIR FORMULARIO PARA ADAPTARLO A LA NUEVA TABLA DE LA BD. (fixed by nico m.)
 
--- DBtext4 falla al inicio del arranque.
+-- DBtext4 falla al inicio del arranque.[Fixed]
 
 -- Modificar Usuario no busca y se ve el texto "edit1" [FIXED]
 

@@ -5,7 +5,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
   BorderStyle = bsSingle
   Caption = 'Pedidos realizados'
   ClientHeight = 348
-  ClientWidth = 791
+  ClientWidth = 790
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -146,6 +146,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Top = 127
       Width = 143
       Height = 17
+      DataField = 'Nombre'
+      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -158,6 +160,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Top = 152
       Width = 143
       Height = 17
+      DataField = 'Apellido'
+      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -170,6 +174,8 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
       Top = 177
       Width = 223
       Height = 17
+      DataField = 'Titulo'
+      DataSource = DataModule1.Tabla_Pedidos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -282,7 +288,7 @@ object FormTodosLosPedidos: TFormTodosLosPedidos
     end
   end
   object Panel2: TPanel
-    Left = 3
+    Left = 1
     Top = 4
     Width = 794
     Height = 345

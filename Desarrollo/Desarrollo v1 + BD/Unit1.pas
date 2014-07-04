@@ -107,6 +107,9 @@ type
     ADOPedidosIDTarjeta: TIntegerField;
     ADOPedidosNroTarjeta: TWideStringField;
     PedidosUsuario: TADOQuery;
+    ADOPedidosTitulo: TStringField;
+    ADOPedidosApellido: TStringField;
+    ADOPedidosNombre: TStringField;
   private
     { Private declarations }
   public

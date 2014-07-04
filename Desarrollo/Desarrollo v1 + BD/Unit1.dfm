@@ -104,6 +104,33 @@ object DataModule1: TDataModule1
       FieldName = 'NroTarjeta'
       Size = 255
     end
+    object ADOPedidosTitulo: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Titulo'
+      LookupDataSet = ADOLibro
+      LookupKeyFields = 'ISBN'
+      LookupResultField = 'Titulo'
+      KeyFields = 'ISBN'
+      Lookup = True
+    end
+    object ADOPedidosApellido: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Apellido'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
+    object ADOPedidosNombre: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Nombre'
+      LookupDataSet = ADOCliente
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNI'
+      Lookup = True
+    end
   end
   object ADOCliente: TADOTable
     Connection = SoyUnaConeccion
