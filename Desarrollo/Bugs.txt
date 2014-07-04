@@ -55,26 +55,33 @@
 --Confirmar carrito
 	-Deshabilitar boton "Modificar condiciones" y poner memo en ReadOnly(para clientes), y hacer funcar checkbox
 
---Agregar Autor (fixed by nico "nmenna10" menna)
-	-Despues de agregar un autor no blanquea los campos
+--Agregar Autor 
+	-Despues de agregar un autor no blanquea los campos [fixed by nico "nmenna10" menna]
 
---Eliminar y Modificar Autor  (fixed by nico menna papa)
-	- No muestra el DNI y tiene un problema con IDAutor (dice que no existe mas)
+--Eliminar y Modificar Autor  
+	- No muestra el DNI y tiene un problema con IDAutor [fixed by nico menna papa]
 
--- Ver usuario/modificar usuario/Eliminar usuario (fixed by nico menna)
-	-Modificar las alturas de los edits para que quede esteticamente "lindo". Y aparece "Edit1" en el buscador, poner de ultima un el TextHint
+-- Ver usuario/modificar usuario/Eliminar usuario 
+	-Modificar las alturas de los edits para que quede esteticamente "lindo". Y aparece "Edit1" en el buscador, poner de ultima un el TextHint [fixed by nico menna]
 
---Modificar Autor (Fixed by nico menna)
-	-Cuando modificas el autor tira error "ID Field"
+--Modificar Autor 
+	-Cuando modificas el autor tira error "ID Field" [Fixed by nico menna]
 
---AUTOR (fixed by nico menna)
-	-DBGrid se puede modificar el tamaño de los titulos
+--AUTOR 
+	-DBGrid se puede modificar el tamaño de los titulos [fixed by nico menna]
 
 --TarjetasDeCredito  
-	-CORREGIR FORMULARIO PARA ADAPTARLO A LA NUEVA TABLA DE LA BD. (fixed by nico m.)
+	-CORREGIR FORMULARIO PARA ADAPTARLO A LA NUEVA TABLA DE LA BD. [fixed by nico m.]
 
--- DBtext4 falla al inicio del arranque.[Fixed]
+--ModPedidos
+	- DBtext4 falla al inicio del arranque.[Fixed]
 
--- Modificar Usuario no busca y se ve el texto "edit1" [FIXED]
+-- Modificar Usuario 
+	-no busca y se ve el texto "edit1" [FIXED]
 
--- cuando elimino un usuario no importa si tiene o no libro... [FIXED, NO SE PUEDE ELIMINAR SI TIENE LIBOR]
+-- Mod Usuario
+ 	-cuando elimino un usuario no importa si tiene o no libro... [FIXED, NO SE PUEDE ELIMINAR SI TIENE LIBOR]
+
+--CatalogoDeLibros
+	- No anda la bsuqueda por Autor.
+	- Falta las Condicines de compra.
