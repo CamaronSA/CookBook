@@ -1481,6 +1481,7 @@ object FormPrincipal: TFormPrincipal
     Width = 177
     Height = 249
     Stretch = True
+    OnClick = Image2Click
   end
   object Image3: TImage
     Left = 216
@@ -1488,6 +1489,7 @@ object FormPrincipal: TFormPrincipal
     Width = 177
     Height = 249
     Stretch = True
+    OnClick = Image3Click
   end
   object Image4: TImage
     Left = 416
@@ -1495,6 +1497,7 @@ object FormPrincipal: TFormPrincipal
     Width = 177
     Height = 249
     Stretch = True
+    OnClick = Image4Click
   end
   object Image5: TImage
     Left = 616
@@ -1502,6 +1505,7 @@ object FormPrincipal: TFormPrincipal
     Width = 177
     Height = 249
     Stretch = True
+    OnClick = Image5Click
   end
   object Image6: TImage
     Left = 818
@@ -1509,6 +1513,7 @@ object FormPrincipal: TFormPrincipal
     Width = 177
     Height = 249
     Stretch = True
+    OnClick = Image6Click
   end
   object MainMenu1: TMainMenu
     Left = 32

@@ -24,6 +24,8 @@
 -Modificar Libro
 	- Tiene problemas en colores de labels
 	- Los mensajes de informacion estan mal
+	- No DejaModificar libro con mismo isbn
+	- Actualizar autor no funciona
 	
 -VerDetalleLibro
 	- Revisar campo memo vacio. [Fixed]
@@ -41,7 +43,6 @@
 
 --VerLibro
 	- Labels informativos y asteriscos de mas
-	-
 
 --Panel principal
 	-Agregar "Registrarse" cuando ingresas como visitante  [FIXED]	
@@ -83,5 +84,5 @@
  	-cuando elimino un usuario no importa si tiene o no libro... [FIXED, NO SE PUEDE ELIMINAR SI TIENE LIBOR]
 
 --CatalogoDeLibros
-	- No anda la bsuqueda por Autor.
-	- Falta las Condicines de compra.
+	- No anda la busqueda por Autor.
+	- Falta las Condicines de compra. [Fixed]

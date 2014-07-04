@@ -50,6 +50,12 @@ type
     procedure Cambiarcontrasea1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActualizarDestacados;
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure ImagenesVisibles;
   private
     { Private declarations }
   public
@@ -62,9 +68,73 @@ var
 implementation
 
 uses CatalogoLibros, Login, Unit1, MisDatos, VerMisCompras,
-  PedidosRealizados, RegistroCliente, CambiarClave;
+  PedidosRealizados, RegistroCliente, CambiarClave, DetalleDestacado;
 
 {$R *.dfm}
+
+procedure TFormPrincipal.ImagenesVisibles;
+begin
+if (DataModule1.Destacados.RecordCount=5) or (DataModule1.Destacados.RecordCount>5) then begin
+  Image2.Visible:=True;
+  Image2.Enabled:=True;
+  Image3.Visible:=True;
+  Image3.Enabled:=True;
+  Image4.Visible:=True;
+  Image4.Enabled:=True;
+  Image5.Visible:=True;
+  Image5.Enabled:=True;
+  Image6.Visible:=True;
+  Image6.Enabled:=True;
+end;
+if DataModule1.Destacados.RecordCount=4 then begin
+  Image2.Visible:=True;
+  Image2.Enabled:=True;
+  Image3.Visible:=True;
+  Image3.Enabled:=True;
+  Image4.Visible:=True;
+  Image4.Enabled:=True;
+  Image5.Visible:=True;
+  Image5.Enabled:=True;
+  Image6.Visible:=False;
+  Image6.Enabled:=False;
+end;
+if DataModule1.Destacados.RecordCount=3 then begin
+  Image2.Visible:=True;
+  Image2.Enabled:=True;
+  Image3.Visible:=True;
+  Image3.Enabled:=True;
+  Image4.Visible:=True;
+  Image4.Enabled:=True;
+  Image5.Visible:=False;
+  Image5.Enabled:=False;
+  Image6.Visible:=False;
+  Image6.Enabled:=False;
+end;
+if DataModule1.Destacados.RecordCount=2 then begin
+  Image2.Visible:=True;
+  Image2.Enabled:=True;
+  Image3.Visible:=True;
+  Image3.Enabled:=True;
+  Image4.Visible:=False;
+  Image4.Enabled:=False;
+  Image5.Visible:=False;
+  Image5.Enabled:=False;
+  Image6.Visible:=False;
+  Image6.Enabled:=False;
+end;
+if DataModule1.Destacados.RecordCount=1 then begin
+  Image2.Visible:=True;
+  Image2.Enabled:=True;
+  Image3.Visible:=False;
+  Image3.Enabled:=False;
+  Image4.Visible:=False;
+  Image4.Enabled:=False;
+  Image5.Visible:=False;
+  Image5.Enabled:=False;
+  Image6.Visible:=False;
+  Image6.Enabled:=False;
+end;
+end;
 
 procedure TFormPrincipal.ActualizarDestacados;
 begin
@@ -134,6 +204,8 @@ else
 DataModule1.Destacados.Close;
 DataModule1.Destacados.Open;
 FormPrincipal.ActualizarDestacados;
+FormPrincipal.ImagenesVisibles;
+
 end;
 
 procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -143,6 +215,47 @@ for I := 1 to 5 do
 DataModule1.Destacados.Next;
 
 end;
+
+procedure TFormPrincipal.Image2Click(Sender: TObject);
+begin
+ DataModule1.Destacados.First;
+ FormDetalleDestacado.ShowModal;
+end;
+
+procedure TFormPrincipal.Image3Click(Sender: TObject);
+begin
+ DataModule1.Destacados.First;
+ DataModule1.Destacados.Next;
+ FormDetalleDestacado.ShowModal;
+end;
+
+procedure TFormPrincipal.Image4Click(Sender: TObject);
+begin
+  DataModule1.Destacados.First;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  FormDetalleDestacado.ShowModal;
+end;
+
+procedure TFormPrincipal.Image5Click(Sender: TObject);
+begin
+  DataModule1.Destacados.First;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  FormDetalleDestacado.ShowModal;
+end;
+
+procedure TFormPrincipal.Image6Click(Sender: TObject);
+begin
+  DataModule1.Destacados.First;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  DataModule1.Destacados.Next;
+  FormDetalleDestacado.ShowModal;
+end;
+
 
 procedure TFormPrincipal.MisDatos1Click(Sender: TObject);
 begin
@@ -226,5 +339,4 @@ begin
   FormPrincipal.Close;
   FormLogin.Close;
 end;
-
 end.

@@ -41,7 +41,8 @@ var
 
 implementation
 
-uses Principal, RegistroCliente, Contacto, RecuperarClave, CatalogoLibros;
+uses Principal, RegistroCliente, Contacto, RecuperarClave, CatalogoLibros,
+  CondicionesDeVenta;
 
 {$R *.dfm}
 
@@ -157,6 +158,13 @@ begin
       FormPrincipal.Menu:=FormPrincipal.MainMenu1;
       FormPrincipal.User1.Visible:=True;
       FormPrincipal.ransacciones1.Visible:=True;
+      FormCatalogoLibros.SpeedButton2.Visible:=True;
+      FormCatalogoLibros.SpeedButton5.Visible:=True;
+      FormModifCondicionesVenta.SpeedButton1.Visible:=False;//Modificar Condiciones Venta
+      FormModifCondicionesVenta.CheckBox1.Visible:=True; //Checkbox Aceptar condiciones
+      FormModifCondicionesVenta.SpeedButton3.Visible:=True; //Aceptar  Condiciones Venta
+      FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
+      FormModifCondicionesventa.SpeedButton2.Caption:='Rechazar';//Rechazar  Condiciones Venta
       FormPrincipal.ShowModal;
       end
       else
@@ -180,6 +188,13 @@ begin
             edit1.Text:='';
             edit2.Text:='';
             FormPrincipal.Menu:=nil;
+            FormCatalogoLibros.SpeedButton2.Visible:=True;
+            FormCatalogoLibros.SpeedButton5.Visible:=True;
+            FormModifCondicionesVenta.SpeedButton1.Visible:=True;//Modificar Condiciones Venta
+            FormModifCondicionesVenta.CheckBox1.Visible:=False; //Checkbox Aceptar condiciones
+            FormModifCondicionesVenta.SpeedButton3.Visible:=False; //Aceptar  Condiciones Venta
+            FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
+            FormModifCondicionesventa.SpeedButton2.Caption:='Volver';//Rechazar  Condiciones Venta
             FormPrincipal.ShowModal;
           end
         else
@@ -203,6 +218,13 @@ begin
           edit1.Text:='';
           edit2.Text:='';
           FormPrincipal.Menu:=nil;
+          FormCatalogoLibros.SpeedButton2.Visible:=True;
+          FormCatalogoLibros.SpeedButton5.Visible:=True;
+          FormModifCondicionesVenta.SpeedButton1.Visible:=True;//Modificar Condiciones Venta
+          FormModifCondicionesVenta.CheckBox1.Visible:=False; //Checkbox Aceptar condiciones
+          FormModifCondicionesVenta.SpeedButton3.Visible:=False; //Aceptar  Condiciones Venta
+          FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
+          FormModifCondicionesventa.SpeedButton2.Caption:='Volver';//Rechazar  Condiciones Venta
           FormPrincipal.ShowModal;
         end
           else begin
@@ -222,15 +244,15 @@ begin
   FormPrincipal.Menu:=FormPrincipal.MainMenu1;
   FormPrincipal.User1.Visible:=False;
   FormPrincipal.ransacciones1.Visible:=False;
+  FormCatalogoLibros.SpeedButton2.Visible:=False;
+  FormCatalogoLibros.SpeedButton5.Visible:=False;
+  FormModifCondicionesVenta.SpeedButton1.Visible:=False;//Modificar Condiciones Venta
+  FormModifCondicionesVenta.CheckBox1.Visible:=False; //Checkbox Aceptar condiciones
+  FormModifCondicionesVenta.SpeedButton3.Visible:=False; //Aceptar  Condiciones Venta
+  FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
+  FormModifCondicionesventa.SpeedButton2.Caption:='Volver';//Rechazar  Condiciones Venta
+  FormMOdifCondicionesVenta.Memo1.ReadOnly:=True;
   FormPrincipal.ShowModal;
-  { *****************
-    ****************
-
-    FALTA OCULTAR COSAS PARA QUE SEA VISITANTE
-
-    *****************
-    *****************
-   }
   Form2.Edit1.Visible:=True;
   Form2.Label1.Visible:=True;
 
