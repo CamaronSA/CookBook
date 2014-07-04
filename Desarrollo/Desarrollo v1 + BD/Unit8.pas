@@ -133,16 +133,18 @@ begin
            else
               DataModule1.ADOPedidos.FieldByName('NroTarjeta').AsString:= edit1.Text+edit2.Text;
            DataModule1.ADOPedidos.Post;
-           showmessage('Su pedido esta siendo procesado, en breve sera informado, sino verifique en el menu transacciones ,muchas gracias.');
-           LimpiarCampos (Edit1,Edit2);
            //Proximo de la lista.
            aux:=aux.Sig;
         end;
+          //Limpia edits
+         LimpiarCampos (Edit1,Edit2);
+         //Limpia el carrito
+         showmessage('Su pedido esta siendo procesado, en breve sera informado, sino verifique en el menu transacciones ,muchas gracias.');
          for cont :=0 to FormCatalogoLibros.Stringgrid1.colcount-1 do
          for cont1 :=0 to FormCatalogoLibros.stringgrid1.rowcount-1 do
             FormCatalogoLibros.stringgrid1.Cells[cont,cont1] := '';
          FormCatalogoLibros.StringGrid1.Rowcount:=1;
-
+          //Limpia la lista
          L:=nil;
          aux:=nil;
          close;
@@ -178,7 +180,11 @@ end;
 
 procedure TForm8.SpeedButton2Click(Sender: TObject);
 begin
-
+  Label1.Font.Color:=clblack;
+  Label3.Font.Color:=clblack;
+  Label4.Font.Color:=clblack;
+  Label2.visible:=false;
+  LimpiarCampos (Edit1,Edit2);
   DataModule1.ADOPedidos.Cancel;
   close;
 end;

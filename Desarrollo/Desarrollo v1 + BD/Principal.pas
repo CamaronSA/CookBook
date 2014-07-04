@@ -189,8 +189,14 @@ Form2.Showmodal;
 end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);
+var
+  cont1,cont:integer;
 begin
-
+   //Esto es una bestialidad jaja no queda otra borra el chango :p
+   for cont :=0 to FormCatalogoLibros.Stringgrid1.colcount-1 do
+      for cont1 :=0 to FormCatalogoLibros.stringgrid1.rowcount-1 do
+      FormCatalogoLibros.stringgrid1.Cells[cont,cont1] := '';
+   FormCatalogoLibros.StringGrid1.Rowcount:=1;
   UsuarioParaCarro:='';
   Form2.Label1.Visible:=True;
   Form2.Edit1.Visible:=True;
@@ -206,7 +212,14 @@ FormPanelAdministracion.showmodal;
 end;
 
 procedure TFormPrincipal.SpeedButton7Click(Sender: TObject);
+var
+  cont1,cont:integer;
 begin
+   //Esto es una bestialidad jaja no queda otra borra el chango :p
+   for cont :=0 to FormCatalogoLibros.Stringgrid1.colcount-1 do
+      for cont1 :=0 to FormCatalogoLibros.stringgrid1.rowcount-1 do
+      FormCatalogoLibros.stringgrid1.Cells[cont,cont1] := '';
+   FormCatalogoLibros.StringGrid1.Rowcount:=1;
   UsuarioParaCarro:='';
   UsuarioRegistrado:='';
   L:=Nil;  //Limpia la lista de carrito de compras para que no venga otro y compre las mismas boludeces que compre yo  [CUIDADO LO HIZO EL HOMOSAPIENS DE NEG90]
