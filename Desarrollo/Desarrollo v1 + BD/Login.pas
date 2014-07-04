@@ -35,7 +35,9 @@ type
   end;
 
 var
-  FormLogin: TFormLogin; UsuarioRegistrado:String;
+  FormLogin: TFormLogin;
+  UsuarioRegistrado,UsuarioParaCarro:String;
+
 
 implementation
 
@@ -144,6 +146,7 @@ begin
 //      FormPrincipal.SpeedButton4.Enabled:=true;
 //      FormPrincipal.SpeedButton4.Visible:=true;
       UsuarioRegistrado:=Edit1.Text; //Variable global de usuario, la uso en CONTACTO
+      UsuarioParaCarro:=edit1.Text;
       Form2.Edit1.Visible:=False; // Form contacto
       Form2.Label1.Visible:=False; // Form contacto
       FormCatalogoLibros.SpeedButton2.Visible:=True;
@@ -205,7 +208,7 @@ begin
 procedure TFormLogin.SpeedButton4Click(Sender: TObject); //VISITANTE
 begin
   FormPrincipal.SpeedButton6.Visible:=False;
-//  FormPrincipal.SpeedButton2.Visible:=False;
+//FormPrincipal.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton5.Visible:=False;
   FormCatalogoLibros.SpeedButton2.Visible:=False;
   FormPrincipal.SpeedButton3.Visible:=True;

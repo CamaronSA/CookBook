@@ -179,8 +179,6 @@ end;
 
 procedure TFormPrincipal.SpeedButton5Click(Sender: TObject);
 begin
-
-  UsuarioParaCarro:='';
   Form2.Label1.Visible:=True;
   Form2.Edit1.Visible:=True;
   UsuarioRegistrado:='';
@@ -196,7 +194,6 @@ end;
 
 procedure TFormPrincipal.SpeedButton7Click(Sender: TObject);
 begin
-  UsuarioParaCarro:='';
   UsuarioRegistrado:='';
   L:=Nil;  //Limpia la lista de carrito de compras para que no venga otro y compre las mismas boludeces que compre yo  [CUIDADO LO HIZO EL HOMOSAPIENS DE NEG90]
   FormPrincipal.Close;
