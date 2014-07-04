@@ -2,7 +2,7 @@
 	- Desp de crear el usuario exitosamente, mno se cierra el panel, la 
 	   unica forma de salir es "cancelar" confuso. [FIXED]
 	- Medio plomo que todos los campos sean obligatorios. [FIXED] //Ahora Fecha Nac. y telefono no son obligatorios
-	- Puedo crear usuario root contraceña kapanga [FIXED]
+	- Puedo crear usuario root contraceï¿½a kapanga [FIXED]
 	- Puedo crear usuaio admin admin [FIXED]
 --En el panel recuperar clave
 	- queda medio feo q los edit ten a distinta altura. [FIXED]
@@ -13,13 +13,12 @@
 	- edIt user y pass admiten caracteres especiales [FIXED]
 	- 
 
---AdministradorEliminar
-	- No tiene except si quiero eliminar y no hay nada.
-	- Tira un error de null
+--AdministradorEliminar 
+	- No tiene except si quiero eliminar y no hay nada. [FIXED]
 
 --AdministradorAgregar
-	- Cuando hago click en la grilla me carga los datos, es molesto.
-	- La fecha de nac es obligatoria , revisar
+	- Cuando hago click en la grilla me carga los datos, es molesto. [FIXED]
+	- La fecha de nac es obligatoria , revisar [FIXED]
 	- Cuando falla el apellido se pone rojo la fecha , revisar los colores
 	- 
 -Modificar Libro
@@ -65,4 +64,8 @@
 -- Ver usuario/modificar usuario/Eliminar usuario
 	-Modificar las alturas de los edits para que quede esteticamente "lindo". Y aparece "Edit1" en el buscador, poner de ultima un el TextHint
 
---
+--Modificar Autor
+	-Cuando modificas el autor tira error "ID Field"
+
+--AUTOR
+	-DBGrid se puede modificar el tamaÃ±o de los titulos
