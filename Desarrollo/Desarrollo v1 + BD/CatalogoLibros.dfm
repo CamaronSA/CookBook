@@ -4,8 +4,8 @@ object FormCatalogoLibros: TFormCatalogoLibros
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
-  ClientHeight = 637
-  ClientWidth = 1087
+  ClientHeight = 634
+  ClientWidth = 735
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,9 +19,9 @@ object FormCatalogoLibros: TFormCatalogoLibros
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 8
+    Left = 0
     Top = 8
-    Width = 729
+    Width = 737
     Height = 628
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
@@ -39,19 +39,6 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
-    object SpeedButton1: TSpeedButton
-      Left = 288
-      Top = 64
-      Width = 138
-      Height = 27
-      Caption = 'Buscar'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clPurple
-      Font.Height = -19
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -111,6 +98,19 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Style = []
       ParentFont = False
       OnClick = SpeedButton5Click
+    end
+    object Label17: TLabel
+      Left = 192
+      Top = 34
+      Width = 52
+      Height = 19
+      Caption = 'Buscar:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object DBGrid1: TDBGrid
       Left = 24
@@ -180,12 +180,13 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnChange = Edit1Change
     end
     object GroupBox1: TGroupBox
-      Left = 148
-      Top = 0
-      Width = 421
-      Height = 25
+      Left = 176
+      Top = 2
+      Width = 353
+      Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -194,11 +195,11 @@ object FormCatalogoLibros: TFormCatalogoLibros
       ParentFont = False
       TabOrder = 2
       object RadioButton1: TRadioButton
-        Left = 33
+        Left = 3
         Top = 3
-        Width = 113
+        Width = 65
         Height = 17
-        Caption = 'Por autor'
+        Caption = 'Autor'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -208,11 +209,11 @@ object FormCatalogoLibros: TFormCatalogoLibros
         TabOrder = 0
       end
       object RadioButton2: TRadioButton
-        Left = 310
-        Top = 5
-        Width = 113
+        Left = 74
+        Top = 3
+        Width = 58
         Height = 17
-        Caption = 'Por titulo'
+        Caption = 'Titulo'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -222,9 +223,9 @@ object FormCatalogoLibros: TFormCatalogoLibros
         TabOrder = 1
       end
       object RadioButton3: TRadioButton
-        Left = 120
+        Left = 151
         Top = 3
-        Width = 113
+        Width = 81
         Height = 17
         Caption = 'Editorial'
         Font.Charset = DEFAULT_CHARSET
@@ -236,10 +237,10 @@ object FormCatalogoLibros: TFormCatalogoLibros
         TabOrder = 2
       end
       object RadioButton4: TRadioButton
-        Left = 215
+        Left = 250
         Top = 1
-        Width = 89
-        Height = 21
+        Width = 96
+        Height = 19
         Caption = 'Categoria'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText

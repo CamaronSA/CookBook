@@ -26,7 +26,6 @@ type
     RadioButton3: TRadioButton;
     RadioButton4: TRadioButton;
     GroupBox1: TGroupBox;
-    SpeedButton1: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton2: TSpeedButton;
     DBGrid1: TDBGrid;
@@ -62,6 +61,7 @@ type
     Label16: TLabel;
     Label15: TLabel;
     SpeedButton11: TSpeedButton;
+    Label17: TLabel;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -75,6 +75,7 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton11Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,7 +91,7 @@ var
 
 implementation
 
-uses DetalleLibro, Unit1, Unit7, Unit8;
+uses DetalleLibro, Unit1, Unit7, Unit8, CondicionesDeVenta;
 
 {$R *.dfm}
 //Limpia labels nada mas que eso
@@ -101,6 +102,46 @@ begin
   L3.Caption:='';
   L4.Caption:='';
   L5.Caption:= '';
+end;
+
+procedure TFormCatalogoLibros.Edit1Change(Sender: TObject);
+var
+  filtro : string;
+begin
+  if (radiobutton2.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro <> '' then
+         begin
+            DataModule1.LibrosALaVenta.Filter := 'Titulo LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.LibrosALaVenta.Filtered := true;
+        end
+      else
+        DataModule1.LibrosALaVenta.Filtered := false;
+  end;
+  if (radiobutton3.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro <> '' then
+         begin
+            DataModule1.LibrosALaVenta.Filter := 'Editorial LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.LibrosALaVenta.Filtered:=true;
+        end
+      else
+        DataModule1.LibrosALaVenta.Filtered:=false;
+  end;
+   if (radiobutton4.Checked = true) then
+  begin
+    filtro := TRIM (edit1.text);
+      if filtro <> '' then
+         begin
+            DataModule1.LibrosALaVenta.Filter := 'Etiqueta LIKE ''%'+filtro+'%'''; // (*)
+            DataModule1.LibrosALaVenta.Filtered:=true;
+        end
+      else
+        DataModule1.LibrosALaVenta.Filtered:=false;
+  end;
+
 end;
 
 procedure TFormCatalogoLibros.FormActivate(Sender: TObject);
@@ -143,7 +184,8 @@ end;
 procedure TFormCatalogoLibros.SpeedButton11Click(Sender: TObject);
 begin
  //Implemente señora
- Form8.showmodal;
+ FormModifCondicionesVenta.Showmodal;
+ //Form8.showmodal;
 end;
 
 procedure TFormCatalogoLibros.SpeedButton2Click(Sender: TObject);

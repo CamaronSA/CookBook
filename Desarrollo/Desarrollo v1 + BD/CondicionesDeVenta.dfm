@@ -31,7 +31,7 @@ object FormModifCondicionesVenta: TFormModifCondicionesVenta
     ParentFont = False
   end
   object SpeedButton1: TSpeedButton
-    Left = 304
+    Left = 306
     Top = 8
     Width = 193
     Height = 38
@@ -45,11 +45,11 @@ object FormModifCondicionesVenta: TFormModifCondicionesVenta
     OnClick = SpeedButton1Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 408
-    Top = 559
+    Left = 410
+    Top = 570
     Width = 89
-    Height = 38
-    Caption = 'Volver'
+    Height = 27
+    Caption = 'Rechazar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19
@@ -57,6 +57,20 @@ object FormModifCondicionesVenta: TFormModifCondicionesVenta
     Font.Style = []
     ParentFont = False
     OnClick = SpeedButton2Click
+  end
+  object SpeedButton3: TSpeedButton
+    Left = 315
+    Top = 570
+    Width = 89
+    Height = 27
+    Caption = 'Aceptar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clPurple
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    OnClick = SpeedButton3Click
   end
   object Memo1: TMemo
     Left = 8
@@ -69,7 +83,7 @@ object FormModifCondicionesVenta: TFormModifCondicionesVenta
   end
   object CheckBox1: TCheckBox
     Left = 20
-    Top = 570
+    Top = 576
     Width = 239
     Height = 17
     Caption = 'He le'#237'do y Acepto las condiciones de venta'

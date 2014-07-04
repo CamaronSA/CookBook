@@ -32,7 +32,7 @@ object Form4: TForm4
     OnClick = SpeedButton2Click
   end
   object Label9: TLabel
-    Left = 358
+    Left = 366
     Top = 319
     Width = 87
     Height = 19
@@ -203,7 +203,7 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton4: TSpeedButton
-    Left = 553
+    Left = 729
     Top = 643
     Width = 105
     Height = 41
@@ -224,13 +224,13 @@ object Form4: TForm4
     Caption = 'Doble Click para ingresar imagen'
   end
   object Label15: TLabel
-    Left = 358
+    Left = 366
     Top = 344
     Width = 3
     Height = 13
   end
   object SpeedButton1: TSpeedButton
-    Left = 625
+    Left = 729
     Top = 643
     Width = 105
     Height = 41
@@ -283,8 +283,8 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton5: TSpeedButton
-    Left = 358
-    Top = 609
+    Left = 366
+    Top = 628
     Width = 113
     Height = 22
     Caption = 'Limpiar Descripcion'
@@ -510,8 +510,8 @@ object Form4: TForm4
     OnKeyPress = Edit10KeyPress
   end
   object Memo1: TMemo
-    Left = 358
-    Top = 344
+    Left = 366
+    Top = 363
     Width = 385
     Height = 259
     MaxLength = 65536
@@ -559,7 +559,7 @@ object Form4: TForm4
     Left = 758
     Top = 363
     Width = 163
-    Height = 270
+    Height = 259
     Color = clSilver
     ParentBackground = False
     TabOrder = 17
@@ -604,8 +604,8 @@ object Form4: TForm4
       'Select DNI '
       'from Autor '
       'where (Apellido = :Dato)')
-    Left = 510
-    Top = 320
+    Left = 734
+    Top = 8
   end
   object PregApellidoAutor: TADOQuery
     Connection = DataModule1.SoyUnaConeccion
@@ -619,7 +619,7 @@ object Form4: TForm4
       'Select Apellido'
       'From Autor'
       'Where (DNI =:Dato)')
-    Left = 606
-    Top = 320
+    Left = 806
+    Top = 8
   end
 end

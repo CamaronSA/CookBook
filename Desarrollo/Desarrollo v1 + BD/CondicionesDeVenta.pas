@@ -13,6 +13,7 @@ type
     CheckBox1: TCheckBox;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     procedure Letras(Sender: TObject; var Key: Char);
     procedure LetrasYEspacio(Sender: TObject; var Key: Char);
     procedure LetrasNumnerosETC(Sender: TObject; var Key: Char);
@@ -20,6 +21,7 @@ type
     procedure SpeedButton2Click(Sender: TObject);
     procedure LetrasSimbolosYEspacio(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,6 +32,8 @@ var
   FormModifCondicionesVenta: TFormModifCondicionesVenta;
 
 implementation
+
+uses Unit8;
 
 {$R *.dfm}
 
@@ -68,7 +72,16 @@ end;
 
 procedure TFormModifCondicionesVenta.SpeedButton2Click(Sender: TObject);
 begin
-Close;
+  Close;
+end;
+
+procedure TFormModifCondicionesVenta.SpeedButton3Click(Sender: TObject);
+begin
+  if(checkBox1.Checked = true) then
+    begin
+      form8.showmodal;
+      close;
+    end;
 end;
 
 //Letras, numeros, @ , - , _ y .
