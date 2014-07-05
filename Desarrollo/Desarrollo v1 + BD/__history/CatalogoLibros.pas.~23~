@@ -40,6 +40,7 @@ type
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
     SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
     GroupBox2: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;

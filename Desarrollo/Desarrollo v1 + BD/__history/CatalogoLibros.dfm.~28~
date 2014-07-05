@@ -5,7 +5,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
   ClientHeight = 634
-  ClientWidth = 736
+  ClientWidth = 1083
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -286,6 +286,21 @@ object FormCatalogoLibros: TFormCatalogoLibros
       Font.Style = []
       ParentFont = False
       OnClick = SpeedButton7Click
+    end
+    object SpeedButton8: TSpeedButton
+      Left = 8
+      Top = 31
+      Width = 97
+      Height = 20
+      Caption = 'Refrescar'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton8Click
     end
     object SpeedButton9: TSpeedButton
       Left = 120
