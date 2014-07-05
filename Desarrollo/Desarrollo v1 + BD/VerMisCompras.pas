@@ -32,12 +32,8 @@ uses Unit1, Login;
 procedure TFormVerMisCompras.DBGrid1TitleClick(Column: TColumn);
 begin
  //Esto ordena la tabla segun en que titulo haga click el usuario
-Case Column.Index Of
-  0 : DataModule1.ADOLibro.IndexFieldNames:='ISBN';
-  1 : DataModule1.ADOLibro.IndexFieldNames:='Estado';
-  2 : DataModule1.ADOLibro.IndexFieldNames:='FechaDeInicio';
-  3 : DataModule1.ADOLibro.IndexFieldNames:='FechaDeFin';
-End;
+
+
 end;
 
 procedure TFormVerMisCompras.FormActivate(Sender: TObject);

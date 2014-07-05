@@ -222,7 +222,7 @@ end;
 
 procedure TFormPrincipal.ransacciones2Click(Sender: TObject);
 begin
-  Application.HelpCommand(HELP_CONTEXT,140);
+Application.HelpCommand(HELP_CONTEXT,140);
 end;
 
 

@@ -1,0 +1,61 @@
+unit VerMisCompras;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TFormVerMisCompras = class(TForm)
+    Label12: TLabel;
+    DBGrid1: TDBGrid;
+    SpeedButton1: TSpeedButton;
+    procedure FormActivate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormVerMisCompras: TFormVerMisCompras;
+
+implementation
+
+uses Unit1, Login;
+
+{$R *.dfm}
+
+procedure TFormVerMisCompras.DBGrid1TitleClick(Column: TColumn);
+begin
+ //Esto ordena la tabla segun en que titulo haga click el usuario
+Case Column.Index Of
+  0 : DataModule1.ADOLibro.IndexFieldNames:='ISBN';
+  1 : DataModule1.ADOLibro.IndexFieldNames:='Estado';
+  2 : DataModule1.ADOLibro.IndexFieldNames:='FechaDeInicio';
+  3 : DataModule1.ADOLibro.IndexFieldNames:='FechaDeFin';
+End;
+end;
+
+procedure TFormVerMisCompras.FormActivate(Sender: TObject);
+var DNI:Integer;
+begin
+//Paso parametro DNI a QMisCompras
+DataModule1.ComprobarUsuario.Close;
+DataModule1.ComprobarUsuario.Parameters.ParamByName('user').Value:=UsuarioRegistrado;
+DataModule1.ComprobarUsuario.Open;
+DNI:=DataModule1.ComprobarUsuario.FieldByName('DNI').AsInteger;
+DataModule1.QMisCompras.Close;
+DataModule1.QMisCompras.Parameters.ParamByName('consultaDNI').Value:=DNI;
+DataModule1.QMisCompras.Open;
+end;
+
+procedure TFormVerMisCompras.SpeedButton1Click(Sender: TObject);
+begin
+Close;
+end;
+
+end.

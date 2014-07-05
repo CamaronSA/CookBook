@@ -86,13 +86,6 @@ object DataModule1: TDataModule1
     TableName = 'Pedidos'
     Left = 48
     Top = 208
-    object ADOPedidosIDPedido: TAutoIncField
-      FieldName = 'IDPedido'
-      ReadOnly = True
-    end
-    object ADOPedidosDNI: TIntegerField
-      FieldName = 'DNI'
-    end
     object ADOPedidosISBN: TIntegerField
       FieldName = 'ISBN'
     end
@@ -105,6 +98,13 @@ object DataModule1: TDataModule1
     end
     object ADOPedidosFechaDeFin: TDateTimeField
       FieldName = 'FechaDeFin'
+    end
+    object ADOPedidosIDPedido: TAutoIncField
+      FieldName = 'IDPedido'
+      ReadOnly = True
+    end
+    object ADOPedidosDNI: TIntegerField
+      FieldName = 'DNI'
     end
     object ADOPedidosIDTarjeta: TIntegerField
       FieldName = 'IDTarjeta'
@@ -237,7 +237,7 @@ object DataModule1: TDataModule1
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
       'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
-      'rsist Security Info=False'
+      'rsist Security Info=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -971,6 +971,6 @@ object DataModule1: TDataModule1
         'where (DNI=:consultaDNI) and ((Estado='#39'Pendiente'#39') or (Estado='#39'E' +
         'n envio'#39'))')
     Left = 248
-    Top = 392
+    Top = 384
   end
 end
