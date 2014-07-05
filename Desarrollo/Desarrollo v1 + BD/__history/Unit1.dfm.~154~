@@ -234,6 +234,10 @@ object DataModule1: TDataModule1
     Top = 152
   end
   object SoyUnaConeccion: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
+      'ttings\Alejandro\Escritorio\Desarrollo v1 + BD\CookBookDB.mdb;Pe' +
+      'rsist Security Info=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -509,61 +513,6 @@ object DataModule1: TDataModule1
       'where (FechaDeFin>=:Desde) and (FechaDeFin<=:Hasta)')
     Left = 448
     Top = 272
-    object FiltroPorFechaIDPedido: TAutoIncField
-      FieldName = 'IDPedido'
-      ReadOnly = True
-    end
-    object FiltroPorFechaDNI: TIntegerField
-      FieldName = 'DNI'
-    end
-    object FiltroPorFechaISBN: TIntegerField
-      FieldName = 'ISBN'
-    end
-    object FiltroPorFechaEstado: TWideStringField
-      FieldName = 'Estado'
-      Size = 255
-    end
-    object FiltroPorFechaFechaDeInicio: TDateTimeField
-      FieldName = 'FechaDeInicio'
-    end
-    object FiltroPorFechaFechaDeFin: TDateTimeField
-      FieldName = 'FechaDeFin'
-    end
-    object FiltroPorFechaIDTarjeta: TIntegerField
-      FieldName = 'IDTarjeta'
-    end
-    object FiltroPorFechaNroTarjeta: TWideStringField
-      FieldName = 'NroTarjeta'
-      Size = 255
-    end
-    object FiltroPorFechaLibro: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Libro'
-      LookupDataSet = ADOPedidos
-      LookupKeyFields = 'IDPedido'
-      LookupResultField = 'Titulo'
-      KeyFields = 'IDPedido'
-      Size = 30
-      Lookup = True
-    end
-    object FiltroPorFechaNombre: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Nombre'
-      LookupDataSet = ADOPedidos
-      LookupKeyFields = 'IDPedido'
-      LookupResultField = 'Nombre'
-      KeyFields = 'IDPedido'
-      Lookup = True
-    end
-    object FiltroPorFechaApellido: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Apellido'
-      LookupDataSet = ADOPedidos
-      LookupKeyFields = 'IDPedido'
-      LookupResultField = 'Apellido'
-      KeyFields = 'IDPedido'
-      Lookup = True
-    end
   end
   object YaExisteUsuarioCliente: TADOQuery
     Connection = SoyUnaConeccion
@@ -1023,10 +972,5 @@ object DataModule1: TDataModule1
         'n envio'#39'))')
     Left = 248
     Top = 384
-  end
-  object DS_FiltroPorFecha: TDataSource
-    DataSet = FiltroPorFecha
-    Left = 664
-    Top = 216
   end
 end

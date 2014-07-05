@@ -129,18 +129,6 @@ type
     LibrosALaVentaNomAutor: TStringField;
     LibrosALaVentaApeAutor: TStringField;
     ADOLibroNomAutor: TStringField;
-    FiltroPorFechaIDPedido: TAutoIncField;
-    FiltroPorFechaDNI: TIntegerField;
-    FiltroPorFechaISBN: TIntegerField;
-    FiltroPorFechaEstado: TWideStringField;
-    FiltroPorFechaFechaDeInicio: TDateTimeField;
-    FiltroPorFechaFechaDeFin: TDateTimeField;
-    FiltroPorFechaIDTarjeta: TIntegerField;
-    FiltroPorFechaNroTarjeta: TWideStringField;
-    FiltroPorFechaLibro: TStringField;
-    FiltroPorFechaNombre: TStringField;
-    FiltroPorFechaApellido: TStringField;
-    DS_FiltroPorFecha: TDataSource;
 
   private
     { Private declarations }
