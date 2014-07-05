@@ -636,6 +636,8 @@ close;
 end;
 
 procedure TForm4.SpeedButton3Click(Sender: TObject);
+var
+  ruta:string;
 begin
     try
         Datamodule1.ADOLibro.append;
@@ -659,6 +661,9 @@ begin
             if (Combobox5.Text = 'NO') then
                DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=false;
         //Cargo la imagen de TImage en la base de datos
+
+        ruta:=ExtractFilePath(ParamStr(0));
+        image1.Picture.LoadFromFile(ruta+'NoDisp.bmp');
         DataModule1.ADOLibro.FieldByName('Imagen').Assign(image1.Picture);
         // Campo Idioma
         if (combobox1.Text = '')  then
