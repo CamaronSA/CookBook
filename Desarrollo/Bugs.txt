@@ -86,3 +86,12 @@
 
 --PedidosPorFecha
 	-Visualizacion PedidosPorFecha, arregle DBGrid y DBLabels [FIXED]
+
+--usuarios
+	-cuando modifico el usuario lo valida mal [FIXED]
+
+--usuarios
+	-cuando modifico la clave no hace una correcta validacion [FIXED].
+
+--usuarios
+	-botones corridos de lugar [FIXED].
