@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, Grids, DBGrids,
-  TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion;
+  TarjetasDeCredito, Unit1, dblookup, ExtDlgs, Mask, PanelAdministracion, DB,
+  ADODB, JPEG;
 
 type
   ENicoyJesu = class (Exception);
@@ -57,6 +58,8 @@ type
     ComboBox5: TComboBox;
     ComboBox6: TComboBox;
     SpeedButton5: TSpeedButton;
+    PregDniAutor: TADOQuery;
+    PregApellidoAutor: TADOQuery;
     procedure SpeedButton3Click(Sender: TObject);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
     procedure Edit10KeyPress(Sender: TObject; var Key: Char);
@@ -96,28 +99,43 @@ var
   arch:string;   // aca enconte esto lo puse pero ahora no se bien que hace, no borrar.
 implementation
 
-uses Unit5;
+uses Unit5, Unit6, Unit9;
 
 {$R *.dfm}
 
- // esto lo que hace es cambiar la propiedad read only de los componenetes pla contraria, lo de la imagen lo manejo aparte para no romper nada.
+ // esto lo que hace es cambiar la propiedad read only de los componenetes a not (lo que tenia.).
+Procedure NOSoloLecturaParaLasComponenetes (E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+begin
+  E2.ReadOnly:= false;
+  E6.ReadOnly:= false;
+  E3.ReadOnly:= false;
+  E10.ReadOnly:= false;
+  I1.Enabled:= true;
+  M1.ReadOnly:= false;
+end;
+// LO hago asi y no con un not por q desp de usar vbarias veces el panel puede fallar.
 Procedure SoloLecturaParaLasComponenetes (E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
 begin
-  E2.ReadOnly:= not E2.ReadOnly;
-  E6.ReadOnly:= not E6.ReadOnly;
-  E3.ReadOnly:= not E3.ReadOnly;
-  E10.ReadOnly:= not E10.ReadOnly;
-  I1.Enabled:= not I1.Enabled;
-  M1.ReadOnly:= not M1.ReadOnly;
+  E2.ReadOnly:= true;
+  E6.ReadOnly:= true;
+  E3.ReadOnly:= true;
+  E10.ReadOnly:= true;
+  I1.Enabled:= false;
+  M1.ReadOnly:= true;
 end;
 //implemento metodo para leer todos los registros desde el DBGrid, que dios y la patri me juzguen
 //Respete el orden de los componentes o muerda el muerto
 //La cantidad de veces q corri el programa por poner mal los nombres de los campos y la re
-procedure cargarComponentes(C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage);
+procedure cargarComponentes(C1,C2,C3,C4,C5,C6:TComboBox;E2,E3,E6,E10:TEdit;M1:TMemo;I1:TImage;Q1:TADOQuery);
 begin
   C1.TextHint:=DataModule1.ADOLibro.FieldByName('Idioma').AsString;
   C2.TextHint:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString;
-  C3.TextHint:=DataModule1.ADOLibro.FieldByName('Autor').AsString;
+  //Pido el numero de Dni del autor.   Indigena modo ON
+  Q1.Close;
+  Q1.Parameters.ParamByName('Dato').Value:=IntToStr(DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger);
+  Q1.Open;
+  Q1.Active:=True;
+  C3.TextHint:=Q1.FieldByName('Apellido').AsString;    //  <--aca salame
   C4.TextHint:=DataModule1.ADOLibro.FieldByName('Editorial').AsString;
   if (DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean = True) then
     C5.TextHint:='SI'
@@ -216,7 +234,7 @@ end;
 procedure TForm4.ComboBox6Click(Sender: TObject);
 begin
  label17.Font.Color:=clblack;
- label12.Visible:=true;
+ label12.Visible:=false;
 end;
 
 procedure TForm4.DBGrid1CellClick(Column: TColumn);
@@ -225,7 +243,7 @@ begin
   // Aca verifico que o esta habilitado el modificar, o el agregar, o estan todos desabilitados.
   If(SpeedButton1.Visible = true) or (SpeedButton4.Visible = true) or ((SpeedButton4.Visible =false) and (SpeedButton1.Visible = false) and (SpeedButton3.Visible = false)) then   begin
     //Ahi muesta todo los datos en los campos
-    cargarComponentes(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+    cargarComponentes(ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1,PregApellidoAutor);
   end;
 end;
 
@@ -251,8 +269,8 @@ Case Column.Index Of
   3 : DataModule1.ADOLibro.IndexFieldNames:='Etiqueta';
   4 : DataModule1.ADOLibro.IndexFieldNames:='Editorial';
   5 : DataModule1.ADOLibro.IndexFieldNames:='precio';
-  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor';
-  7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
+  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor'; // <--No , es LookUp
+//7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
 End;
 
 end;
@@ -323,7 +341,7 @@ end;
 
 procedure TForm4.Edit3KeyPress(Sender: TObject; var Key: Char);
 begin
- if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
+ if ( StrScan(' qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789'+chr(7)+chr(8), Key) = nil ) then  Key := #0;
 end;
 
 procedure TForm4.Edit6Change(Sender: TObject);
@@ -334,10 +352,12 @@ end;
 
 procedure TForm4.FormActivate(Sender: TObject);
 begin
+   datamodule1.ADOLibro.Active:=true;
    label15.Caption:= 'Caracteres disponibles ' +inttostr(Length(Memo1.Lines.Text))+ '/65536' ;
   // Se cargan las opciones de los combobox solo si se entra en modo agregar libro o modificar
   if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
-     SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+     SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1) ;
+
   if(speedbutton1.Visible = true) or (speedbutton3.Visible = true) then
     Begin
   //Cuando Se abre el formulario cargo cada DBComboBox La lista de opciones del campo//
@@ -419,16 +439,10 @@ begin
   if buttonSelected = mrOk then
     begin
       try
-
         Datamodule1.ADOLibro.edit;
         DataModule1.ComprobarLibro.Close;
         DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
         DataModule1.ComprobarLibro.Open;
-        // por la puta casualidad q metan todo en blanco
-        if (edit2.Text = '') and (edit3.Text = '') and (edit6.Text = '') and (edit10.Text = '') and
-        (memo1.Text = '') and (image1.Picture = nil) and (Combobox1.Text = '')and (Combobox2.Text = '')and
-        (Combobox3.Text = '')and (Combobox4.Text = '')and (Combobox5.Text = '')and (Combobox6.Text = '') then
-          raise ENoModificaUnCarajo.Create('No es Necesario modificar campos por que no ingreso ningun dato');
         //Campo EsDestacado
         if (ComboBox6.Text = '') then
            DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean:=DataModule1.ADOLibro.FieldByName('EsDestacado').AsBoolean
@@ -443,7 +457,7 @@ begin
           end;
         //Campo Disponible
         if(ComboBox5.Text ='') then
-          DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean
+           DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean
         else
             if (Combobox5.Text = 'SI') then
               DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:=true
@@ -462,17 +476,25 @@ begin
         //Campo Categoria
         if (ComboBox2.Text = '') then
          //Lo qe hace es volver a guardar lo que ya tenia, pero automatico por si el boludo q lo usa borrar algun campo
-           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString
+         DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=DataModule1.ADOLibro.FieldByName('Etiqueta').AsString
+
         else
           DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=ComboBox2.Text;
         //Campo Autor
         if (ComboBox3.Text = '') then
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=DataModule1.ADOLibro.FieldByName('Autor').AsString
+           DataModule1.ADOLibro.FieldByName('DNIAutor').AsString:=DataModule1.ADOLibro.FieldByName('DNIAutor').AsString
         else
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+           begin
+             //Hago una query para conocer el dni del autor y guardarlo en la tabla.
+             PregDNIAutor.Close;
+             PregDNIAutor.Parameters.ParamByName('Dato').Value:=ComboBox3.Text;
+             PregDniAutor.Open;
+             PregDNIAutor.Active:=true;
+             DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger:=PregDNIAutor.FieldByName('DNI').AsInteger;
+          end;
         //Campo Editorial
         if (ComboBox4.Text = '') then
-           DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
+          DataModule1.ADOLibro.FieldByName('Editorial').AsString:=DataModule1.ADOLibro.FieldByName('Editorial').AsString
         else
            DataModule1.ADOLibro.FieldByName('Editorial').AsString:=ComboBox4.Text;
         //Campo ISBN
@@ -481,10 +503,12 @@ begin
         else
           begin
             // esto anda, pero si pueden revisen, if de abajo, testea que si el q estamos modificando es el mismo numero por el mismo numero no grite el programa.
-              if not (strtoint(edit2.Text) = DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
-                 if not (DataModule1.ComprobarLibro.IsEmpty) then
+              if  (strtoint(edit2.Text) <> DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
                 //Esta except verifica que no tengamos dos isbn iguales en la bd
+                 if not (DataModule1.ComprobarLibro.IsEmpty) then
                     raise EPentakill.Create('Este Libro ya esta en la base de datos, esta intentando ingresar un numero de ISBN que ya existe')
+                 else
+                    DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text)
                  end
               else
                 DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text);
@@ -497,20 +521,19 @@ begin
         //Anio Edicion  Posibles errores 7kk y contando.
 
         //Si esta el 0 es porq  la carga anterio lo puso, o por que el usuario puso 0 sin darse cuenta entonces dejo lo que estaba.-
-        if (StrToInt(edit6.Text) = 0) then
+        {if (StrToInt(edit6.Text) = 0) then
           DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:= DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger
-        else
-        if (edit6.Text  <> '' )  then
+        else       }
+        if (edit6.Text  = '' ) or (strtoint(edit6.Text) = 0) then
+          DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:= 0
          // aca es distinto por que puede ser que el user lo deje en blanco!, pero si lo completa q no amnde fruta.
-        begin
-         if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
-
+        else
+         begin
+          if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
             raise EFueraDeRango.Create('El año que intenta ingresar es invalido')
-         else
+          else
            DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=StrToInt(edit6.Text);
-         end
-         else     // ya si pasa todas esas cosas merece entrar...
-            DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=0;
+          end;
         //Campo Precio
         if (edit10.Text = '') then
           DataModule1.ADOLibro.FieldByName('Precio').AsCurrency:=DataModule1.ADOLibro.FieldByName('Precio').AsCurrency
@@ -522,7 +545,7 @@ begin
         //Campo Descripcion
         DataModule1.ADOLibro.FieldByName('Descripcion').AsString:=memo1.Text;
         Datamodule1.ADOLibro.Post;
-        showmessage ('Su libro fue agregado correctamente');
+        Form9.show;
         edit2.Text:='';
         edit3.Text:='';
         edit10.Text:='';
@@ -558,11 +581,11 @@ begin
          end;
         on E: EfueraDeRango do
           begin
+            edit6.Text:='';
             label12.Visible:=true;
             label4.Font.Color:=clred;
             showmessage (E.Message);
             DataModule1.ADOLibro.Cancel;
-            edit6.Text:='';
           end;
         on E:EPentakill do
           begin
@@ -585,7 +608,7 @@ begin
   // al salir cambio la propiedad readOnly de las componentes
   if (speedbutton4.Visible = true) or ((speedbutton1.Visible = false) and (speedbutton3.Visible = false) and (speedbutton4.Visible = false)) then
     begin
-      SoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+      NoSoloLecturaParaLasComponenetes(Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
     end;
   //Aca lo que hago es cada ves q salgo del formulario borro las componentes
   //para evitar q se dupliquen las opciones
@@ -613,13 +636,8 @@ close;
 end;
 
 procedure TForm4.SpeedButton3Click(Sender: TObject);
-var
-  buttonSelected:integer;
 begin
-  buttonSelected:= messageDlg('¿Realmente desea agregar un Libro?',mtWarning,mbOkCancel,0);
-  if buttonSelected = mrOk then
-    begin
-      try
+    try
         Datamodule1.ADOLibro.append;
         DataModule1.ComprobarLibro.Close;
         DataModule1.ComprobarLibro.Parameters.ParamByName('Dato').Value:=StrToInt(edit2.Text);
@@ -656,7 +674,15 @@ begin
         if (ComboBox3.Text = '') then
            raise ECampoBlanco.Create('Complete todos los campos en rojo')
         else
-           DataModule1.ADOLibro.FieldByName('Autor').AsString:=ComboBox3.Text;
+          begin
+           //Hago una query para conocer el dni del autor y guardarlo en la tabla.
+           PregDNIAutor.Close;
+           PregDNIAutor.Parameters.ParamByName('Dato').Value:=ComboBox3.Text;
+           PregDniAutor.Open;
+           PregDNIAutor.Active:=true;
+           DataModule1.ADOLibro.FieldByName('DNIAutor').AsInteger:=PregDNIAutor.FieldByName('DNI').AsInteger;
+
+          end;
         //Campo Editorial
         if (ComboBox4.Text = '') then
            raise ECampoBlanco.Create('Complete todos los campos en rojo')
@@ -707,7 +733,8 @@ begin
         memo1.Text:='';
         //Esta linea hace uso de la carga de los combobox hecha en el inicio del formulario
         //hay q revisar la forma de que esta hecha por una mas sencilla pero andar anda.
-        FormActivate(nil);
+        //FormActivate(nil);
+        //Esto es una cabezeada de las mas grande pero no discuto con los resultados
       except
         on E:ECampoBlanco do
           begin
@@ -779,9 +806,10 @@ begin
          end;
         on E: EfueraDeRango do
           begin
+            edit6.Text:='';
             showmessage (E.Message);
             DataModule1.ADOLibro.Cancel;
-            edit6.Text:='';
+
           end;
         on E:EPentakill do
           begin
@@ -793,15 +821,9 @@ begin
             DataModule1.ADOLibro.Cancel;
           end;
       end;
-    end
-   else
-    begin
-      Datamodule1.ADOLibro.Cancel;
-      //Borra componentes 2000
-      Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
-      //Vuelvo a cargar los ComboBox, sino hace cagadas.
-      FormActivate(nil);
-    end;
+
+
+
    //Son todos putos por hacerme hacer estoo!
 end;
 
@@ -809,7 +831,32 @@ procedure TForm4.SpeedButton4Click(Sender: TObject);
 var
   buttonSelected:integer;
 begin
-  buttonSelected:= messageDlg('¿Realmente desea Eliminar un Libro?',mtWarning,mbOkCancel,0);
+    buttonSelected:= messageDlg('¿Realmente desea Eliminar este libro de la lista para la venta?',mtWarning,mbOkCancel,0);
+      if buttonSelected = mrOk then
+        begin
+          if(DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean = true) then
+            begin
+              //Ahora solamente hago baja logica del libro osea solo cambio disponible a false, igual abajo dejo el codigo anterior por ls dudas.
+              DataModule1.ADOLibro.Edit;
+              DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:= false;
+              DataModule1.ADOLibro.Post;
+              //Limpio los componentes hasta un proximo click
+              Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+              //Informo que se realizo correctamente la baja logica
+              form6.show;
+            end
+           else
+            begin
+              showmessage('Este libro no esta a la venta, no es necesario eliminarlo');
+            end;
+        end
+       else
+        begin
+          DataModule1.ADOLibro.Cancel;
+          Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+        end;
+
+ { buttonSelected:= messageDlg('¿Realmente desea Eliminar este libro de la lista para la venta?',mtWarning,mbOkCancel,0);
   if buttonSelected = mrOk then
     begin
       try
@@ -849,12 +896,12 @@ begin
      else
         datamodule1.ADOLibro.Cancel;
 
-   end;
- end;
+     end;
+  end;   }
 end;
 procedure TForm4.SpeedButton5Click(Sender: TObject);
 begin
-memo1.Text:='';
+  memo1.Text:='';
 end;
 
 end.

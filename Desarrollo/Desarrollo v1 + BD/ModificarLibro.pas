@@ -269,7 +269,7 @@ Case Column.Index Of
   3 : DataModule1.ADOLibro.IndexFieldNames:='Etiqueta';
   4 : DataModule1.ADOLibro.IndexFieldNames:='Editorial';
   5 : DataModule1.ADOLibro.IndexFieldNames:='precio';
-  6 : DataModule1.ADOLibro.IndexFieldNames:='Autor'; // <--No , es LookUp
+
 //7 : DataModule1.ADOLibro.IndexFieldNames:='AnioEditorial';
 End;
 

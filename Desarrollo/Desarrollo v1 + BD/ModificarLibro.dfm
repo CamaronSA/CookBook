@@ -203,7 +203,7 @@ object Form4: TForm4
     ParentFont = False
   end
   object SpeedButton4: TSpeedButton
-    Left = 507
+    Left = 729
     Top = 643
     Width = 105
     Height = 41
@@ -230,7 +230,7 @@ object Form4: TForm4
     Height = 13
   end
   object SpeedButton1: TSpeedButton
-    Left = 618
+    Left = 729
     Top = 643
     Width = 105
     Height = 41
