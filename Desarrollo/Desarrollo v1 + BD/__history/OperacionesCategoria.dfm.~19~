@@ -1,9 +1,10 @@
 object FormOperacionesCategoria: TFormOperacionesCategoria
   Left = 0
   Top = 0
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Categorias'
-  ClientHeight = 406
+  ClientHeight = 440
   ClientWidth = 266
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,11 +14,12 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton3: TSpeedButton
-    Left = 144
-    Top = 353
+    Left = 169
+    Top = 399
     Width = 89
     Height = 33
     Caption = 'Cerrar'
@@ -30,8 +32,8 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnClick = SpeedButton3Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 32
-    Top = 353
+    Left = 73
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Agregar'
@@ -44,8 +46,8 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
-    Left = 32
-    Top = 353
+    Left = 73
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Modificar'
@@ -55,10 +57,11 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton1Click
   end
   object SpeedButton4: TSpeedButton
-    Left = 32
-    Top = 353
+    Left = 73
+    Top = 399
     Width = 90
     Height = 33
     Caption = 'Eliminar'
@@ -68,15 +71,16 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = SpeedButton4Click
   end
   object Label2: TLabel
     Left = 21
-    Top = 75
+    Top = 115
     Width = 73
     Height = 19
     Caption = 'Categor'#237'a:'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
+    Font.Color = -1
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -89,15 +93,15 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Height = 19
     Caption = 'Buscar:'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clPurple
+    Font.Color = -1
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 32
-    Top = 41
+    Left = 48
+    Top = 49
     Width = 170
     Height = 18
     Caption = 'Verifique el campo en rojo'
@@ -107,19 +111,47 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    Visible = False
+  end
+  object Label4: TLabel
+    Left = 64
+    Top = 84
+    Width = 126
+    Height = 14
+    Caption = '*(Campos Obligatorios)'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = 14
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
   end
   object DBGrid1: TDBGrid
     Left = 8
-    Top = 105
+    Top = 151
     Width = 250
     Height = 242
     DataSource = DataModule1.Tabla_Etiqueta
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
+    OnKeyDown = DBGrid1KeyDown
+    OnKeyUp = DBGrid1KeyUp
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'NombreEtiqueta'
+        Title.Caption = 'Categoria'
+        Width = 229
+        Visible = True
+      end>
   end
   object Edit1: TEdit
     Left = 112
@@ -133,10 +165,11 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnChange = Edit1Change
   end
   object Edit2: TEdit
-    Left = 112
-    Top = 72
+    Left = 100
+    Top = 112
     Width = 121
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -146,5 +179,20 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+  end
+  object HayLibroConCate: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select *'
+      'from Libro'
+      'Where (Etiqueta =:Dato)')
+    Left = 224
+    Top = 88
   end
 end

@@ -206,6 +206,7 @@ object FormPedidosPorFecha: TFormPedidosPorFecha
       Width = 247
       Height = 235
       DataSource = DataModule1.Tabla_FiltroFecha
+      Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       ReadOnly = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET

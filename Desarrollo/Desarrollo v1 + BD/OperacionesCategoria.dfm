@@ -133,7 +133,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Width = 250
     Height = 242
     DataSource = DataModule1.Tabla_Etiqueta
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET

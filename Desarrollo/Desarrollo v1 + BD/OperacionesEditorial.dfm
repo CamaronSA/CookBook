@@ -132,7 +132,7 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     Width = 241
     Height = 214
     DataSource = DataModule1.Tabla_Editorial
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentShowHint = False
     ReadOnly = True
     ShowHint = False
