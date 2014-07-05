@@ -16,6 +16,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     DBText1: TDBText;
     DBText2: TDBText;
@@ -26,7 +27,6 @@ type
     DBText8: TDBText;
     DBImage1: TDBImage;
     Memo1: TMemo;
-    DBText7: TDBText;
     procedure SpeedButton2Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
   private

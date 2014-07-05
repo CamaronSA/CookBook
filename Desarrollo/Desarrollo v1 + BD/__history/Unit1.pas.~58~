@@ -126,8 +126,6 @@ type
     DestacadosDisponible: TBooleanField;
     DestacadosNombreAutor: TStringField;
     DestacadosApellidoAutor: TStringField;
-    LibrosALaVentaNomAutor: TStringField;
-    LibrosALaVentaApeAutor: TStringField;
 
   private
     { Private declarations }

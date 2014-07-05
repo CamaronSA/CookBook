@@ -688,6 +688,24 @@ object DataModule1: TDataModule1
       KeyFields = 'DNIAutor'
       Lookup = True
     end
+    object LibrosALaVentaNomAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomAutor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNIAutor'
+      Lookup = True
+    end
+    object LibrosALaVentaApeAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ApeAutor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Apellido'
+      KeyFields = 'DNIAutor'
+      Lookup = True
+    end
   end
   object Tabla_LibrosALaVenta: TDataSource
     DataSet = LibrosALaVenta
