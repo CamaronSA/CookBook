@@ -81,7 +81,9 @@ begin
     begin
       form8.showmodal;
       close;
-    end;
+    end
+  else
+    showmessage('Acepte las condiciones de venta antes de continuar con la compra');
 end;
 
 //Letras, numeros, @ , - , _ y .

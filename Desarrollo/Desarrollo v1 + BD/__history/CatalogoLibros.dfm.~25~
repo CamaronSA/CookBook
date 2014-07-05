@@ -5,7 +5,7 @@ object FormCatalogoLibros: TFormCatalogoLibros
   BorderStyle = bsSingle
   Caption = 'Catalogos De Libros'
   ClientHeight = 634
-  ClientWidth = 735
+  ClientWidth = 1117
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

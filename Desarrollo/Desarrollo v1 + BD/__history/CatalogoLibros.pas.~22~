@@ -154,6 +154,7 @@ begin
      StringGrid2.Cells[2, StringGrid1.Row] := 'Autor';
      StringGrid2.Cells[3, StringGrid1.Row] := 'Editorial';
      StringGrid2.Cells[4, StringGrid1.Row] := 'Precio';
+     DataModule1.LibrosALaVenta.IndexFields:='Titulo';
 end;
 
 procedure TFormCatalogoLibros.FormCreate(Sender: TObject);
