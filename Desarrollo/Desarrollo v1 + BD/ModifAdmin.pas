@@ -241,15 +241,14 @@ end;
 procedure TFormModifAdmin.FormActivate(Sender: TObject);
 begin
   if SpeedButton1.Visible=True then begin
-    Edit2.Text:=DataModule1.ADOAdministrador.FieldByName('Nombre').AsString;
+{    Edit2.Text:=DataModule1.ADOAdministrador.FieldByName('Nombre').AsString;
     Edit3.Text:=DataModule1.ADOAdministrador.FieldByName('Apellido').AsString;
     Edit4.Text:=InttoStr(DataModule1.ADOAdministrador.FieldByName('DNI').AsInteger);
     Edit5.Text:=DataModule1.ADOAdministrador.FieldByName('Usuario').AsString;
     Edit6.Text:=DataModule1.ADOAdministrador.FieldByName('Clave').AsString;
-        DateTimePicker1.Date:=DataModule1.ADOAdministrador.FieldByName('Fecha Nacimiento').Value;
-    Edit10.Text:=DataModule1.ADOAdministrador.FieldByName('Mail').AsString;
-  end
-    else begin
+    DateTimePicker1.Date:=DataModule1.ADOAdministrador.FieldByName('Fecha Nacimiento').Value;
+    Edit10.Text:=DataModule1.ADOAdministrador.FieldByName('Mail').AsString;}
+
     Edit2.Text:='';
     Edit3.Text:='';
     Edit4.Text:='';
@@ -330,13 +329,16 @@ begin
       if (Edit5.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
       else
-        if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
-            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
-        else
-          if not (Datamodule1.ComprobarUsuario.ISEmpty) then
-            raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
-          else
-            DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
+        if (DataModule1.ADOAdministrador.FieldByName('Usuario').Value='root') then
+            raise EEsRoot.Create('No puede modificarse el usuario root')
+            else
+              if not (Datamodule1.ComprobarUsuarioAdmin.ISEmpty) then
+                raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+              else
+                if not (Datamodule1.ComprobarUsuario.ISEmpty) then
+                  raise EExisteUsuario.Create('El usuario ya se encuentra en la base de datos')
+              else
+                DataModule1.ADOAdministrador.FieldByName('Usuario').AsString:=Edit5.Text;
       //Clave
       if (Edit6.Text = '') then
          raise EEspacioBlanco.Create('Complete los campos en rojo')
@@ -356,10 +358,7 @@ begin
         else begin
           DataModule1.ADOAdministrador.FieldByName('Mail').AsString:=Edit10.Text;
           DataModule1.ADOAdministrador.Post;
-           if not DataModule1.ADOAdministrador.FieldByName('DNI').Value=StrToInt(Edit4.Text) then
-                ShowMessage('El Administrador se modificó exitosamente');
-           if DataModule1.ADOAdministrador.FieldByName('DNI').Value=StrToInt(Edit4.Text) then
-                ShowMessage('No se realizó ninguna modificación ya que la información es exactamente igual.');
+          ShowMessage('El Administrador se modificó exitosamente');
         end;
       end;
     except
@@ -398,6 +397,16 @@ begin
     end;
       on E:EFechaInvaldia do begin
          ShowMessage(E.Message);
+         datamodule1.ADOAdministrador.Cancel;
+      end;
+      on E:EEsRoot do begin
+         ShowMessage(E.Message);
+         Edit2.Text:='';
+         Edit3.Text:='';
+         Edit4.Text:='';
+         Edit5.Text:='';
+         Edit6.Text:='';
+         Edit10.Text:='';
          datamodule1.ADOAdministrador.Cancel;
       end;
 
