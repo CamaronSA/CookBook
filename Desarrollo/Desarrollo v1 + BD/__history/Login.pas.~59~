@@ -161,7 +161,6 @@ begin
       FormCatalogoLibros.SpeedButton2.Visible:=True;
       FormCatalogoLibros.SpeedButton5.Visible:=True;
       FormModifCondicionesVenta.SpeedButton1.Visible:=False;//Modificar Condiciones Venta
-      FormModifCondicionesVenta.Memo1.ReadOnly:=truE;
       FormModifCondicionesVenta.CheckBox1.Visible:=True; //Checkbox Aceptar condiciones
       FormModifCondicionesVenta.SpeedButton3.Visible:=True; //Aceptar  Condiciones Venta
       FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
@@ -193,7 +192,6 @@ begin
             FormCatalogoLibros.SpeedButton5.Visible:=True;
             FormModifCondicionesVenta.SpeedButton1.Visible:=True;//Modificar Condiciones Venta
             FormModifCondicionesVenta.CheckBox1.Visible:=False; //Checkbox Aceptar condiciones
-            FormModifCondicionesVenta.Memo1.ReadOnly:=false;
             FormModifCondicionesVenta.SpeedButton3.Visible:=False; //Aceptar  Condiciones Venta
             FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
             FormModifCondicionesventa.SpeedButton2.Caption:='Volver';//Rechazar  Condiciones Venta
@@ -225,7 +223,6 @@ begin
           FormModifCondicionesVenta.SpeedButton1.Visible:=True;//Modificar Condiciones Venta
           FormModifCondicionesVenta.CheckBox1.Visible:=False; //Checkbox Aceptar condiciones
           FormModifCondicionesVenta.SpeedButton3.Visible:=False; //Aceptar  Condiciones Venta
-          FormModifCondicionesVenta.Memo1.ReadOnly:=false;
           FormModifCondicionesventa.SpeedButton2.Visible:=True;//Rechazar  Condiciones Venta
           FormModifCondicionesventa.SpeedButton2.Caption:='Volver';//Rechazar  Condiciones Venta
           FormPrincipal.ShowModal;
