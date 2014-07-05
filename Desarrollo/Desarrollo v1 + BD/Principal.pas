@@ -20,7 +20,6 @@ type
     User1: TMenuItem;
     MisDatos1: TMenuItem;
     Ayuda1: TMenuItem;
-    Cargadeformularios1: TMenuItem;
     Label1: TLabel;
     SpeedButton3: TSpeedButton;
     Modificarmisdatos1: TMenuItem;
@@ -41,6 +40,9 @@ type
     Catalogodelibros1: TMenuItem;
     Contacto1: TMenuItem;
     Cerrarsesin1: TMenuItem;
+    ransacciones2: TMenuItem;
+    Usuario1: TMenuItem;
+    Cmocompro1: TMenuItem;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -69,6 +71,9 @@ type
     procedure Catalogodelibros1Click(Sender: TObject);
     procedure Contacto1Click(Sender: TObject);
     procedure Cerrarsesin1Click(Sender: TObject);
+    procedure Usuario1Click(Sender: TObject);
+    procedure ransacciones2Click(Sender: TObject);
+    procedure Cmocompro1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -204,6 +209,22 @@ procedure TFormPrincipal.Cerrarsesin1Click(Sender: TObject);
 begin
 Application.HelpCommand(HELP_CONTEXT,110);
 end;
+
+procedure TFormPrincipal.Cmocompro1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,120);
+end;
+
+procedure TFormPrincipal.Usuario1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,130);
+end;
+
+procedure TFormPrincipal.ransacciones2Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,140);
+end;
+
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
 var buttonSelected:Integer; DNI:Integer;
@@ -390,7 +411,5 @@ begin
   FormPrincipal.Close;
   FormLogin.Close;
 end;
-
-
-
+
 end.
