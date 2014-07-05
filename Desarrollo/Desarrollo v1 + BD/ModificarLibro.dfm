@@ -324,20 +324,20 @@ object Form4: TForm4
       item
         Expanded = False
         FieldName = 'Idioma'
-        Width = 95
+        Width = 129
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Etiqueta'
         Title.Caption = 'Categoria'
-        Width = 119
+        Width = 135
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Editorial'
-        Width = 95
+        Width = 134
         Visible = True
       end
       item
@@ -357,27 +357,14 @@ object Form4: TForm4
         Expanded = False
         FieldName = 'NomAutor'
         Title.Caption = 'Nombre Autor'
-        Width = 118
+        Width = 158
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Autor'
         Title.Caption = 'Apellido Autor'
-        Width = 126
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'EsDestacado'
-        Title.Caption = 'Destacado'
-        Width = 74
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Disponible'
-        Width = 82
+        Width = 146
         Visible = True
       end>
   end
