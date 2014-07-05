@@ -487,9 +487,6 @@ begin
       else
           DataModule1.ComprobarUsuario.FieldByName('Fecha Nacimiento').AsDateTime:=DateTimePicker1.Date;
     DataModule1.ComprobarUsuario.Post;
-    ShowMessage('Sus datos han sido modificados, debe reloguear para que se carguen correctamente');
-    Close;
-    FormPrincipal.Close;
   //Vuelvo a mostrar "SOLO VER"
     SpeedButton1.Visible:=False;
     SpeedButton2.Visible:=False;

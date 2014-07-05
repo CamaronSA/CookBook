@@ -244,8 +244,6 @@ begin
   FormPrincipal.SpeedButton3.Visible:=True;
   FormPrincipal.SpeedButton2.Enabled:=True;
   FormPrincipal.SpeedButton2.Visible:=True;
-  FormPrincipal.SpeedButton1.Enabled:=True;
-  FormPrincipal.SpeedButton1.Visible:=True;
   FormPrincipal.Menu:=FormPrincipal.MainMenu1;
   FormPrincipal.User1.Visible:=False;
   FormPrincipal.ransacciones1.Visible:=False;
