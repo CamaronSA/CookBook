@@ -1,12 +1,12 @@
 object FrmMensajeConTemporizador: TFrmMensajeConTemporizador
-  Left = 990
-  Top = 776
+  Left = 920
+  Top = 352
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Aviso'
-  ClientHeight = 30
-  ClientWidth = 252
-  Color = clInfoBk
+  ClientHeight = 26
+  ClientWidth = 175
+  Color = 5690156
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11

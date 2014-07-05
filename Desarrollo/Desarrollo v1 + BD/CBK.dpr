@@ -31,7 +31,8 @@ uses
   CambiarClave in 'CambiarClave.pas' {FormCambiarClave},
   CambioClave in 'CambioClave.pas' {FormCambioClave},
   Unit8 in 'Unit8.pas' {Form8},
-  DetalleDestacado in 'DetalleDestacado.pas' {FormDetalleDestacado};
+  DetalleDestacado in 'DetalleDestacado.pas' {FormDetalleDestacado},
+  Unit9 in 'Unit9.pas' {Form9};
 
 {$R *.res}
 
@@ -69,5 +70,6 @@ begin
   Application.CreateForm(TFormCambioClave, FormCambioClave);
   Application.CreateForm(TForm8, Form8);
   Application.CreateForm(TFormDetalleDestacado, FormDetalleDestacado);
+  Application.CreateForm(TForm9, Form9);
   application.Run;
 end.

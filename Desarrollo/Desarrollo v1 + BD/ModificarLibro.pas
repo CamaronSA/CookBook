@@ -99,7 +99,7 @@ var
   arch:string;   // aca enconte esto lo puse pero ahora no se bien que hace, no borrar.
 implementation
 
-uses Unit5, Unit6;
+uses Unit5, Unit6, Unit9;
 
 {$R *.dfm}
 
@@ -503,10 +503,12 @@ begin
         else
           begin
             // esto anda, pero si pueden revisen, if de abajo, testea que si el q estamos modificando es el mismo numero por el mismo numero no grite el programa.
-              if (strtoint(edit2.Text) = DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
-                 if not (DataModule1.ComprobarLibro.IsEmpty) then
+              if  (strtoint(edit2.Text) <> DataModule1.ADOLibro.FieldByName('ISBN').AsInteger) then begin
                 //Esta except verifica que no tengamos dos isbn iguales en la bd
+                 if not (DataModule1.ComprobarLibro.IsEmpty) then
                     raise EPentakill.Create('Este Libro ya esta en la base de datos, esta intentando ingresar un numero de ISBN que ya existe')
+                 else
+                    DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text)
                  end
               else
                 DataModule1.ADOLibro.FieldByName('ISBN').AsInteger:=StrToInt(edit2.Text);
@@ -519,20 +521,19 @@ begin
         //Anio Edicion  Posibles errores 7kk y contando.
 
         //Si esta el 0 es porq  la carga anterio lo puso, o por que el usuario puso 0 sin darse cuenta entonces dejo lo que estaba.-
-        if (StrToInt(edit6.Text) = 0) then
+        {if (StrToInt(edit6.Text) = 0) then
           DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:= DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger
-        else
-        if (edit6.Text  <> '' )  then
+        else       }
+        if (edit6.Text  = '' ) or (strtoint(edit6.Text) = 0) then
+          DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:= 0
          // aca es distinto por que puede ser que el user lo deje en blanco!, pero si lo completa q no amnde fruta.
-        begin
-         if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
-
+        else
+         begin
+          if ((strtoint(edit6.Text) > 4000) or ((strtoint(edit6.Text) < 1500))) then
             raise EFueraDeRango.Create('El año que intenta ingresar es invalido')
-         else
+          else
            DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=StrToInt(edit6.Text);
-         end
-         else     // ya si pasa todas esas cosas merece entrar...
-            DataModule1.ADOLibro.FieldByName('AnioEditorial').AsInteger:=0;
+          end;
         //Campo Precio
         if (edit10.Text = '') then
           DataModule1.ADOLibro.FieldByName('Precio').AsCurrency:=DataModule1.ADOLibro.FieldByName('Precio').AsCurrency
@@ -544,7 +545,7 @@ begin
         //Campo Descripcion
         DataModule1.ADOLibro.FieldByName('Descripcion').AsString:=memo1.Text;
         Datamodule1.ADOLibro.Post;
-        showmessage ('Su libro fue agregado correctamente');
+        Form9.show;
         edit2.Text:='';
         edit3.Text:='';
         edit10.Text:='';
@@ -580,11 +581,11 @@ begin
          end;
         on E: EfueraDeRango do
           begin
+            edit6.Text:='';
             label12.Visible:=true;
             label4.Font.Color:=clred;
             showmessage (E.Message);
             DataModule1.ADOLibro.Cancel;
-            edit6.Text:='';
           end;
         on E:EPentakill do
           begin
@@ -805,9 +806,10 @@ begin
          end;
         on E: EfueraDeRango do
           begin
+            edit6.Text:='';
             showmessage (E.Message);
             DataModule1.ADOLibro.Cancel;
-            edit6.Text:='';
+
           end;
         on E:EPentakill do
           begin
@@ -832,14 +834,21 @@ begin
     buttonSelected:= messageDlg('¿Realmente desea Eliminar este libro de la lista para la venta?',mtWarning,mbOkCancel,0);
       if buttonSelected = mrOk then
         begin
-          //Ahora solamente hago baja logica del libro osea solo cambio disponible a false, igual abajo dejo el codigo anterior por ls dudas.
-          DataModule1.ADOLibro.Edit;
-          DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:= false;
-          DataModule1.ADOLibro.Post;
-          //Limpio los componentes hasta un proximo click
-          Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
-          //Informo que se realizo correctamente la baja logica
-          form6.show;
+          if(DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean = true) then
+            begin
+              //Ahora solamente hago baja logica del libro osea solo cambio disponible a false, igual abajo dejo el codigo anterior por ls dudas.
+              DataModule1.ADOLibro.Edit;
+              DataModule1.ADOLibro.FieldByName('Disponible').AsBoolean:= false;
+              DataModule1.ADOLibro.Post;
+              //Limpio los componentes hasta un proximo click
+              Limpieza (ComboBox1,ComboBox2,ComboBox3,ComboBox4,comboBox5,comboBox6,Edit2,Edit3,Edit6,Edit10,Memo1,Image1);
+              //Informo que se realizo correctamente la baja logica
+              form6.show;
+            end
+           else
+            begin
+              showmessage('Este libro no esta a la venta, no es necesario eliminarlo');
+            end;
         end
        else
         begin

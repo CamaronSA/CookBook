@@ -165,9 +165,9 @@ object Form4: TForm4
   object Label12: TLabel
     Left = 377
     Top = 80
-    Width = 163
+    Width = 361
     Height = 13
-    Caption = 'Complete los campos en rojo'
+    Caption = 'Verifique que los campos en rojo esten correctamente cargados'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11

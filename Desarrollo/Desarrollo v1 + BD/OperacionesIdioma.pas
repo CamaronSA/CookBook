@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, StdCtrls, Buttons, PanelAdministracion;
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons, PanelAdministracion, DB, ADODB;
 
 type
   EUsado = class (Exception) ;
@@ -23,6 +23,7 @@ type
     Label3: TLabel;
     SpeedButton4: TSpeedButton;
     Label4: TLabel;
+    HayLiborsCnIdioma: TADOQuery;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
@@ -45,7 +46,7 @@ type
 
 var
   FormVerIdioma: TFormVerIdioma;
-
+  idiomaViejo:String;
 implementation
 
 uses Unit1;
@@ -54,6 +55,7 @@ uses Unit1;
 
 procedure TFormVerIdioma.DBGrid1CellClick(Column: TColumn);
 begin
+  idiomaViejo:=DataModule1.ADOIdioma.FieldByName('Idioma').AsString;
   if (speedbutton2.Visible = false) then
     edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
 end;
@@ -61,6 +63,7 @@ end;
 procedure TFormVerIdioma.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+  idiomaViejo:=DataModule1.ADOIdioma.FieldByName('Idioma').AsString;
   if (speedbutton2.Visible = false) then
     edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
 end;
@@ -68,6 +71,7 @@ end;
 procedure TFormVerIdioma.DBGrid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+  idiomaViejo:=DataModule1.ADOIdioma.FieldByName('Idioma').AsString;
   if (speedbutton2.Visible = false) then
      edit2.Text:= datamodule1.ADOIdioma.FieldByName('Idioma').AsString;
 end;
@@ -123,11 +127,16 @@ end;
 //********Neg***********//
 procedure TFormVerIdioma.SpeedButton1Click(Sender: TObject);
 var
-  buttonSelected:integer;
+  buttonSelected,ButtonSelected2:integer;
+  ISBNActual:string;
 begin
 buttonSelected:= messageDlg('¿Realmente desea modificar este idioma?',mtWarning,mbOkCancel,0);
   if buttonSelected = mrOk then
     begin
+       HayLiborsCnIdioma.Close;
+       HayLiborsCnIdioma.Parameters.ParamByName('Dato').Value:= idiomaViejo; //var aca;
+       HayLiborsCnIdioma.Open;
+       HayLiborsCnIdioma.Active:=true;
        DataModule1.ComprobarIdioma.close;
        DataModule1.ComprobarIdioma.Parameters.ParamByName('consultarIdioma').value:=edit2.Text;
        DataModule1.ComprobarIdioma.open;
@@ -139,12 +148,51 @@ buttonSelected:= messageDlg('¿Realmente desea modificar este idioma?',mtWarning,
           if not (Datamodule1.ComprobarIdioma.ISEmpty) then
               raise EYaHayIdioma.Create('Ese idioma ya esta incluido en la tabla')
            else
-             begin
-                datamodule1.ADOIdioma.FieldByName('Idioma').AsString:=edit2.Text;
-                datamodule1.ADOIdioma.Post;
-                edit2.Text:='';
-                showMessage ('Se modifico el idioma correctamente') ;
-             end;
+             if not (HayLiborsCnIdioma.IsEmpty) then
+               begin
+                 ButtonSelected2:=messageDlg('Este idioma esta siendo usado por un libro o varios libros, ¿seguro desea modificar?',mtWarning,mbOkCancel,0);
+                  if ( ButtonSelected2 = mrOK ) then
+                    begin
+                       HayLiborsCnIdioma.First;
+                       while NOT ( HayLiborsCnIdioma.Eof ) do
+                          begin
+                            //Eto mismo se puede hacer con un update pero tarda mucho tiempo
+                            // En la siguente linea cargo el ISBN actual de la consulta para modificarlo
+                            ISBNActual:=IntToStr(HayLiborsCnIdioma.FieldByName('ISBN').AsInteger);
+                            //Filtro la tabla Libro , atento por que aca empieza la magia.
+                            DataModule1.ADOLibro.Filter:='ISBN ='+ quotedstr(ISBNActual);
+                            DataModule1.ADOLibro.Filtered:=true;
+                            DataModule1.ADOLibro.Edit;
+                            //Alta cagada me mande en vez de poner Editorial habia puesto idioma, ojo con eso :D
+                            DataModule1.ADOLibro.FieldByName('Idioma').AsString:=edit2.Text;
+                            DataModule1.ADOLibro.Post;
+                            //Os recomiendo sacar el filtro a la tabla y ponerlo en nil sino el noble caballero q abra libro putiara libre mente por el prado.
+                            DataModule1.ADOLibro.Filter:='';
+                            DataModule1.ADOLibro.Filtered:=false;
+                            //siguente registro
+                            HayLiborsCnIdioma.Next;
+                          end;
+                   //  datamodule1.ADOIdioma.Edit;
+                       datamodule1.ADOIdioma.FieldByName('Idioma').AsString:=edit2.Text;
+                       datamodule1.ADOIdioma.Post;
+                       edit2.Text:='';
+                       showMessage ('Se modifico el idioma correctamente') ;
+                   end
+                  else
+                    begin
+                      DataModule1.ADOIdioma.Cancel;
+                      edit2.Text:='';
+                    end;
+
+               end
+             else
+                begin
+                    datamodule1.ADOIdioma.Edit;
+                    datamodule1.ADOIdioma.FieldByName('Idioma').AsString:=edit2.Text;
+                    datamodule1.ADOIdioma.Post;
+                    edit2.Text:='';
+                    showMessage ('Se modifico el idioma correctamente') ;
+                 end;
       except
         on E: EspacioBlanco do
           begin

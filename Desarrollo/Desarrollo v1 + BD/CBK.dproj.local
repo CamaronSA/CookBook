@@ -155,5 +155,7 @@
     <File Path="Unit8.dfm"/>
     <File Path="DetalleDestacado.pas"/>
     <File Path="DetalleDestacado.dfm"/>
+    <File Path="Unit9.pas"/>
+    <File Path="Unit9.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

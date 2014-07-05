@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, DBGrids;
+  Dialogs, StdCtrls, Buttons, Grids, DBGrids, DB, ADODB;
 
 type
   EUsado = Class (Exception);
@@ -23,6 +23,7 @@ type
     Label3: TLabel;
     SpeedButton4: TSpeedButton;
     Label4: TLabel;
+    HayLibroConCate: TADOQuery;
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
@@ -44,7 +45,7 @@ type
 
 var
   FormOperacionesCategoria: TFormOperacionesCategoria;
-
+  CategoriaVieja:String;
 implementation
 
 uses Unit1;
@@ -53,18 +54,21 @@ uses Unit1;
 
 procedure TFormOperacionesCategoria.DBGrid1CellClick(Column: TColumn);
 begin
+  CategoriaVieja:=DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
   if (SpeedButton2.Visible = false) then
          Edit2.Text:= DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
 end;
 
 procedure TFormOperacionesCategoria.DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
-if (SpeedButton2.Visible = false) then
+    CategoriaVieja:=DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
+    if (SpeedButton2.Visible = false) then
          Edit2.Text:= DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
 end;
 
 procedure TFormOperacionesCategoria.DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
+    CategoriaVieja:=DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
    if (SpeedButton2.Visible = false) then
         edit2.Text:= DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString;
 end;
@@ -112,27 +116,72 @@ begin
 end;
 
 procedure TFormOperacionesCategoria.SpeedButton1Click(Sender: TObject);
-var buttonSelected: integer;
+var buttonSelected,ButtonSelected2: integer;
+ISBNActual:string;
 begin
+
   buttonSelected := messageDlg('¿Realmente desea modificar esta categoria?', mtWarning, mbOkCancel, 0);
   if buttonSelected = mrOk then
-     begin
-       DataModule1.ComprobarCategoria.close;
-       DataModule1.ComprobarCategoria.Parameters.ParamByName('ConsultarCategoria').value:= Edit2.Text;
-       DataModule1.ComprobarCategoria.open;
-       try
-       DataModule1.ADOEtiqueta.Edit;
+      try
+      HayLibroConCate.Close;
+      HayLibroConCate.Parameters.ParamByName('Dato').Value:= CategoriaVieja;
+      HayLibroConCate.Open;
+      DataModule1.ComprobarCategoria.close;
+      DataModule1.ComprobarCategoria.Parameters.ParamByName('ConsultarCategoria').value:= Edit2.Text;
+      DataModule1.ComprobarCategoria.open;
+
+      DataModule1.ADOEtiqueta.Edit;
        if (Edit2.Text = '') then
            raise EspacioBlanco.Create('No deje campos en blanco')
        else
           if not (DataModule1.ComprobarCategoria.IsEmpty) then
               raise EYaHayCategoria.Create('Esta categoría ya está incluida en la tabla')
           else
-          begin
-              DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString := Edit2.Text;
-              DataModule1.ADOEtiqueta.Post;
-              Edit2.Text:= '';
-              ShowMessage ('Se modificó la categoría correctamente');
+            begin
+              if not ( HayLibroConCate.isEmpty ) then
+                begin
+                  ButtonSelected2 := messageDlg('Esta categoria esta siendo usada por un libro o varios libros, ¿seguro desea modificar?',mtWarning,mbOkCancel,0);
+                      if ( ButtonSelected2 = mrOK ) then
+                        begin
+                           HayLibroConCate.First;
+                           while NOT ( HayLibroConCate.Eof ) do
+                              begin
+                                //Eto mismo se puede hacer con un update pero tarda mucho tiempo
+                                // En la siguente linea cargo el ISBN actual de la consulta para modificarlo
+                                ISBNActual:=IntToStr(HayLibroConCate.FieldByName('ISBN').AsInteger);
+                                //Filtro la tabla Libro , atento por que aca empieza la magia.
+                                DataModule1.ADOLibro.Filter:='ISBN ='+ quotedstr(ISBNActual);
+                                DataModule1.ADOLibro.Filtered:=true;
+                                DataModule1.ADOLibro.Edit;
+                                //Alta cagada me mande en vez de poner Editorial habia puesto idioma, ojo con eso :D
+                                DataModule1.ADOLibro.FieldByName('Etiqueta').AsString:=edit2.Text;
+                                DataModule1.ADOLibro.Post;
+                                //Os recomiendo sacar el filtro a la tabla y ponerlo en nil sino el noble caballero q abra libro putiara libre mente por el prado.
+                                DataModule1.ADOLibro.Filter:='';
+                                DataModule1.ADOLibro.Filtered:=false;
+                                //siguente registro
+                                HayLibroConCate.Next;
+                              end;
+                            DataModule1.ADOEtiqueta.Edit;
+                            DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString := Edit2.Text;
+                            DataModule1.ADOEtiqueta.Post;
+                            Edit2.Text:= '';
+                            ShowMessage ('Se modificó la categoría correctamente');
+                        end
+                  else
+                    begin
+                      DataModule1.ADOEtiqueta.Cancel;
+                      edit2.Text:='';
+                    end;
+            end
+            else
+              begin
+                 DataModule1.ADOEtiqueta.Edit;
+                 DataModule1.ADOEtiqueta.FieldByName('NombreEtiqueta').AsString := Edit2.Text;
+                 DataModule1.ADOEtiqueta.Post;
+                 Edit2.Text:= '';
+                 ShowMessage ('Se modificó la categoría correctamente');
+              end;
            end;
        except
            on E: EspacioBlanco do
@@ -152,12 +201,11 @@ begin
                 DataModule1.ADOEtiqueta.Cancel;
               end;
        end;
-     end
-   else
-     begin
-       Edit2.Text := '';
-       DataModule1.ADOEtiqueta.Cancel;
-     end;
+
+
+
+
+  
 end;
 
  procedure TFormOperacionesCategoria.SpeedButton2Click(Sender: TObject);

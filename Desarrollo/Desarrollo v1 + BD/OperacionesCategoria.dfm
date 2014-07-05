@@ -18,7 +18,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton3: TSpeedButton
-    Left = 144
+    Left = 169
     Top = 399
     Width = 89
     Height = 33
@@ -32,7 +32,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnClick = SpeedButton3Click
   end
   object SpeedButton2: TSpeedButton
-    Left = 48
+    Left = 73
     Top = 399
     Width = 90
     Height = 33
@@ -46,7 +46,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
-    Left = 48
+    Left = 73
     Top = 399
     Width = 90
     Height = 33
@@ -60,7 +60,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     OnClick = SpeedButton1Click
   end
   object SpeedButton4: TSpeedButton
-    Left = 48
+    Left = 73
     Top = 399
     Width = 90
     Height = 33
@@ -100,8 +100,8 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 32
-    Top = 41
+    Left = 48
+    Top = 49
     Width = 170
     Height = 18
     Caption = 'Verifique el campo en rojo'
@@ -141,6 +141,9 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
+    OnKeyDown = DBGrid1KeyDown
+    OnKeyUp = DBGrid1KeyUp
     Columns = <
       item
         Expanded = False
@@ -176,5 +179,20 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+  end
+  object HayLibroConCate: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select *'
+      'from Libro'
+      'Where (Etiqueta =:Dato)')
+    Left = 224
+    Top = 88
   end
 end

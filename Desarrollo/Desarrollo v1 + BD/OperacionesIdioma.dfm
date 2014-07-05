@@ -19,7 +19,7 @@ object FormVerIdioma: TFormVerIdioma
   TextHeight = 13
   object SpeedButton1: TSpeedButton
     Left = 8
-    Top = 366
+    Top = 369
     Width = 90
     Height = 33
     Caption = 'Modificar'
@@ -33,7 +33,7 @@ object FormVerIdioma: TFormVerIdioma
   end
   object SpeedButton2: TSpeedButton
     Left = 8
-    Top = 366
+    Top = 369
     Width = 90
     Height = 33
     Caption = 'Agregar'
@@ -47,7 +47,7 @@ object FormVerIdioma: TFormVerIdioma
   end
   object SpeedButton3: TSpeedButton
     Left = 114
-    Top = 366
+    Top = 369
     Width = 89
     Height = 33
     Caption = 'Volver'
@@ -102,7 +102,7 @@ object FormVerIdioma: TFormVerIdioma
   end
   object SpeedButton4: TSpeedButton
     Left = 8
-    Top = 366
+    Top = 369
     Width = 90
     Height = 33
     Caption = 'Eliminar'
@@ -162,7 +162,7 @@ object FormVerIdioma: TFormVerIdioma
   end
   object DBGrid1: TDBGrid
     Left = 8
-    Top = 122
+    Top = 114
     Width = 195
     Height = 238
     DataSource = DataModule1.Tabla_Idioma
@@ -183,5 +183,20 @@ object FormVerIdioma: TFormVerIdioma
         Width = 169
         Visible = True
       end>
+  end
+  object HayLiborsCnIdioma: TADOQuery
+    Connection = DataModule1.SoyUnaConeccion
+    Parameters = <
+      item
+        Name = 'Dato'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'Select * '
+      'from Libro'
+      'where (Idioma =:Dato)')
+    Left = 168
+    Top = 272
   end
 end
