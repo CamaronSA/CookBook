@@ -151,11 +151,6 @@ begin
           //Limpia la lista
          L:=nil;
          aux:=nil;
-         formCatalogoLibros.Label7.Caption:='';
-         formCatalogoLibros.Label10.Caption:='';
-         formCatalogoLibros.Label11.Caption:='';
-         formCatalogoLibros.Label12.Caption:='';
-         formCatalogoLibros.Label8.Caption:='';
          close;
   except
      on E: EBlanco do

@@ -2,36 +2,30 @@
 ; Created by HelpMaker 7.4.4.0
 
 [OPTIONS]
-HCW=0
 TITLE=AyudaUsuario
-CONTENTS=Login
-COPYRIGHT=Copyright © 2014 CamaronSA
-REPORT=YES
-FTS=1
-COMPRESS=12 Hall Zeck
-LCID=0x409 0x6 0x00 English (United States)
-ERRORLOG=C:\DOCUME~1\ALEJAN~1\ESCRIT~1\DESARR~3\ayudausuario_tmphpj\ayudausuario.log
-BMROOT=C:\DOCUME~1\ALEJAN~1\ESCRIT~1\DESARR~3\AYUDAU~1\
-
-HLP=C:\DOCUME~1\ALEJAN~1\ESCRIT~1\DESARR~3\ayudausuario_tmphpj\ayudausuario.hlp
-CNT=C:\DOCUME~1\ALEJAN~1\ESCRIT~1\DESARR~3\ayudausuario_tmphpj\ayudausuario.cnt
+CONTENTS=Registrarse
+COPYRIGHT=Copyright © 2009 by ...
+ERRORLOG=ayudausuario.log
+HLP=ayudausuario.hlp
 
 [FILES]
-C:\DOCUME~1\ALEJAN~1\ESCRIT~1\DESARR~3\ayudausuario_tmphpj\ayudausuario.rtf
+ayudausuario.rtf
 
 [WINDOWS]
-Main="Main",(9,9,557,591),24068,(255,252,234),(192,192,192),f3
-Popup="Popup",(9,9,557,591),24068,(255,252,234),(192,192,192),f3
+Main="Main",(,,,),19972,(255,252,234),(192,192,192),f3
+Popup="Popup",(,,,),19972,(255,252,234),(192,192,192),f3
 
 [MAP]
-NuestraEmpresa = 20
 Login = 50
 Visitante = 60
 Registrarse = 70
 Recuperarclave = 80
+cerrar-sesión = 110
+usuario = 130
+transacciones = 140
 Contacto = 90
 CatalogodeLibros = 100
-cerrar-sesión = 110
+cómo-compro = 120
 
 
 [OPTIONS]
