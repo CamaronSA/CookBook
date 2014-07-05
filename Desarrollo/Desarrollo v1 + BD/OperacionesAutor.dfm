@@ -153,7 +153,7 @@ object Form3: TForm3
     end
     object SpeedButton3: TSpeedButton
       Left = 87
-      Top = 274
+      Top = 278
       Width = 122
       Height = 38
       Caption = 'Agregar'
@@ -167,7 +167,7 @@ object Form3: TForm3
     end
     object SpeedButton4: TSpeedButton
       Left = 88
-      Top = 278
+      Top = 222
       Width = 121
       Height = 38
       Caption = 'Eliminar'

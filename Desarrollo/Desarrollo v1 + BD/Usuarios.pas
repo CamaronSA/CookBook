@@ -748,21 +748,31 @@ end;
 
 procedure TFormUsuarios.SpeedButton4Click(Sender: TObject);
 begin
-
+  // consulta para ver si el usuario esta en uso.
   usuarioDisponible.Close;
   usuarioDisponible.Parameters.ParamByName('usuario').Value:= edit5.Text;
   usuarioDisponible.Open;
 
-  if not (usuarioDisponible.IsEmpty) then
+  // pregunto si el usuario esta siendo usado o si el usuario que puse es
+  //igual al que ya tenia
+  if (edit5.Text = datamodule1.ADOCliente.FieldByName('usuario').AsString) or
+    (usuarioDisponible.IsEmpty) then
   begin
-    showmessage('El nombre de usuario se encuentra en uso actualmente, intente con otro');
-    speedbutton1.Enabled:= false;
-  end
-  else
-    if usuarioDisponible.IsEmpty then
-    begin
+  // si es igual al que ya tenia o no esta usado pregunto si el campo esta en blanco
+    if (edit5.Text = '') then
+    // si deje el campo usuario en blanco
+      showmessage ('No se puede dejar el usuario en blanco')
+    else begin
+    // sino lo deje en blanco y se cumple lo anterior
       showmessage ('El usuario se encuentra disponible');
       speedbutton1.Enabled:=true;
+    end;
+  end
+  else
+  // si el usuario esta en uso
+    begin
+      showmessage('El nombre de usuario se encuentra en uso actualmente, intente con otro');
+      speedbutton1.Enabled:= false;
     end;
 
 end;

@@ -134,7 +134,6 @@ object FormCambioClave: TFormCambioClave
     Top = 116
     Width = 168
     Height = 27
-    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

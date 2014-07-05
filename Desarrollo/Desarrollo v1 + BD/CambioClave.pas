@@ -7,6 +7,8 @@ uses
   Dialogs, Buttons, StdCtrls;
 
 type
+  EclavesDistintas = Class (exception);
+  EClavesEnBlanco = Class (exception);
   TFormCambioClave = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
@@ -39,15 +41,15 @@ uses Unit1, Usuarios;
 
 procedure TFormCambioClave.Edit2Change(Sender: TObject);
 begin
-  if edit2.Text <> '' then
+{  if edit2.Text <> '' then
      edit3.Enabled:=true
      else
-      edit3.Enabled:=false;
+      edit3.Enabled:=false;     }
 end;
 
 procedure TFormCambioClave.Edit3Change(Sender: TObject);
 begin
-  if edit2.Text = edit3.Text then
+{  if edit2.Text = edit3.Text then
   begin
     speedbutton1.Enabled:=true;
     label4.Visible:=false;
@@ -61,7 +63,7 @@ begin
    if edit3.Text <> '' then
      edit2.Enabled:= false
    else
-      edit2.Enabled:= true;
+      edit2.Enabled:= true;  }
 end;
 
 procedure TFormCambioClave.FormActivate(Sender: TObject);
@@ -73,8 +75,26 @@ end;
 
 procedure TFormCambioClave.SpeedButton1Click(Sender: TObject);
 begin
-  formusuarios.edit6.text:=edit2.Text;
-  formCambioClave.Close;
+try
+
+  //verificacion de clave, que no haya campos en blanco y que coincidan
+  if ((edit2.Text = '') or (edit3.Text = '')) then
+    raise EclavesEnBlanco.Create('No se puede modificar las claves si hay campos en blanco')
+    else if (edit2.Text <> edit3.Text) then
+      raise EclavesDistintas.Create('Las claves no coinciden, verificar nuevamente los datos')
+      else begin
+        formusuarios.edit6.text:=edit2.Text;
+        formCambioClave.Close;
+      end;
+
+  except
+  on E: EclavesDistintas do
+    showmessage(E.Message);
+
+  on E : EClavesEnBlanco do
+    showmessage(E.message);
+
+end;
 end;
 
 procedure TFormCambioClave.SpeedButton2Click(Sender: TObject);
