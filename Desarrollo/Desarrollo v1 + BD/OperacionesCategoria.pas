@@ -283,7 +283,7 @@ begin
        if (DataModule1.ADOEtiqueta.IsEmpty) then
           raise EEliminarVacio.Create('No se puede eliminar porque no hay datos')
        else
-          if  (DataModule1.CategoriaEstaEnLiBRO.IsEmpty) then
+          if not (DataModule1.CategoriaEstaEnLiBRO.IsEmpty) then
             raise EUsado.Create('Actualmente la categoria se está usando en un libro')
           else
              begin
