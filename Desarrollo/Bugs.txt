@@ -83,3 +83,6 @@
 --CatalogoDeLibros
 	- No anda la busqueda por Autor.
 	- Falta las Condicines de compra. [Fixed]
+
+--PedidosPorFecha
+	-Visualizacion PedidosPorFecha, arregle DBGrid y DBLabels [FIXED]
