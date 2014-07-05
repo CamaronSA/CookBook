@@ -240,12 +240,6 @@ end;
 
 procedure TFormModifAdmin.FormActivate(Sender: TObject);
 begin
-    Edit2.Text:='';
-    Edit3.Text:='';
-    Edit4.Text:='';
-    Edit5.Text:='';
-    Edit6.Text:='';
-    Edit10.Text:='';
   if SpeedButton1.Visible=True then begin
 {    Edit2.Text:=DataModule1.ADOAdministrador.FieldByName('Nombre').AsString;
     Edit3.Text:=DataModule1.ADOAdministrador.FieldByName('Apellido').AsString;
