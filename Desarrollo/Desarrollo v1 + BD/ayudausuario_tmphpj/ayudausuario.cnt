@@ -1,0 +1,12 @@
+:Base ayudausuario.hlp
+1 Bienvenida
+2 Nuestra Empresa=NuestraEmpresa>Main
+1 Cookbook
+2 Login=Login>Main
+2 Visitante=Visitante>Main
+2 Registrarse=Registrarse>Main
+2 Recuperar clave=Recuperarclave>Main
+2 Contacto=Contacto>Main
+2 Catalogo de Libros=CatalogodeLibros>Main
+2 Cerrar sesión=cerrar-sesión>Main
+

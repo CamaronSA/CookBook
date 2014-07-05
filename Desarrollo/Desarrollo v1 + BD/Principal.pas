@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, pngimage, ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons, Grids, DBGrids,
-  PanelAdministracion, Contacto, Menus, JPEG;
+  PanelAdministracion, Contacto, Menus, JPEG,WinHelpViewer, HtmlHelpViewer;
 
 type
     EPedidosPendientes=class(exception);
@@ -35,6 +35,12 @@ type
     Image4: TImage;
     Image5: TImage;
     Image6: TImage;
+    Visitante1: TMenuItem;
+    Registrarse1: TMenuItem;
+    Recuperarclave1: TMenuItem;
+    Catalogodelibros1: TMenuItem;
+    Contacto1: TMenuItem;
+    Cerrarsesin1: TMenuItem;
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -56,6 +62,13 @@ type
     procedure Image5Click(Sender: TObject);
     procedure Image6Click(Sender: TObject);
     procedure ImagenesVisibles;
+    procedure Cargadeformularios1Click(Sender: TObject);
+    procedure Visitante1Click(Sender: TObject);
+    procedure Registrarse1Click(Sender: TObject);
+    procedure Recuperarclave1Click(Sender: TObject);
+    procedure Catalogodelibros1Click(Sender: TObject);
+    procedure Contacto1Click(Sender: TObject);
+    procedure Cerrarsesin1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -149,9 +162,47 @@ DataModule1.Destacados.Next;
 Image6.Picture.Assign(DataModule1.Destacados.FieldByName('Imagen'));
 end;
 
+
+
 procedure TFormPrincipal.Cambiarcontrasea1Click(Sender: TObject);
 begin
   FormCambiarClave.ShowModal;
+end;
+
+procedure TFormPrincipal.Cargadeformularios1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,50);
+end;
+
+
+procedure TFormPrincipal.Visitante1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,60);
+end;
+
+procedure TFormPrincipal.Registrarse1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,70);
+end;
+
+procedure TFormPrincipal.Recuperarclave1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,80);
+end;
+
+procedure TFormPrincipal.Catalogodelibros1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,100);
+end;
+
+procedure TFormPrincipal.Contacto1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,90);
+end;
+
+procedure TFormPrincipal.Cerrarsesin1Click(Sender: TObject);
+begin
+Application.HelpCommand(HELP_CONTEXT,110);
 end;
 
 procedure TFormPrincipal.Darmedebaja1Click(Sender: TObject);
@@ -339,4 +390,7 @@ begin
   FormPrincipal.Close;
   FormLogin.Close;
 end;
+
+
+
 end.

@@ -1551,6 +1551,32 @@ object FormPrincipal: TFormPrincipal
     object Ayuda1: TMenuItem
       Caption = 'Ayuda'
       object Cargadeformularios1: TMenuItem
+        Caption = 'Ingreso'
+        OnClick = Cargadeformularios1Click
+      end
+      object Visitante1: TMenuItem
+        Caption = 'Visitante'
+        OnClick = Visitante1Click
+      end
+      object Registrarse1: TMenuItem
+        Caption = 'Registrarse'
+        OnClick = Registrarse1Click
+      end
+      object Recuperarclave1: TMenuItem
+        Caption = 'Recuperar clave'
+        OnClick = Recuperarclave1Click
+      end
+      object Catalogodelibros1: TMenuItem
+        Caption = 'Catalogo de libros'
+        OnClick = Catalogodelibros1Click
+      end
+      object Contacto1: TMenuItem
+        Caption = 'Contacto'
+        OnClick = Contacto1Click
+      end
+      object Cerrarsesin1: TMenuItem
+        Caption = 'Cerrar sesi'#243'n'
+        OnClick = Cerrarsesin1Click
       end
     end
   end

@@ -39,6 +39,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.HelpFile := 'C:\Users\Mi Pc\Documents\GitHub\CookBook\Desarrollo\Desarrollo v1 + BD\ayudausuario_tmphpj\AYUDAUSUARIO.HLP';
   Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormCatalogoLibros, FormCatalogoLibros);
