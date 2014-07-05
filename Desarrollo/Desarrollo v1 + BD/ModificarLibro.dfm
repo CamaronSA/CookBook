@@ -291,9 +291,9 @@ object Form4: TForm4
     OnClick = SpeedButton5Click
   end
   object DBGrid1: TDBGrid
-    Left = 27
+    Left = 8
     Top = 111
-    Width = 918
+    Width = 911
     Height = 202
     DataSource = DataModule1.Tabla_Libro
     Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -311,14 +311,14 @@ object Form4: TForm4
     Columns = <
       item
         Expanded = False
-        FieldName = 'Titulo'
-        Width = 159
+        FieldName = 'ISBN'
+        Width = 88
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'ISBN'
-        Width = 88
+        FieldName = 'Titulo'
+        Width = 184
         Visible = True
       end
       item
@@ -331,13 +331,13 @@ object Form4: TForm4
         Expanded = False
         FieldName = 'Etiqueta'
         Title.Caption = 'Categoria'
-        Width = 107
+        Width = 119
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Editorial'
-        Width = 80
+        Width = 95
         Visible = True
       end
       item
@@ -350,26 +350,34 @@ object Form4: TForm4
         Expanded = False
         FieldName = 'AnioEditorial'
         Title.Caption = 'A'#241'o Edicion'
-        Width = 78
+        Width = 88
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomAutor'
+        Title.Caption = 'Nombre Autor'
+        Width = 118
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Autor'
-        Width = 89
+        Title.Caption = 'Apellido Autor'
+        Width = 126
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'EsDestacado'
         Title.Caption = 'Destacado'
-        Width = 53
+        Width = 74
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Disponible'
-        Width = 54
+        Width = 82
         Visible = True
       end>
   end

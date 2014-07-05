@@ -232,10 +232,8 @@ begin
         else
           unit1.datamodule1.adoautor.FieldByName('dni').Asinteger:= strtoint(edit1.Text);
       end;
-
-
       DataModule1.ADOAutor.post;
-
+      DataModule1.ADOLibro.Refresh;
     except
       on E : EcampoBlanco do
       begin

@@ -152,8 +152,8 @@ object Form3: TForm3
       ParentFont = False
     end
     object SpeedButton3: TSpeedButton
-      Left = 88
-      Top = 278
+      Left = 87
+      Top = 274
       Width = 122
       Height = 38
       Caption = 'Agregar'

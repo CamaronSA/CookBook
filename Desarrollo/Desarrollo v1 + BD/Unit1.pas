@@ -128,6 +128,7 @@ type
     DestacadosApellidoAutor: TStringField;
     LibrosALaVentaNomAutor: TStringField;
     LibrosALaVentaApeAutor: TStringField;
+    ADOLibroNomAutor: TStringField;
 
   private
     { Private declarations }

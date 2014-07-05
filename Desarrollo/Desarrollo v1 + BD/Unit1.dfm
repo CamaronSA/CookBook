@@ -70,6 +70,15 @@ object DataModule1: TDataModule1
       KeyFields = 'DNIAutor'
       Lookup = True
     end
+    object ADOLibroNomAutor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomAutor'
+      LookupDataSet = ADOAutor
+      LookupKeyFields = 'DNI'
+      LookupResultField = 'Nombre'
+      KeyFields = 'DNIAutor'
+      Lookup = True
+    end
   end
   object ADOPedidos: TADOTable
     Connection = SoyUnaConeccion
