@@ -99,7 +99,7 @@ type
 var
   FormUsuarios: TFormUsuarios;
   dniAux:integer;
-  dniVIejo: integer;
+  dniVIejo: string;
 
 implementation
 
@@ -113,7 +113,7 @@ begin
 if not (datamodule1.ADOCliente.IsEmpty) then
 begin
 
-  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').asinteger;
+  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
   formusuarios.edit3.Text:= unit1.DataModule1.ADOCliente.FieldByName('nombre').asstring;
@@ -143,7 +143,7 @@ begin
 if not (datamodule1.ADOCliente.IsEmpty) then
 begin
 
-  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').asinteger;
+  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
   formusuarios.edit3.Text:= unit1.DataModule1.ADOCliente.FieldByName('nombre').asstring;
@@ -172,7 +172,7 @@ begin
 if not (datamodule1.ADOCliente.IsEmpty) then
 begin
 
-  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsInteger;
+  dniViejo:=DataModule1.ADOCliente.FieldByName('dni').AsString;
 
   formusuarios.edit2.Text:= inttostr(unit1.DataModule1.ADOCliente.FieldByName('dni').asinteger);
   formusuarios.edit3.Text:= unit1.DataModule1.ADOCliente.FieldByName('nombre').asstring;
@@ -433,7 +433,7 @@ begin
 end;
 
 procedure TFormUsuarios.SpeedButton1Click(Sender: TObject);
-var
+var dniActual:string;
     buttonSelected,ButtonSelected2:integer;
 begin
   buttonSelected:=messageDlg('¿Realmente desea modificar el Autor?',mtConfirmation,mbOkCancel,0);
@@ -508,14 +508,11 @@ begin
       if (edit2.Text = '') then
         raise EcampoBlanco.Create('Complete los campos en rojo')
       else
-        //verifico que el DNI que ingreso no sea el mismo que tiene guardado para que
-        //no de error de DNI duplicado
-        if strtoint(edit2.Text) <> dniViejo then
-          // verifico que el dni no este en uso
-          if not (ComprobarUser.isEmpty = true) then
-            raise EdniDuplicado.Create('El DNI que ingreso ya se encuentra en uso')
-            else
-              datamodule1.adocliente.FieldByName('dni').Asinteger:= strtoint(edit2.Text);
+        // verifico que el dni no este en uso
+        if not (ComprobarUser.isEmpty = true) then
+          raise EdniDuplicado.Create('El DNI que ingreso ya se encuentra en uso')
+          else
+            datamodule1.adocliente.FieldByName('dni').Asinteger:= strtoint(edit2.Text);
 
 
      {
