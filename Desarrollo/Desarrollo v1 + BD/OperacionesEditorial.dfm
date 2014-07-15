@@ -46,7 +46,7 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     OnClick = SpeedButton2Click
   end
   object SpeedButton1: TSpeedButton
-    Left = 8
+    Left = 72
     Top = 355
     Width = 90
     Height = 33
@@ -60,7 +60,7 @@ object FormOperacionesEditorial: TFormOperacionesEditorial
     OnClick = SpeedButton1Click
   end
   object SpeedButton4: TSpeedButton
-    Left = 32
+    Left = 72
     Top = 355
     Width = 90
     Height = 33

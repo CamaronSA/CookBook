@@ -60,6 +60,10 @@ type
     SpeedButton5: TSpeedButton;
     PregDniAutor: TADOQuery;
     PregApellidoAutor: TADOQuery;
+    SpeedButton6: TSpeedButton;
+    SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    SpeedButton9: TSpeedButton;
     procedure SpeedButton3Click(Sender: TObject);
     procedure Edit3KeyPress(Sender: TObject; var Key: Char);
     procedure Edit10KeyPress(Sender: TObject; var Key: Char);
@@ -86,6 +90,10 @@ type
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton7Click(Sender: TObject);
+    procedure SpeedButton8Click(Sender: TObject);
+    procedure SpeedButton9Click(Sender: TObject);
 
 
   private
@@ -99,7 +107,8 @@ var
   arch:string;   // aca enconte esto lo puse pero ahora no se bien que hace, no borrar.
 implementation
 
-uses Unit5, Unit6, Unit9;
+uses Unit5, Unit6, Unit9, OperacionesIdioma, OperacionesCategoria,
+  OperacionesAutor, OperacionesEditorial;
 
 {$R *.dfm}
 
@@ -907,6 +916,113 @@ end;
 procedure TForm4.SpeedButton5Click(Sender: TObject);
 begin
   memo1.Text:='';
+end;
+
+procedure TForm4.SpeedButton6Click(Sender: TObject);
+begin
+ //Abrir el panel de agregar idioma.
+  formVerIdioma.SpeedButton1.Enabled:=false;
+  formVerIdioma.SpeedButton1.Visible:=false;
+  formVerIdioma.SpeedButton4.Enabled:=false;
+  formVerIdioma.SpeedButton4.Visible:=false;
+  formVerIdioma.SpeedButton2.Enabled:=true;
+  formVerIdioma.SpeedButton2.Visible:=true;
+  FormVerIdioma.Label2.Caption:='Idioma: *';
+  formVerIdioma.Label4.Visible:=true;
+  FormVerIdioma.ShowModal;
+ //Cuando vuelve el control borrar la lista de opciones del ComboBox.
+  ComboBox1.Items.Clear;
+ //Cargar todo en el comboBox
+  DataModule1.CampoIdiomaComboBox.Close;
+  DataModule1.CampoIdiomaComboBox.SQL.Text:= 'Select Idioma from Idioma';
+  DataModule1.CampoIdiomaComboBox.Open;
+  DataModule1.CampoIdiomaComboBox.Active:=True;
+    while not (DataModule1.CampoIdiomaComboBox.eof) do
+       Begin
+         ComboBox1.items.Add(DataModule1.CampoIdiomaComboBox.Fields[0].text);
+         DataModule1.CampoIdiomaComboBox.Next;
+       End;
+
+end;
+
+procedure TForm4.SpeedButton7Click(Sender: TObject);
+begin
+  //Abrir categoria.
+  FormOperacionesCategoria.SpeedButton1.visible:=false;
+  FormOperacionesCategoria.SpeedButton4.visible:=false;
+  FormOperacionesCategoria.SpeedButton2.visible:=true;
+  FormOperacionesCategoria.SpeedButton1.enabled:=false;
+  FormOperacionesCategoria.SpeedButton4.enabled:=false;
+  FormOperacionesCategoria.SpeedButton2.enabled:=true;
+  FormOperacionesCategoria.Label4.Visible:=true;
+  FormOperacionesCategoria.label2.Caption:='Categoria: *';
+  FormOperacionesCategoria.showmodal;
+  //Borrar la lsita del ComBox.
+    ComboBox2.Items.Clear;
+  //Cargar todo
+  DataModule1.CampoEtiquetaComboBox.Close;
+  DataModule1.CampoEtiquetaComboBox.SQL.Text:= 'Select NombreEtiqueta from Etiqueta';
+  DataModule1.CampoEtiquetaComboBox.Open;
+  DataModule1.CampoEtiquetaComboBox.Active:=True;
+    while not (DataModule1.CampoEtiquetaComboBox.eof) do
+       Begin
+         ComboBox2.items.Add(DataModule1.CampoEtiquetaComboBox.Fields[0].text);
+         DataModule1.CampoEtiquetaComboBox.Next;
+       End;
+end;
+
+procedure TForm4.SpeedButton8Click(Sender: TObject);
+begin
+  //Abrior el panel de autor.
+  Form3.SpeedButton3.Visible:=true;
+  Form3.SpeedButton1.Visible:=false;
+  Form3.SpeedButton4.Visible:=false;
+  Form3.Label6.Visible:=false;
+  Form3.Label3.Visible:=false;
+  Form3.Label4.Visible:=false;
+  Form3.Label7.Visible:=true;
+  Form3.ShowModal;
+  //Borrar todo de autor.
+  ComboBox3.Items.Clear;
+  //Agregar todo
+  DataModule1.CampoAutorComboBox.Close;
+  DataModule1.CampoAutorComboBox.SQL.Text:= 'Select Apellido from Autor';
+  DataModule1.CampoAutorComboBox.Open;
+  DataModule1.CampoAutorComboBox.Active:=True;
+    while not (DataModule1.CampoAutorComboBox.eof) do
+       Begin
+         ComboBox3.items.Add(DataModule1.CampoAutorComboBox.Fields[0].text);
+         DataModule1.CampoAutorComboBox.Next;
+       End;
+
+end;
+
+procedure TForm4.SpeedButton9Click(Sender: TObject);
+begin
+  //Abrir el panel.
+  FormOperacionesEditorial.SpeedButton1.Visible:=true;
+  FormOperacionesEditorial.SpeedButton1.enabled:=true;
+  FormOperacionesEditorial.SpeedButton2.Visible:=false;
+  FormOperacionesEditorial.SpeedButton2.enabled:=false;
+  FormOperacionesEditorial.SpeedButton3.Visible:=true;
+  FormOperacionesEditorial.SpeedButton3.enabled:=true;
+  FormOperacionesEditorial.SpeedButton4.Visible:=false;
+  FormOperacionesEditorial.SpeedButton4.enabled:=false;
+  FormOperacionesEditorial.Label4.visible:=true;
+  FormOperacionesEditorial.Label1.Caption:='Editorial: *';
+  FormOperacionesEditorial.ShowModal;
+  //Borrar todo
+  ComboBox4.Items.Clear;
+  //Agregar todod
+  DataModule1.CampoEditorialComboBox.Close;
+  DataModule1.CampoEditorialComboBox.SQL.Text:= 'Select NombreEditorial from Editorial';
+  DataModule1.CampoEditorialComboBox.Open;
+  DataModule1.CampoEditorialComboBox.Active:=True;
+    while not (DataModule1.CampoEditorialComboBox.eof) do
+       Begin
+         ComboBox4.items.Add(DataModule1.CampoEditorialComboBox.Fields[0].text);
+         DataModule1.CampoEditorialComboBox.Next;
+       End;
 end;
 
 end.

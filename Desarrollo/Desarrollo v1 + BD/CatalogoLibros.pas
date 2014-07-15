@@ -400,6 +400,7 @@ begin
     if buttonSelected = mrOk then begin
       //Acomoda la cantidad de libros que compro mr comprador.
       cant:=0;
+      loquevalelamula:=0;
       label14.Caption:=inttostr(cant);
       //Aca lo q va gastando mr comprador.
       label15.Caption:='$ 0 ';

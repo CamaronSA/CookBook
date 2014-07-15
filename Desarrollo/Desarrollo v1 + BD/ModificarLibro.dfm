@@ -11,7 +11,7 @@ object Form4: TForm4
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
-  Font.Style = []
+  Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = FormActivate
@@ -219,7 +219,7 @@ object Form4: TForm4
   object Label14: TLabel
     Left = 749
     Top = 344
-    Width = 155
+    Width = 185
     Height = 13
     Caption = 'Doble Click para ingresar imagen'
   end
@@ -290,6 +290,62 @@ object Form4: TForm4
     Caption = 'Limpiar Descripcion'
     OnClick = SpeedButton5Click
   end
+  object SpeedButton6: TSpeedButton
+    Left = 292
+    Top = 454
+    Width = 23
+    Height = 22
+    Caption = '+'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = SpeedButton6Click
+  end
+  object SpeedButton7: TSpeedButton
+    Left = 292
+    Top = 479
+    Width = 23
+    Height = 22
+    Caption = '+'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = SpeedButton7Click
+  end
+  object SpeedButton8: TSpeedButton
+    Left = 292
+    Top = 504
+    Width = 23
+    Height = 22
+    Caption = '+'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = SpeedButton8Click
+  end
+  object SpeedButton9: TSpeedButton
+    Left = 292
+    Top = 528
+    Width = 23
+    Height = 22
+    Caption = '+'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = SpeedButton9Click
+  end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 111
@@ -303,7 +359,7 @@ object Form4: TForm4
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Style = [fsBold]
     OnCellClick = DBGrid1CellClick
     OnKeyDown = DBGrid1KeyDown
     OnKeyUp = DBGrid1KeyUp

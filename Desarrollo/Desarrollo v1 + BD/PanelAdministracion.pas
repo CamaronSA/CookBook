@@ -181,6 +181,10 @@ end;
 
 procedure TFormPanelAdministracion.SpeedButton16Click(Sender: TObject);
 begin
+form4.speedbutton7.visible:=false;
+   form4.speedbutton8.visible:=false;
+  form4.speedbutton9.visible:=false;
+  form4.speedbutton6.visible:=false;
 form4.speedbutton1.Enabled:=false;
 form4.speedbutton1.visible:=false;
 form4.speedbutton2.Enabled:=true;
@@ -277,16 +281,20 @@ FormModifAdmin.ShowModal;
 end;
  procedure TFormPanelAdministracion.SpeedButton23Click(Sender: TObject);
 begin
- form4.speedbutton1.Enabled:=false;
-      form4.speedbutton1.visible:=false;
-      form4.speedbutton2.Enabled:=true;
-      form4.speedbutton2.visible:=true;
-      form4.speedbutton3.Enabled:=false;
-      form4.speedbutton3.visible:=false;
-      form4.speedbutton4.Enabled:=false;
-      form4.speedbutton4.visible:=false;
-      form4.SpeedButton5.Visible:=false;
-      form4.showmodal;
+  form4.speedbutton1.Enabled:=false;
+  form4.speedbutton7.visible:=false;
+  form4.speedbutton8.visible:=false;
+  form4.speedbutton9.visible:=false;
+  form4.speedbutton6.visible:=false;
+  form4.speedbutton1.visible:=false;
+  form4.speedbutton2.Enabled:=true;
+  form4.speedbutton2.visible:=true;
+  form4.speedbutton3.Enabled:=false;
+  form4.speedbutton3.visible:=false;
+  form4.speedbutton4.Enabled:=false;
+  form4.speedbutton4.visible:=false;
+  form4.SpeedButton5.Visible:=false;
+  form4.showmodal;
 end;
 
 procedure TFormPanelAdministracion.SpeedButton24Click(Sender: TObject);
@@ -362,6 +370,10 @@ procedure TFormPanelAdministracion.SpeedButton2Click(Sender: TObject);
 begin
 form4.speedbutton1.Enabled:=false;
 form4.speedbutton1.visible:=false;
+form4.speedbutton7.visible:=true;
+form4.speedbutton8.visible:=true;
+form4.speedbutton9.visible:=true;
+form4.speedbutton6.visible:=true;
 form4.speedbutton2.Enabled:=true;
 form4.speedbutton2.visible:=true;
 form4.speedbutton3.Enabled:=true;
@@ -496,6 +508,10 @@ end;
  procedure TFormPanelAdministracion.SpeedButton7Click(Sender: TObject);
 begin
 form4.speedbutton1.Enabled:=true;
+form4.speedbutton7.visible:=true;
+form4.speedbutton8.visible:=true;
+form4.speedbutton9.visible:=true;
+form4.speedbutton6.visible:=true;
 form4.speedbutton1.visible:=true;
 form4.speedbutton2.Enabled:=true;
 form4.speedbutton2.visible:=true;

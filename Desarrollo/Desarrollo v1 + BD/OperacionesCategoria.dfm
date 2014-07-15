@@ -22,7 +22,7 @@ object FormOperacionesCategoria: TFormOperacionesCategoria
     Top = 399
     Width = 89
     Height = 33
-    Caption = 'Cerrar'
+    Caption = 'Volver'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clPurple
     Font.Height = -19

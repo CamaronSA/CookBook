@@ -151,6 +151,10 @@ begin
           //Limpia la lista
          L:=nil;
          aux:=nil;
+         cant:=0;
+         formCatalogoLibros.Label14.Caption:= '0';
+         loquevalelamula:=0;
+         formCatalogoLibros.label15.Caption:='$ 0 ';
          formCatalogoLibros.Label7.Caption:='';
          formCatalogoLibros.Label10.Caption:='';
          formCatalogoLibros.Label11.Caption:='';
